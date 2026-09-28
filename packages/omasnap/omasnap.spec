@@ -2,7 +2,7 @@
 
 Name:           omasnap
 Version:        1.21.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Wayland screenshot and annotation overlay for Hyprland
 License:        MIT AND OFL-1.1 AND ISC
 URL:            https://github.com/omacom/omasnap
@@ -15,6 +15,9 @@ BuildRequires:  qt6-qtbase-devel
 BuildRequires:  layer-shell-qt-devel
 BuildRequires:  wayland-devel
 BuildRequires:  wayland-protocols-devel
+BuildRequires:  tesseract
+BuildRequires:  tesseract-langpack-eng
+BuildRequires:  google-noto-sans-fonts
 Requires:       hyprland
 Requires:       layer-shell-qt
 Requires:       tesseract
@@ -48,6 +51,9 @@ XDG_RUNTIME_DIR="$runtime_dir" QT_QPA_PLATFORM=offscreen QT_QPA_PLATFORMTHEME= Q
 %{_datadir}/licenses/omasnap/*.txt
 
 %changelog
+* Mon Sep 28 2026 kamm3r - 1.21.0-3
+- Install the OCR engine, English model, and test font in the buildroot.
+
 * Mon Sep 28 2026 kamm3r - 1.21.0-2
 - Provide an XDG runtime directory for the smoke test in clean builds.
 

@@ -134,8 +134,8 @@ owe-lockfeed	published	COPR package
 perplexity	pending	
 pinta	pending	
 python-mediapipe	pending	
-python-sounddevice	pending	
-python-terminaltexteffects	pending	
+python-sounddevice	ready	Fedora RPM recipe
+python-terminaltexteffects	ready	Fedora RPM recipe
 qemu-user-static	pending	
 qmk-hid	pending	
 quickshell-git	pending	
@@ -150,15 +150,15 @@ sunshine	pending
 supergfxctl	pending	
 symfony-cli	pending	
 t3code-bin	pending	
-tensaku	pending	
+tensaku	ready	Fedora RPM recipe
 tmog-bin	pending	
 tobi-try	published	COPR package
-ttf-ia-writer	pending	
+ttf-ia-writer	ready	Fedora RPM recipe
 ttf-jetbrains-mono-nerd-basic	published	COPR package
 ttfx	published	COPR package
 tuxedo-drivers-nocompatcheck-dkms	pending	
 typora	pending	
-tzupdate	pending	
+tzupdate	ready	Fedora RPM recipe
 uboot-asahi	pending	
 ufw-docker	not-applicable	UFW integration; Omadora uses firewalld
 v4l2-relayd	pending	
@@ -166,8 +166,8 @@ vi	pending
 visual-studio-code-bin	pending	
 voxtype-bin	pending	
 walker	pending	
-wayfreeze	pending	
-xdg-terminal-exec	pending	
+wayfreeze	ready	Fedora RPM recipe
+xdg-terminal-exec	ready	Fedora RPM recipe
 xpadneo-dkms	pending	
 yaru-icon-theme	pending	
 yay	not-applicable	Arch AUR client; Fedora uses DNF and Flatpak
