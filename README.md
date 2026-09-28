@@ -19,7 +19,7 @@ The entry point clones Omadora, checks out the revision in `omadora-revision`, a
 OMADORA_SOURCE=/path/to/omadora make -f .copr/Makefile srpm outdir=/tmp/omadora-srpm spec=packaging/rpm/omarchy-settings/omarchy-settings.spec
 ```
 
-After an Omadora source change is ready, update `omadora-revision` to the published commit and rebuild `omarchy-settings` before `omarchy`.
+After an Omadora source change is ready, update `omadora-revision` to the published commit and push this repository. The GitHub webhook queues both COPR builds automatically. For a manual retry, build `omarchy-settings` before `omarchy`.
 
 ## Install
 
