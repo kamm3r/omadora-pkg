@@ -7,9 +7,11 @@ outdir ?= $(CURDIR)/srpm
 srpm:
 	@set -e; \
 	command -v git >/dev/null || dnf -y install git; \
-	case '$(spec)' in \
-	  packaging/rpm/omarchy/omarchy.spec|packaging/rpm/omarchy-settings/omarchy-settings.spec) ;; \
-	  *) echo 'Unknown Omadora package spec: $(spec)' >&2; exit 1 ;; \
+	spec='$(spec)'; \
+	case "$$spec" in \
+	  */omarchy/omarchy.spec) spec=packaging/rpm/omarchy/omarchy.spec ;; \
+	  */omarchy-settings/omarchy-settings.spec) spec=packaging/rpm/omarchy-settings/omarchy-settings.spec ;; \
+	  *) echo "Unknown Omadora package spec: $$spec" >&2; exit 1 ;; \
 	esac; \
 	source=$${OMADORA_SOURCE:-}; \
 	if [ -z "$$source" ]; then \
@@ -21,4 +23,4 @@ srpm:
 	if [ "$$(git -C "$$source" rev-parse HEAD)" != "$$(cat "$(CURDIR)/omadora-revision")" ]; then \
 	  echo 'Omadora source does not match omadora-revision' >&2; exit 1; \
 	fi; \
-	$(MAKE) -C "$$source" -f .copr/Makefile srpm outdir='$(abspath $(outdir))' spec='$(spec)'
+	$(MAKE) -C "$$source" -f .copr/Makefile srpm outdir='$(abspath $(outdir))' spec="$$spec"
