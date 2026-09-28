@@ -2,7 +2,7 @@
 
 Name:           omasnap
 Version:        1.21.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Wayland screenshot and annotation overlay for Hyprland
 License:        MIT AND OFL-1.1 AND ISC
 URL:            https://github.com/omacom/omasnap
@@ -35,7 +35,10 @@ cmake --build build --parallel 4
 DESTDIR=%{buildroot} cmake --install build
 
 %check
-ctest --test-dir build --output-on-failure
+runtime_dir=$(mktemp -d /dev/shm/omasnap-runtime.XXXXXX)
+trap 'rm -rf "$runtime_dir"' EXIT
+sync
+XDG_RUNTIME_DIR="$runtime_dir" QT_QPA_PLATFORM=offscreen QT_QPA_PLATFORMTHEME= QT_STYLE_OVERRIDE= QT_FORCE_STDERR_LOGGING=1 ctest --test-dir build --output-on-failure
 
 %files
 %license LICENSE
@@ -45,5 +48,8 @@ ctest --test-dir build --output-on-failure
 %{_datadir}/licenses/omasnap/*.txt
 
 %changelog
+* Mon Sep 28 2026 kamm3r - 1.21.0-2
+- Provide an XDG runtime directory for the smoke test in clean builds.
+
 * Mon Sep 28 2026 kamm3r - 1.21.0-1
 - Port the upstream Omarchy screenshot overlay to Fedora.

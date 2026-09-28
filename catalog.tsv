@@ -51,7 +51,7 @@ grok-bot	pending
 herdr	pending	
 hermes-desktop	pending	
 heroic-games-launcher-bin	pending	
-hype	ready	Fedora RPM recipe
+hype	published	COPR package
 hyprland	pending	
 hyprland-guiutils	pending	
 hyprland-preview-share-picker	pending	
@@ -85,7 +85,7 @@ makima-bin	pending
 microsoft-edge-stable-bin	pending	
 minecraft-launcher	pending	
 mise-bin	pending	
-monologue	ready	Fedora RPM recipe
+monologue	published	COPR package
 nautilus-dropbox	pending	
 nautilus-open-any-terminal	pending	
 nordvpn-bin	pending	
@@ -95,7 +95,7 @@ nvidia-utils	pending
 obs-studio	pending	
 obsidian	pending	
 omacalc	published	COPR package
-omacut	ready	Fedora RPM recipe
+omacut	published	COPR package
 omakade	pending	
 omapresent	pending	
 omarchy	published	COPR package
@@ -122,15 +122,15 @@ omasnap-git	pending
 omaspeak-bin	pending	
 omatrack	pending	
 omawake-bin	pending	
-omawrite	ready	Fedora RPM recipe
+omawrite	published	COPR package
 omazed	published	COPR package
 once-bin	pending	
 openai-codex-bin	pending	
 openai-codex-desktop	pending	
 openclaw	pending	
 openvino-genai	pending	
-owe	ready	Fedora RPM recipe
-owe-lockfeed	ready	Fedora RPM recipe
+owe	published	COPR package
+owe-lockfeed	published	COPR package
 perplexity	pending	
 pinta	pending	
 python-mediapipe	pending	
