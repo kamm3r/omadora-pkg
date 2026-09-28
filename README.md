@@ -4,7 +4,7 @@ Fedora RPM build entry point for [Omadora](https://github.com/kamm3r/omadora), m
 
 The `omarchy-settings` and `omarchy` RPM specs and source packaging rules live in the Omadora source tree under `packaging/rpm/` and `.copr/Makefile`. This repository pins one Omadora commit in `omadora-revision` so both COPR builds use exactly the same source and version. Fedora recipes for upstream Omarchy packages live under `packages/`.
 
-The upstream `omarchy-pkgs` snapshot at commit `29465fb750ed2b7a8b3f409cf1a61989ac2d3867` contains 175 PKGBUILDs. [`catalog.tsv`](catalog.tsv) tracks each recipe. `published` means a successful build exists in COPR; `ready` means a local RPM build passed and a COPR build is next; `pending` needs a Fedora port; `not-applicable` records recipes tied to Arch facilities Omadora replaced. The goal is a COPR RPM for each feasible recipe, including packages also available elsewhere, after their build and runtime dependencies are checked on Fedora.
+The upstream `omarchy-pkgs` snapshot at commit `29465fb750ed2b7a8b3f409cf1a61989ac2d3867` contains 175 PKGBUILDs. [`catalog.tsv`](catalog.tsv) tracks each recipe. `published` means a successful build exists in COPR; `ready` means a source RPM builds and the clean COPR build is next; `pending` needs a Fedora port; `not-applicable` records recipes tied to Arch facilities Omadora replaced. The goal is a COPR RPM for each feasible recipe, including packages also available elsewhere, after their build and runtime dependencies are checked on Fedora.
 
 ## Build from this repository
 

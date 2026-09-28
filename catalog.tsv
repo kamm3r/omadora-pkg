@@ -51,7 +51,7 @@ grok-bot	pending
 herdr	pending	
 hermes-desktop	pending	
 heroic-games-launcher-bin	pending	
-hype	pending	
+hype	ready	Fedora RPM recipe
 hyprland	pending	
 hyprland-guiutils	pending	
 hyprland-preview-share-picker	pending	
@@ -85,7 +85,7 @@ makima-bin	pending
 microsoft-edge-stable-bin	pending	
 minecraft-launcher	pending	
 mise-bin	pending	
-monologue	pending	
+monologue	ready	Fedora RPM recipe
 nautilus-dropbox	pending	
 nautilus-open-any-terminal	pending	
 nordvpn-bin	pending	
@@ -94,8 +94,8 @@ nvidia-open-dkms	pending
 nvidia-utils	pending	
 obs-studio	pending	
 obsidian	pending	
-omacalc	ready	Fedora RPM recipe
-omacut	pending	
+omacalc	published	COPR package
+omacut	ready	Fedora RPM recipe
 omakade	pending	
 omapresent	pending	
 omarchy	published	COPR package
@@ -104,7 +104,7 @@ omarchy-billboard-generator	pending
 omarchy-chromium-bin	pending	
 omarchy-dev	pending	
 omarchy-emacs	published	COPR package
-omarchy-fish	ready	Fedora RPM recipe
+omarchy-fish	published	COPR package
 omarchy-keyring	not-applicable	pacman keyring; Fedora uses RPM signing keys
 omarchy-mac	pending	
 omarchy-mac-boot	pending	
@@ -115,22 +115,22 @@ omarchy-settings-dev	pending
 omarchy-steam-fex	pending	
 omarchy-task-manager	pending	
 omarchy-walker	pending	
-omarchy-zsh	ready	Fedora RPM recipe
+omarchy-zsh	published	COPR package
 omareel	pending	
-omasnap	pending	
+omasnap	ready	Fedora RPM recipe
 omasnap-git	pending	
 omaspeak-bin	pending	
 omatrack	pending	
 omawake-bin	pending	
-omawrite	pending	
+omawrite	ready	Fedora RPM recipe
 omazed	published	COPR package
 once-bin	pending	
 openai-codex-bin	pending	
 openai-codex-desktop	pending	
 openclaw	pending	
 openvino-genai	pending	
-owe	pending	
-owe-lockfeed	pending	
+owe	ready	Fedora RPM recipe
+owe-lockfeed	ready	Fedora RPM recipe
 perplexity	pending	
 pinta	pending	
 python-mediapipe	pending	
@@ -154,8 +154,8 @@ tensaku	pending
 tmog-bin	pending	
 tobi-try	published	COPR package
 ttf-ia-writer	pending	
-ttf-jetbrains-mono-nerd-basic	ready	Fedora RPM recipe
-ttfx	ready	Fedora RPM recipe
+ttf-jetbrains-mono-nerd-basic	published	COPR package
+ttfx	published	COPR package
 tuxedo-drivers-nocompatcheck-dkms	pending	
 typora	pending	
 tzupdate	pending	
