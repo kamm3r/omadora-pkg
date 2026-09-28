@@ -21,7 +21,7 @@ The entry point clones Omadora, checks out the revision in `omadora-revision`, a
 OMADORA_SOURCE=/path/to/omadora make -f .copr/Makefile srpm outdir=/tmp/omadora-srpm spec=packaging/rpm/omarchy-settings/omarchy-settings.spec
 ```
 
-Additional package entries use `packages/<name>/<name>.spec`. Their `sources.sha256` file pins and verifies every upstream download before the source RPM is created. To test one locally:
+Additional package entries use `packages/<name>/<name>.spec`. Their `sources.sha256` file verifies upstream downloads before the source RPM is created. Rust recipes with a `cargo-vendor` marker also include dependency sources checked against their `Cargo.lock` hashes, so the binary build does not need network access. To test one locally:
 
 ```bash
 make -f .copr/Makefile srpm outdir=/tmp/omadora-srpm spec=packages/tobi-try/tobi-try.spec

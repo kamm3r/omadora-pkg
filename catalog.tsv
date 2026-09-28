@@ -2,7 +2,7 @@ upstream_name	status	note
 1password	pending	
 1password-beta	pending	
 1password-cli	pending	
-aether	ready	Fedora RPM recipe
+aether	published	COPR package
 aquamarine	pending	
 asdcontrol	pending	
 asusctl	pending	
@@ -94,17 +94,17 @@ nvidia-open-dkms	pending
 nvidia-utils	pending	
 obs-studio	pending	
 obsidian	pending	
-omacalc	pending	
+omacalc	ready	Fedora RPM recipe
 omacut	pending	
 omakade	pending	
 omapresent	pending	
 omarchy	published	COPR package
-omarchy-audio-tuner	ready	Fedora RPM recipe
+omarchy-audio-tuner	published	COPR package
 omarchy-billboard-generator	pending	
 omarchy-chromium-bin	pending	
 omarchy-dev	pending	
-omarchy-emacs	ready	Fedora RPM recipe
-omarchy-fish	pending	
+omarchy-emacs	published	COPR package
+omarchy-fish	ready	Fedora RPM recipe
 omarchy-keyring	not-applicable	pacman keyring; Fedora uses RPM signing keys
 omarchy-mac	pending	
 omarchy-mac-boot	pending	
@@ -115,7 +115,7 @@ omarchy-settings-dev	pending
 omarchy-steam-fex	pending	
 omarchy-task-manager	pending	
 omarchy-walker	pending	
-omarchy-zsh	pending	
+omarchy-zsh	ready	Fedora RPM recipe
 omareel	pending	
 omasnap	pending	
 omasnap-git	pending	
@@ -123,7 +123,7 @@ omaspeak-bin	pending
 omatrack	pending	
 omawake-bin	pending	
 omawrite	pending	
-omazed	ready	Fedora RPM recipe
+omazed	published	COPR package
 once-bin	pending	
 openai-codex-bin	pending	
 openai-codex-desktop	pending	
@@ -152,10 +152,10 @@ symfony-cli	pending
 t3code-bin	pending	
 tensaku	pending	
 tmog-bin	pending	
-tobi-try	ready	Fedora RPM recipe
+tobi-try	published	COPR package
 ttf-ia-writer	pending	
-ttf-jetbrains-mono-nerd-basic	pending	
-ttfx	pending	
+ttf-jetbrains-mono-nerd-basic	ready	Fedora RPM recipe
+ttfx	ready	Fedora RPM recipe
 tuxedo-drivers-nocompatcheck-dkms	pending	
 typora	pending	
 tzupdate	pending	

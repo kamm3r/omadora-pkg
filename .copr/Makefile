@@ -24,6 +24,17 @@ srpm:
 	    cp "$$recipe" '$(outdir)/'; \
 	    spectool -g -C '$(outdir)' "$(outdir)/$$name.spec"; \
 	    (cd '$(outdir)' && sha256sum -c "$$checksum"); \
+	    if [ -f "$(CURDIR)/packages/$$name/cargo-vendor" ]; then \
+	      command -v cargo >/dev/null || dnf -y install cargo; \
+	      version=$$(rpmspec -q --srpm --qf '%{VERSION}' "$$recipe"); \
+	      vendor_tmp=$$(mktemp -d); \
+	      trap 'rm -rf "$$vendor_tmp"' EXIT; \
+	      tar -xzf "$(outdir)/$$name-$$version.tar.gz" -C "$$vendor_tmp"; \
+	      (cd "$$vendor_tmp/$$name-$$version" && \
+	        mkdir -p .cargo && \
+	        cargo vendor --locked --versioned-dirs vendor >.cargo/config.toml && \
+	        tar -czf "$(abspath $(outdir))/$$name-vendor-$$version.tar.gz" vendor .cargo); \
+	    fi; \
 	    rpmbuild -bs --define '_sourcedir $(abspath $(outdir))' --define '_srcrpmdir $(abspath $(outdir))' "$(outdir)/$$name.spec"; \
 	    exit 0 ;; \
 	  *) echo "Unknown Omadora package spec: $$spec" >&2; exit 1 ;; \
