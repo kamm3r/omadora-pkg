@@ -8,13 +8,13 @@ asdcontrol	pending
 asusctl	pending	
 avd-fw	pending	
 bambustudio-bin	pending	
-basecamp-cli	pending	
+basecamp-cli	published	COPR package
 brave-bin	pending	
 brave-origin-bin	pending	
 bun-bin	pending	
 claude-code	pending	
 claude-desktop	pending	
-cliamp	pending	
+cliamp	published	COPR package
 crush-bin	pending	
 cua-driver-bin	pending	
 cua-hyprland-plugin	pending	
@@ -23,7 +23,7 @@ cursor-cli	pending
 dbxcli-bin	pending	
 dell-xps-touchpad-haptics	pending	
 dell-xps13-sidecar-amps	pending	
-disktree-bin	pending	
+disktree-bin	published	COPR package
 dotnet-core-bin	pending	
 dropbox	pending	
 dropbox-cli	pending	
@@ -55,10 +55,10 @@ hype	published	COPR package
 hyprland	pending	
 hyprland-guiutils	pending	
 hyprland-preview-share-picker	pending	
-hyprshade	pending	
+hyprshade	published	COPR package
 hyprtoolkit	pending	
 intel-ipu7-camera	pending	
-learn-omarchy	pending	
+learn-omarchy	published	COPR package
 lib32-nvidia-580xx-utils	pending	
 libfprint-git	pending	
 libretro-cap32-git	pending	
@@ -87,7 +87,7 @@ minecraft-launcher	pending
 mise-bin	pending	
 monologue	published	COPR package
 nautilus-dropbox	pending	
-nautilus-open-any-terminal	pending	
+nautilus-open-any-terminal	published	COPR package with Caja subpackage
 nordvpn-bin	pending	
 nvidia-580xx-utils	pending	
 nvidia-open-dkms	pending	
@@ -96,8 +96,8 @@ obs-studio	pending
 obsidian	pending	
 omacalc	published	COPR package
 omacut	published	COPR package
-omakade	pending	
-omapresent	pending	
+omakade	published	COPR package
+omapresent	published	COPR package
 omarchy	published	COPR package
 omarchy-audio-tuner	published	COPR package
 omarchy-billboard-generator	pending	
@@ -108,7 +108,7 @@ omarchy-fish	published	COPR package
 omarchy-keyring	not-applicable	pacman keyring; Fedora uses RPM signing keys
 omarchy-mac	pending	
 omarchy-mac-boot	pending	
-omarchy-meeting-recorder-bin	pending	
+omarchy-meeting-recorder-bin	published	COPR package
 omarchy-nvim	pending	
 omarchy-settings	published	COPR package
 omarchy-settings-dev	pending	
@@ -117,7 +117,7 @@ omarchy-task-manager	pending
 omarchy-walker	pending	
 omarchy-zsh	published	COPR package
 omareel	pending	
-omasnap	ready	Fedora RPM recipe
+omasnap	published	COPR package
 omasnap-git	pending	
 omaspeak-bin	pending	
 omatrack	pending	
@@ -134,12 +134,12 @@ owe-lockfeed	published	COPR package
 perplexity	pending	
 pinta	pending	
 python-mediapipe	pending	
-python-sounddevice	ready	Fedora RPM recipe
-python-terminaltexteffects	ready	Fedora RPM recipe
+python-sounddevice	published	COPR package
+python-terminaltexteffects	published	COPR package
 qemu-user-static	pending	
-qmk-hid	pending	
+qmk-hid	published	COPR package
 quickshell-git	pending	
-retroarch-joypad-autoconfig-git	pending	
+retroarch-joypad-autoconfig-git	ready	Fedora RPM recipe
 rustdesk	pending	
 schist-bin	pending	
 slap-notes-bin	pending	
@@ -150,15 +150,15 @@ sunshine	pending
 supergfxctl	pending	
 symfony-cli	pending	
 t3code-bin	pending	
-tensaku	ready	Fedora RPM recipe
+tensaku	published	COPR package
 tmog-bin	pending	
 tobi-try	published	COPR package
-ttf-ia-writer	ready	Fedora RPM recipe
+ttf-ia-writer	published	COPR package
 ttf-jetbrains-mono-nerd-basic	published	COPR package
 ttfx	published	COPR package
 tuxedo-drivers-nocompatcheck-dkms	pending	
 typora	pending	
-tzupdate	ready	Fedora RPM recipe
+tzupdate	published	COPR package
 uboot-asahi	pending	
 ufw-docker	not-applicable	UFW integration; Omadora uses firewalld
 v4l2-relayd	pending	
@@ -166,8 +166,8 @@ vi	pending
 visual-studio-code-bin	pending	
 voxtype-bin	pending	
 walker	pending	
-wayfreeze	ready	Fedora RPM recipe
-xdg-terminal-exec	ready	Fedora RPM recipe
+wayfreeze	published	COPR package
+xdg-terminal-exec	published	COPR package
 xpadneo-dkms	pending	
 yaru-icon-theme	pending	
 yay	not-applicable	Arch AUR client; Fedora uses DNF and Flatpak

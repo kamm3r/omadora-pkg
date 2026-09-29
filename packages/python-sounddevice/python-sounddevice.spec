@@ -1,6 +1,6 @@
 Name:           python-sounddevice
 Version:        0.5.6
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Record and play audio through PortAudio with Python
 License:        MIT
 URL:            https://python-sounddevice.readthedocs.io/
@@ -34,8 +34,13 @@ python3 -m installer --destdir=%{buildroot} dist/*.whl
 %doc README.rst
 %{python3_sitelib}/sounddevice.py
 %{python3_sitelib}/_sounddevice.py
+%{python3_sitelib}/__pycache__/sounddevice.cpython-*.pyc
+%{python3_sitelib}/__pycache__/_sounddevice.cpython-*.pyc
 %{python3_sitelib}/sounddevice-%{version}.dist-info
 
 %changelog
+* Mon Sep 28 2026 kamm3r - 0.5.6-2
+- Include compiled Python bytecode in the RPM file list.
+
 * Mon Sep 28 2026 kamm3r - 0.5.6-1
 - Port the upstream Omarchy Python audio module to Fedora.
