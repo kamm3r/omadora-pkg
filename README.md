@@ -2,7 +2,7 @@
 
 Fedora RPM build entry point for [Omadora](https://github.com/kamm3r/omadora), modeled after the separate upstream [Omarchy package repository](https://github.com/omacom/omarchy-pkgs). The [kammer/omadora COPR](https://copr.fedorainfracloud.org/coprs/kammer/omadora/) publishes the packages.
 
-The `omarchy-settings` and `omarchy` RPM specs and source packaging rules live in the Omadora source tree under `packaging/rpm/` and `.copr/Makefile`. This repository pins one Omadora commit in `omadora-revision` so both COPR builds use exactly the same source and version. Fedora recipes for upstream Omarchy packages live under `packages/`.
+The `omarchy-settings` and `omarchy` RPM specs live here under `packaging/rpm/` (see [`packaging/README.md`](packaging/README.md)), and `.copr/core.mk` builds them from the Omadora commit pinned in `omadora-revision`, so both COPR builds use exactly the same source and version. Fedora recipes for upstream Omarchy packages live under `packages/`.
 
 The upstream `omarchy-pkgs` snapshot at commit `29465fb750ed2b7a8b3f409cf1a61989ac2d3867` contains 175 PKGBUILDs. [`catalog.tsv`](catalog.tsv) tracks each recipe. `published` means a successful build exists in COPR; `ready` means a source RPM builds and the clean COPR build is next; `pending` needs a Fedora port; `not-applicable` records recipes tied to Arch facilities Omadora replaced. The goal is a COPR RPM for each feasible recipe, including packages also available elsewhere, after their build and runtime dependencies are checked on Fedora.
 
@@ -15,7 +15,7 @@ COPR SCM packages use the `make_srpm` method and this repository's `.copr/Makefi
 | `omarchy-settings` | `packaging/rpm/omarchy-settings/omarchy-settings.spec` |
 | `omarchy` | `packaging/rpm/omarchy/omarchy.spec` |
 
-The entry point clones Omadora, checks out the revision in `omadora-revision`, and calls Omadora's COPR source RPM builder. To try a core build against the checked-out source locally, set `OMADORA_SOURCE` to its absolute path:
+The entry point clones Omadora, archives the revision in `omadora-revision`, and packs it with the spec from `packaging/rpm/`. To build from a local Omadora checkout that contains that commit instead of cloning, set `OMADORA_SOURCE` to its path:
 
 ```bash
 OMADORA_SOURCE=/path/to/omadora make -f .copr/Makefile srpm outdir=/tmp/omadora-srpm spec=packaging/rpm/omarchy-settings/omarchy-settings.spec
