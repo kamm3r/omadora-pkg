@@ -1,176 +1,176 @@
 upstream_name	status	note
-1password	pending	
-1password-beta	pending	
-1password-cli	pending	
+1password	ready	Fedora RPM recipe
+1password-beta	ready	Fedora RPM recipe
+1password-cli	ready	Fedora RPM recipe
 aether	published	COPR package
-aquamarine	pending	
-asdcontrol	pending	
-asusctl	pending	
-avd-fw	pending	
-bambustudio-bin	pending	
+aquamarine	not-applicable	Hyprland COPR ships same version; Arch patch is Asahi-only
+asdcontrol	ready	Fedora RPM recipe
+asusctl	ready	Fedora RPM recipe
+avd-fw	not-applicable	Asahi-only AVD firmware, x86_64 out of scope
+bambustudio-bin	ready	Fedora RPM recipe
 basecamp-cli	published	COPR package
-brave-bin	pending	
-brave-origin-bin	pending	
-bun-bin	pending	
-claude-code	pending	
-claude-desktop	pending	
+brave-bin	ready	Fedora RPM recipe
+brave-origin-bin	ready	Fedora RPM recipe
+bun-bin	ready	Fedora RPM recipe
+claude-code	ready	Fedora RPM recipe
+claude-desktop	ready	Fedora RPM recipe
 cliamp	published	COPR package
-crush-bin	pending	
-cua-driver-bin	pending	
-cua-hyprland-plugin	pending	
-cursor-bin	pending	
-cursor-cli	pending	
-dbxcli-bin	pending	
-dell-xps-touchpad-haptics	pending	
-dell-xps13-sidecar-amps	pending	
+crush-bin	ready	Fedora RPM recipe
+cua-driver-bin	ready	Fedora RPM recipe
+cua-hyprland-plugin	ready	Fedora RPM recipe; pinned to Hyprland COPR 0.56.2
+cursor-bin	ready	Fedora RPM recipe
+cursor-cli	ready	Fedora RPM recipe
+dbxcli-bin	ready	Fedora RPM recipe
+dell-xps-touchpad-haptics	ready	Fedora RPM recipe
+dell-xps13-sidecar-amps	ready	Fedora RPM recipe
 disktree-bin	published	COPR package
-dotnet-core-bin	pending	
-dropbox	pending	
-dropbox-cli	pending	
-elephant	pending	
-elephant-all	pending	
+dotnet-core-bin	not-applicable	Fedora ships dotnet-sdk/runtime; dev flow via mise
+dropbox	ready	Fedora RPM recipe
+dropbox-cli	ready	Fedora RPM recipe
+elephant	ready	Fedora RPM recipe
+elephant-all	ready	Fedora RPM recipe
 elephant-archlinuxpkgs	not-applicable	provider searches Arch packages; no Fedora equivalent
-elephant-bluetooth	pending	
-elephant-calc	pending	
-elephant-clipboard	pending	
-elephant-desktopapplications	pending	
-elephant-files	pending	
-elephant-menus	pending	
-elephant-providerlist	pending	
-elephant-runner	pending	
-elephant-symbols	pending	
-elephant-todo	pending	
-elephant-unicode	pending	
-elephant-websearch	pending	
-flea	pending	
-ghostty	pending	
-github-copilot-cli	pending	
-gliff	pending	
-google-chrome	pending	
-grok-bot	pending	
-herdr	pending	
-hermes-desktop	pending	
-heroic-games-launcher-bin	pending	
+elephant-bluetooth	ready	Fedora RPM recipe
+elephant-calc	ready	Fedora RPM recipe
+elephant-clipboard	ready	Fedora RPM recipe
+elephant-desktopapplications	ready	Fedora RPM recipe
+elephant-files	ready	Fedora RPM recipe
+elephant-menus	ready	Fedora RPM recipe
+elephant-providerlist	ready	Fedora RPM recipe
+elephant-runner	ready	Fedora RPM recipe
+elephant-symbols	ready	Fedora RPM recipe
+elephant-todo	ready	Fedora RPM recipe
+elephant-unicode	ready	Fedora RPM recipe
+elephant-websearch	ready	Fedora RPM recipe
+flea	ready	Fedora RPM recipe
+ghostty	not-applicable	Terra ships exact version incl. subpackages
+github-copilot-cli	ready	Fedora RPM recipe
+gliff	ready	Fedora RPM recipe
+google-chrome	ready	Fedora RPM recipe
+grok-bot	ready	Fedora RPM recipe
+herdr	ready	Fedora RPM recipe
+hermes-desktop	ready	Fedora RPM recipe
+heroic-games-launcher-bin	ready	Fedora RPM recipe
 hype	published	COPR package
-hyprland	pending	
-hyprland-guiutils	pending	
-hyprland-preview-share-picker	pending	
+hyprland	not-applicable	Hyprland COPR ships same version
+hyprland-guiutils	not-applicable	Hyprland COPR ships same version
+hyprland-preview-share-picker	ready	Fedora RPM recipe
 hyprshade	published	COPR package
-hyprtoolkit	pending	
-intel-ipu7-camera	pending	
+hyprtoolkit	not-applicable	Hyprland COPR ships exact version
+intel-ipu7-camera	not-applicable	no-op, in-tree kernel support
 learn-omarchy	published	COPR package
-lib32-nvidia-580xx-utils	pending	
-libfprint-git	pending	
-libretro-cap32-git	pending	
-libretro-database-git	pending	
-libretro-fbneo-git	pending	
-libretro-uae-git	pending	
-libretro-vice-git	pending	
-libva-v4l2_request-avd	pending	
+lib32-nvidia-580xx-utils	not-applicable	no lib32 namespace; use .i686 multilib via akmods
+libfprint-git	not-applicable	stock Fedora libfprint used
+libretro-cap32-git	not-applicable	not in Fedora set; Flatpak fallback
+libretro-database-git	not-applicable	Fedora ships retroarch-database
+libretro-fbneo-git	not-applicable	not in Fedora set; Flatpak fallback
+libretro-uae-git	not-applicable	not in Fedora set; Flatpak fallback
+libretro-vice-git	not-applicable	not in Fedora set; Flatpak fallback
+libva-v4l2_request-avd	not-applicable	Asahi fork; Fedora ships libva-v4l2-request
 limine-mkinitcpio-hook	not-applicable	mkinitcpio hook; Omadora uses dracut
-limine-snapper-sync	pending	
-link-studio	pending	
-linux-aurora	pending	
-linux-firmware-cirrus	pending	
-linux-omarchy	pending	
-linux-omarchy-bore	pending	
-linux-ptl	pending	
-lmstudio-bin	pending	
-localsend	pending	
-localsend-bin	pending	
-m1n1-aurora	pending	
-macbook12-spi-driver-dkms	pending	
-macbook8-spi-pxa2xx-nodma-dkms	pending	
-makima-bin	pending	
-microsoft-edge-stable-bin	pending	
-minecraft-launcher	pending	
-mise-bin	pending	
+limine-snapper-sync	ready	Fedora RPM recipe
+link-studio	ready	Fedora RPM recipe
+linux-aurora	not-applicable	Asahi kernel; Fedora boots stock kernel
+linux-firmware-cirrus	not-applicable	Arch shim; Fedora uses linux-firmware bundle
+linux-omarchy	not-applicable	Arch kernel; Fedora uses stock kernel
+linux-omarchy-bore	not-applicable	Arch kernel variant
+linux-ptl	not-applicable	stock kernel already covers PTL
+lmstudio-bin	ready	Fedora RPM recipe
+localsend	ready	Fedora RPM recipe
+localsend-bin	ready	Fedora RPM recipe
+m1n1-aurora	not-applicable	Apple bootloader; Fedora ships stock m1n1
+macbook12-spi-driver-dkms	not-applicable	no-op; dracut add_drivers covers
+macbook8-spi-pxa2xx-nodma-dkms	ready	Fedora RPM recipe
+makima-bin	ready	Fedora RPM recipe
+microsoft-edge-stable-bin	ready	Fedora RPM recipe
+minecraft-launcher	ready	Fedora RPM recipe
+mise-bin	ready	Fedora RPM recipe
 monologue	published	COPR package
-nautilus-dropbox	pending	
+nautilus-dropbox	ready	Fedora RPM recipe
 nautilus-open-any-terminal	published	COPR package with Caja subpackage
-nordvpn-bin	pending	
-nvidia-580xx-utils	pending	
-nvidia-open-dkms	pending	
-nvidia-utils	pending	
-obs-studio	pending	
-obsidian	pending	
+nordvpn-bin	ready	Fedora RPM recipe
+nvidia-580xx-utils	not-applicable	superseded by RPMFusion akmod-nvidia
+nvidia-open-dkms	not-applicable	aarch64-only; x86_64 uses akmods
+nvidia-utils	not-applicable	aarch64-only; x86_64 uses akmods
+obs-studio	not-applicable	RPMFusion ships obs-studio
+obsidian	ready	Fedora RPM recipe
 omacalc	published	COPR package
 omacut	published	COPR package
 omakade	published	COPR package
 omapresent	published	COPR package
 omarchy	published	COPR package
 omarchy-audio-tuner	published	COPR package
-omarchy-billboard-generator	pending	
-omarchy-chromium-bin	pending	
-omarchy-dev	pending	
+omarchy-billboard-generator	ready	Fedora RPM recipe
+omarchy-chromium-bin	ready	Fedora RPM recipe
+omarchy-dev	not-applicable	covered by core omarchy spec via dev_suffix
 omarchy-emacs	published	COPR package
 omarchy-fish	published	COPR package
 omarchy-keyring	not-applicable	pacman keyring; Fedora uses RPM signing keys
-omarchy-mac	pending	
-omarchy-mac-boot	pending	
+omarchy-mac	not-applicable	Apple Silicon aarch64 add-on, x86_64 out of scope
+omarchy-mac-boot	not-applicable	Arch mkinitcpio boot stack; Omadora uses dracut+kernel-install
 omarchy-meeting-recorder-bin	published	COPR package
-omarchy-nvim	pending	
+omarchy-nvim	ready	Fedora RPM recipe
 omarchy-settings	published	COPR package
-omarchy-settings-dev	pending	
-omarchy-steam-fex	pending	
-omarchy-task-manager	pending	
-omarchy-walker	pending	
+omarchy-settings-dev	not-applicable	covered by core settings spec via dev_suffix
+omarchy-steam-fex	ready	Fedora RPM recipe
+omarchy-task-manager	ready	Fedora RPM recipe
+omarchy-walker	ready	Fedora RPM recipe
 omarchy-zsh	published	COPR package
-omareel	pending	
+omareel	ready	Fedora RPM recipe
 omasnap	published	COPR package
-omasnap-git	pending	
-omaspeak-bin	pending	
-omatrack	pending	
-omawake-bin	pending	
+omasnap-git	ready	Fedora RPM recipe
+omaspeak-bin	ready	Fedora RPM recipe
+omatrack	pending	upstream source repo tobi/omatrack returns 404
+omawake-bin	ready	Fedora RPM recipe
 omawrite	published	COPR package
 omazed	published	COPR package
-once-bin	pending	
-openai-codex-bin	pending	
-openai-codex-desktop	pending	
-openclaw	pending	
-openvino-genai	pending	
+once-bin	ready	Fedora RPM recipe
+openai-codex-bin	ready	Fedora RPM recipe
+openai-codex-desktop	ready	Fedora RPM recipe
+openclaw	ready	Fedora RPM recipe
+openvino-genai	ready	Fedora RPM recipe
 owe	published	COPR package
 owe-lockfeed	published	COPR package
-perplexity	pending	
-pinta	pending	
-python-mediapipe	pending	
+perplexity	ready	Fedora RPM recipe
+pinta	ready	Fedora RPM recipe
+python-mediapipe	ready	Fedora RPM recipe
 python-sounddevice	published	COPR package
 python-terminaltexteffects	published	COPR package
-qemu-user-static	pending	
+qemu-user-static	not-applicable	Fedora ships qemu-user-static natively
 qmk-hid	published	COPR package
-quickshell-git	pending	
+quickshell-git	not-applicable	Hyprland COPR ships newer quickshell
 retroarch-joypad-autoconfig-git	ready	Fedora RPM recipe
-rustdesk	pending	
-schist-bin	pending	
-slap-notes-bin	pending	
-spotify	pending	
-strata	pending	
-sublime-text-4	pending	
-sunshine	pending	
-supergfxctl	pending	
-symfony-cli	pending	
-t3code-bin	pending	
+rustdesk	ready	Fedora RPM recipe
+schist-bin	ready	Fedora RPM recipe
+slap-notes-bin	ready	Fedora RPM recipe
+spotify	ready	Fedora RPM recipe
+strata	ready	Fedora RPM recipe
+sublime-text-4	ready	Fedora RPM recipe
+sunshine	ready	Fedora RPM recipe
+supergfxctl	ready	Fedora RPM recipe
+symfony-cli	ready	Fedora RPM recipe
+t3code-bin	ready	Fedora RPM recipe
 tensaku	published	COPR package
-tmog-bin	pending	
+tmog-bin	ready	Fedora RPM recipe
 tobi-try	published	COPR package
 ttf-ia-writer	published	COPR package
 ttf-jetbrains-mono-nerd-basic	published	COPR package
 ttfx	published	COPR package
-tuxedo-drivers-nocompatcheck-dkms	pending	
-typora	pending	
+tuxedo-drivers-nocompatcheck-dkms	not-applicable	vendor Fedora repo covers
+typora	ready	Fedora RPM recipe
 tzupdate	published	COPR package
-uboot-asahi	pending	
+uboot-asahi	not-applicable	Apple Silicon bootloader, out of scope
 ufw-docker	not-applicable	UFW integration; Omadora uses firewalld
-v4l2-relayd	pending	
-vi	pending	
-visual-studio-code-bin	pending	
-voxtype-bin	pending	
-walker	pending	
+v4l2-relayd	ready	Fedora RPM recipe
+vi	ready	Fedora RPM recipe
+visual-studio-code-bin	ready	Fedora RPM recipe
+voxtype-bin	ready	Fedora RPM recipe
+walker	ready	Fedora RPM recipe
 wayfreeze	published	COPR package
 xdg-terminal-exec	published	COPR package
-xpadneo-dkms	pending	
-yaru-icon-theme	pending	
+xpadneo-dkms	not-applicable	Terra ships xpadneo RPM
+yaru-icon-theme	ready	Fedora RPM recipe
 yay	not-applicable	Arch AUR client; Fedora uses DNF and Flatpak
-yt6801-dkms	pending	
-zed	pending	
-zen-browser-bin	pending	
+yt6801-dkms	not-applicable	kernel dwmac-motorcomm replaces it
+zed	ready	Fedora RPM recipe
+zen-browser-bin	ready	Fedora RPM recipe

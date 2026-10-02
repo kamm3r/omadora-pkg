@@ -1,0 +1,7 @@
+# Run from the unpacked rustdesk tree with the source directory as $1:
+# fill the empty hbb_common submodule so cargo can resolve the workspace.
+set -e
+commit=7e1c392c62d39c364127307cd408421dd5f8cfb0
+rm -rf libs/hbb_common
+tar -xzf "$1/hbb_common-$commit.tar.gz"
+mv "hbb_common-$commit" libs/hbb_common

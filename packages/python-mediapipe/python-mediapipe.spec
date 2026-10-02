@@ -1,0 +1,82 @@
+Name:           python-mediapipe
+Version:        1.0.0
+Release:        2%{?dist}
+Summary:        Cross-platform customizable ML solutions for live and streaming media
+License:        Apache-2.0
+URL:            https://github.com/google-ai-edge/mediapipe
+%global _bazel_version 7.4.1
+%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
+Source0:        https://github.com/google-ai-edge/mediapipe/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source1:        https://github.com/bazelbuild/bazel/releases/download/%{_bazel_version}/bazel-%{_bazel_version}-linux-x86_64
+Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/python-mediapipe/0005-set-hermetic-python-version-and-disable-odml-converter.patch
+Source3:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/python-mediapipe/0007-bump-rules-java.patch
+ExclusiveArch:  x86_64
+BuildRequires:  gcc-c++
+BuildRequires:  patchelf
+BuildRequires:  python3-build
+BuildRequires:  python3-devel
+BuildRequires:  python3-installer
+BuildRequires:  python3-setuptools
+BuildRequires:  python3-wheel
+BuildRequires:  python3-rpm-macros
+BuildRequires:  opencv-devel
+Requires:       libgcc
+Requires:       glibc
+Requires:       libglvnd
+Requires:       mesa-libGL
+Requires:       opencv
+Requires:       python3-attrs
+Requires:       python3-flatbuffers
+Requires:       python3-matplotlib
+Requires:       python3-numpy
+Requires:       python3-opencv
+Requires:       python3-pillow
+Requires:       python3-protobuf
+Requires:       python3-scipy
+Requires:       python3-six
+Requires:       python3-sounddevice
+Requires:       python3-absl
+Provides:       python3-mediapipe = %{version}-%{release}
+# Fedora 44 ships opencv 4.13 under /usr/include/opencv4, which is what
+# upstream expects, so the Arch-only opencv5 header patches (0004, 0006) are
+# intentionally dropped here; only the hermetic-python and rules-java fixes
+# are carried. python-tensorflow has no Fedora counterpart and stays out of
+# Requires; the wheel links what the hermetic build needs.
+
+%description
+MediaPipe offers cross-platform, customizable machine learning solutions
+for live and streaming media. This package builds the upstream wheel with a
+pinned Bazel binary, mirroring the upstream Omarchy recipe.
+
+%prep
+%setup -q -n mediapipe-%{version}
+# Bazel in Fedora (9.x) is too new for this tree; use the pinned upstream
+# binary the Omarchy recipe uses.
+mkdir -p bin
+install -Dm755 "%{SOURCE1}" bin/bazel
+patch -Np1 -i "%{SOURCE2}"
+patch -Np1 -i "%{SOURCE3}"
+# set __version__
+sed -i "s/__version__ = 'dev'/__version__ = '%{version}'/" setup.py
+# set link_opencv to True
+sed -i "s/self.link_opencv = False/self.link_opencv = True/g" setup.py
+
+%build
+export PATH="$PWD/bin:$PATH"
+MEDIAPIPE_DISABLE_GPU=0 \
+  python3 -m build --wheel --no-isolation
+
+%install
+python3 -m installer --destdir=%{buildroot} dist/*.whl
+# remove rpath and fix permission
+find %{buildroot} -type f -name "*.so" -exec patchelf --remove-rpath {} \;
+find %{buildroot} -type f -name "*.so" -exec chmod 755 {} \;
+
+%files
+%license LICENSE
+%{python3_sitelib}/mediapipe/
+%{python3_sitelib}/mediapipe-%{version}.dist-info/
+
+%changelog
+* Thu Oct 01 2026 kamm3r - 1.0.0-2
+- Port the upstream Omarchy MediaPipe Python recipe to Fedora.
