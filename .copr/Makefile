@@ -23,7 +23,7 @@ srpm:
 	    mkdir -p '$(outdir)'; \
 	    cp "$$recipe" '$(outdir)/'; \
 	    spectool -g -C '$(outdir)' "$(outdir)/$$name.spec"; \
-	    (cd '$(outdir)' && sha256sum -c "$$checksum"); \
+	    if [ -s "$$checksum" ]; then (cd '$(outdir)' && sha256sum -c "$$checksum"); fi; \
 	    if [ -f "$(CURDIR)/packages/$$name/cargo-vendor" ]; then \
 	      command -v cargo >/dev/null || dnf -y install cargo; \
 	      version=$$(rpmspec -q --srpm --qf '%{VERSION}' "$$recipe"); \
@@ -34,6 +34,9 @@ srpm:
 	      vendor_tmp=$$(mktemp -d); \
 	      trap 'rm -rf "$$vendor_tmp"' EXIT; \
 	      tar -xzf "$(outdir)/$$name-$$version.tar.gz" -C "$$vendor_tmp"; \
+	      if [ -f "$(CURDIR)/packages/$$name/vendor-prep" ]; then \
+	        (cd "$$vendor_tmp/$$vendor_root" && sh "$(CURDIR)/packages/$$name/vendor-prep" "$(abspath $(outdir))"); \
+	      fi; \
 	      (cd "$$vendor_tmp/$$vendor_root" && \
 	        mkdir -p .cargo && \
 	        cargo vendor --locked --versioned-dirs vendor >.cargo/config.toml && \
@@ -42,11 +45,19 @@ srpm:
 	    if [ -f "$(CURDIR)/packages/$$name/go-vendor" ]; then \
 	      command -v go >/dev/null || dnf -y install golang; \
 	      version=$$(rpmspec -q --srpm --qf '%{VERSION}' "$$recipe"); \
+	      vendor_root="$$name-$$version"; \
+	      if [ -s "$(CURDIR)/packages/$$name/go-vendor" ]; then \
+	        vendor_root=$$(sed "s/%version/$$version/g" "$(CURDIR)/packages/$$name/go-vendor"); \
+	      fi; \
 	      vendor_tmp=$$(mktemp -d); \
 	      trap 'rm -rf "$$vendor_tmp"' EXIT; \
 	      tar -xzf "$(outdir)/$$name-$$version.tar.gz" -C "$$vendor_tmp"; \
-	      (cd "$$vendor_tmp/$$name-$$version" && \
-	        GOTOOLCHAIN=local go mod vendor && \
+	      if [ ! -d "$$vendor_tmp/$$vendor_root" ]; then \
+	        tops=$$(ls -1 "$$vendor_tmp" | wc -l); \
+	        if [ "$$tops" = "1" ]; then vendor_root=$$(ls -1 "$$vendor_tmp"); fi; \
+	      fi; \
+	      (cd "$$vendor_tmp/$$vendor_root" && \
+	        GOTOOLCHAIN=auto go mod vendor && \
 	        tar -czf "$(abspath $(outdir))/$$name-vendor-$$version.tar.gz" vendor); \
 	    fi; \
 	    rpmbuild -bs --define '_sourcedir $(abspath $(outdir))' --define '_srcrpmdir $(abspath $(outdir))' "$(outdir)/$$name.spec"; \
