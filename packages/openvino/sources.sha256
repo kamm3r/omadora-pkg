@@ -1,0 +1,6 @@
+ff816f55e591ded0b60a748405010a8507291ee2b16ef2caf4c4ff662c4d4b6d  openvino-2026.4.0.tar.gz
+726a93992e65152f338fa7bce536fa9ed6c9f395de80d1e55f01ecc3fece7f11  onednn-1289c3b.tar.gz
+0a44fbfd4b13e8609d66ddac4b11a27c90c1074cde5244c91ad197901666004c  mlas-d1bc25e.tar.gz
+cf6b29b5b41c8f2de1a05c3dd0013c4ee773724b0d20d6fa7dbb9b332e698180  onednn-gpu-a3d4597.tar.gz
+beb4d1ba35b5f1b240a9f9ce9de1286770b9eac6f24788b74236ae67ad2dd76d  openvino-xbyak-gflags-system-modules.patch
+c1a3ecf9071e122683e33e3587328c6a14503f4167a5d319741548043cead36a  openvino-samples-system-gflags-json.patch

@@ -120,7 +120,7 @@ omareel	ready	Fedora RPM recipe
 omasnap	published	COPR package
 omasnap-git	ready	Fedora RPM recipe
 omaspeak-bin	ready	Fedora RPM recipe
-omatrack	pending	upstream source repo tobi/omatrack returns 404
+omatrack	ready	Fedora RPM recipe; source from a checksum-verified fork
 omawake-bin	ready	Fedora RPM recipe
 omawrite	published	COPR package
 omazed	published	COPR package

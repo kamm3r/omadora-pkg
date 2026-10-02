@@ -9,7 +9,10 @@ Release:        1%{?dist}
 Summary:        Cross-format motorsport telemetry analysis workstation
 License:        MIT
 URL:            https://github.com/tobi/omatrack
-Source0:        %{url}/archive/%{_commit}.tar.gz#/omatrack-%{_commit}.tar.gz
+# tobi/omatrack is no longer public. This fork still carries the pinned
+# commit, and its archive is byte-identical to the upstream recipe's
+# (sources.sha256 holds the upstream PKGBUILD checksum).
+Source0:        https://github.com/y4b9vb7nk9-debug/omatrack/archive/%{_commit}.tar.gz#/omatrack-%{_commit}.tar.gz
 Source1:        https://www.lua.org/ftp/lua-%{lua_version}.tar.gz
 Source2:        https://github.com/ThePhD/sol2/archive/%{sol2_tag}.tar.gz#/sol2-%{sol2_short}.tar.gz
 BuildRequires:  cmake
