@@ -6,7 +6,7 @@
 %global __requires_exclude ^(lib(fff_c|ffmpeg|vk_swiftshader|vulkan)\.so|libc\.musl|libc\.so\(\)|/usr/bin/node)
 
 Name:           t3code-bin
-Version:        0.0.42
+Version:        0.0.44
 Release:        1%{?dist}
 Summary:        Open-source control plane for coding agents
 License:        MIT
@@ -107,6 +107,10 @@ LAUNCHER_EOF
 
 cd squashfs-root
 
+# The x86_64 AppImage also bundles node-pty's ARM prebuild. It is unused here
+# and would add ARM loader requirements to this x86_64 RPM.
+rm -rf resources/app.asar.unpacked/node_modules/node-pty/prebuilds/linux-arm64
+
 # Guard from the upstream PKGBUILD: the AppImage's usr/ tree must only carry
 # icons and compatibility libraries; anything else stops the build.
 unexpected=$(find usr \( -type f -o -type l \) | grep -vE '^usr/share/icons/hicolor/[0-9]+x[0-9]+/apps/t3code\.png$|^usr/lib/lib(Xss\.so\.1|Xtst\.so\.6|appindicator\.so\.1|gconf-2\.so\.4|indicator\.so\.7|notify\.so\.4)$' || true)
@@ -145,5 +149,9 @@ install -D -m 0755 ../t3-launcher.sh %{buildroot}%{_bindir}/t3
 %{_datadir}/icons/hicolor/*/apps/t3code.png
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 0.0.44-1
+- Update to the release pinned on upstream master.
+- Remove the unused ARM terminal helper from the x86_64 bundle.
+
 * Wed Sep 30 2026 kamm3r - 0.0.42-1
 - Repackage the upstream Omarchy T3 Code release for Fedora.

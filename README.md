@@ -4,7 +4,7 @@ Fedora RPM build entry point for [Omadora](https://github.com/kamm3r/omadora), m
 
 The `omarchy-settings` and `omarchy` RPM specs live here under `packaging/rpm/` (see [`packaging/README.md`](packaging/README.md)), and `.copr/core.mk` builds them from the Omadora commit pinned in `omadora-revision`, so both COPR builds use exactly the same source and version. Fedora recipes for upstream Omarchy packages live under `packages/`.
 
-The upstream `omarchy-pkgs` snapshot at commit `29465fb750ed2b7a8b3f409cf1a61989ac2d3867` contains 175 PKGBUILDs. [`catalog.tsv`](catalog.tsv) tracks each recipe. `published` means a successful build exists in COPR; `ready` means a source RPM builds and the clean COPR build is next; `pending` needs a Fedora port; `not-applicable` records recipes tied to Arch facilities Omadora replaced. The goal is a COPR RPM for each feasible recipe, including packages also available elsewhere, after their build and runtime dependencies are checked on Fedora.
+The upstream `omarchy-pkgs` snapshot at commit `31b8fdb3ad96fa89a6ab4492be9b7e59eb7af080` contains 176 PKGBUILDs. [`catalog.tsv`](catalog.tsv) tracks each recipe. `published` means a successful build exists in COPR; `ready` means a source RPM builds and the clean COPR build is next; `pending` needs a Fedora port; `not-applicable` records recipes tied to Arch facilities Omadora replaced. The goal is a COPR RPM for each feasible recipe, including packages also available elsewhere, after their build and runtime dependencies are checked on Fedora.
 
 ## Build from this repository
 
@@ -27,6 +27,8 @@ Additional package entries use `packages/<name>/<name>.spec`. Their `sources.sha
 make -f .copr/Makefile srpm outdir=/tmp/omadora-srpm spec=packages/tobi-try/tobi-try.spec
 rpmbuild --rebuild /tmp/omadora-srpm/tobi-try-*.src.rpm
 ```
+
+OpenClaw also ships upstream's user-installer payload under `/usr/share/openclaw/`. Run `bash /usr/share/openclaw/install-cli.sh --version /usr/share/openclaw/openclaw.tgz` to create a self-updating installation under `~/.openclaw` (or `OPENCLAW_PREFIX`). The `openclaw` launcher prefers that installation. The system CLI remains available for the pinned Omadora runtime and existing gateway services until their user-install migration is ported.
 
 COPR networking must be enabled for recipes that fetch npm, Flutter, Gradle, Bazel, or Git dependencies during the binary build. The project uses `copr-cli modify kammer/omadora --enable-net on`; the vendored Rust and Go recipes still build without network access.
 

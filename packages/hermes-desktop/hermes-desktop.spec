@@ -7,14 +7,14 @@
 
 Name:           hermes-desktop
 Version:        2026.9.7
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Native desktop shell for Hermes Agent
 License:        MIT
 URL:            https://github.com/NousResearch/hermes-agent
 # The tag's commit. apps/desktop/scripts/write-build-stamp.mjs pins the app's
 # first-launch bootstrap to a Hermes commit, resolved from $GITHUB_SHA.
 %global _commit 2237be355906fbe6065ce1815711eee52b2d646e
-%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
+%global omarchy_pkgs_commit 31b8fdb3ad96fa89a6ab4492be9b7e59eb7af080
 Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/hermes-desktop/hermes-desktop.sh
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/hermes-desktop/hermes-desktop.desktop
@@ -137,6 +137,9 @@ chmod 0755 %{buildroot}/opt/%{name}/chrome-sandbox
 %{_datadir}/%{name}/runtime.patch
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 2026.9.7-3
+- Update the launcher for newer runtime settings and accessibility preferences.
+
 * Sat Oct 03 2026 kamm3r - 2026.9.7-2
 - Require ICU data so Intl.Segmenter works during builds and updater rebuilds.
 - Use Fedora's Python 3 interpreter in the launcher fallback.

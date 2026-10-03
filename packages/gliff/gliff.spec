@@ -1,17 +1,21 @@
 %global debug_package %{nil}
-%global _commit 2edbfba52780c7ace15dbb05ca92177f493d4bc9
+%global _lto_cflags %{nil}
 
 Name:           gliff
-Version:        0.1.0
+Version:        0.2.0
 Release:        1%{?dist}
 Summary:        Hyprland remote desktop over SSH
-License:        MIT
-URL:            https://github.com/kevinmcconnell/gliff
-Source0:        %{url}/archive/%{_commit}.tar.gz#/%{name}-%{version}.tar.gz
+License:        MIT AND BSD-2-Clause
+URL:            https://github.com/omacom/gliff
+Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        %{name}-vendor-%{version}.tar.gz
 BuildRequires:  cargo
 BuildRequires:  rust
 BuildRequires:  gcc
+BuildRequires:  gcc-c++
+BuildRequires:  pkgconfig(dbus-1)
+BuildRequires:  nasm
+BuildRequires:  libva-devel >= 2.20
 BuildRequires:  pkgconfig(gtk4)
 BuildRequires:  pkgconfig(libadwaita-1)
 BuildRequires:  pkgconfig(wayland-client)
@@ -19,33 +23,47 @@ BuildRequires:  pkgconfig(xkbcommon)
 BuildRequires:  pkgconfig(libdrm)
 BuildRequires:  pkgconfig(gbm)
 BuildRequires:  pkgconfig(vulkan)
+Requires:       hicolor-icon-theme
+Requires:       dbus
 Requires:       openssh
 Requires:       vulkan-loader
 ExclusiveArch:  x86_64
 
 %description
-Gliff streams a Hyprland desktop over SSH using Vulkan Video with 4:4:4
-color.
+Gliff streams a Hyprland desktop over SSH using GPU H.264 encoding with
+4:4:4 color.
 
 %prep
-%autosetup -n %{name}-%{_commit} -a 1
+%autosetup -a 1
 
 %build
 export CARGO_TARGET_DIR=target
 cargo build --frozen --release
+
+%check
+cargo test --frozen --release --workspace
 
 %install
 install -D -m 0755 target/release/gliff %{buildroot}%{_bindir}/gliff
 install -D -m 0755 target/release/gliff-server %{buildroot}%{_bindir}/gliff-server
 install -D -m 0755 target/release/gliff-probe %{buildroot}%{_bindir}/gliff-probe
 
+install -Dm644 pkgbuild/gliff.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/gliff.svg
+install -Dm644 pkgbuild/gliff.desktop %{buildroot}%{_datadir}/applications/gliff.desktop
+
 %files
-%license LICENSE
+%license LICENSE NOTICE
 %doc README.md docs/hardware-quirks.md
 %{_bindir}/gliff
 %{_bindir}/gliff-server
 %{_bindir}/gliff-probe
+%{_datadir}/icons/hicolor/scalable/apps/gliff.svg
+%{_datadir}/applications/gliff.desktop
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 0.2.0-1
+- Update to upstream master's tagged release with VA-API support and desktop files.
+- Run the upstream workspace tests.
+
 * Tue Sep 30 2026 kamm3r - 0.1.0-1
 - Port the upstream Omarchy recipe to Fedora.

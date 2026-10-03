@@ -45,7 +45,7 @@ elephant-websearch	ready	Fedora RPM recipe
 flea	ready	Fedora RPM recipe
 ghostty	not-applicable	Terra ships exact version incl. subpackages
 github-copilot-cli	published	Fedora RPM recipe; verified in COPR
-gliff	ready	Fedora RPM recipe
+gliff	published	Fedora RPM recipe; verified in COPR
 google-chrome	ready	Fedora RPM recipe
 grok-bot	ready	Fedora RPM recipe
 herdr	published	Fedora RPM recipe; verified in COPR
@@ -83,6 +83,7 @@ macbook12-spi-driver-dkms	not-applicable	no-op; dracut add_drivers covers
 macbook8-spi-pxa2xx-nodma-dkms	ready	Fedora RPM recipe
 makima-bin	published	Fedora RPM recipe; verified in COPR
 microsoft-edge-stable-bin	ready	Fedora RPM recipe
+mil-hwx-compiler	not-applicable	Apple Neural Engine compiler; aarch64 Apple Silicon only
 minecraft-launcher	ready	Fedora RPM recipe
 mise-bin	ready	Fedora RPM recipe
 monologue	published	COPR package
@@ -149,7 +150,7 @@ sublime-text-4	ready	Fedora RPM recipe
 sunshine	published	Fedora RPM recipe; verified in COPR
 supergfxctl	ready	Fedora RPM recipe
 symfony-cli	ready	Fedora RPM recipe
-t3code-bin	ready	Fedora RPM recipe
+t3code-bin	published	Fedora RPM recipe; verified in COPR
 tensaku	published	COPR package
 tmog-bin	ready	Fedora RPM recipe
 tobi-try	published	COPR package
