@@ -39,8 +39,8 @@ srpm:
 	      fi; \
 	      (cd "$$vendor_tmp/$$vendor_root" && \
 	        mkdir -p .cargo && \
-	        cargo vendor --locked --versioned-dirs vendor >.cargo/config.toml && \
-	        tar -czf "$(abspath $(outdir))/$$name-vendor-$$version.tar.gz" vendor .cargo); \
+	        cargo vendor --locked --versioned-dirs cargo-vendor >.cargo/config.toml && \
+	        tar -czf "$(abspath $(outdir))/$$name-vendor-$$version.tar.gz" cargo-vendor .cargo); \
 	    fi; \
 	    if [ -f "$(CURDIR)/packages/$$name/go-vendor" ]; then \
 	      command -v go >/dev/null || dnf -y install golang; \

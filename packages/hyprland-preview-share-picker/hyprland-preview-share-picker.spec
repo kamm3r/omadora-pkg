@@ -3,7 +3,7 @@
 
 Name:           hyprland-preview-share-picker
 Version:        0.2.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Hyprland share picker with window and monitor previews
 License:        MIT
 URL:            https://github.com/WhySoBad/hyprland-preview-share-picker
@@ -22,7 +22,8 @@ Requires:       xdg-desktop-portal-hyprland
 An alternative share picker for Hyprland with window and monitor previews.
 
 %prep
-%autosetup -a 1 -a 2
+%autosetup -a 1
+tar -xzf %{SOURCE2}
 rmdir lib/hyprland-protocols 2>/dev/null || true
 ln -s ../hyprland-protocols-%{_protocols_commit} lib/hyprland-protocols
 cat > build.rs <<'EOF'
@@ -47,5 +48,8 @@ install -D -m 0644 schema.json %{buildroot}%{_datadir}/hyprland-preview-share-pi
 %{_datadir}/hyprland-preview-share-picker/schema.json
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 0.2.1-2
+- Extract both dependency archives; repeated autosetup -a options only use the last.
+
 * Tue Sep 30 2026 kamm3r - 0.2.1-1
 - Port the upstream Omarchy recipe to Fedora.

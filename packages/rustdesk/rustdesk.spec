@@ -2,7 +2,7 @@
 
 Name:           rustdesk
 Version:        1.4.9
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Remote desktop software written in Rust
 License:        AGPL-3.0-only
 URL:            https://rustdesk.com/
@@ -15,6 +15,13 @@ Source2:        https://github.com/rustdesk/hbb_common/archive/%{hbb_commit}.tar
 BuildRequires:  cargo
 BuildRequires:  rust
 BuildRequires:  gcc
+BuildRequires:  pkgconfig(openssl)
+BuildRequires:  pkgconfig(aom)
+BuildRequires:  pkgconfig(vpx)
+BuildRequires:  pkgconfig(libyuv)
+BuildRequires:  pkgconfig(opus)
+BuildRequires:  systemd-rpm-macros
+BuildRequires:  clang19-libs
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
 BuildRequires:  make
@@ -74,7 +81,15 @@ mv hbb_common-%{hbb_commit} libs/hbb_common
 
 %build
 export CARGO_TARGET_DIR=target
-cargo build --frozen --release
+# Keep concurrent GTK/Rust compilation within the standard builder's memory.
+export CARGO_BUILD_JOBS=2
+# Bindgen 0.65 emits opaque VPX/AOM structs with Clang 22.
+# Keep the compiler current, but use the compatible parser library.
+export LIBCLANG_PATH=%{_libdir}/llvm19/lib
+# webm-sys 1.0.4 relies on an indirect cstdint include removed in GCC 16.
+# Supply the header without altering the checksummed Cargo sources.
+export CXXFLAGS="$CXXFLAGS -include cstdint"
+OPENSSL_NO_VENDOR=1 cargo build --frozen --release --bin rustdesk --features linux-pkg-config
 
 %install
 install -D -m 0755 target/release/rustdesk %{buildroot}%{_bindir}/rustdesk
@@ -82,6 +97,7 @@ install -D -m 0644 res/rustdesk.service %{buildroot}%{_unitdir}/rustdesk.service
 install -D -m 0644 res/32x32.png %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/rustdesk.png
 install -D -m 0644 res/128x128.png %{buildroot}%{_datadir}/icons/hicolor/128x128/apps/rustdesk.png
 install -D -m 0644 res/128x128@2x.png %{buildroot}%{_datadir}/icons/hicolor/256x256/apps/rustdesk.png
+install -d %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/rustdesk.desktop <<'EOF'
 [Desktop Entry]
 Version=1.0
@@ -106,5 +122,13 @@ EOF
 %{_datadir}/icons/hicolor/256x256/apps/rustdesk.png
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 1.4.9-2
+- Use system OpenSSL and codec libraries through the upstream pkg-config feature.
+- Add macros for the service path and create the desktop entry directory.
+- Supply cstdint for the bundled libwebm with GCC 16.
+- Use Clang 19's parser library for bindgen's VPX and AOM structs.
+- Limit concurrent Rust compiler jobs on standard COPR builders.
+- Build only the installed program, excluding platform helper executables.
+
 * Wed Sep 30 2026 kamm3r - 1.4.9-1
 - Port the upstream Omarchy recipe to Fedora.

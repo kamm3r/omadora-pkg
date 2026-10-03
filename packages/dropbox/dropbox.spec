@@ -10,7 +10,7 @@
 
 Name:           dropbox
 Version:        270.4.3312
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Free service that lets you bring your photos, docs, and videos anywhere and share them easily
 License:        LicenseRef-Dropbox
 URL:            https://www.dropbox.com
@@ -21,6 +21,7 @@ Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_
 Source3:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/dropbox/dropbox.service
 Source4:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/dropbox/dropbox@.service
 ExclusiveArch:  x86_64
+BuildRequires:  systemd-rpm-macros
 Requires:       dbus-libs
 Requires:       fontconfig
 Requires:       hicolor-icon-theme
@@ -86,5 +87,8 @@ install -D -m 0644 %{SOURCE4} %{buildroot}%{_unitdir}/dropbox@.service
 %{_unitdir}/dropbox@.service
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 270.4.3312-2
+- Require systemd RPM macros for the system and user service paths.
+
 * Thu Oct 01 2026 kamm3r - 270.4.3312-1
 - Repackage the upstream Omarchy release for Fedora.

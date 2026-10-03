@@ -2,3 +2,4 @@ b707589edd9c9c4b139e1c76a72ba204af82a96f60312ccf88987a42827ccbd9  openvino-genai
 6e685c1e45d4b2314fd55e2f791846cc9086413ba62a6bb5e31be5a5878a243c  gcc-16-char8_t.patch
 61958d64dd7510ff0cb6da010f26fddba3e5dbc38691828163a63d54951d1b2a  linear-attention-guard-constructor.patch
 e6a770bafe7c95c8e40c0bf8e30c9ab1b18f50d7ae46efee8779f8e4bbd7fe08  openvino-genai-tokenizers-2026.4.0.0.tar.gz
+ff816f55e591ded0b60a748405010a8507291ee2b16ef2caf4c4ff662c4d4b6d  openvino-2026.4.0.tar.gz

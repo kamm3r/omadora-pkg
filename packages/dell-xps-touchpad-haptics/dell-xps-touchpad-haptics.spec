@@ -2,7 +2,7 @@
 
 Name:           dell-xps-touchpad-haptics
 Version:        1.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Synaptics haptic touchpad presets for Dell XPS on Omarchy
 License:        MIT
 URL:            https://github.com/omacom-io/omarchy-pkgs
@@ -14,6 +14,7 @@ Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/29465fb750
 Source3:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/29465fb750ed2b7a8b3f409cf1a61989ac2d3867/pkgbuilds/%{name}/dell-xps-touchpad-haptics-daemon#/dell-xps-touchpad-haptics-daemon
 Source4:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/29465fb750ed2b7a8b3f409cf1a61989ac2d3867/pkgbuilds/%{name}/dell-xps-touchpad-haptics.service#/dell-xps-touchpad-haptics.service
 ExclusiveArch:  x86_64
+BuildRequires:  systemd-rpm-macros
 BuildArch:      noarch
 # Upstream depends is just python (the CLI and daemon are bash/python3 with
 # stdlib only); systemd owns the unit/udev/preset machinery used below.
@@ -116,6 +117,9 @@ fi
 %{_unitdir}/dell-xps-touchpad-haptics.service
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 1.0.0-2
+- Require systemd RPM macros for the service path.
+
 * Thu Oct 01 2026 kamm3r - 1.0.0-1
 - Port the upstream Omarchy haptic touchpad daemon to Fedora (RPM
   scriptlets replace the ALPM install hook; reloads via file triggers).

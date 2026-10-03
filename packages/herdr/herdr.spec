@@ -3,7 +3,7 @@
 
 Name:           herdr
 Version:        0.9.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Herdr terminal workspace manager for AI coding agents
 License:        Apache-2.0
 URL:            https://github.com/herdrdev/herdr
@@ -43,5 +43,8 @@ install -D -m 0755 target/release/herdr %{buildroot}%{_bindir}/herdr
 %{_bindir}/herdr
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 0.9.1-2
+- Keep Cargo registry sources separate from upstream path dependencies.
+
 * Wed Sep 30 2026 kamm3r - 0.9.1-1
 - Port the upstream Omarchy Herdr recipe to Fedora.

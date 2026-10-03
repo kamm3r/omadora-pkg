@@ -2,7 +2,7 @@
 
 Name:           pinta
 Version:        3.1.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Drawing/editing program modeled after Paint.NET
 License:        MIT
 URL:            https://pinta-project.com
@@ -12,6 +12,7 @@ BuildRequires:  dotnet-sdk-8.0
 BuildRequires:  gcc
 BuildRequires:  intltool
 BuildRequires:  make
+BuildRequires:  pkgconfig(libadwaita-1) >= 1.7
 BuildRequires:  pkgconf
 Requires:       dotnet-runtime-8.0
 Requires:       gdk-pixbuf2
@@ -47,7 +48,7 @@ install -Dm644 -t "%{buildroot}%{_datadir}/licenses/%{name}/" license-*.txt
 %doc %{_datadir}/doc/%{name}/readme.md
 %{_bindir}/pinta
 /usr/lib/pinta/
-%{_libdir}/pkgconfig/pinta.pc
+%{_prefix}/lib/pkgconfig/pinta.pc
 %{_datadir}/applications/com.github.PintaProject.Pinta.desktop
 %{_datadir}/metainfo/com.github.PintaProject.Pinta.metainfo.xml
 %{_datadir}/icons/
@@ -55,5 +56,8 @@ install -Dm644 -t "%{buildroot}%{_datadir}/licenses/%{name}/" license-*.txt
 %{_mandir}/man1/pinta.1*
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 3.1.2-2
+- Add the libadwaita development files needed by configure.
+
 * Thu Oct 01 2026 kamm3r - 3.1.2-1
 - Port the upstream Omarchy Pinta recipe to Fedora.

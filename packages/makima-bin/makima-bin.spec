@@ -2,7 +2,7 @@
 
 Name:           makima-bin
 Version:        0.10.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Input remapping daemon for keyboards, mice and controllers
 License:        GPL-3.0-or-later
 URL:            https://github.com/cyber-sushi/makima
@@ -10,6 +10,7 @@ URL:            https://github.com/cyber-sushi/makima
 # to autosetup; the file is renamed without an extension on download.
 Source0:        %{url}/releases/download/v%{version}/makima#/%{name}-%{version}
 ExclusiveArch:  x86_64
+BuildRequires:  systemd-rpm-macros
 Provides:       makima = %{version}-%{release}
 
 %description
@@ -54,5 +55,8 @@ chmod 0644 %{buildroot}%{_unitdir}/makima.service
 %{_unitdir}/makima.service
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 0.10.3-2
+- Require systemd RPM macros for service, udev and modules-load paths.
+
 * Wed Sep 30 2026 kamm3r - 0.10.3-1
 - Repackage the upstream Omarchy Makima release for Fedora.

@@ -1,8 +1,9 @@
 %global debug_package %{nil}
+%global toolchain clang
 
 Name:           localsend
 Version:        1.18.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Open source cross-platform alternative to AirDrop
 License:        Apache-2.0
 URL:            https://github.com/localsend/localsend
@@ -68,6 +69,15 @@ cargo build --frozen --release --all-features
 mkdir -p "app/build/linux/$_arch/release/plugins/rust_lib_localsend_app"
 cp "target/release/librust_lib_localsend_app.so" "app/build/linux/$_arch/release/plugins/rust_lib_localsend_app/"
 
+# Use a private SDK copy: Flutter writes its cache and inspects its Git tree.
+# The packaged SDK is root-owned in a clean builder.
+mkdir -p flutter-sdk
+# Terra's packaged cache contains unreadable root-owned artifacts.
+# Copy the SDK sources and let Flutter populate a fresh user-owned cache.
+tar -C /usr/share/flutter --exclude='./bin/cache' -cf - . | tar -xf - -C flutter-sdk
+chmod -R u+w flutter-sdk
+export PATH="$PWD/flutter-sdk/bin:$PATH"
+
 # Upstream pins Flutter via fvm (.fvmrc); here the packaged Flutter SDK is
 # used directly (COPR resolves it from Terra).
 cd app
@@ -101,7 +111,7 @@ done
 install -d %{buildroot}%{_bindir}
 ln -s $_appdir/localsend_app %{buildroot}%{_bindir}/localsend
 ln -s $_appdir/localsend-cli %{buildroot}%{_bindir}/localsend-cli
-install -D -m 0644 "%{_builddir}/%{name}-%{version}/app/build/flutter_assets/assets/img/logo-512.png" %{buildroot}%{_datadir}/icons/hicolor/512x512/apps/%{name}.png
+install -D -m 0644 "%{buildroot}$_appdir/data/flutter_assets/assets/img/logo-512.png" %{buildroot}%{_datadir}/icons/hicolor/512x512/apps/%{name}.png
 install -d %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/%{name}.desktop <<'DESKTOP_EOF'
 [Desktop Entry]
@@ -126,5 +136,9 @@ chmod -R u+rwX,go+rX,go-w %{buildroot}/
 %{_datadir}/icons/hicolor/512x512/apps/%{name}.png
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 1.18.2-2
+- Build with a writable Flutter SDK and use the installed asset path.
+- Select Clang-compatible RPM compiler flags for the Flutter build.
+
 * Wed Sep 30 2026 kamm3r - 1.18.2-1
 - Port the upstream Omarchy LocalSend recipe to Fedora.

@@ -14,7 +14,7 @@ models from popular frameworks like PyTorch, TensorFlow, ONNX, and more.}
 
 Name:           openvino
 Version:        2026.4.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Toolkit for optimizing and deploying AI inference
 
 # Most of the source code is Apache-2.0, with the following exceptions:
@@ -62,6 +62,7 @@ BuildRequires:  xbyak-devel
 BuildRequires:  zlib-devel
 
 Requires:       lib%{name}-ir-frontend = %{version}-%{release}
+Requires:       lib%{name}-gguf-frontend = %{version}-%{release}
 Requires:       lib%{name}-pytorch-frontend = %{version}-%{release}
 Requires:       lib%{name}-tensorflow-lite-frontend = %{version}-%{release}
 Recommends:     lib%{name}-auto-plugin = %{version}-%{release}
@@ -72,7 +73,7 @@ Recommends:     lib%{name}-intel-gpu-plugin = %{version}-%{release}
 
 # OpenVINO 2026.4 needs protobuf >= 5.26 for the ONNX, Paddle and TensorFlow
 # frontends and Fedora 44 ships 3.19, so those frontends are not built here;
-# IR, PyTorch and TensorFlow Lite models still load. Replace Fedora's
+# GGUF, IR, PyTorch and TensorFlow Lite models still load. Replace Fedora's
 # 2025.1 frontend packages so upgrades resolve.
 Obsoletes:      lib%{name}-onnx-frontend < %{version}
 Obsoletes:      lib%{name}-paddle-frontend < %{version}
@@ -145,6 +146,15 @@ This package provides the Intel GPU plugin for OpenVINO.
 
 
 ## Frontend shared libraries ##
+
+%package -n lib%{name}-gguf-frontend
+Summary:        OpenVINO GGUF Frontend
+Requires:       %{name}%{?_isa} = %{version}-%{release}
+%description -n lib%{name}-gguf-frontend
+%{desc}
+.
+This package provides the GGUF frontend for OpenVINO.
+
 
 %package -n lib%{name}-ir-frontend
 Summary:        OpenVINO IR Frontend
@@ -243,6 +253,7 @@ sed -i '/openvino-telemetry/d' src/bindings/python/requirements.txt
       -DENABLE_OV_PADDLE_FRONTEND=OFF \
       -DENABLE_OV_PYTORCH_FRONTEND=ON \
       -DENABLE_OV_IR_FRONTEND=ON \
+      -DENABLE_OV_GGUF_FRONTEND=ON \
       -DENABLE_OV_TF_FRONTEND=OFF \
       -DENABLE_OV_TF_LITE_FRONTEND=ON \
       -DENABLE_OV_JAX_FRONTEND=OFF \
@@ -303,6 +314,7 @@ LD_LIBRARY_PATH=%{buildroot}%{_libdir} PYTHONPATH=%{buildroot}%{python3_sitearch
 
 
 %ldconfig_scriptlets
+%ldconfig_scriptlets -n lib%{name}-gguf-frontend
 %ldconfig_scriptlets -n lib%{name}-ir-frontend
 %ldconfig_scriptlets -n lib%{name}-pytorch-frontend
 %ldconfig_scriptlets -n lib%{name}-tensorflow-lite-frontend
@@ -347,6 +359,9 @@ LD_LIBRARY_PATH=%{buildroot}%{_libdir} PYTHONPATH=%{buildroot}%{python3_sitearch
 
 ## Frontends
 
+%files -n lib%{name}-gguf-frontend
+%{_libdir}/lib%{name}_gguf_frontend.so.*
+
 %files -n lib%{name}-ir-frontend
 %{_libdir}/lib%{name}_ir_frontend.so.*
 
@@ -367,6 +382,9 @@ LD_LIBRARY_PATH=%{buildroot}%{_libdir} PYTHONPATH=%{buildroot}%{python3_sitearch
 
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 2026.4.0-2
+- Package the GGUF frontend added in OpenVINO 2026.4.
+
 * Fri Oct 02 2026 kamm3r - 2026.4.0-1
 - Update Fedora's rawhide openvino 2026.0.0 spec to 2026.4.0 for Fedora 44,
   as openvino-genai 2026.4 requires, without the protobuf-based frontends.

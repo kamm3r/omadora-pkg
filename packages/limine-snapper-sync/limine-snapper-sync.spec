@@ -2,7 +2,7 @@
 
 Name:           limine-snapper-sync
 Version:        1.32.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Integrates Limine boot entries with Snapper snapshots
 License:        GPL-3.0-or-later
 URL:            https://gitlab.com/Zesko/limine-snapper-sync
@@ -15,6 +15,8 @@ ExclusiveArch:  x86_64 aarch64
 BuildRequires:  gradle
 BuildRequires:  java-25-openjdk-devel
 BuildRequires:  gcc
+BuildRequires:  curl
+BuildRequires:  systemd-rpm-macros
 BuildRequires:  glibc-devel
 BuildRequires:  zlib-devel
 # Runtime follows the PKGBUILD depends plus a dracut-compatible boot stack:
@@ -90,7 +92,8 @@ install -m 0644 README.md CHANGELOG.md %{buildroot}%{_docdir}/%{name}/
 
 %files
 %license LICENSE
-%doc %{_docdir}/%{name}/README.md %{_docdir}/%{name}/CHANGELOG.md
+%doc %{_docdir}/%{name}/README.md
+%doc %{_docdir}/%{name}/CHANGELOG.md
 %config(noreplace) %{_sysconfdir}/limine-snapper-sync.conf
 %{_sysconfdir}/xdg/autostart/limine-snapper-notify.desktop
 %{_sysconfdir}/xdg/autostart/limine-restore-notify.desktop
@@ -110,5 +113,8 @@ install -m 0644 README.md CHANGELOG.md %{buildroot}%{_docdir}/%{name}/
 %{_datadir}/icons/hicolor/128x128/apps/LimineSnapperSync.png
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 1.32.0-2
+- Declare the GraalVM download tool and systemd path macros.
+
 * Wed Sep 30 2026 kamm3r - 1.32.0-1
 - Port the upstream Omarchy recipe to Fedora (dracut boot stack, no ALPM hooks).

@@ -2,7 +2,7 @@
 
 Name:           once-bin
 Version:        0.3.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Manager for self-hosted web applications
 License:        MIT
 URL:            https://github.com/basecamp/once
@@ -11,6 +11,7 @@ URL:            https://github.com/basecamp/once
 Source0:        %{url}/releases/download/v%{version}/once-linux-amd64#/%{name}-%{version}-linux-amd64
 Source1:        https://raw.githubusercontent.com/basecamp/once/v%{version}/MIT-LICENSE#/%{name}-MIT-LICENSE-%{version}
 ExclusiveArch:  x86_64
+BuildRequires:  systemd-rpm-macros
 Provides:       once = %{version}-%{release}
 # PKGBUILD depends on 'docker'; Fedora has no such package, moby-engine and
 # podman-docker are the docker-compatible daemons.
@@ -62,5 +63,8 @@ fi
 %{_unitdir}/once-background.service
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 0.3.3-2
+- Require systemd RPM macros for the background service path.
+
 * Wed Sep 30 2026 kamm3r - 0.3.3-1
 - Repackage the upstream Omarchy Once release for Fedora.

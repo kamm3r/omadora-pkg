@@ -1,7 +1,7 @@
 Epoch:           1
 Name:           vi
 Version:        070224
-Release:        9%{?dist}
+Release:        10%{?dist}
 Summary:        The original ex/vi text editor
 License:        BSD-4-Clause-UC AND Caldera-no-preamble
 URL:            https://ex-vi.sourceforge.net/
@@ -46,13 +46,14 @@ make PREFIX=/usr LIBEXECDIR=/usr/lib/ex PRESERVEDIR=/var/lib/ex \
 
 %install
 make PREFIX=/usr LIBEXECDIR=/usr/lib/ex PRESERVEDIR=/var/lib/ex \
-  INSTALL=/usr/bin/install DESTDIR=%{buildroot} install
+  INSTALL=/usr/bin/install STRIP= DESTDIR=%{buildroot} install
 install -vDm 644 BSD-4-Clause-UC.txt Caldera-no-preamble.txt -t "%{buildroot}%{_datadir}/licenses/%{name}/"
 # The Makefile creates the preserve dir with mode 1777; keep it in the RPM.
 chmod 1777 %{buildroot}/var/lib/ex
 
 %files
-%license %{_datadir}/licenses/%{name}/BSD-4-Clause-UC.txt %{_datadir}/licenses/%{name}/Caldera-no-preamble.txt
+%license %{_datadir}/licenses/%{name}/BSD-4-Clause-UC.txt
+%license %{_datadir}/licenses/%{name}/Caldera-no-preamble.txt
 %{_bindir}/ex
 %{_bindir}/edit
 %{_bindir}/vedit
@@ -68,5 +69,9 @@ chmod 1777 %{buildroot}/var/lib/ex
 %dir %attr(1777,root,root) /var/lib/ex
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 1:070224-10
+- Put each installed license on its own file-list entry for RPM 6.
+- Leave debug information intact for RPM's debuginfo processing.
+
 * Thu Oct 01 2026 kamm3r - 1:070224-9
 - Port the upstream Omarchy original ex/vi recipe to Fedora.

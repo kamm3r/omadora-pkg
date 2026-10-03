@@ -3,7 +3,7 @@
 
 Name:           sunshine
 Version:        2026.914.233613
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Self-hosted game stream host for Moonlight
 License:        GPL-3.0-only
 URL:            https://app.lizardbyte.dev/Sunshine
@@ -46,6 +46,8 @@ BuildRequires:  pulseaudio-libs-devel
 BuildRequires:  python3-jinja2
 BuildRequires:  qt6-qtbase-devel
 BuildRequires:  qt6-qtsvg-devel
+BuildRequires:  pkgconfig(systemd)
+BuildRequires:  pkgconfig(libudev)
 BuildRequires:  systemd-rpm-macros
 BuildRequires:  vulkan-loader-devel
 BuildRequires:  which
@@ -160,5 +162,8 @@ fi
 %{_datadir}/sunshine/
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 2026.914.233613-2
+- Discover Fedora systemd and udev install paths through pkg-config.
+
 * Thu Oct 01 2026 kamm3r - 2026.914.233613-1
 - Port the upstream Omarchy recipe to Fedora.

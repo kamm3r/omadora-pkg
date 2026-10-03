@@ -1,10 +1,11 @@
 Name:           omarchy-task-manager
 Version:        0.1.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Floating native task manager for Omarchy
 License:        MIT
 URL:            https://github.com/tcballard/omarchy-task-manager
 Source0:        %{url}/releases/download/v%{version}/%{name}-%{version}.tar.gz
+Source1:        %{name}-vendor-%{version}.tar.gz
 BuildRequires:  cmake
 BuildRequires:  ninja-build
 BuildRequires:  gcc-c++
@@ -23,7 +24,7 @@ Omarchy Task Manager is a floating native task manager with live process
 metrics, GPU telemetry, and Hyprland integration.
 
 %prep
-%autosetup
+%autosetup -a 1
 
 %build
 %cmake -G Ninja -DBUILD_TESTING=OFF
@@ -46,5 +47,8 @@ rmdir %{buildroot}%{_datadir}/licenses/omarchy-task-manager
 %{_datadir}/omarchy-task-manager/bindings.lua.example
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 0.1.1-2
+- Bundle the locked Rust dependencies for the CMake core build.
+
 * Wed Sep 30 2026 kamm3r - 0.1.1-1
 - Port the upstream Omarchy recipe to Fedora.

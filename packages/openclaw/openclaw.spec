@@ -2,15 +2,15 @@
 
 Name:           openclaw
 Version:        2026.9.6
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Multi-channel AI gateway with extensible messaging integrations
 License:        MIT
 URL:            https://github.com/openclaw/openclaw
 Source0:        https://registry.npmjs.org/openclaw/-/openclaw-%{version}.tgz#/%{name}-%{version}.tgz
-BuildArch:      noarch
-BuildRequires:  nodejs >= 22
-BuildRequires:  npm
-Requires:       nodejs >= 22
+ExclusiveArch:  x86_64 aarch64
+BuildRequires:  nodejs24 >= 1:24.16.0
+BuildRequires:  nodejs24-npm
+Requires:       nodejs24 >= 1:24.16.0
 Recommends:     curl
 Recommends:     ffmpeg
 Recommends:     gh
@@ -32,7 +32,9 @@ cp "%{SOURCE0}" %{name}-%{version}.tgz
 :
 
 %install
-mkdir -p home npm-cache
+mkdir -p home npm-cache node-bin
+ln -s /usr/bin/node-24 node-bin/node
+export PATH="$PWD/node-bin:$PATH"
 export SHARP_IGNORE_GLOBAL_LIBVIPS=1
 # npm 12 blocks install-time lifecycle scripts unless the package is
 # allow-listed, and for a local tarball the allow-list key is the tarball's
@@ -41,7 +43,7 @@ export SHARP_IGNORE_GLOBAL_LIBVIPS=1
 # so it gets a scratch HOME: a maintainer's own OpenClaw is not the build's
 # to touch.
 env -u OPENCLAW_HOME -u OPENCLAW_STATE_DIR -u OPENCLAW_CONFIG_PATH HOME="$PWD/home" \
-  npm install --silent --global --cache "$PWD/npm-cache" \
+  npm-24 install --global --cache "$PWD/npm-cache" \
   --allow-scripts="file:$PWD/%{name}-%{version}.tgz" \
   --prefix "%{buildroot}%{_prefix}" "$PWD/%{name}-%{version}.tgz"
 if [ -e "%{buildroot}%{_prefix}/lib/node_modules/%{name}/.openclaw-lifecycle-pending" ]; then
@@ -56,7 +58,7 @@ rm -f "%{buildroot}%{_bindir}/openclaw"
 cat > "%{buildroot}%{_bindir}/openclaw" <<'EOF'
 #!/bin/sh
 export SHARP_IGNORE_GLOBAL_LIBVIPS=1
-exec node /usr/lib/node_modules/openclaw/openclaw.mjs "$@"
+exec node-24 /usr/lib/node_modules/openclaw/openclaw.mjs "$@"
 EOF
 chmod 0755 "%{buildroot}%{_bindir}/openclaw"
 find "%{buildroot}%{_prefix}" -type d -exec chmod 755 {} +
@@ -74,5 +76,9 @@ done
 %{_prefix}/lib/node_modules/%{name}/
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 2026.9.6-2
+- Use the required Node 24 runtime and package native npm dependencies by arch.
+- Keep npm failures visible in the build log.
+
 * Thu Oct 01 2026 kamm3r - 2026.9.6-1
 - Port the upstream Omarchy OpenClaw npm release to Fedora.

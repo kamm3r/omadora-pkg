@@ -1,6 +1,6 @@
 Name:           link-studio
 Version:        1.0.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Native Linux controller for Insta360 Link webcams
 License:        MIT
 URL:            https://jweaver60.github.io/link-studio/
@@ -12,6 +12,9 @@ BuildRequires:  python3-setuptools
 BuildRequires:  python3-wheel
 BuildRequires:  python3-rpm-macros
 # Test-only dependencies for the unittest suite in %check.
+BuildRequires:  gobject-introspection
+BuildRequires:  gtk4
+BuildRequires:  libadwaita
 BuildRequires:  gstreamer1
 BuildRequires:  python3-gobject
 BuildRequires:  python3-numpy
@@ -70,5 +73,8 @@ install -D -m 0755 scripts/setup-local-ai %{buildroot}%{_bindir}/link-studio-set
 %{_datadir}/metainfo/io.github.linkstudio.LinkStudio.metainfo.xml
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 1.0.4-2
+- Install GTK and Adwaita typelibs for the test suite.
+
 * Wed Sep 30 2026 kamm3r - 1.0.4-1
 - Port the upstream Omarchy Link Studio recipe to Fedora.

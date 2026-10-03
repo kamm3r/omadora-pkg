@@ -7,7 +7,7 @@
 
 Name:           hermes-desktop
 Version:        2026.9.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Native desktop shell for Hermes Agent
 License:        MIT
 URL:            https://github.com/NousResearch/hermes-agent
@@ -28,6 +28,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  git
 BuildRequires:  make
 BuildRequires:  nodejs
+BuildRequires:  nodejs-full-i18n
 BuildRequires:  npm
 BuildRequires:  python3
 Requires:       alsa-lib
@@ -59,6 +60,7 @@ Requires:       make
 Requires:       mesa-libEGL
 Requires:       mesa-libgbm
 Requires:       nodejs
+Requires:       nodejs-full-i18n
 Requires:       npm
 Requires:       nspr
 Requires:       nss
@@ -78,6 +80,7 @@ upstream PKGBUILD.
 %prep
 %autosetup -n hermes-agent-%{version}
 cp "%{SOURCE1}" hermes-desktop.sh
+sed -i 's|^python=/usr/bin/python$|python=/usr/bin/python3|' hermes-desktop.sh
 cp "%{SOURCE2}" hermes-desktop.desktop
 cp "%{SOURCE3}" hermes-desktop.png
 cp "%{SOURCE4}" runtime.patch
@@ -103,10 +106,11 @@ npm run pack
 python3 runtime-test.py "$PWD" "$PWD/runtime.patch" "$PWD/hermes-desktop.sh"
 
 %install
+launcher="$PWD/hermes-desktop.sh"
 cd apps/desktop/release/linux-unpacked
 install -dm755 %{buildroot}/opt/%{name}
 cp -a . %{buildroot}/opt/%{name}/
-install -D -m 0755 %{SOURCE1} %{buildroot}%{_bindir}/%{name}
+install -D -m 0755 "$launcher" %{buildroot}%{_bindir}/%{name}
 install -D -m 0644 ../../../../scripts/install.sh %{buildroot}%{_datadir}/%{name}/install.sh
 # The installer still requires this patch. The release includes the fix, so
 # the installer recognizes it through its reverse-apply check.
@@ -133,5 +137,9 @@ chmod 0755 %{buildroot}/opt/%{name}/chrome-sandbox
 %{_datadir}/%{name}/runtime.patch
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 2026.9.7-2
+- Require ICU data so Intl.Segmenter works during builds and updater rebuilds.
+- Use Fedora's Python 3 interpreter in the launcher fallback.
+
 * Thu Oct 01 2026 kamm3r - 2026.9.7-1
 - Build the upstream Omarchy Hermes Desktop release for Fedora.

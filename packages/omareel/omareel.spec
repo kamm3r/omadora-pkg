@@ -2,7 +2,7 @@
 
 Name:           omareel
 Version:        0.1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Screen recorder and editor for Omarchy
 License:        MIT
 URL:            https://github.com/omacom/omareel
@@ -20,7 +20,7 @@ BuildRequires:  qt6-qtsvg-devel
 BuildRequires:  qt6-qtshadertools-devel
 BuildRequires:  layer-shell-qt-devel
 BuildRequires:  libevdev-devel
-BuildRequires:  libjpeg-turbo-devel
+BuildRequires:  pkgconfig(libturbojpeg)
 BuildRequires:  libdrm-devel
 BuildRequires:  pixman-devel
 BuildRequires:  wayland-devel
@@ -44,7 +44,9 @@ cursor, auto zooms, and a camera bubble.
 %autosetup
 
 %build
-./bin/build
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release \
+  -DOMAREEL_BUILD_HYPRLAND_PLUGIN=ON -DCMAKE_SKIP_RPATH=ON
+cmake --build build --parallel %{_smp_build_ncpus}
 
 %install
 install -D -m 0755 build/omareel %{buildroot}%{_bindir}/omareel
@@ -79,5 +81,9 @@ install -D -m 0644 pkg/omareel.desktop %{buildroot}%{_datadir}/applications/omar
 %{_datadir}/icons/hicolor/512x512/apps/omareel.png
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 0.1.0-2
+- Require the TurboJPEG API used by the recorder.
+- Omit build-time RPATHs from the installed program and plugin.
+
 * Wed Sep 30 2026 kamm3r - 0.1.0-1
 - Port the upstream Omarchy recipe to Fedora.

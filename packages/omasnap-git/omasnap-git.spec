@@ -2,7 +2,7 @@
 
 Name:           omasnap-git
 Version:        1.21.0.r76.g614cdf5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Wayland screenshot and annotation overlay for Hyprland (main-branch build)
 License:        MIT AND OFL-1.1 AND ISC
 URL:            https://github.com/omacom/omasnap
@@ -17,6 +17,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  pkgconf-pkg-config
 BuildRequires:  qt6-qtbase-devel
 BuildRequires:  layer-shell-qt-devel
+BuildRequires:  pkgconfig(libdeflate)
 BuildRequires:  wayland-devel
 BuildRequires:  wayland-protocols-devel
 BuildRequires:  tesseract
@@ -62,5 +63,8 @@ XDG_RUNTIME_DIR="$runtime_dir" QT_QPA_PLATFORM=offscreen QT_QPA_PLATFORMTHEME= Q
 %{_datadir}/licenses/omasnap/*.txt
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 1.21.0.r76.g614cdf5-2
+- Add libdeflate for the main-branch screenshot encoder.
+
 * Thu Oct 01 2026 kamm3r - 1.21.0.r76.g614cdf5-1
 - Port the upstream Omarchy main-branch screenshot overlay to Fedora.

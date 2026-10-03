@@ -21,11 +21,11 @@ cua-hyprland-plugin	ready	Fedora RPM recipe; pinned to Hyprland COPR 0.56.2
 cursor-bin	ready	Fedora RPM recipe
 cursor-cli	ready	Fedora RPM recipe
 dbxcli-bin	ready	Fedora RPM recipe
-dell-xps-touchpad-haptics	ready	Fedora RPM recipe
+dell-xps-touchpad-haptics	published	Fedora RPM recipe; verified in COPR
 dell-xps13-sidecar-amps	ready	Fedora RPM recipe
 disktree-bin	published	COPR package
 dotnet-core-bin	not-applicable	Fedora ships dotnet-sdk/runtime; dev flow via mise
-dropbox	ready	Fedora RPM recipe
+dropbox	published	Fedora RPM recipe; verified in COPR
 dropbox-cli	ready	Fedora RPM recipe
 elephant	ready	Fedora RPM recipe
 elephant-all	ready	Fedora RPM recipe
@@ -44,17 +44,17 @@ elephant-unicode	ready	Fedora RPM recipe
 elephant-websearch	ready	Fedora RPM recipe
 flea	ready	Fedora RPM recipe
 ghostty	not-applicable	Terra ships exact version incl. subpackages
-github-copilot-cli	ready	Fedora RPM recipe
+github-copilot-cli	published	Fedora RPM recipe; verified in COPR
 gliff	ready	Fedora RPM recipe
 google-chrome	ready	Fedora RPM recipe
 grok-bot	ready	Fedora RPM recipe
-herdr	ready	Fedora RPM recipe
-hermes-desktop	ready	Fedora RPM recipe
+herdr	published	Fedora RPM recipe; verified in COPR
+hermes-desktop	published	Fedora RPM recipe; verified in COPR
 heroic-games-launcher-bin	ready	Fedora RPM recipe
 hype	published	COPR package
 hyprland	not-applicable	Hyprland COPR ships same version
 hyprland-guiutils	not-applicable	Hyprland COPR ships same version
-hyprland-preview-share-picker	ready	Fedora RPM recipe
+hyprland-preview-share-picker	published	Fedora RPM recipe; verified in COPR
 hyprshade	published	COPR package
 hyprtoolkit	not-applicable	Hyprland COPR ships exact version
 intel-ipu7-camera	not-applicable	no-op, in-tree kernel support
@@ -68,25 +68,25 @@ libretro-uae-git	not-applicable	not in Fedora set; Flatpak fallback
 libretro-vice-git	not-applicable	not in Fedora set; Flatpak fallback
 libva-v4l2_request-avd	not-applicable	Asahi fork; Fedora ships libva-v4l2-request
 limine-mkinitcpio-hook	not-applicable	mkinitcpio hook; Omadora uses dracut
-limine-snapper-sync	ready	Fedora RPM recipe
-link-studio	ready	Fedora RPM recipe
+limine-snapper-sync	published	Fedora RPM recipe; verified in COPR
+link-studio	published	Fedora RPM recipe; verified in COPR
 linux-aurora	not-applicable	Asahi kernel; Fedora boots stock kernel
 linux-firmware-cirrus	not-applicable	Arch shim; Fedora uses linux-firmware bundle
 linux-omarchy	not-applicable	Arch kernel; Fedora uses stock kernel
 linux-omarchy-bore	not-applicable	Arch kernel variant
 linux-ptl	not-applicable	stock kernel already covers PTL
 lmstudio-bin	ready	Fedora RPM recipe
-localsend	ready	Fedora RPM recipe
+localsend	published	Fedora RPM recipe; verified in COPR
 localsend-bin	ready	Fedora RPM recipe
 m1n1-aurora	not-applicable	Apple bootloader; Fedora ships stock m1n1
 macbook12-spi-driver-dkms	not-applicable	no-op; dracut add_drivers covers
 macbook8-spi-pxa2xx-nodma-dkms	ready	Fedora RPM recipe
-makima-bin	ready	Fedora RPM recipe
+makima-bin	published	Fedora RPM recipe; verified in COPR
 microsoft-edge-stable-bin	ready	Fedora RPM recipe
 minecraft-launcher	ready	Fedora RPM recipe
 mise-bin	ready	Fedora RPM recipe
 monologue	published	COPR package
-nautilus-dropbox	ready	Fedora RPM recipe
+nautilus-dropbox	published	Fedora RPM recipe; verified in COPR
 nautilus-open-any-terminal	published	COPR package with Caja subpackage
 nordvpn-bin	ready	Fedora RPM recipe
 nvidia-580xx-utils	not-applicable	superseded by RPMFusion akmod-nvidia
@@ -100,7 +100,7 @@ omakade	published	COPR package
 omapresent	published	COPR package
 omarchy	published	COPR package
 omarchy-audio-tuner	published	COPR package
-omarchy-billboard-generator	ready	Fedora RPM recipe
+omarchy-billboard-generator	published	Fedora RPM recipe; verified in COPR
 omarchy-chromium-bin	ready	Fedora RPM recipe
 omarchy-dev	not-applicable	covered by core omarchy spec via dev_suffix
 omarchy-emacs	published	COPR package
@@ -109,44 +109,44 @@ omarchy-keyring	not-applicable	pacman keyring; Fedora uses RPM signing keys
 omarchy-mac	not-applicable	Apple Silicon aarch64 add-on, x86_64 out of scope
 omarchy-mac-boot	not-applicable	Arch mkinitcpio boot stack; Omadora uses dracut+kernel-install
 omarchy-meeting-recorder-bin	published	COPR package
-omarchy-nvim	ready	Fedora RPM recipe
+omarchy-nvim	published	Fedora RPM recipe; verified in COPR
 omarchy-settings	published	COPR package
 omarchy-settings-dev	not-applicable	covered by core settings spec via dev_suffix
 omarchy-steam-fex	ready	Fedora RPM recipe
-omarchy-task-manager	ready	Fedora RPM recipe
+omarchy-task-manager	published	Fedora RPM recipe; verified in COPR
 omarchy-walker	ready	Fedora RPM recipe
 omarchy-zsh	published	COPR package
-omareel	ready	Fedora RPM recipe
+omareel	published	Fedora RPM recipe; verified in COPR
 omasnap	published	COPR package
-omasnap-git	ready	Fedora RPM recipe
+omasnap-git	published	Fedora RPM recipe; verified in COPR
 omaspeak-bin	ready	Fedora RPM recipe
 omatrack	ready	Fedora RPM recipe; source from a checksum-verified fork
 omawake-bin	ready	Fedora RPM recipe
 omawrite	published	COPR package
 omazed	published	COPR package
-once-bin	ready	Fedora RPM recipe
+once-bin	published	Fedora RPM recipe; verified in COPR
 openai-codex-bin	ready	Fedora RPM recipe
 openai-codex-desktop	ready	Fedora RPM recipe
-openclaw	ready	Fedora RPM recipe
-openvino-genai	ready	Fedora RPM recipe
+openclaw	published	Fedora RPM recipe; verified in COPR
+openvino-genai	published	Fedora RPM recipe; verified in COPR
 owe	published	COPR package
 owe-lockfeed	published	COPR package
 perplexity	ready	Fedora RPM recipe
-pinta	ready	Fedora RPM recipe
-python-mediapipe	ready	Fedora RPM recipe
+pinta	published	Fedora RPM recipe; verified in COPR
+python-mediapipe	published	Fedora RPM recipe; verified in COPR
 python-sounddevice	published	COPR package
 python-terminaltexteffects	published	COPR package
 qemu-user-static	not-applicable	Fedora ships qemu-user-static natively
 qmk-hid	published	COPR package
 quickshell-git	not-applicable	Hyprland COPR ships newer quickshell
 retroarch-joypad-autoconfig-git	ready	Fedora RPM recipe
-rustdesk	ready	Fedora RPM recipe
+rustdesk	published	Fedora RPM recipe; verified in COPR
 schist-bin	ready	Fedora RPM recipe
 slap-notes-bin	ready	Fedora RPM recipe
 spotify	ready	Fedora RPM recipe
-strata	ready	Fedora RPM recipe
+strata	published	Fedora RPM recipe; verified in COPR
 sublime-text-4	ready	Fedora RPM recipe
-sunshine	ready	Fedora RPM recipe
+sunshine	published	Fedora RPM recipe; verified in COPR
 supergfxctl	ready	Fedora RPM recipe
 symfony-cli	ready	Fedora RPM recipe
 t3code-bin	ready	Fedora RPM recipe
@@ -161,15 +161,15 @@ typora	ready	Fedora RPM recipe
 tzupdate	published	COPR package
 uboot-asahi	not-applicable	Apple Silicon bootloader, out of scope
 ufw-docker	not-applicable	UFW integration; Omadora uses firewalld
-v4l2-relayd	ready	Fedora RPM recipe
-vi	ready	Fedora RPM recipe
+v4l2-relayd	published	Fedora RPM recipe; verified in COPR
+vi	published	Fedora RPM recipe; verified in COPR
 visual-studio-code-bin	ready	Fedora RPM recipe
 voxtype-bin	ready	Fedora RPM recipe
 walker	ready	Fedora RPM recipe
 wayfreeze	published	COPR package
 xdg-terminal-exec	published	COPR package
 xpadneo-dkms	not-applicable	Terra ships xpadneo RPM
-yaru-icon-theme	ready	Fedora RPM recipe
+yaru-icon-theme	published	Fedora RPM recipe; verified in COPR
 yay	not-applicable	Arch AUR client; Fedora uses DNF and Flatpak
 yt6801-dkms	not-applicable	kernel dwmac-motorcomm replaces it
 zed	ready	Fedora RPM recipe

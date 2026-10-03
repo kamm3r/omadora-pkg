@@ -2,7 +2,7 @@
 
 Name:           strata
 Version:        0.20.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fast, keyboard-first file manager for modern Linux desktops
 License:        MIT
 URL:            https://github.com/lgse/strata
@@ -11,6 +11,7 @@ Source1:        %{name}-vendor-%{version}.tar.gz
 BuildRequires:  cargo
 BuildRequires:  rust
 BuildRequires:  gcc
+BuildRequires:  gcc-c++
 BuildRequires:  pkgconf-pkg-config
 BuildRequires:  glib2-devel
 BuildRequires:  pkgconfig(cairo)
@@ -71,5 +72,8 @@ install -D -m 0644 data/io.github.lgse.Strata.FileManager1.service %{buildroot}%
 %{_datadir}/strata/io.github.lgse.Strata.FileManager1.service
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 0.20.1-2
+- Add the C++ compiler required by unrar_sys.
+
 * Wed Sep 30 2026 kamm3r - 0.20.1-1
 - Port the upstream Omarchy recipe to Fedora.

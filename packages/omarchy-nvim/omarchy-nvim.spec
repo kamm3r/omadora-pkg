@@ -3,7 +3,7 @@
 
 Name:           omarchy-nvim
 Version:        2026.9.21
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Pre-built LazyVim configuration with cached plugins
 License:        MIT
 URL:            https://github.com/LazyVim/LazyVim
@@ -19,6 +19,7 @@ Source8:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_
 Source9:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/omarchy-nvim/plugin/after/transparency.lua
 BuildArch:      noarch
 BuildRequires:  git
+BuildRequires:  gcc
 BuildRequires:  nodejs
 BuildRequires:  npm
 BuildRequires:  tree-sitter-cli
@@ -147,6 +148,11 @@ find %{buildroot}%{_datadir}/%{name} -type f -exec chmod 644 {} \;
 # from /etc/skel do not need a first-login omarchy-nvim-setup cleanup pass.
 restore_lazy_worktrees %{buildroot}%{_datadir}/%{name}/data
 
+# Cached plugins contain development scripts with /usr/bin/env python.
+# Normalize their shebangs to Fedora's Python 3 before the RPM policy check.
+find %{buildroot}%{_datadir}/%{name} -type f -name "*.py" \
+  -exec sed -i '1s|^#!/usr/bin/env python$|#!/usr/bin/python3|' {} +
+
 # Seed new users via /etc/skel. The installer installs omarchy-nvim before
 # creating the first user, so this handles initial ISO installs and future
 # users without an extra overwrite step.
@@ -177,5 +183,8 @@ ln -s omarchy-nvim-setup %{buildroot}%{_bindir}/omarchy-nvim-refresh
 /etc/skel/.local/share/nvim
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 2026.9.21-2
+- Install the parser compiler and normalize cached plugin Python shebangs.
+
 * Wed Sep 30 2026 kamm3r - 2026.9.21-1
 - Port the upstream Omarchy LazyVim recipe to Fedora.

@@ -1,6 +1,6 @@
 Name:           v4l2-relayd
 Version:        0.2.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Play GStreamer sources into v4l2loopback devices
 License:        GPL-2.0-or-later
 URL:            https://gitlab.com/vicamo/v4l2-relayd
@@ -11,6 +11,7 @@ BuildRequires:  autoconf-archive
 BuildRequires:  automake
 BuildRequires:  gcc
 BuildRequires:  libtool
+BuildRequires:  which
 BuildRequires:  make
 BuildRequires:  pkgconfig(gio-unix-2.0)
 BuildRequires:  pkgconfig(glib-2.0)
@@ -18,6 +19,7 @@ BuildRequires:  pkgconfig(gstreamer-1.0)
 BuildRequires:  pkgconfig(gstreamer-app-1.0)
 BuildRequires:  pkgconfig(gstreamer-video-1.0)
 BuildRequires:  pkgconfig(systemd)
+BuildRequires:  systemd-rpm-macros
 Requires:       glib2
 Requires:       gstreamer1
 Requires:       gstreamer1-plugins-base
@@ -111,12 +113,15 @@ rmdir %{buildroot}%{_sysconfdir}/modprobe.d || :
 %doc README.md
 %{_bindir}/v4l2-relayd
 %config(noreplace) %{_sysconfdir}/default/v4l2-relayd
-%{_sysconfdir}/modules-load.d/v4l2-relayd.conf
+%{_modulesloaddir}/v4l2-relayd.conf
 %{_sysconfdir}/v4l2-relayd.d/
 %{_unitdir}/v4l2-relayd.service
 %{_unitdir}/v4l2-relayd@.service
-%{_libexecdir}/systemd/system-generators/v4l2-relayd-generator
+%{_prefix}/lib/systemd/system-generators/v4l2-relayd-generator
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 0.2.0-2
+- Use the Fedora systemd modules-load and generator install paths.
+
 * Wed Sep 30 2026 kamm3r - 0.2.0-1
 - Port the upstream Omarchy v4l2 loopback relay to Fedora.

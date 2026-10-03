@@ -1,6 +1,10 @@
+# The optimized Bazel wheel has no collectable DWARF source paths.
+# Keep native debuginfo, but do not declare an empty debug-source package.
+%undefine _debugsource_packages
+
 Name:           python-mediapipe
 Version:        1.0.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Cross-platform customizable ML solutions for live and streaming media
 License:        Apache-2.0
 URL:            https://github.com/google-ai-edge/mediapipe
@@ -11,8 +15,11 @@ Source1:        https://github.com/bazelbuild/bazel/releases/download/%{_bazel_v
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/python-mediapipe/0005-set-hermetic-python-version-and-disable-odml-converter.patch
 Source3:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/python-mediapipe/0007-bump-rules-java.patch
 ExclusiveArch:  x86_64
+BuildRequires:  mesa-libEGL-devel
+BuildRequires:  mesa-libGLES-devel
 BuildRequires:  gcc-c++
 BuildRequires:  patchelf
+BuildRequires:  perl-interpreter
 BuildRequires:  python3-build
 BuildRequires:  python3-devel
 BuildRequires:  python3-installer
@@ -58,8 +65,14 @@ patch -Np1 -i "%{SOURCE2}"
 patch -Np1 -i "%{SOURCE3}"
 # set __version__
 sed -i "s/__version__ = 'dev'/__version__ = '%{version}'/" setup.py
+# Fedora provides cv2 as the opencv Python distribution.
+sed -i 's/opencv-contrib-python/opencv/g' requirements.txt
 # set link_opencv to True
 sed -i "s/self.link_opencv = False/self.link_opencv = True/g" setup.py
+# Upstream leaves the OpenCV 4 header rules commented out.
+sed -i 's|#"include/opencv4/|"include/opencv4/|' third_party/opencv_linux.BUILD
+# Stray characters in the upstream test prevent RPM's Python byte-compilation.
+sed -i 's/0\.9624276,∂ç/0.9624276,/' mediapipe/tasks/python/test/text/text_embedder_test.py
 
 %build
 export PATH="$PWD/bin:$PATH"
@@ -74,9 +87,18 @@ find %{buildroot} -type f -name "*.so" -exec chmod 755 {} \;
 
 %files
 %license LICENSE
-%{python3_sitelib}/mediapipe/
-%{python3_sitelib}/mediapipe-%{version}.dist-info/
+%{python3_sitearch}/mediapipe/
+%{python3_sitearch}/mediapipe-%{version}.dist-info/
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 1.0.0-3
+- Add EGL and GLES development headers for the GPU-enabled wheel.
+- Enable the system OpenCV 4 include rules in the Bazel target.
+- Own the platform wheel under the Python architecture-specific directory.
+- Add Perl for TensorFlow Lite's schema generation rule.
+- Remove stray characters from the upstream text embedder test.
+- Preserve native debuginfo without an empty Bazel debug-source package.
+- Require Fedora's opencv distribution instead of the PyPI wheel name.
+
 * Thu Oct 01 2026 kamm3r - 1.0.0-2
 - Port the upstream Omarchy MediaPipe Python recipe to Fedora.

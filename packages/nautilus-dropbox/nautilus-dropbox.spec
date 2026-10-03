@@ -1,6 +1,6 @@
 Name:           nautilus-dropbox
 Version:        2026.05.06
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Dropbox Nautilus Extension
 License:        CC-BY-ND-3.0 AND GPL-3.0-or-later
 URL:            https://www.dropbox.com/
@@ -14,6 +14,7 @@ BuildRequires:  gnome-common
 BuildRequires:  libtool
 BuildRequires:  make
 BuildRequires:  nautilus-devel
+BuildRequires:  pkgconfig(gtk4)
 BuildRequires:  pkgconf-pkg-config
 BuildRequires:  python3
 BuildRequires:  python3-docutils
@@ -50,5 +51,8 @@ rm -f %{buildroot}%{_libdir}/nautilus/extensions-*/libnautilus-dropbox.a
 %{_datadir}/icons/hicolor/*/apps/dropbox.png
 
 %changelog
+* Sat Oct 03 2026 kamm3r - 2026.05.06-2
+- Add the GTK 4 headers required by configure.
+
 * Thu Oct 01 2026 kamm3r - 2026.05.06-1
 - Port the upstream Omarchy recipe to Fedora.
