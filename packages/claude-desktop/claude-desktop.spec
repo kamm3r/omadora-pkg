@@ -6,12 +6,12 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node)
 
 Name:           claude-desktop
-Version:        2.7032.0
+Version:        2.9939.4
 Release:        1%{?dist}
 Summary:        Official Claude desktop app with Claude Code
 License:        LicenseRef-proprietary
 URL:            https://claude.ai
-%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
+%global omarchy_pkgs_commit e3dfdd376ce0aac7064497c7bd121f620fa26799
 Source0:        https://downloads.claude.ai/claude-desktop/apt/stable/pool/main/c/claude-desktop/claude-desktop_%{version}_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/claude-desktop/claude-desktop-launcher.sh
 ExclusiveArch:  x86_64
@@ -92,5 +92,8 @@ fi
 %{_datadir}/icons/hicolor/*/apps/claude-desktop.png
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 2.9939.4-1
+- Update to the release pinned on upstream master.
+
 * Thu Oct 01 2026 kamm3r - 2.7032.0-1
 - Repackage the upstream Omarchy Claude Desktop release for Fedora.

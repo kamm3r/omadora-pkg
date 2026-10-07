@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           aether
-Version:        4.30.0
+Version:        4.31.1
 Release:        1%{?dist}
 Summary:        Desktop theming application for Omarchy
 License:        MIT
@@ -37,5 +37,8 @@ install -D -m 0644 assets/aether-icon-512.png %{buildroot}%{_datadir}/icons/hico
 %{_datadir}/icons/hicolor/512x512/apps/aether.png
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 4.31.1-1
+- Update to the release pinned on upstream master.
+
 * Mon Sep 28 2026 kamm3r - 4.30.0-1
 - Port the upstream Omarchy release package to Fedora.

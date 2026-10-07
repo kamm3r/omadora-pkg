@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           claude-code
-Version:        2.1.283
+Version:        2.1.289
 Release:        1%{?dist}
 Summary:        Agentic coding tool that lives in your terminal
 License:        LicenseRef-claude-code
@@ -47,5 +47,8 @@ chmod 0755 %{buildroot}%{_bindir}/claude
 %{_bindir}/claude
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 2.1.289-1
+- Update to the release pinned on upstream master.
+
 * Wed Sep 30 2026 kamm3r - 2.1.283-1
 - Repackage the upstream Omarchy Claude Code release for Fedora.

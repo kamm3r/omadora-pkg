@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           omawrite
-Version:        0.5.0
+Version:        0.6.0
 Release:        1%{?dist}
 Summary:        Simple Markdown writing app built with Qt Quick
 License:        MIT AND OFL-1.1
@@ -37,5 +37,8 @@ install -D -m 0644 pkgbuild/omawrite.svg %{buildroot}%{_datadir}/icons/hicolor/s
 %{_datadir}/icons/hicolor/scalable/apps/omawrite.svg
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 0.6.0-1
+- Update to the release pinned on upstream master.
+
 * Mon Sep 28 2026 kamm3r - 0.5.0-1
 - Port the upstream Omarchy Markdown editor to Fedora.

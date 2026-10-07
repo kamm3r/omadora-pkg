@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           crush-bin
-Version:        0.96.1
+Version:        0.97.1
 Release:        1%{?dist}
 Summary:        Terminal-based AI assistant for developers
 License:        FSL-1.1-MIT
@@ -37,5 +37,8 @@ install -D -m 0644 manpages/crush.1.gz %{buildroot}%{_mandir}/man1/crush.1.gz
 %{_mandir}/man1/crush.1.gz
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 0.97.1-1
+- Update to the release pinned on upstream master.
+
 * Wed Sep 30 2026 kamm3r - 0.96.1-1
 - Repackage the upstream Omarchy Crush release for Fedora.

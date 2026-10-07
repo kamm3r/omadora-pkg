@@ -1,10 +1,10 @@
 Name:           dropbox-cli
-Version:        2026.05.06
+Version:        2026.09.28
 Release:        1%{?dist}
 Summary:        Command line interface for Dropbox
 License:        GPL-3.0-or-later
 URL:            https://www.dropbox.com
-%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
+%global omarchy_pkgs_commit e3dfdd376ce0aac7064497c7bd121f620fa26799
 Source0:        https://linux.dropbox.com/packages/nautilus-dropbox-%{version}.tar.bz2#/%{name}-%{version}.tar.bz2
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/dropbox-cli/dropboxd-fallback.patch
 BuildArch:      noarch
@@ -34,5 +34,8 @@ install -D -m 0755 %{name} %{buildroot}%{_bindir}/%{name}
 %{_bindir}/%{name}
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 2026.09.28-1
+- Update to the release pinned on upstream master.
+
 * Thu Oct 01 2026 kamm3r - 2026.05.06-1
 - Port the upstream Omarchy recipe to Fedora.

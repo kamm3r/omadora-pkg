@@ -1,18 +1,21 @@
 %global debug_package %{nil}
 
 Name:           limine-snapper-sync
-Version:        1.32.0
-Release:        2%{?dist}
+Version:        1.32.1
+Release:        1%{?dist}
 Summary:        Integrates Limine boot entries with Snapper snapshots
 License:        GPL-3.0-or-later
 URL:            https://gitlab.com/Zesko/limine-snapper-sync
 Source0:        %{url}/-/archive/%{version}/%{name}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 ExclusiveArch:  x86_64 aarch64
 # Upstream builds a GraalVM native image with Gradle 9.7.1 plus GraalVM CE
-# JDK 25.0.2. Fedora ships OpenJDK 25 and Gradle (Terra); the exact GraalVM
+# JDK 25.0.2. Bundle Gradle because Fedora 44 has no Gradle RPM. The GraalVM
 # bootstrap tarball is fetched in %%build, mirroring the PKGBUILD
 # source_x86_64/source_aarch64 entries.
-BuildRequires:  gradle
+BuildRequires:  unzip
+BuildRequires:  gettext
+%global gradle_version 9.7.1
+Source1:        https://services.gradle.org/distributions/gradle-%{gradle_version}-bin.zip
 BuildRequires:  java-25-openjdk-devel
 BuildRequires:  gcc
 BuildRequires:  curl
@@ -44,12 +47,15 @@ created, deleted, or restored.
 
 %prep
 %autosetup
+# Native-image otherwise sizes its heap and thread pool from the entire host.
+# Keep the compiler within the memory available on standard COPR builders.
+sed -i '/buildArgs.add("-Os")/a\            buildArgs.add("-J-Xmx3g")\n            buildArgs.add("--parallelism=2")' build.gradle.kts
 
 %build
 # Bootstrap the exact GraalVM CE JDK the upstream PKGBUILD pins, since Fedora
 # ships no GraalVM 25 native-image toolchain. URLs and hashes mirror the
-# PKGBUILD source_x86_64/source_aarch64 entries; system Gradle is used on
-# both arches (Fedora/terra gradle, upstream pins 9.7.1).
+# PKGBUILD source_x86_64/source_aarch64 entries. Use the same verified Gradle
+# distribution on both architectures.
 if [[ "%{_arch}" == "x86_64" ]]; then
   graal_url="https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-25.0.2/graalvm-community-jdk-25.0.2_linux-x64_bin.tar.gz"
   graal_sha="e0be791c8fda4d03b6b0a0cb824fef3149736170057b3a515252b44419606af0"
@@ -65,7 +71,8 @@ tar -xzf graalvm.tar.gz -C graalvm_ce_jdk25 --strip-components=1
 export GRAALVM_HOME="$PWD/graalvm_ce_jdk25"
 export JAVA_HOME="$GRAALVM_HOME"
 export NATIVE_IMAGE_OPTIONS="-march=compatibility"
-gradle clean nativeCompile -Dorg.gradle.java.home="${JAVA_HOME}"
+unzip -q %{SOURCE1}
+./gradle-%{gradle_version}/bin/gradle --no-daemon --max-workers=4 clean nativeCompile -Dorg.gradle.java.home="${JAVA_HOME}"
 
 %install
 # Native binary built above.
@@ -87,6 +94,9 @@ install -D -m 0644 "$src/etc/xdg/autostart/limine-snapper-notify.desktop" %{buil
 install -D -m 0644 "$src/etc/xdg/autostart/limine-restore-notify.desktop" %{buildroot}%{_sysconfdir}/xdg/autostart/limine-restore-notify.desktop
 install -D -m 0644 "$src/usr/share/applications/limine-snapper-restore.desktop" %{buildroot}%{_datadir}/applications/limine-snapper-restore.desktop
 install -D -m 0644 "$src/usr/share/icons/hicolor/128x128/apps/LimineSnapperSync.png" %{buildroot}%{_datadir}/icons/hicolor/128x128/apps/LimineSnapperSync.png
+if [ -d "$src/usr/share/locale" ]; then
+  cp -a "$src/usr/share/locale" %{buildroot}%{_datadir}/
+fi
 install -d %{buildroot}%{_docdir}/%{name}
 install -m 0644 README.md CHANGELOG.md %{buildroot}%{_docdir}/%{name}/
 
@@ -111,8 +121,14 @@ install -m 0644 README.md CHANGELOG.md %{buildroot}%{_docdir}/%{name}/
 %{_unitdir}/snapper-cleanup.service.d/limine-snapper-override.conf
 %{_datadir}/applications/limine-snapper-restore.desktop
 %{_datadir}/icons/hicolor/128x128/apps/LimineSnapperSync.png
+%{_datadir}/locale/*/LC_MESSAGES/limine-snapper-sync.mo
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 1.32.1-1
+- Update to the release pinned on upstream master.
+- Bundle upstream Gradle because Fedora 44 has no Gradle RPM.
+- Limit native-image resources and include compiled translations.
+
 * Sat Oct 03 2026 kamm3r - 1.32.0-2
 - Declare the GraalVM download tool and systemd path macros.
 

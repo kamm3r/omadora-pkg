@@ -5,7 +5,7 @@
 %global __requires_exclude ^/usr/bin/node$
 
 Name:           cursor-cli
-Version:        2026.09.26.1.dd393fe
+Version:        2026.10.01.1.e373342
 Release:        1%{?dist}
 Summary:        CLI tool for Cursor, the AI-first coding agent
 License:        LicenseRef-Cursor
@@ -14,7 +14,7 @@ URL:            https://cursor.com/cli
 # hashes are not monotonically ordered, so it is YYYY.MM.DD.<n>.<hash>: n
 # resets to 1 on a new date and increments when the same date gets a new
 # hash, mirroring the upstream PKGBUILD scheme.
-%global _upstream_ver 2026.09.26-dd393fe
+%global _upstream_ver 2026.10.01-e373342
 Source0:        https://downloads.cursor.com/lab/%{_upstream_ver}/linux/x64/agent-cli-package.tar.gz#/%{name}-%{version}.tar.gz
 ExclusiveArch:  x86_64
 Requires:       git
@@ -181,5 +181,8 @@ EOF
 %{_bindir}/cursor-agent
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 2026.10.01.1.e373342-1
+- Update to the release pinned on upstream master.
+
 * Wed Sep 30 2026 kamm3r - 2026.09.26.1.dd393fe-1
 - Repackage the upstream Omarchy Cursor CLI release for Fedora.

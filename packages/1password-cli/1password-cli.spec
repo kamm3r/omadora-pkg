@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           1password-cli
-Version:        2.39.0
+Version:        2.40.0
 Release:        1%{?dist}
 Summary:        1Password command line tool
 License:        LicenseRef-1Password
@@ -43,5 +43,8 @@ fi
 %{_bindir}/op
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 2.40.0-1
+- Update to the release pinned on upstream master.
+
 * Thu Oct 01 2026 kamm3r - 2.39.0-1
 - Repackage the upstream Omarchy release for Fedora.

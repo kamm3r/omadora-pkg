@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           monologue
-Version:        0.2.0
+Version:        0.3.0
 Release:        1%{?dist}
 Summary:        Theme synced webcam recorder for Omarchy
 License:        MIT
@@ -39,5 +39,8 @@ install -D -m 0644 pkgbuild/monologue.svg %{buildroot}%{_datadir}/icons/hicolor/
 %{_datadir}/icons/hicolor/scalable/apps/monologue.svg
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 0.3.0-1
+- Update to the release pinned on upstream master.
+
 * Mon Sep 28 2026 kamm3r - 0.2.0-1
 - Port the upstream Omarchy webcam recorder to Fedora.

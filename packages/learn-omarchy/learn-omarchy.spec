@@ -1,5 +1,5 @@
 Name:           learn-omarchy
-Version:        0.2.4
+Version:        0.2.5
 Release:        1%{?dist}
 Summary:        Interactive courses for learning the Omarchy desktop
 License:        MIT AND CC-BY-4.0 AND CC0-1.0
@@ -44,5 +44,8 @@ make DESTDIR=%{buildroot} PREFIX=%{_prefix} install
 %{_datadir}/icons/hicolor/256x256/apps/learn-omarchy.png
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 0.2.5-1
+- Update to the release pinned on upstream master.
+
 * Mon Sep 28 2026 kamm3r - 0.2.4-1
 - Port the upstream Omarchy learning app to Fedora.

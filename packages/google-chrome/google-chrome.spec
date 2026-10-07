@@ -6,13 +6,13 @@
 %global __requires_exclude ^lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan|qt.*_shim|widevinecdm)\\.so
 
 Name:           google-chrome
-Version:        154.0.8037.57
+Version:        154.0.8037.97
 Release:        1%{?dist}
 Summary:        Popular web browser by Google (Stable Channel)
 License:        LicenseRef-Google-Chrome
 URL:            https://www.google.com/chrome
 %global _channel stable
-%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
+%global omarchy_pkgs_commit e3dfdd376ce0aac7064497c7bd121f620fa26799
 Source0:        https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-%{_channel}/google-chrome-%{_channel}_%{version}-1_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/google-chrome/google-chrome-stable.sh
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/google-chrome/eula_text.html
@@ -111,5 +111,8 @@ rm -rf %{buildroot}/etc
 %{_datadir}/doc/google-chrome-stable/changelog.gz
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 154.0.8037.97-1
+- Update to the release pinned on upstream master.
+
 * Thu Oct 01 2026 kamm3r - 154.0.8037.57-1
 - Repackage the upstream Omarchy release for Fedora.

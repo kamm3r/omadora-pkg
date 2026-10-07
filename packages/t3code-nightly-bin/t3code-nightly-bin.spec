@@ -5,18 +5,19 @@
 %global __provides_exclude ^lib(fff_c|ffmpeg|vk_swiftshader|vulkan)\.so
 %global __requires_exclude ^(lib(fff_c|ffmpeg|vk_swiftshader|vulkan)\.so|libc\.musl|libc\.so\(\)|/usr/bin/node)
 
-Name:           t3code-bin
-Version:        0.0.45
+Name:           t3code-nightly-bin
+Version:        0.0.46_nightly.20261004.2644
 Release:        1%{?dist}
-Summary:        Open-source control plane for coding agents
+Summary:        Open-source control plane for coding agents (nightly)
 License:        MIT
 URL:            https://t3.codes
 # Upstream ships a bare AppImage (plus a license file), not a tarball, so
-# there is no top directory to autosetup; it is extracted with 7z in %prep.
-Source0:        https://github.com/pingdotgg/t3code/releases/download/v%{version}/T3-Code-%{version}-x86_64.AppImage#/%{name}-%{version}-x86_64.AppImage
-Source1:        https://raw.githubusercontent.com/pingdotgg/t3code/v%{version}/LICENSE#/%{name}-LICENSE-%{version}
+# there is no top directory to autosetup; it is extracted with 7z in %%prep.
+%global upstream_version 0.0.46-nightly.20261004.2644
+Source0:        https://github.com/pingdotgg/t3code/releases/download/v%{upstream_version}/T3-Code-%{upstream_version}-x86_64.AppImage#/%{name}-%{version}-x86_64.AppImage
+Source1:        https://raw.githubusercontent.com/pingdotgg/t3code/v%{upstream_version}/LICENSE#/%{name}-LICENSE-%{version}
 ExclusiveArch:  x86_64
-Provides:       t3code = %{version}-%{release}
+Provides:       t3code-nightly = %{version}-%{release}
 BuildRequires:  7zip
 Requires:       alsa-lib
 Requires:       at-spi2-core
@@ -66,7 +67,7 @@ set -euo pipefail
 user_flags=()
 config_home="${XDG_CONFIG_HOME:-}"
 [[ -n "$config_home" || -z "${HOME:-}" ]] || config_home="$HOME/.config"
-flags_file="${config_home:+$config_home/t3code-flags.conf}"
+flags_file="${config_home:+$config_home/t3code-nightly-flags.conf}"
 
 if [[ -n "$flags_file" && -f "$flags_file" && -r "$flags_file" ]]; then
   while IFS= read -r line || [[ -n "$line" ]]; do
@@ -90,7 +91,7 @@ if [[ -n "${WAYLAND_DISPLAY:-}" || "${XDG_SESSION_TYPE:-}" == wayland ]]; then
   done
 fi
 
-exec /usr/lib/t3code/t3code "${platform_flags[@]}" "${user_flags[@]}" "$@"
+exec /usr/lib/t3code-nightly/t3code "${platform_flags[@]}" "${user_flags[@]}" "$@"
 LAUNCHER_EOF
 cat > t3-launcher.sh <<'LAUNCHER_EOF'
 #!/bin/bash
@@ -102,7 +103,7 @@ cat > t3-launcher.sh <<'LAUNCHER_EOF'
 set -euo pipefail
 
 export ELECTRON_RUN_AS_NODE=1
-exec /usr/lib/t3code/t3code /usr/lib/t3code/resources/app.asar/apps/server/dist/bin.mjs "$@"
+exec /usr/lib/t3code-nightly/t3code /usr/lib/t3code-nightly/resources/app.asar/apps/server/dist/bin.mjs "$@"
 LAUNCHER_EOF
 
 cd squashfs-root
@@ -123,38 +124,31 @@ fi
 for icon in usr/share/icons/hicolor/*/apps/t3code.png; do
   size=${icon#usr/share/icons/hicolor/}
   # NOTE: %%%% below is an escaped %% for the RPM parser; the shell sees ${size%%/*}.
-  install -D -m 0644 "$icon" "%{buildroot}%{_datadir}/icons/hicolor/${size%%%%/*}/apps/t3code.png"
+  install -D -m 0644 "$icon" "%{buildroot}%{_datadir}/icons/hicolor/${size%%%%/*}/apps/t3code-nightly.png"
 done
 
 # Upstream's own desktop entry carries the t3code:// scheme handlers; only the
 # launcher command, the display name, and the AppImage stamp are rewritten.
-sed -e 's|^Exec=.*|Exec=t3code %%U|' -e 's|^Name=.*|Name=T3 Code|' -e '/^X-AppImage-Version=/d' t3code.desktop > ../t3code.desktop.arch
-install -D -m 0644 ../t3code.desktop.arch %{buildroot}%{_datadir}/applications/t3code.desktop
+sed -e 's|^Exec=.*|Exec=t3code-nightly %%U|' -e 's|^Name=.*|Name=T3 Code (Nightly)|' -e 's|^Icon=.*|Icon=t3code-nightly|' -e '/^X-AppImage-Version=/d' t3code.desktop > ../t3code.desktop.arch
+install -D -m 0644 ../t3code.desktop.arch %{buildroot}%{_datadir}/applications/t3code-nightly.desktop
 
 rm -rf AppRun .DirIcon usr t3code.desktop t3code.png
-install -d %{buildroot}/usr/lib/t3code
-cp -a . %{buildroot}/usr/lib/t3code/
-chmod -R a+rX %{buildroot}/usr/lib/t3code
-chmod 4755 %{buildroot}/usr/lib/t3code/chrome-sandbox
+install -d %{buildroot}/usr/lib/t3code-nightly
+cp -a . %{buildroot}/usr/lib/t3code-nightly/
+chmod -R a+rX %{buildroot}/usr/lib/t3code-nightly
+chmod 4755 %{buildroot}/usr/lib/t3code-nightly/chrome-sandbox
 
-install -D -m 0755 ../t3code-launcher.sh %{buildroot}%{_bindir}/t3code
-install -D -m 0755 ../t3-launcher.sh %{buildroot}%{_bindir}/t3
+install -D -m 0755 ../t3code-launcher.sh %{buildroot}%{_bindir}/t3code-nightly
+install -D -m 0755 ../t3-launcher.sh %{buildroot}%{_bindir}/t3-nightly
 
 %files
 %license LICENSE
-/usr/lib/t3code
-%{_bindir}/t3code
-%{_bindir}/t3
-%{_datadir}/applications/t3code.desktop
-%{_datadir}/icons/hicolor/*/apps/t3code.png
+/usr/lib/t3code-nightly
+%{_bindir}/t3code-nightly
+%{_bindir}/t3-nightly
+%{_datadir}/applications/t3code-nightly.desktop
+%{_datadir}/icons/hicolor/*/apps/t3code-nightly.png
 
 %changelog
-* Tue Oct 06 2026 kamm3r - 0.0.45-1
-- Update to the release pinned on upstream master.
-
-* Sat Oct 03 2026 kamm3r - 0.0.44-1
-- Update to the release pinned on upstream master.
-- Remove the unused ARM terminal helper from the x86_64 bundle.
-
-* Wed Sep 30 2026 kamm3r - 0.0.42-1
-- Repackage the upstream Omarchy T3 Code release for Fedora.
+* Tue Oct 06 2026 kamm3r - 0.0.46_nightly.20261004.2644-1
+- Package the upstream nightly channel alongside stable T3 Code.

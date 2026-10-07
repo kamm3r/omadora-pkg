@@ -10,12 +10,12 @@
 %global __requires_exclude ^lib(vk_swiftshader|vulkan|qt.*_shim)\\.so
 
 Name:           zen-browser-bin
-Version:        1.22.3b
+Version:        1.23b
 Release:        1%{?dist}
 Summary:        Privacy-focused, feature packed Firefox-based web browser (binary release)
 License:        MPL-2.0-only
 URL:            https://github.com/zen-browser/desktop
-%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
+%global omarchy_pkgs_commit e3dfdd376ce0aac7064497c7bd121f620fa26799
 Source0:        https://github.com/zen-browser/desktop/releases/download/%{version}/zen.linux-x86_64.tar.xz#/%{name}-%{version}.tar.xz
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/zen-browser-bin/zen-browser.sh
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/zen-browser-bin/zen.desktop
@@ -85,5 +85,8 @@ install -m 0644 policies.json %{buildroot}/opt/zen-browser-bin/distribution/poli
 %{_datadir}/icons/hicolor/*/apps/zen-browser.png
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 1.23b-1
+- Update to the release pinned on upstream master.
+
 * Thu Oct 01 2026 kamm3r - 1.22.3b-1
 - Repackage the upstream Omarchy Zen Browser release for Fedora.

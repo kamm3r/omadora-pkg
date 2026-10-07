@@ -2,7 +2,7 @@
 
 Name:           openclaw
 Version:        2026.9.6
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Multi-channel AI gateway with extensible messaging integrations
 License:        MIT
 URL:            https://github.com/openclaw/openclaw
@@ -22,10 +22,8 @@ Recommends:     tmux
 
 %description
 OpenClaw is a multi-channel AI gateway with extensible messaging
-integrations. This package installs the upstream npm release, mirroring the
-upstream Omarchy release. It also ships the release tarball, CLI installer
-and icon for a self-updating user installation. The system CLI remains as
-a fallback for Omadora runtimes that predate the user-install migration.
+integrations. This package installs the upstream npm release with a system
+launcher and its required Node runtime.
 
 %prep
 %setup -q -c -T -n %{name}-%{version}
@@ -53,20 +51,10 @@ if [ -e "%{buildroot}%{_prefix}/lib/node_modules/%{name}/.openclaw-lifecycle-pen
   echo "openclaw's postinstall did not run; the package would fail on first use" >&2
   exit 1
 fi
-# Prefer the self-updating user CLI; the system fallback uses bundled libvips.
-# npm leaves a bin symlink at this path; remove it first so the wrapper
-# replaces the link instead of following it.
+# npm leaves a bin symlink; replace it with a wrapper for the Fedora Node runtime.
 rm -f "%{buildroot}%{_bindir}/openclaw"
 cat > "%{buildroot}%{_bindir}/openclaw" <<'EOF'
 #!/bin/sh
-user_cli="${OPENCLAW_PREFIX:-$HOME/.openclaw}/bin/openclaw"
-if [ -x "$user_cli" ] && [ "$user_cli" -ef /usr/bin/openclaw ]; then
-  echo "OpenClaw user launcher points back to the system launcher" >&2
-  exit 1
-fi
-if [ -x "$user_cli" ]; then
-  exec "$user_cli" "$@"
-fi
 export SHARP_IGNORE_GLOBAL_LIBVIPS=1
 exec node-24 /usr/lib/node_modules/openclaw/openclaw.mjs "$@"
 EOF
@@ -82,19 +70,17 @@ for f in "$moddir"/docs/*; do
   ln -s "/usr/lib/node_modules/%{name}/docs/$(basename "$f")" "%{buildroot}%{_datadir}/doc/%{name}/"
 done
 
-# Keep the upstream master's installer payload alongside the compatibility CLI.
-install -Dm644 "%{SOURCE0}" %{buildroot}%{_datadir}/%{name}/%{name}.tgz
-install -Dm644 "$moddir/scripts/install-cli.sh" %{buildroot}%{_datadir}/%{name}/install-cli.sh
-install -Dm644 "$moddir/dist/control-ui/apple-touch-icon.png" %{buildroot}%{_datadir}/%{name}/%{name}.png
-
 %files
 %license %{_datadir}/licenses/%{name}/LICENSE
 %doc %{_datadir}/doc/%{name}/
 %{_bindir}/openclaw
 %{_prefix}/lib/node_modules/%{name}/
-%{_datadir}/%{name}/
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 2026.9.6-4
+- Follow upstream master and use the packaged system CLI.
+- Drop the installer payload until upstream supports seeding this release.
+
 * Sat Oct 03 2026 kamm3r - 2026.9.6-3
 - Ship upstream master's installer payload and prefer the user-owned CLI.
 - Retain the system CLI until Omadora migrates existing user gateway services.

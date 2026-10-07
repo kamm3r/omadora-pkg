@@ -4,7 +4,7 @@ Fedora RPM build entry point for [Omadora](https://github.com/kamm3r/omadora), m
 
 The `omarchy-settings` and `omarchy` RPM specs live here under `packaging/rpm/` (see [`packaging/README.md`](packaging/README.md)), and `.copr/core.mk` builds them from the Omadora commit pinned in `omadora-revision`, so both COPR builds use exactly the same source and version. Fedora recipes for upstream Omarchy packages live under `packages/`.
 
-The upstream `omarchy-pkgs` snapshot at commit `31b8fdb3ad96fa89a6ab4492be9b7e59eb7af080` contains 176 PKGBUILDs. [`catalog.tsv`](catalog.tsv) tracks each recipe. `published` means a successful build exists in COPR; `ready` means a source RPM builds and the clean COPR build is next; `pending` needs a Fedora port; `not-applicable` records recipes tied to Arch facilities Omadora replaced. The goal is a COPR RPM for each feasible recipe, including packages also available elsewhere, after their build and runtime dependencies are checked on Fedora.
+The upstream `omarchy-pkgs` snapshot at commit `e3dfdd376ce0aac7064497c7bd121f620fa26799` contains 181 PKGBUILDs. [`catalog.tsv`](catalog.tsv) tracks each recipe. `published` means a successful build exists in COPR; `ready` means a source RPM builds and the clean COPR build is next; `pending` needs a Fedora port; `not-applicable` records recipes tied to Arch facilities Omadora replaced. The goal is a COPR RPM for each feasible recipe, including packages also available elsewhere, after their build and runtime dependencies are checked on Fedora.
 
 ## Build from this repository
 
@@ -28,7 +28,9 @@ make -f .copr/Makefile srpm outdir=/tmp/omadora-srpm spec=packages/tobi-try/tobi
 rpmbuild --rebuild /tmp/omadora-srpm/tobi-try-*.src.rpm
 ```
 
-OpenClaw also ships upstream's user-installer payload under `/usr/share/openclaw/`. Run `bash /usr/share/openclaw/install-cli.sh --version /usr/share/openclaw/openclaw.tgz` to create a self-updating installation under `~/.openclaw` (or `OPENCLAW_PREFIX`). The `openclaw` launcher prefers that installation. The system CLI remains available for the pinned Omadora runtime and existing gateway services until their user-install migration is ported.
+`slack-desktop` packages Slack's x86_64 Linux client. `t3code-nightly-bin` installs alongside `t3code-bin` and provides `t3code-nightly` and `t3-nightly`, with desktop flags in `~/.config/t3code-nightly-flags.conf`. The two T3 Code channels retain upstream's shared application state and URL scheme.
+
+OpenClaw uses the packaged system CLI and the Fedora Node 24 runtime. Its install-time lifecycle runs with a scratch home and must finish before the RPM is packed. The current upstream release cannot seed the user installer, so this package follows upstream master and ships the system CLI.
 
 COPR networking must be enabled for recipes that fetch npm, Flutter, Gradle, Bazel, or Git dependencies during the binary build. The project uses `copr-cli modify kammer/omadora --enable-net on`; the vendored Rust and Go recipes still build without network access.
 

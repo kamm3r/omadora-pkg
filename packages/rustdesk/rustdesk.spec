@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
 Name:           rustdesk
-Version:        1.4.9
-Release:        2%{?dist}
+Version:        1.5.0
+Release:        1%{?dist}
 Summary:        Remote desktop software written in Rust
 License:        AGPL-3.0-only
 URL:            https://rustdesk.com/
@@ -10,7 +10,7 @@ Source0:        https://github.com/rustdesk/rustdesk/archive/refs/tags/%{version
 Source1:        %{name}-vendor-%{version}.tar.gz
 # The release tarball leaves the hbb_common submodule empty; pin the commit
 # the upstream recipe uses. vendor-prep unpacks it before cargo vendor too.
-%global hbb_commit 7e1c392c62d39c364127307cd408421dd5f8cfb0
+%global hbb_commit 229b904508364c8997aad0fb5af57effac859f60
 Source2:        https://github.com/rustdesk/hbb_common/archive/%{hbb_commit}.tar.gz#/hbb_common-%{hbb_commit}.tar.gz
 BuildRequires:  cargo
 BuildRequires:  rust
@@ -21,7 +21,7 @@ BuildRequires:  pkgconfig(vpx)
 BuildRequires:  pkgconfig(libyuv)
 BuildRequires:  pkgconfig(opus)
 BuildRequires:  systemd-rpm-macros
-BuildRequires:  clang19-libs
+BuildRequires:  clang-libs
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
 BuildRequires:  make
@@ -52,12 +52,10 @@ BuildRequires:  pkgconfig(xfixes)
 BuildRequires:  pkgconfig(xtst)
 BuildRequires:  pkgconfig(xkbcommon)
 BuildRequires:  pkgconfig(epoxy)
-BuildRequires:  pam-devel
 BuildRequires:  libxdo-devel
 Requires:       xdotool
 Requires:       alsa-lib
 Requires:       libva
-Requires:       pam
 Requires:       pulseaudio-libs
 Requires:       gstreamer1
 Requires:       gstreamer1-plugins-base
@@ -83,9 +81,6 @@ mv hbb_common-%{hbb_commit} libs/hbb_common
 export CARGO_TARGET_DIR=target
 # Keep concurrent GTK/Rust compilation within the standard builder's memory.
 export CARGO_BUILD_JOBS=2
-# Bindgen 0.65 emits opaque VPX/AOM structs with Clang 22.
-# Keep the compiler current, but use the compatible parser library.
-export LIBCLANG_PATH=%{_libdir}/llvm19/lib
 # webm-sys 1.0.4 relies on an indirect cstdint include removed in GCC 16.
 # Supply the header without altering the checksummed Cargo sources.
 export CXXFLAGS="$CXXFLAGS -include cstdint"
@@ -122,6 +117,10 @@ EOF
 %{_datadir}/icons/hicolor/256x256/apps/rustdesk.png
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 1.5.0-1
+- Update to the release pinned on upstream master and its hbb_common revision.
+- Use current Clang with upstream bindgen and drop the retired PAM dependency.
+
 * Sat Oct 03 2026 kamm3r - 1.4.9-2
 - Use system OpenSSL and codec libraries through the upstream pkg-config feature.
 - Add macros for the service path and create the desktop entry directory.

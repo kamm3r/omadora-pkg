@@ -9,12 +9,12 @@
 %global __requires_exclude ^lib(python|ffi|atomic|dropbox).*\\.so
 
 Name:           dropbox
-Version:        270.4.3312
-Release:        2%{?dist}
+Version:        272.4.3798
+Release:        1%{?dist}
 Summary:        Free service that lets you bring your photos, docs, and videos anywhere and share them easily
 License:        LicenseRef-Dropbox
 URL:            https://www.dropbox.com
-%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
+%global omarchy_pkgs_commit e3dfdd376ce0aac7064497c7bd121f620fa26799
 Source0:        https://edge.dropboxstatic.com/dbx-releng/client/dropbox-lnx.x86_64-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/dropbox/DropboxGlyph_Blue.svg
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/dropbox/terms.txt
@@ -87,6 +87,9 @@ install -D -m 0644 %{SOURCE4} %{buildroot}%{_unitdir}/dropbox@.service
 %{_unitdir}/dropbox@.service
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 272.4.3798-1
+- Update to the release pinned on upstream master.
+
 * Sat Oct 03 2026 kamm3r - 270.4.3312-2
 - Require systemd RPM macros for the system and user service paths.
 

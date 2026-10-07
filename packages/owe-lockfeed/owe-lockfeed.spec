@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           owe-lockfeed
-Version:        0.2.7
+Version:        0.2.9
 Release:        1%{?dist}
 Summary:        QML lock screen video feed for OWE
 License:        MIT
@@ -34,5 +34,8 @@ ctest --test-dir build --output-on-failure
 %{_libdir}/qt6/qml/Owe/LockFeed
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 0.2.9-1
+- Update to the release pinned on upstream master.
+
 * Mon Sep 28 2026 kamm3r - 0.2.7-1
 - Port the upstream Omarchy lock screen feed to Fedora.

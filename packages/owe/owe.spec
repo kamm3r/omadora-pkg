@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           owe
-Version:        0.2.7
+Version:        0.2.9
 Release:        1%{?dist}
 Summary:        Wallpaper engine for Omarchy
 License:        MIT
@@ -55,5 +55,8 @@ install -D -m 0644 hooks/theme-set.d/10-owe-sync %{buildroot}%{_datadir}/owe/10-
 %{_datadir}/owe/10-owe-sync
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 0.2.9-1
+- Update to the release pinned on upstream master.
+
 * Mon Sep 28 2026 kamm3r - 0.2.7-1
 - Port the upstream Omarchy wallpaper engine to Fedora.

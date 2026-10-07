@@ -1,6 +1,6 @@
 Name:           nautilus-dropbox
-Version:        2026.05.06
-Release:        2%{?dist}
+Version:        2026.09.28
+Release:        1%{?dist}
 Summary:        Dropbox Nautilus Extension
 License:        CC-BY-ND-3.0 AND GPL-3.0-or-later
 URL:            https://www.dropbox.com/
@@ -51,6 +51,9 @@ rm -f %{buildroot}%{_libdir}/nautilus/extensions-*/libnautilus-dropbox.a
 %{_datadir}/icons/hicolor/*/apps/dropbox.png
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 2026.09.28-1
+- Update to the release pinned on upstream master.
+
 * Sat Oct 03 2026 kamm3r - 2026.05.06-2
 - Add the GTK 4 headers required by configure.
 

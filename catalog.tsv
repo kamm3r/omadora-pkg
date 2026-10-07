@@ -100,6 +100,7 @@ omacut	published	COPR package
 omakade	published	COPR package
 omapresent	published	COPR package
 omarchy	published	COPR package
+omarchy-ane-dkms	not-applicable	Apple Neural Engine driver; aarch64 Apple Silicon only
 omarchy-audio-tuner	published	COPR package
 omarchy-billboard-generator	published	Fedora RPM recipe; verified in COPR
 omarchy-chromium-bin	ready	Fedora RPM recipe
@@ -109,7 +110,9 @@ omarchy-fish	published	COPR package
 omarchy-keyring	not-applicable	pacman keyring; Fedora uses RPM signing keys
 omarchy-mac	not-applicable	Apple Silicon aarch64 add-on, x86_64 out of scope
 omarchy-mac-boot	not-applicable	Arch mkinitcpio boot stack; Omadora uses dracut+kernel-install
+omarchy-mac-ml	not-applicable	Apple Silicon ML meta package; x86_64 out of scope
 omarchy-meeting-recorder-bin	published	COPR package
+omarchy-mlx	not-applicable	Apple Silicon ML runtime; x86_64 out of scope
 omarchy-nvim	published	Fedora RPM recipe; verified in COPR
 omarchy-settings	published	COPR package
 omarchy-settings-dev	not-applicable	covered by core settings spec via dev_suffix
@@ -143,6 +146,7 @@ quickshell-git	not-applicable	Hyprland COPR ships newer quickshell
 retroarch-joypad-autoconfig-git	ready	Fedora RPM recipe
 rustdesk	published	Fedora RPM recipe; verified in COPR
 schist-bin	ready	Fedora RPM recipe
+slack-desktop	ready	Fedora RPM recipe
 slap-notes-bin	ready	Fedora RPM recipe
 spotify	ready	Fedora RPM recipe
 strata	published	Fedora RPM recipe; verified in COPR
@@ -151,6 +155,7 @@ sunshine	published	Fedora RPM recipe; verified in COPR
 supergfxctl	ready	Fedora RPM recipe
 symfony-cli	ready	Fedora RPM recipe
 t3code-bin	published	Fedora RPM recipe; verified in COPR
+t3code-nightly-bin	ready	Fedora RPM recipe
 tensaku	published	COPR package
 tmog-bin	ready	Fedora RPM recipe
 tobi-try	published	COPR package

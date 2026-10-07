@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           zed
-Version:        1.21.0
+Version:        1.22.0
 Release:        1%{?dist}
 Summary:        High-performance, multiplayer code editor
 License:        GPL-3.0-or-later AND AGPL-3.0-or-later AND Apache-2.0
@@ -77,5 +77,8 @@ install -D -m 0644 zed.app/licenses.md %{buildroot}%{_licensedir}/zed/licenses.m
 %{_datadir}/icons/hicolor/*/apps/zed.png
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 1.22.0-1
+- Update to the release pinned on upstream master.
+
 * Thu Oct 01 2026 kamm3r - 1.21.0-1
 - Repackage the upstream Omarchy Zed release for Fedora.

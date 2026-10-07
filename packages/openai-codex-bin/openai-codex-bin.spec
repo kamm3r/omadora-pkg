@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           openai-codex-bin
-Version:        0.157.1
+Version:        0.160.0
 Release:        1%{?dist}
 Summary:        OpenAI Codex CLI
 License:        Apache-2.0
@@ -51,5 +51,8 @@ install -D -m 0644 completions/codex.ps1 %{buildroot}%{_datadir}/powershell/Comp
 %{_datadir}/powershell/Completions/codex.ps1
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 0.160.0-1
+- Update to the release pinned on upstream master.
+
 * Wed Sep 30 2026 kamm3r - 0.157.1-1
 - Repackage the upstream Omarchy OpenAI Codex release for Fedora.

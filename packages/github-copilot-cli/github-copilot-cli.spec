@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           github-copilot-cli
-Version:        1.0.88
+Version:        1.0.91
 Release:        1%{?dist}
 Summary:        GitHub Copilot CLI for the terminal
 License:        LicenseRef-GitHub-Copilot
@@ -92,5 +92,8 @@ cp CHANGELOG-%{version}.md CHANGELOG.md
 %{_datadir}/fish/vendor_completions.d/copilot.fish
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 1.0.91-1
+- Update to the release pinned on upstream master.
+
 * Wed Sep 30 2026 kamm3r - 1.0.88-1
 - Port the upstream Omarchy GitHub Copilot CLI release to Fedora.

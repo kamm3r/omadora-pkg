@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
 Name:           cliamp
-Version:        2.2.0
-Release:        2%{?dist}
+Version:        2.3.0
+Release:        1%{?dist}
 Summary:        Retro terminal music player
 License:        MIT
 URL:            https://github.com/bjarneo/cliamp
@@ -46,6 +46,9 @@ install -D -m 0644 Cliamp.png %{buildroot}%{_datadir}/pixmaps/cliamp.png
 %{_datadir}/pixmaps/cliamp.png
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 2.3.0-1
+- Update to the release pinned on upstream master.
+
 * Tue Sep 29 2026 kamm3r - 2.2.0-2
 - Install development headers for the native audio decoders.
 

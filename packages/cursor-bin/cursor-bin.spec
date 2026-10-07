@@ -10,12 +10,12 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node)$
 
 Name:           cursor-bin
-Version:        3.22.7
+Version:        3.23.12
 Release:        1%{?dist}
 Summary:        AI-first coding environment
 License:        LicenseRef-Cursor
 URL:            https://www.cursor.com
-%global _commit 37076c6c3f9e253c0fa2305197e45befd13a2268
+%global _commit 2d29876d567da1607532b23bbf2cd5ddbca496fe
 Source0:        https://downloads.cursor.com/production/%{_commit}/linux/x64/deb/amd64/deb/cursor_%{version}_amd64.deb#/%{name}-%{version}.deb
 ExclusiveArch:  x86_64
 Provides:       cursor = %{version}-%{release}
@@ -95,5 +95,8 @@ chmod 0755 %{buildroot}/usr/share/cursor/chrome-sandbox
 %{_datadir}/pixmaps/co.anysphere.cursor.png
 
 %changelog
+* Tue Oct 06 2026 kamm3r - 3.23.12-1
+- Update to the release pinned on upstream master.
+
 * Wed Sep 30 2026 kamm3r - 3.22.7-1
 - Repackage the upstream Omarchy Cursor release for Fedora.
