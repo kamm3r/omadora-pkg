@@ -34,7 +34,7 @@ OpenClaw uses the packaged system CLI and the Fedora Node 24 runtime. Its instal
 
 COPR networking must be enabled for recipes that fetch npm, Flutter, Gradle, Bazel, or Git dependencies during the binary build. The project uses `copr-cli modify kammer/omadora --enable-net on`; the vendored Rust and Go recipes still build without network access.
 
-After an Omadora source change is ready, update `omadora-revision` to the published commit and push this repository. The GitHub webhook queues all SCM packages for rebuild. For a manual core retry, build `omarchy-settings` before `omarchy`.
+After an Omadora source change is ready, update `omadora-revision` to the published commit and push this repository. The GitHub webhook queues all SCM packages for rebuild. The COPR package definitions use `--max-builds 1` to retain only the latest build of each recipe. For a manual core retry, build `omarchy-settings` before `omarchy`.
 
 ## Install
 

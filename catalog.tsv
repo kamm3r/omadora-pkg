@@ -146,7 +146,7 @@ quickshell-git	not-applicable	Hyprland COPR ships newer quickshell
 retroarch-joypad-autoconfig-git	ready	Fedora RPM recipe
 rustdesk	published	Fedora RPM recipe; verified in COPR
 schist-bin	ready	Fedora RPM recipe
-slack-desktop	ready	Fedora RPM recipe
+slack-desktop	published	Fedora RPM recipe; verified in COPR
 slap-notes-bin	ready	Fedora RPM recipe
 spotify	ready	Fedora RPM recipe
 strata	published	Fedora RPM recipe; verified in COPR
@@ -155,7 +155,7 @@ sunshine	published	Fedora RPM recipe; verified in COPR
 supergfxctl	ready	Fedora RPM recipe
 symfony-cli	ready	Fedora RPM recipe
 t3code-bin	published	Fedora RPM recipe; verified in COPR
-t3code-nightly-bin	ready	Fedora RPM recipe
+t3code-nightly-bin	published	Fedora RPM recipe; verified in COPR
 tensaku	published	COPR package
 tmog-bin	ready	Fedora RPM recipe
 tobi-try	published	COPR package
