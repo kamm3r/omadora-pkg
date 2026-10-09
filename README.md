@@ -4,7 +4,9 @@ Fedora RPM build entry point for [Omadora](https://github.com/kamm3r/omadora), m
 
 The `omarchy-settings` and `omarchy` RPM specs live here under `packaging/rpm/` (see [`packaging/README.md`](packaging/README.md)), and `.copr/core.mk` builds them from the Omadora commit pinned in `omadora-revision`, so both COPR builds use exactly the same source and version. Fedora recipes for upstream Omarchy packages live under `packages/`.
 
-The upstream `omarchy-pkgs` snapshot at commit `e3dfdd376ce0aac7064497c7bd121f620fa26799` contains 181 PKGBUILDs. [`catalog.tsv`](catalog.tsv) tracks each recipe. `published` means a successful build exists in COPR; `ready` means a source RPM builds and the clean COPR build is next; `pending` needs a Fedora port; `not-applicable` records recipes tied to Arch facilities Omadora replaced. The goal is a COPR RPM for each feasible recipe, including packages also available elsewhere, after their build and runtime dependencies are checked on Fedora.
+The upstream `omarchy-pkgs` snapshot at commit `e3dfdd376ce0aac7064497c7bd121f620fa26799` contains 181 PKGBUILDs. [`catalog.tsv`](catalog.tsv) tracks each recipe. `published` means a successful build exists in COPR; `ready` means a source RPM builds and the clean COPR build is next; `pending` needs a Fedora port; `not-applicable` records recipes tied to Arch facilities Omadora replaced; `retired` records recipes removed upstream and no longer maintained here. The goal is a COPR RPM for each feasible recipe, including packages also available elsewhere, after their build and runtime dependencies are checked on Fedora.
+
+The Elephant package family and `omarchy-walker` were [retired upstream](https://github.com/omacom/omarchy-pkgs/commit/2cce621d95555c0cd7fbb7dfdf30479c2d6d71bf) because Omarchy 4 no longer uses them. Their Fedora recipes and COPR entries have been removed. `walker` remains available.
 
 ## Build from this repository
 

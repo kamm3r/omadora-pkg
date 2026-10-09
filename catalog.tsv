@@ -27,21 +27,21 @@ disktree-bin	published	COPR package
 dotnet-core-bin	not-applicable	Fedora ships dotnet-sdk/runtime; dev flow via mise
 dropbox	published	Fedora RPM recipe; verified in COPR
 dropbox-cli	ready	Fedora RPM recipe
-elephant	ready	Fedora RPM recipe
-elephant-all	ready	Fedora RPM recipe
-elephant-archlinuxpkgs	not-applicable	provider searches Arch packages; no Fedora equivalent
-elephant-bluetooth	ready	Fedora RPM recipe
-elephant-calc	ready	Fedora RPM recipe
-elephant-clipboard	ready	Fedora RPM recipe
-elephant-desktopapplications	ready	Fedora RPM recipe
-elephant-files	ready	Fedora RPM recipe
-elephant-menus	ready	Fedora RPM recipe
-elephant-providerlist	ready	Fedora RPM recipe
-elephant-runner	ready	Fedora RPM recipe
-elephant-symbols	ready	Fedora RPM recipe
-elephant-todo	ready	Fedora RPM recipe
-elephant-unicode	ready	Fedora RPM recipe
-elephant-websearch	ready	Fedora RPM recipe
+elephant	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
+elephant-all	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
+elephant-archlinuxpkgs	retired	Retired upstream in 2cce621d; Arch-only provider was never ported to Fedora
+elephant-bluetooth	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
+elephant-calc	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
+elephant-clipboard	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
+elephant-desktopapplications	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
+elephant-files	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
+elephant-menus	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
+elephant-providerlist	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
+elephant-runner	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
+elephant-symbols	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
+elephant-todo	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
+elephant-unicode	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
+elephant-websearch	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
 flea	ready	Fedora RPM recipe
 ghostty	not-applicable	Terra ships exact version incl. subpackages
 github-copilot-cli	published	Fedora RPM recipe; verified in COPR
@@ -118,7 +118,7 @@ omarchy-settings	published	COPR package
 omarchy-settings-dev	not-applicable	covered by core settings spec via dev_suffix
 omarchy-steam-fex	ready	Fedora RPM recipe
 omarchy-task-manager	published	Fedora RPM recipe; verified in COPR
-omarchy-walker	ready	Fedora RPM recipe
+omarchy-walker	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses this meta package
 omarchy-zsh	published	COPR package
 omareel	published	Fedora RPM recipe; verified in COPR
 omasnap	published	COPR package
