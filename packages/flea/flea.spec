@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           flea
-Version:        0.3.7
+Version:        0.3.8
 Release:        1%{?dist}
 Summary:        Fast, keyboard-first file manager for Omarchy
 License:        MIT
@@ -80,6 +80,9 @@ ln -s /usr/share/omarchy/shell/Ui %{buildroot}%{_datadir}/flea/ui/boot/Ui
 %{_datadir}/flea
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 0.3.8-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Tue Oct 06 2026 kamm3r - 0.3.7-1
 - Update to the release pinned on upstream master.
 

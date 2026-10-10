@@ -6,14 +6,14 @@
 %global __requires_exclude ^(lib(fff_c|ffmpeg|vk_swiftshader|vulkan)\.so|libc\.musl|libc\.so\(\)|/usr/bin/node)
 
 Name:           t3code-nightly-bin
-Version:        0.0.46_nightly.20261004.2644
+Version:        0.0.46_nightly.20261010.2908
 Release:        1%{?dist}
 Summary:        Open-source control plane for coding agents (nightly)
 License:        MIT
 URL:            https://t3.codes
 # Upstream ships a bare AppImage (plus a license file), not a tarball, so
 # there is no top directory to autosetup; it is extracted with 7z in %%prep.
-%global upstream_version 0.0.46-nightly.20261004.2644
+%global upstream_version 0.0.46-nightly.20261010.2908
 Source0:        https://github.com/pingdotgg/t3code/releases/download/v%{upstream_version}/T3-Code-%{upstream_version}-x86_64.AppImage#/%{name}-%{version}-x86_64.AppImage
 Source1:        https://raw.githubusercontent.com/pingdotgg/t3code/v%{upstream_version}/LICENSE#/%{name}-LICENSE-%{version}
 ExclusiveArch:  x86_64
@@ -114,7 +114,7 @@ rm -rf resources/app.asar.unpacked/node_modules/node-pty/prebuilds/linux-arm64
 
 # Guard from the upstream PKGBUILD: the AppImage's usr/ tree must only carry
 # icons and compatibility libraries; anything else stops the build.
-unexpected=$(find usr \( -type f -o -type l \) | grep -vE '^usr/share/icons/hicolor/[0-9]+x[0-9]+/apps/t3code\.png$|^usr/lib/lib(Xss\.so\.1|Xtst\.so\.6|appindicator\.so\.1|gconf-2\.so\.4|indicator\.so\.7|notify\.so\.4)$' || true)
+unexpected=$(find usr \( -type f -o -type l \) | grep -vE '^usr/share/icons/hicolor/[0-9]+x[0-9]+/apps/t3code\.png$|^usr/lib/lib(Xss|Xtst|appindicator|appindicator3|gconf-2|indicator|indicator3|notify)\.so(\.[0-9]+)*$' || true)
 if [ -n "$unexpected" ]; then
   echo "Unexpected files in the AppImage's usr/ tree:" >&2
   echo "$unexpected" >&2
@@ -150,5 +150,8 @@ install -D -m 0755 ../t3-launcher.sh %{buildroot}%{_bindir}/t3-nightly
 %{_datadir}/icons/hicolor/*/apps/t3code-nightly.png
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 0.0.46_nightly.20261010.2908-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Tue Oct 06 2026 kamm3r - 0.0.46_nightly.20261004.2644-1
 - Package the upstream nightly channel alongside stable T3 Code.

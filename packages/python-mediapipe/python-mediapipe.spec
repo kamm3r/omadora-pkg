@@ -3,17 +3,18 @@
 %undefine _debugsource_packages
 
 Name:           python-mediapipe
-Version:        1.0.0
-Release:        3%{?dist}
+Version:        1.1.0
+Release:        1%{?dist}
 Summary:        Cross-platform customizable ML solutions for live and streaming media
 License:        Apache-2.0
 URL:            https://github.com/google-ai-edge/mediapipe
 %global _bazel_version 7.4.1
-%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
+%global omarchy_pkgs_commit 8787c23f0386eaf1df5ccd07b8402080da48b1ef
 Source0:        https://github.com/google-ai-edge/mediapipe/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        https://github.com/bazelbuild/bazel/releases/download/%{_bazel_version}/bazel-%{_bazel_version}-linux-x86_64
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/python-mediapipe/0005-set-hermetic-python-version-and-disable-odml-converter.patch
 Source3:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/python-mediapipe/0007-bump-rules-java.patch
+Source4:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/python-mediapipe/0008-drop-semantic-retriever-from-libmediapipe.patch
 ExclusiveArch:  x86_64
 BuildRequires:  mesa-libEGL-devel
 BuildRequires:  mesa-libGLES-devel
@@ -63,6 +64,7 @@ mkdir -p bin
 install -Dm755 "%{SOURCE1}" bin/bazel
 patch -Np1 -i "%{SOURCE2}"
 patch -Np1 -i "%{SOURCE3}"
+patch -Np1 -i "%{SOURCE4}"
 # set __version__
 sed -i "s/__version__ = 'dev'/__version__ = '%{version}'/" setup.py
 # Fedora provides cv2 as the opencv Python distribution.
@@ -91,6 +93,9 @@ find %{buildroot} -type f -name "*.so" -exec chmod 755 {} \;
 %{python3_sitearch}/mediapipe-%{version}.dist-info/
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 1.1.0-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Sat Oct 03 2026 kamm3r - 1.0.0-3
 - Add EGL and GLES development headers for the GPU-enabled wheel.
 - Enable the system OpenCV 4 include rules in the Bazel target.

@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           omarchy-meeting-recorder-bin
-Version:        1.5.0
+Version:        1.6.0
 Release:        1%{?dist}
 Summary:        Local meeting audio recorder and transcriber
 License:        MIT
@@ -38,6 +38,9 @@ install -D -m 0644 plugin/Widget.qml %{buildroot}%{_datadir}/omarchy-meeting-rec
 %{_datadir}/omarchy-meeting-recorder/plugin
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 1.6.0-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Tue Oct 06 2026 kamm3r - 1.5.0-1
 - Update to the release pinned on upstream master.
 

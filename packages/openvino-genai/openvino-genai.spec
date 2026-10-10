@@ -1,13 +1,13 @@
 Name:           openvino-genai
-Version:        2026.4.0.0
-Release:        2%{?dist}
+Version:        2026.4.1.0
+Release:        1%{?dist}
 Summary:        OpenVINO GenAI C and C++ runtime libraries
 License:        Apache-2.0
 URL:            https://github.com/openvinotoolkit/openvino.genai
-%global _commit 7ea2546852a382cd16bd22dea0cfad2db70ed744
-%global _tokenizers_commit a04accf6282d9b304214b492694b18c3979f667a
-%global _openvino_version 2026.4.0
-%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
+%global _commit ab01d1771e4adaa0e1e08e9d630def170572506c
+%global _tokenizers_commit 9bfda52960774da1b9afafb37f8618673fe4d7c8
+%global _openvino_version 2026.4.1
+%global omarchy_pkgs_commit 8787c23f0386eaf1df5ccd07b8402080da48b1ef
 Source0:        https://github.com/openvinotoolkit/openvino.genai/archive/%{_commit}.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/openvino-genai/gcc-16-char8_t.patch
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/openvino-genai/linear-attention-guard-constructor.patch
@@ -98,6 +98,9 @@ install -Dm644 thirdparty/openvino_tokenizers/third-party-programs.txt %{buildro
 %{_libdir}/libopenvino_genai_c.so*
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 2026.4.1.0-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Sat Oct 03 2026 kamm3r - 2026.4.0.0-2
 - List installed license paths separately for RPM 6.
 - Supply matching public frontend interfaces for the tokenizer extensions.

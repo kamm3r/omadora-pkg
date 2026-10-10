@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
 Name:           once-bin
-Version:        0.3.3
-Release:        2%{?dist}
+Version:        0.3.4
+Release:        1%{?dist}
 Summary:        Manager for self-hosted web applications
 License:        MIT
 URL:            https://github.com/basecamp/once
@@ -63,6 +63,9 @@ fi
 %{_unitdir}/once-background.service
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 0.3.4-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Sat Oct 03 2026 kamm3r - 0.3.3-2
 - Require systemd RPM macros for the background service path.
 

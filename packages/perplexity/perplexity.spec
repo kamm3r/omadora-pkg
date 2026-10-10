@@ -6,18 +6,18 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node)
 
 Name:           perplexity
-Version:        26.9.6+build95799
+Version:        26.10.1+build108257
 Release:        1%{?dist}
 Summary:        Official Perplexity desktop app
 License:        LicenseRef-proprietary
 URL:            https://www.perplexity.ai
-%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
+%global omarchy_pkgs_commit 8787c23f0386eaf1df5ccd07b8402080da48b1ef
 # The pool filename carries a build number the index's Version field drops,
 # and upstream rebuilds under the same marketing version. The PKGBUILD
 # reconstructs the pool URL from pkgver with a literal '+' encoded as %2B
 # (the pool treats a literal '+' as a space and answers 403). RPM Version
 # keeps the '+' verbatim; only the URL encodes it.
-Source0:        https://packages.perplexity.ai/deb/pool/main/p/perplexity/perplexity_26.9.6%2Bbuild95799_amd64.deb#/%{name}-%{version}.deb
+Source0:        https://packages.perplexity.ai/deb/pool/main/p/perplexity/perplexity_26.10.1%2Bbuild108257_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/perplexity/perplexity-launcher.sh
 ExclusiveArch:  x86_64
 Requires:       alsa-lib
@@ -61,8 +61,7 @@ Requires:       xdg-utils
 Official Perplexity desktop app. This package repacks the upstream Debian
 release, keeping its bundled Electron runtime and installing the
 flags-aware launcher from the upstream Omarchy package, mirroring the
-upstream PKGBUILD. The 26.9.6+build95799 build is the current pool
-revision; the PKGBUILD's 26.9.6+build89647 file no longer exists upstream.
+upstream PKGBUILD and its versioned pool revision.
 
 %prep
 # Upstream ships a Debian package, not a tarball, so there is no top
@@ -110,5 +109,8 @@ rm -rf %{buildroot}%{_datadir}/doc
 %{_datadir}/icons/hicolor/*/apps/perplexity.png
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 26.10.1+build108257-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Thu Oct 01 2026 kamm3r - 26.9.6+build95799-1
 - Repackage the upstream Omarchy Perplexity release for Fedora.

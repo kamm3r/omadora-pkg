@@ -8,6 +8,8 @@ The upstream `omarchy-pkgs` snapshot at commit `e3dfdd376ce0aac7064497c7bd121f62
 
 The Elephant package family and `omarchy-walker` were [retired upstream](https://github.com/omacom/omarchy-pkgs/commit/2cce621d95555c0cd7fbb7dfdf30479c2d6d71bf) because Omarchy 4 no longer uses them. Their Fedora recipes and COPR entries have been removed. `walker` remains available.
 
+The latest version updates and added recipes follow upstream commit `8787c23f0386eaf1df5ccd07b8402080da48b1ef`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
+
 ## Build from this repository
 
 COPR SCM packages use the `make_srpm` method and this repository's `.copr/Makefile`. The core package entries use these spec paths:
@@ -35,6 +37,8 @@ rpmbuild --rebuild /tmp/omadora-srpm/tobi-try-*.src.rpm
 OpenClaw uses the packaged system CLI and the Fedora Node 24 runtime. Its install-time lifecycle runs with a scratch home and must finish before the RPM is packed. The current upstream release cannot seed the user installer, so this package follows upstream master and ships the system CLI.
 
 COPR networking must be enabled for recipes that fetch npm, Flutter, Gradle, Bazel, or Git dependencies during the binary build. The project uses `copr-cli modify kammer/omadora --enable-net on`; the vendored Rust and Go recipes still build without network access.
+
+OmaCharts ships its charting app, CLI, completions, and optional agent skill. Rawmakase installs the upstream RAW photo editor with its private processing libraries. Ghost provides separate `ghost-runtime` and `ghost` RPMs; the latter adds the desktop HUD, which users enable as an Omadora shell plugin. Buzz includes its desktop workspace and CLI helpers. Its two Rust lockfiles contain identical crate versions from different sources, so it fetches both locked dependency graphs during the network-enabled binary build before compiling with `--frozen`.
 
 After an Omadora source change is ready, update `omadora-revision` to the published commit and push this repository. The GitHub webhook queues all SCM packages for rebuild. The COPR package definitions use `--max-builds 1` to retain only the latest build of each recipe. For a manual core retry, build `omarchy-settings` before `omarchy`.
 

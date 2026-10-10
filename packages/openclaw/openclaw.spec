@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
 Name:           openclaw
-Version:        2026.9.6
-Release:        4%{?dist}
+Version:        2026.9.9
+Release:        1%{?dist}
 Summary:        Multi-channel AI gateway with extensible messaging integrations
 License:        MIT
 URL:            https://github.com/openclaw/openclaw
@@ -77,6 +77,9 @@ done
 %{_prefix}/lib/node_modules/%{name}/
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 2026.9.9-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Tue Oct 06 2026 kamm3r - 2026.9.6-4
 - Follow upstream master and use the packaged system CLI.
 - Drop the installer payload until upstream supports seeding this release.

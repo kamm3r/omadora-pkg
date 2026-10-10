@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           walker
-Version:        2.17.1
+Version:        2.17.2
 Release:        1%{?dist}
 Summary:        Wayland application runner
 License:        GPL-3.0-or-later
@@ -73,5 +73,8 @@ install -D -m 0644 resources/themes/default/style.css %{buildroot}%{_sysconfdir}
 %{_sysconfdir}/xdg/walker/themes/default/style.css
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 2.17.2-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Tue Sep 30 2026 kamm3r - 2.17.1-1
 - Port the upstream Omarchy recipe to Fedora.

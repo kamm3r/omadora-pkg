@@ -1,5 +1,5 @@
-b707589edd9c9c4b139e1c76a72ba204af82a96f60312ccf88987a42827ccbd9  openvino-genai-2026.4.0.0.tar.gz
+0e9554746207f6388c044de23a8aa7fe903e24f010ecaaf9e87a4c8b751e8ffe  openvino-genai-2026.4.1.0.tar.gz
 6e685c1e45d4b2314fd55e2f791846cc9086413ba62a6bb5e31be5a5878a243c  gcc-16-char8_t.patch
 61958d64dd7510ff0cb6da010f26fddba3e5dbc38691828163a63d54951d1b2a  linear-attention-guard-constructor.patch
-e6a770bafe7c95c8e40c0bf8e30c9ab1b18f50d7ae46efee8779f8e4bbd7fe08  openvino-genai-tokenizers-2026.4.0.0.tar.gz
-ff816f55e591ded0b60a748405010a8507291ee2b16ef2caf4c4ff662c4d4b6d  openvino-2026.4.0.tar.gz
+063c7ed9e4e5147b87d748d17fa6e92279be104bd42a2ef5661f56acc27fbfd4  openvino-genai-tokenizers-2026.4.1.0.tar.gz
+1ee85264556025486a4745a2d452ea823c578b3d162768bfef590366d2e6c539  openvino-2026.4.1.tar.gz

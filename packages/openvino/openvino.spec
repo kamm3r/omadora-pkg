@@ -5,7 +5,7 @@
 #
 # Please submit issues or comments https://github.com/openvinotoolkit/openvino/issues
 
-%global so_ver 2640
+%global so_ver 2641
 
 %global desc %{expand:OpenVINO is an open-source toolkit for optimizing and deploying deep learning
 models from cloud to edge. It accelerates deep learning inference across
@@ -13,8 +13,8 @@ various use cases, such as generative AI, video, audio, and language with
 models from popular frameworks like PyTorch, TensorFlow, ONNX, and more.}
 
 Name:           openvino
-Version:        2026.4.0
-Release:        2%{?dist}
+Version:        2026.4.1
+Release:        1%{?dist}
 Summary:        Toolkit for optimizing and deploying AI inference
 
 # Most of the source code is Apache-2.0, with the following exceptions:
@@ -382,6 +382,9 @@ LD_LIBRARY_PATH=%{buildroot}%{_libdir} PYTHONPATH=%{buildroot}%{python3_sitearch
 
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 2026.4.1-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Sat Oct 03 2026 kamm3r - 2026.4.0-2
 - Package the GGUF frontend added in OpenVINO 2026.4.
 

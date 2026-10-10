@@ -6,12 +6,12 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\\.so|/usr/bin/node)
 
 Name:           obsidian
-Version:        1.13.7
+Version:        1.14.4
 Release:        1%{?dist}
 Summary:        Knowledge base on top of a local folder of plain-text Markdown files
 License:        LicenseRef-Obsidian
 URL:            https://obsidian.md/
-%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
+%global omarchy_pkgs_commit 8787c23f0386eaf1df5ccd07b8402080da48b1ef
 Source0:        https://github.com/obsidianmd/obsidian-releases/releases/download/v%{version}/obsidian-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/obsidian/obsidian.desktop
 ExclusiveArch:  x86_64
@@ -92,5 +92,8 @@ install -D -m 0644 obsidian-%{version}/LICENSES.chromium.html %{buildroot}%{_lic
 %{_datadir}/icons/hicolor/512x512/apps/obsidian.png
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 1.14.4-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Thu Oct 01 2026 kamm3r - 1.13.7-1
 - Repackage the upstream Omarchy Obsidian release for Fedora.

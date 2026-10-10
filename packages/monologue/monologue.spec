@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           monologue
-Version:        0.3.0
+Version:        0.3.1
 Release:        1%{?dist}
 Summary:        Theme synced webcam recorder for Omarchy
 License:        MIT
@@ -39,6 +39,9 @@ install -D -m 0644 pkgbuild/monologue.svg %{buildroot}%{_datadir}/icons/hicolor/
 %{_datadir}/icons/hicolor/scalable/apps/monologue.svg
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 0.3.1-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Tue Oct 06 2026 kamm3r - 0.3.0-1
 - Update to the release pinned on upstream master.
 

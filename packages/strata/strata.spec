@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
 Name:           strata
-Version:        0.20.1
-Release:        2%{?dist}
+Version:        0.21.0
+Release:        1%{?dist}
 Summary:        Fast, keyboard-first file manager for modern Linux desktops
 License:        MIT
 URL:            https://github.com/lgse/strata
@@ -72,6 +72,9 @@ install -D -m 0644 data/io.github.lgse.Strata.FileManager1.service %{buildroot}%
 %{_datadir}/strata/io.github.lgse.Strata.FileManager1.service
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 0.21.0-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Sat Oct 03 2026 kamm3r - 0.20.1-2
 - Add the C++ compiler required by unrar_sys.
 

@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           owe-lockfeed
-Version:        0.2.9
+Version:        0.2.10
 Release:        1%{?dist}
 Summary:        QML lock screen video feed for OWE
 License:        MIT
@@ -34,6 +34,9 @@ ctest --test-dir build --output-on-failure
 %{_libdir}/qt6/qml/Owe/LockFeed
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 0.2.10-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Tue Oct 06 2026 kamm3r - 0.2.9-1
 - Update to the release pinned on upstream master.
 

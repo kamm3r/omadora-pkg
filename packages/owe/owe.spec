@@ -1,12 +1,15 @@
 %global debug_package %{nil}
 
 Name:           owe
-Version:        0.2.9
+Version:        0.2.10
 Release:        1%{?dist}
 Summary:        Wallpaper engine for Omarchy
 License:        MIT
 URL:            https://github.com/omacom/owe
 Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+%global omarchy_pkgs_commit 8787c23f0386eaf1df5ccd07b8402080da48b1ef
+Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/owe/lock-policy-timestamp.patch
+Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/owe/package-restart
 BuildRequires:  gcc
 BuildRequires:  meson
 BuildRequires:  ninja-build
@@ -23,15 +26,19 @@ BuildRequires:  pkgconfig(libavutil)
 BuildRequires:  pkgconfig(libswscale)
 BuildRequires:  pkgconfig(libsystemd)
 BuildRequires:  systemd-rpm-macros
+BuildRequires:  python3
+BuildRequires:  mesa-dri-drivers
 Requires:       mpv
 Requires:       ffmpeg
 Requires:       socat
+Requires(posttrans): systemd
 
 %description
 OWE renders still and video wallpapers and provides a user session daemon.
 
 %prep
 %autosetup
+patch -Np1 -i "%{SOURCE1}"
 
 %build
 %meson
@@ -43,6 +50,21 @@ install -D -m 0644 systemd/owed.service %{buildroot}%{_userunitdir}/owed.service
 sed -i 's|%h/.local/bin/owed|%{_bindir}/owed|' %{buildroot}%{_userunitdir}/owed.service
 install -D -m 0755 hooks/owe-idle %{buildroot}%{_bindir}/owe-idle
 install -D -m 0644 hooks/theme-set.d/10-owe-sync %{buildroot}%{_datadir}/owe/10-owe-sync
+install -D -m 0755 "%{SOURCE2}" %{buildroot}%{_libexecdir}/owe/package-restart
+
+%check
+%meson_test
+
+%posttrans
+# Restart only active sessions on upgrade, after systemd reloads user units.
+if [ "$1" -gt 1 ]; then
+  systemctl list-units 'user@*.service' --state=running --no-legend --plain | while read -r unit _; do
+    user_id=${unit#user@}
+    user_id=${user_id%.service}
+    systemctl --user --machine="$user_id@.host" daemon-reload || :
+  done
+  %{_libexecdir}/owe/package-restart || :
+fi
 
 %files
 %doc README.md
@@ -53,8 +75,12 @@ install -D -m 0644 hooks/theme-set.d/10-owe-sync %{buildroot}%{_datadir}/owe/10-
 %{_bindir}/owe-idle
 %{_userunitdir}/owed.service
 %{_datadir}/owe/10-owe-sync
+%{_libexecdir}/owe/package-restart
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 0.2.10-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Tue Oct 06 2026 kamm3r - 0.2.9-1
 - Update to the release pinned on upstream master.
 

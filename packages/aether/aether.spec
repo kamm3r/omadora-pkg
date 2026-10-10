@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           aether
-Version:        4.31.1
+Version:        4.32.0
 Release:        1%{?dist}
 Summary:        Desktop theming application for Omarchy
 License:        MIT
@@ -37,6 +37,9 @@ install -D -m 0644 assets/aether-icon-512.png %{buildroot}%{_datadir}/icons/hico
 %{_datadir}/icons/hicolor/512x512/apps/aether.png
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 4.32.0-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Tue Oct 06 2026 kamm3r - 4.31.1-1
 - Update to the release pinned on upstream master.
 

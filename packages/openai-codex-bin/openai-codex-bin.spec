@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           openai-codex-bin
-Version:        0.160.0
+Version:        0.162.1
 Release:        1%{?dist}
 Summary:        OpenAI Codex CLI
 License:        Apache-2.0
@@ -51,6 +51,9 @@ install -D -m 0644 completions/codex.ps1 %{buildroot}%{_datadir}/powershell/Comp
 %{_datadir}/powershell/Completions/codex.ps1
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 0.162.1-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Tue Oct 06 2026 kamm3r - 0.160.0-1
 - Update to the release pinned on upstream master.
 

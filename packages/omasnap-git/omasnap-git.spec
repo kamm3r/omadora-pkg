@@ -1,15 +1,15 @@
 %global debug_package %{nil}
 
 Name:           omasnap-git
-Version:        1.21.0.r76.g614cdf5
-Release:        2%{?dist}
+Version:        1.21.0.r81.g6771b19
+Release:        1%{?dist}
 Summary:        Wayland screenshot and annotation overlay for Hyprland (main-branch build)
 License:        MIT AND OFL-1.1 AND ISC
 URL:            https://github.com/omacom/omasnap
 # Pinned main-branch commit, mirroring the upstream -git PKGBUILD: every
 # main tip becomes a commit pin, versioned <last tag>.r<commits>.g<sha> so
 # it sorts above the tagged release it follows and below the next one.
-%global _commit 614cdf55b42a43c1dcee2c85cd01e4764a52bdae
+%global _commit 6771b19de8bcead2b17c16b49f1a8a97445dd8e3
 Source0:        %{url}/archive/%{_commit}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRequires:  cmake
 BuildRequires:  ninja-build
@@ -53,7 +53,7 @@ DESTDIR=%{buildroot} cmake --install build
 runtime_dir=$(mktemp -d /dev/shm/omasnap-runtime.XXXXXX)
 trap 'rm -rf "$runtime_dir"' EXIT
 sync
-XDG_RUNTIME_DIR="$runtime_dir" QT_QPA_PLATFORM=offscreen QT_QPA_PLATFORMTHEME= QT_STYLE_OVERRIDE= QT_FORCE_STDERR_LOGGING=1 ./build/omasnap-smoke ./omasnap-smoke-output
+XDG_RUNTIME_DIR="$runtime_dir" QT_QPA_PLATFORM=offscreen QT_QPA_PLATFORMTHEME= QT_STYLE_OVERRIDE= QT_FORCE_STDERR_LOGGING=1 ./build/omasnap-smoke --output-dir "$PWD/omasnap-smoke-output"
 
 %files
 %license LICENSE
@@ -63,6 +63,9 @@ XDG_RUNTIME_DIR="$runtime_dir" QT_QPA_PLATFORM=offscreen QT_QPA_PLATFORMTHEME= Q
 %{_datadir}/licenses/omasnap/*.txt
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 1.21.0.r81.g6771b19-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Sat Oct 03 2026 kamm3r - 1.21.0.r76.g614cdf5-2
 - Add libdeflate for the main-branch screenshot encoder.
 

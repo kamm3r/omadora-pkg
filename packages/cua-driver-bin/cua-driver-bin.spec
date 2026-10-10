@@ -6,12 +6,12 @@
 %global __requires_exclude_from ^/usr/lib/cua-driver/.*
 
 Name:           cua-driver-bin
-Version:        0.28.2
+Version:        0.33.4
 Release:        1%{?dist}
 Summary:        Computer-use driver for native GUI apps: accessibility-tree snapshots and input injection
 License:        MIT
 URL:            https://github.com/trycua/cua
-%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
+%global omarchy_pkgs_commit 8787c23f0386eaf1df5ccd07b8402080da48b1ef
 Source0:        %{url}/releases/download/cua-driver-rs-v%{version}/cua-driver-rs-%{version}-linux-x86_64.tar.gz#/%{name}-%{version}-linux-x86_64.tar.gz
 Source1:        %{url}/releases/download/cua-driver-rs-v%{version}/cua-driver-rs-%{version}-linux-arm64.tar.gz#/%{name}-%{version}-linux-arm64.tar.gz
 # Stand-in for the vendor installer, from the upstream recipe. The binary's
@@ -117,5 +117,8 @@ ln -s ../lib/cua-driver/cua-driver %{buildroot}%{_bindir}/cua-driver
 %{_bindir}/cua-driver
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 0.33.4-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Thu Oct 01 2026 kamm3r - 0.28.2-1
 - Repackage the upstream Omarchy Cua driver release for Fedora.

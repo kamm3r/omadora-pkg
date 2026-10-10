@@ -7,14 +7,13 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node)
 
 Name:           grok-bot
-Version:        0.47.0
+Version:        0.68.1
 Release:        1%{?dist}
 Summary:        Grok Bot desktop agent
 License:        LicenseRef-proprietary
 URL:            https://x.ai/bot
-%global _commit c1e7d7a46549956d25f53e9c0b9f59666e03aa3a
-%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
-Source0:        https://downloads.cursor.com/grokbot/stable/%{_commit}/linux/x64/grok-bot_%{version}_amd64.deb#/%{name}-%{version}.deb
+%global omarchy_pkgs_commit 8787c23f0386eaf1df5ccd07b8402080da48b1ef
+Source0:        https://downloads.cursor.com/aptrepo/pool/grok-bot/g/gr/grok-bot_%{version}_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/grok-bot/grok-bot.sh
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/grok-bot/grok-bot.desktop
 ExclusiveArch:  x86_64
@@ -78,5 +77,8 @@ chmod 0755 "%{buildroot}/opt/Grok Bot/chrome-sandbox"
 %{_datadir}/icons/hicolor/*/apps/grok-bot.png
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 0.68.1-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Thu Oct 01 2026 kamm3r - 0.47.0-1
 - Repackage the upstream Omarchy Grok Bot release for Fedora.

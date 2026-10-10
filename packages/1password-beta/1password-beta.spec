@@ -6,12 +6,12 @@
 %global __requires_exclude ^lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan|op_sdk.*)\\.so
 
 Name:           1password-beta
-Version:        8.12.40_27.BETA
+Version:        8.12.42_32.BETA
 Release:        1%{?dist}
 Summary:        Password manager and secure wallet
 License:        LicenseRef-1Password
 URL:            https://1password.com
-%global _tarver 8.12.40-27.BETA
+%global _tarver 8.12.42-32.BETA
 Source0:        https://downloads.1password.com/linux/tar/beta/x86_64/1password-%{_tarver}.x64.tar.gz#/%{name}-%{version}.tar.gz
 ExclusiveArch:  x86_64
 Requires:       gtk3
@@ -87,6 +87,9 @@ fi
 %{_datadir}/doc/1password/examples/custom_allowed_browsers
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 8.12.42_32.BETA-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Tue Oct 06 2026 kamm3r - 8.12.40_27.BETA-1
 - Update to the release pinned on upstream master.
 

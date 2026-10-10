@@ -3,12 +3,12 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node)
 
 Name:           slack-desktop
-Version:        4.52.171
+Version:        4.52.178
 Release:        1%{?dist}
 Summary:        Slack desktop client
 License:        LicenseRef-proprietary
 URL:            https://slack.com/downloads
-%global omarchy_pkgs_commit e3dfdd376ce0aac7064497c7bd121f620fa26799
+%global omarchy_pkgs_commit 8787c23f0386eaf1df5ccd07b8402080da48b1ef
 Source0:        https://downloads.slack-edge.com/desktop-releases/linux/x64/%{version}/slack-desktop-%{version}-amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/slack-desktop/slack.desktop
 ExclusiveArch:  x86_64
@@ -86,5 +86,8 @@ install -D -m 0644 usr/share/pixmaps/slack.png \
 %{_datadir}/icons/hicolor/512x512/apps/slack.png
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 4.52.178-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Tue Oct 06 2026 kamm3r - 4.52.171-1
 - Port the upstream Omarchy x86_64 Slack package to Fedora.

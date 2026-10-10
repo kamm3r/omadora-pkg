@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           zed
-Version:        1.22.0
+Version:        1.23.2
 Release:        1%{?dist}
 Summary:        High-performance, multiplayer code editor
 License:        GPL-3.0-or-later AND AGPL-3.0-or-later AND Apache-2.0
@@ -77,6 +77,9 @@ install -D -m 0644 zed.app/licenses.md %{buildroot}%{_licensedir}/zed/licenses.m
 %{_datadir}/icons/hicolor/*/apps/zed.png
 
 %changelog
+* Sat Oct 10 2026 kamm3r - 1.23.2-1
+- Update to the release pinned in upstream 8787c23f.
+
 * Tue Oct 06 2026 kamm3r - 1.22.0-1
 - Update to the release pinned on upstream master.
 
