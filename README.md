@@ -38,6 +38,8 @@ OpenClaw uses the packaged system CLI and the Fedora Node 24 runtime. Its instal
 
 COPR networking must be enabled for recipes that fetch npm, Flutter, Gradle, Bazel, or Git dependencies during the binary build. The project uses `copr-cli modify kammer/omadora --enable-net on`; the vendored Rust and Go recipes still build without network access.
 
+The Fedora 44 build chroot uses the Hyprland COPR, Terra, and RPM Fusion's free release and updates repositories. OWE's media tests require the full RPM Fusion `ffmpeg` package with its H.264 encoder, also required at runtime.
+
 OmaCharts ships its charting app, CLI, completions, and optional agent skill. Rawmakase installs the upstream RAW photo editor with its private processing libraries. Ghost provides separate `ghost-runtime` and `ghost` RPMs; the latter adds the desktop HUD, which users enable as an Omadora shell plugin. Buzz includes its desktop workspace and CLI helpers. Its two Rust lockfiles contain identical crate versions from different sources, so it fetches both locked dependency graphs during the network-enabled binary build before compiling with `--frozen`.
 
 After an Omadora source change is ready, update `omadora-revision` to the published commit and push this repository. The GitHub webhook queues all SCM packages for rebuild. The COPR package definitions use `--max-builds 1` to retain only the latest build of each recipe. For a manual core retry, build `omarchy-settings` before `omarchy`.

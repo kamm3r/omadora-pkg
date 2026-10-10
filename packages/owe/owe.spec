@@ -28,6 +28,7 @@ BuildRequires:  pkgconfig(libsystemd)
 BuildRequires:  systemd-rpm-macros
 BuildRequires:  python3
 BuildRequires:  mesa-dri-drivers
+BuildRequires:  ffmpeg
 Requires:       mpv
 Requires:       ffmpeg
 Requires:       socat
