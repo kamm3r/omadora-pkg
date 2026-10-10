@@ -47,8 +47,8 @@ Requires:       python3-absl
 Provides:       python3-mediapipe = %{version}-%{release}
 # Fedora 44 ships opencv 4.13 under /usr/include/opencv4, which is what
 # upstream expects, so the Arch-only opencv5 header patches (0004, 0006) are
-# intentionally dropped here; only the hermetic-python and rules-java fixes
-# are carried. python-tensorflow has no Fedora counterpart and stays out of
+# intentionally dropped here; the hermetic-python, rules-java and semantic
+# retriever removal fixes are carried. python-tensorflow stays out of
 # Requires; the wheel links what the hermetic build needs.
 
 %description

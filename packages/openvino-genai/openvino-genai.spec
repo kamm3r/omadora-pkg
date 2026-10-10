@@ -58,6 +58,9 @@ cmake -S . -B build -G Ninja \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_CXX_FLAGS="$CXXFLAGS -I$PWD/frontend-headers" \
   -DCMAKE_INSTALL_PREFIX=/usr \
+  -DCMAKE_INSTALL_BINDIR=%{_bindir} \
+  -DCMAKE_INSTALL_LIBDIR=%{_libdir} \
+  -DCMAKE_INSTALL_INCLUDEDIR=%{_includedir} \
   -DCMAKE_SKIP_RPATH=ON \
   -DENABLE_JS=OFF \
   -DENABLE_MISAKI_CPP=OFF \
@@ -100,6 +103,7 @@ install -Dm644 thirdparty/openvino_tokenizers/third-party-programs.txt %{buildro
 %changelog
 * Sat Oct 10 2026 kamm3r - 2026.4.1.0-1
 - Update to the release pinned in upstream 8787c23f.
+- Set install directories explicitly for the bundled PCRE2 configuration.
 
 * Sat Oct 03 2026 kamm3r - 2026.4.0.0-2
 - List installed license paths separately for RPM 6.
