@@ -36,6 +36,8 @@ and agent helper programs.
 %autosetup -n buzz-desktop-v%{version}
 
 %build
+# The RPM discards debug sections; avoid generating them in large Rust crates.
+export RUSTFLAGS="${RUSTFLAGS:-} -Cdebuginfo=0"
 mkdir -p node-bin
 ln -s /usr/bin/node-24 node-bin/node
 export PATH="$PWD/node-bin:$PATH"
@@ -80,3 +82,4 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/buzz-desktop.desktop
 %changelog
 * Sat Oct 10 2026 kamm3r - 0.5.28-1
 - Port the upstream desktop workspace and agent helpers to Fedora.
+- Avoid generating Rust debug sections discarded by the RPM.

@@ -51,6 +51,8 @@ Strata is a fast, keyboard-first file manager for modern Linux desktops.
 %autosetup -a 1
 
 %build
+# The RPM discards debug sections; avoid generating them in large Rust crates.
+export RUSTFLAGS="${RUSTFLAGS:-} -Cdebuginfo=0"
 export CARGO_TARGET_DIR=target
 export STRATA_RELEASE_TAG="v%{version}"
 export STRATA_BUILD_KIND=stable
@@ -74,6 +76,7 @@ install -D -m 0644 data/io.github.lgse.Strata.FileManager1.service %{buildroot}%
 %changelog
 * Sat Oct 10 2026 kamm3r - 0.21.0-1
 - Update to the release pinned in upstream 8787c23f.
+- Avoid generating Rust debug sections discarded by the RPM.
 
 * Sat Oct 03 2026 kamm3r - 0.20.1-2
 - Add the C++ compiler required by unrar_sys.
