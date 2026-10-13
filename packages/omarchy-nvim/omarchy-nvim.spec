@@ -1,13 +1,14 @@
 %global debug_package %{nil}
-%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
+%global starter_commit 803bc181d7c0d6d5eeba9274d9be49b287294d99
+%global omarchy_pkgs_commit e499d021c69d27e0750f77f9af7cd68534c8016f
 
 Name:           omarchy-nvim
 Version:        2026.9.21
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Pre-built LazyVim configuration with cached plugins
 License:        MIT
 URL:            https://github.com/LazyVim/LazyVim
-Source0:        https://github.com/LazyVim/starter/archive/refs/heads/main.tar.gz#/%{name}-starter-%{version}.tar.gz
+Source0:        https://github.com/LazyVim/starter/archive/%{starter_commit}.tar.gz#/%{name}-starter-%{version}.tar.gz
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/omarchy-nvim/lazyvim.json
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/omarchy-nvim/omarchy-nvim-setup
 Source3:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/omarchy-nvim/lua/config/options.lua
@@ -17,6 +18,7 @@ Source6:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_
 Source7:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/omarchy-nvim/lua/plugins/omarchy-theme-hotreload.lua
 Source8:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/omarchy-nvim/lua/plugins/snacks-animated-scrolling-off.lua
 Source9:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/omarchy-nvim/plugin/after/transparency.lua
+Source10:       https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/omarchy-nvim/lua/plugins/lualine-transparent.lua
 BuildArch:      noarch
 BuildRequires:  git
 BuildRequires:  gcc
@@ -32,7 +34,7 @@ Requires:       xdg-utils
 Pre-built LazyVim configuration with cached plugins.
 
 %prep
-%autosetup -n starter-main
+%autosetup -n starter-%{starter_commit}
 
 %build
 slim_lazy_repos() {
@@ -94,7 +96,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 mkdir -p "$XDG_CONFIG_HOME" "$XDG_DATA_HOME" "$XDG_STATE_HOME" "$XDG_CACHE_HOME"
 
 # Setup LazyVim starter
-cp -a "%{_builddir}/starter-main" "$XDG_CONFIG_HOME/nvim"
+cp -a "%{_builddir}/starter-%{starter_commit}" "$XDG_CONFIG_HOME/nvim"
 rm -rf "$XDG_CONFIG_HOME/nvim/.git"
 
 # Copy custom configs (mirrors PKGBUILD cp -r of startdir lua/plugin plus lazyvim.json)
@@ -105,6 +107,7 @@ cp -a "%{SOURCE5}" "$XDG_CONFIG_HOME/nvim/lua/plugins/all-themes.lua"
 cp -a "%{SOURCE6}" "$XDG_CONFIG_HOME/nvim/lua/plugins/disable-news-alert.lua"
 cp -a "%{SOURCE7}" "$XDG_CONFIG_HOME/nvim/lua/plugins/omarchy-theme-hotreload.lua"
 cp -a "%{SOURCE8}" "$XDG_CONFIG_HOME/nvim/lua/plugins/snacks-animated-scrolling-off.lua"
+cp -a "%{SOURCE10}" "$XDG_CONFIG_HOME/nvim/lua/plugins/lualine-transparent.lua"
 cp -a "%{SOURCE9}" "$XDG_CONFIG_HOME/nvim/plugin/after/transparency.lua"
 cp -a "%{SOURCE1}" "$XDG_CONFIG_HOME/nvim/lazyvim.json"
 
@@ -183,6 +186,10 @@ ln -s omarchy-nvim-setup %{buildroot}%{_bindir}/omarchy-nvim-refresh
 /etc/skel/.local/share/nvim
 
 %changelog
+* Tue Oct 13 2026 kamm3r - 2026.9.21-3
+- Update lualine and cursor-line transparency, preserving file-tree selection.
+- Pin the LazyVim starter archive so its checksum remains reproducible.
+
 * Sat Oct 03 2026 kamm3r - 2026.9.21-2
 - Install the parser compiler and normalize cached plugin Python shebangs.
 

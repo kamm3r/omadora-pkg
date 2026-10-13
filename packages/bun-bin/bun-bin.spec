@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           bun-bin
-Version:        1.4.2
+Version:        1.4.3
 Release:        1%{?dist}
 Summary:        All-in-one JavaScript runtime built for speed
 License:        MIT
@@ -47,5 +47,8 @@ install -D -m 0644 completions/bun.fish %{buildroot}%{_datadir}/fish/vendor_comp
 %{_datadir}/zsh/site-functions/_bun
 
 %changelog
+* Tue Oct 13 2026 kamm3r - 1.4.3-1
+- Update to the release pinned in upstream e499d021.
+
 * Wed Sep 30 2026 kamm3r - 1.4.2-1
 - Repackage the upstream Omarchy Bun release for Fedora.

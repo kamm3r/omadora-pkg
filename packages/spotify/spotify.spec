@@ -6,14 +6,14 @@
 %global __requires_exclude ^lib(cef|EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\\.so
 
 Name:           spotify
-Version:        1.2.96.518
+Version:        1.3.4.258
 Release:        1%{?dist}
 Summary:        Proprietary music streaming service
 License:        LicenseRef-Spotify
 URL:            https://www.spotify.com
 Epoch:          1
-%global _commit g366879e1
-%global omarchy_pkgs_commit 29465fb750ed2b7a8b3f409cf1a61989ac2d3867
+%global _commit gc60b10b0946a
+%global omarchy_pkgs_commit e499d021c69d27e0750f77f9af7cd68534c8016f
 Source0:        https://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_%{version}.%{_commit}_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/spotify/spotify.sh
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/spotify/spotify.protocol
@@ -85,5 +85,8 @@ chmod -R go-w %{buildroot}
 %{_datadir}/kservices5/spotify.protocol
 
 %changelog
+* Tue Oct 13 2026 kamm3r - 1.3.4.258-1
+- Update to the release pinned in upstream e499d021.
+
 * Wed Sep 30 2026 kamm3r - 1.2.96.518-1
 - Repackage the upstream Omarchy release for Fedora.

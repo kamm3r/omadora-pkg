@@ -1,5 +1,5 @@
 Name:           omakade
-Version:        1.15.0
+Version:        1.16.2
 Release:        1%{?dist}
 Summary:        Local game library and launcher for Omarchy desktops
 License:        GPL-3.0-or-later AND CC-BY-SA-3.0
@@ -58,6 +58,9 @@ rm -f %{buildroot}%{_datadir}/licenses/omakade/LICENSE %{buildroot}%{_datadir}/l
 %{_datadir}/doc/omakade
 
 %changelog
+* Tue Oct 13 2026 kamm3r - 1.16.2-1
+- Update to the release pinned in upstream e499d021.
+
 * Tue Oct 06 2026 kamm3r - 1.15.0-1
 - Update to the release pinned on upstream master.
 - Add the layer-shell and Python dependencies and artwork license.

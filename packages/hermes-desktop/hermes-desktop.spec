@@ -7,14 +7,14 @@
 
 Name:           hermes-desktop
 Version:        2026.9.7
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Native desktop shell for Hermes Agent
 License:        MIT
 URL:            https://github.com/NousResearch/hermes-agent
 # The tag's commit. apps/desktop/scripts/write-build-stamp.mjs pins the app's
 # first-launch bootstrap to a Hermes commit, resolved from $GITHUB_SHA.
 %global _commit 2237be355906fbe6065ce1815711eee52b2d646e
-%global omarchy_pkgs_commit 31b8fdb3ad96fa89a6ab4492be9b7e59eb7af080
+%global omarchy_pkgs_commit e499d021c69d27e0750f77f9af7cd68534c8016f
 Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/hermes-desktop/hermes-desktop.sh
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/hermes-desktop/hermes-desktop.desktop
@@ -80,7 +80,7 @@ upstream PKGBUILD.
 %prep
 %autosetup -n hermes-agent-%{version}
 cp "%{SOURCE1}" hermes-desktop.sh
-sed -i 's|^python=/usr/bin/python$|python=/usr/bin/python3|' hermes-desktop.sh
+sed -i 's|/usr/bin/python\>|/usr/bin/python3|g' hermes-desktop.sh
 cp "%{SOURCE2}" hermes-desktop.desktop
 cp "%{SOURCE3}" hermes-desktop.png
 cp "%{SOURCE4}" runtime.patch
@@ -137,6 +137,9 @@ chmod 0755 %{buildroot}/opt/%{name}/chrome-sandbox
 %{_datadir}/%{name}/runtime.patch
 
 %changelog
+* Tue Oct 13 2026 kamm3r - 2026.9.7-4
+- Support the current Hermes CLI shim and committed runtime environment.
+
 * Sat Oct 03 2026 kamm3r - 2026.9.7-3
 - Update the launcher for newer runtime settings and accessibility preferences.
 

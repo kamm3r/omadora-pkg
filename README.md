@@ -8,7 +8,7 @@ The upstream `omarchy-pkgs` snapshot at commit `e3dfdd376ce0aac7064497c7bd121f62
 
 The Elephant package family and `omarchy-walker` were [retired upstream](https://github.com/omacom/omarchy-pkgs/commit/2cce621d95555c0cd7fbb7dfdf30479c2d6d71bf) because Omarchy 4 no longer uses them. Their Fedora recipes and COPR entries have been removed. `walker` remains available.
 
-The latest version updates and added recipes follow upstream commit `8787c23f0386eaf1df5ccd07b8402080da48b1ef`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
+The latest version updates and added recipes follow upstream commit `e499d021c69d27e0750f77f9af7cd68534c8016f`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
 
 ## Build from this repository
 
@@ -41,6 +41,8 @@ COPR networking must be enabled for recipes that fetch npm, Flutter, Gradle, Baz
 The Fedora 44 build chroot uses the Hyprland COPR, Terra, and RPM Fusion's free release and updates repositories. OWE's media tests require the full RPM Fusion `ffmpeg` package with its H.264 encoder, also required at runtime.
 
 OmaCharts ships its charting app, CLI, completions, and optional agent skill. Rawmakase installs the upstream RAW photo editor with its private processing libraries. Ghost provides separate `ghost-runtime` and `ghost` RPMs; the latter adds the desktop HUD, which users enable as an Omadora shell plugin. Buzz includes its desktop workspace and CLI helpers. Its two Rust lockfiles contain identical crate versions from different sources, so it fetches both locked dependency graphs during the network-enabled binary build before compiling with `--frozen`.
+
+Signed provides PDF signing and text placement. OmaDesign ships the native design studio with its private libraries and offline documentation. Collie provides phone access to terminal agents through Tailscale; users start its service and configure phone access with the Collie CLI.
 
 After an Omadora source change is ready, update `omadora-revision` to the published commit and push this repository. The GitHub webhook queues all SCM packages for rebuild. The COPR package definitions use `--max-builds 1` to retain only the latest build of each recipe. For a manual core retry, build `omarchy-settings` before `omarchy`.
 

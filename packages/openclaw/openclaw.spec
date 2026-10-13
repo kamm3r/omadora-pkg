@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           openclaw
-Version:        2026.9.9
+Version:        2026.10.2
 Release:        1%{?dist}
 Summary:        Multi-channel AI gateway with extensible messaging integrations
 License:        MIT
@@ -77,6 +77,9 @@ done
 %{_prefix}/lib/node_modules/%{name}/
 
 %changelog
+* Tue Oct 13 2026 kamm3r - 2026.10.2-1
+- Update to the release pinned in upstream e499d021.
+
 * Sat Oct 10 2026 kamm3r - 2026.9.9-1
 - Update to the release pinned in upstream 8787c23f.
 

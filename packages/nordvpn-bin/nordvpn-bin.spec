@@ -5,7 +5,7 @@
 %global __requires_exclude_from ^/usr/lib/nordvpn/.*
 
 Name:           nordvpn-bin
-Version:        5.4.0
+Version:        5.4.1
 Release:        1%{?dist}
 Summary:        NordVPN CLI tool for Linux
 License:        GPL-3.0-only
@@ -88,5 +88,8 @@ getent group nordvpn >/dev/null || groupadd -r nordvpn
 %{_datadir}/zsh/functions/Completion/Unix/_nordvpn_auto_complete
 
 %changelog
+* Tue Oct 13 2026 kamm3r - 5.4.1-1
+- Update to the release pinned in upstream e499d021.
+
 * Thu Oct 01 2026 kamm3r - 5.4.0-1
 - Repackage the upstream Omarchy release for Fedora.
