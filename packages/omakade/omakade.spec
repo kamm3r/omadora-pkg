@@ -18,7 +18,9 @@ BuildRequires:  wayland-devel
 BuildRequires:  wayland-protocols-devel
 BuildRequires:  layer-shell-qt-devel
 BuildRequires:  qt6-qtbase-devel
+BuildRequires:  qt6-qtbase-private-devel
 BuildRequires:  qt6-qtdeclarative-devel
+BuildRequires:  systemd-rpm-macros
 Requires:       python3
 Requires:       layer-shell-qt
 Recommends:     pulseaudio-utils
@@ -35,7 +37,8 @@ and gamepad support.
 %autosetup
 
 %build
-%cmake -G Ninja -DBUILD_TESTING=OFF
+# The only files installed under libdir are architecture-independent user units.
+%cmake -G Ninja -DBUILD_TESTING=OFF -DCMAKE_INSTALL_LIBDIR=lib
 %cmake_build
 
 %install
@@ -47,8 +50,11 @@ rm -f %{buildroot}%{_datadir}/licenses/omakade/LICENSE %{buildroot}%{_datadir}/l
 %{_bindir}/omakade
 %{_bindir}/omakade-sessiond
 %{_bindir}/omakade-guide-button
-%{_libdir}/systemd/user/omakade-sessiond.service
-%{_libdir}/systemd/user/omakade-guide-button.service
+%{_bindir}/omakade-guide-guard
+%{_userunitdir}/omakade-sessiond.service
+%{_userunitdir}/omakade-guide-button.service
+%dir %{_userunitdir}/graphical-session.target.wants
+%{_userunitdir}/graphical-session.target.wants/omakade-sessiond.service
 %{_datadir}/omakade
 %{_datadir}/applications/io.github.tsouth89.Omakade.desktop
 %{_datadir}/icons/hicolor/scalable/apps/io.github.tsouth89.Omakade.svg
@@ -60,6 +66,8 @@ rm -f %{buildroot}%{_datadir}/licenses/omakade/LICENSE %{buildroot}%{_datadir}/l
 %changelog
 * Tue Oct 13 2026 kamm3r - 1.16.2-1
 - Update to the release pinned in upstream e499d021.
+- Add the Qt GUI private headers required for controller input.
+- Package the new guide guard and install user units in Fedora's systemd directory.
 
 * Tue Oct 06 2026 kamm3r - 1.15.0-1
 - Update to the release pinned on upstream master.
