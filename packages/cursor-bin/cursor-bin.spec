@@ -7,11 +7,11 @@
 # shebangs belong to bundled node_modules CLI helpers that run under the
 # bundled runtime, so keep that interpreter scrap out of the RPM dependency
 # namespace (mirrors cursor-cli).
-%global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node)$
+%global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node$)
 
 Name:           cursor-bin
 Version:        3.24.12
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        AI-first coding environment
 License:        LicenseRef-Cursor
 URL:            https://www.cursor.com
@@ -95,6 +95,9 @@ chmod 0755 %{buildroot}/usr/share/cursor/chrome-sandbox
 %{_datadir}/pixmaps/co.anysphere.cursor.png
 
 %changelog
+* Tue Oct 13 2026 kamm3r - 3.24.12-2
+- Exclude dependency capabilities for the bundled private libraries.
+
 * Tue Oct 13 2026 kamm3r - 3.24.12-1
 - Update to the release pinned in upstream e499d021.
 

@@ -20,7 +20,7 @@ collie-bin	ready	Fedora RPM 1.21.0-1; COPR build pending
 crush-bin	published	Fedora RPM 0.98.1-1; verified in COPR build 11105073
 cua-driver-bin	published	Fedora RPM 0.33.4-1; verified in COPR build 11105074
 cua-hyprland-plugin	ready	Fedora RPM 0.33.2-1; COPR build pending
-cursor-bin	ready	Fedora RPM 3.24.12-1; COPR build pending
+cursor-bin	ready	Fedora RPM 3.24.12-2; COPR build pending
 cursor-cli	ready	Fedora RPM recipe
 dbxcli-bin	ready	Fedora RPM recipe
 dell-xps-touchpad-haptics	published	Fedora RPM recipe; verified in COPR
@@ -92,7 +92,7 @@ mise-bin	ready	Fedora RPM 2026.10.9-1; COPR build pending
 monologue	published	Fedora RPM 0.3.1-1; verified in COPR build 11105085
 nautilus-dropbox	published	Fedora RPM recipe; verified in COPR
 nautilus-open-any-terminal	published	COPR package with Caja subpackage
-nordvpn-bin	ready	Fedora RPM 5.4.1-1; COPR build pending
+nordvpn-bin	ready	Fedora RPM 5.4.1-2; COPR build pending
 nvidia-580xx-utils	not-applicable	superseded by RPMFusion akmod-nvidia
 nvidia-open-dkms	not-applicable	aarch64-only; x86_64 uses akmods
 nvidia-utils	not-applicable	aarch64-only; x86_64 uses akmods

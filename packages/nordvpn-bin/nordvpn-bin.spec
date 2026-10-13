@@ -3,10 +3,11 @@
 # dependency namespace; system libraries stay explicitly required below.
 %global __provides_exclude_from ^/usr/lib/nordvpn/.*
 %global __requires_exclude_from ^/usr/lib/nordvpn/.*
+%global __requires_exclude ^lib(telio|quench|mooseworker|moosenordvpnapp)\.so
 
 Name:           nordvpn-bin
 Version:        5.4.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        NordVPN CLI tool for Linux
 License:        GPL-3.0-only
 URL:            https://nordvpn.com/download/linux/
@@ -88,6 +89,9 @@ getent group nordvpn >/dev/null || groupadd -r nordvpn
 %{_datadir}/zsh/functions/Completion/Unix/_nordvpn_auto_complete
 
 %changelog
+* Tue Oct 13 2026 kamm3r - 5.4.1-2
+- Exclude private-library dependencies emitted by the system CLI and daemon.
+
 * Tue Oct 13 2026 kamm3r - 5.4.1-1
 - Update to the release pinned in upstream e499d021.
 
