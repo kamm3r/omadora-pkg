@@ -7,11 +7,15 @@
 # shebangs belong to bundled node_modules CLI helpers that run under the
 # bundled runtime, so keep that interpreter scrap out of the RPM dependency
 # namespace (mirrors cursor-bin).
-%global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\\.so|/usr/bin/node)
+# Fedora libcurl exports unversioned symbols. Microsoft ships the same MSAL
+# library in its RPM with an unversioned libcurl dependency; the loader binds
+# all curl symbols successfully. Keep the actual libcurl dependency and filter
+# only Debian's symbol-version label, guarded by the native loader check below.
+%global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\\.so|/usr/bin/node|libcurl\\.so\\.4\\(CURL_OPENSSL_4\\))
 
 Name:           visual-studio-code-bin
 Version:        1.141.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Editor for building and debugging modern web and cloud applications (official binary version)
 License:        LicenseRef-VSCode
 URL:            https://code.visualstudio.com/
@@ -19,6 +23,19 @@ URL:            https://code.visualstudio.com/
 Source0:        https://update.code.visualstudio.com/%{version}/linux-deb-x64/stable#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/visual-studio-code-bin/visual-studio-code-bin.sh
 ExclusiveArch:  x86_64
+# Load the authentication runtime against Fedora libraries during the build.
+BuildRequires:  python3
+BuildRequires:  libcurl
+BuildRequires:  dbus-libs
+BuildRequires:  libuuid
+BuildRequires:  libX11
+BuildRequires:  webkit2gtk4.1
+BuildRequires:  gtk3
+BuildRequires:  libsoup3
+BuildRequires:  libsecret
+BuildRequires:  openssl-libs
+BuildRequires:  libstdc++
+Requires:       libcurl
 Provides:       code = %{version}-%{release}
 Provides:       vscode = %{version}-%{release}
 Requires:       alsa-lib
@@ -76,6 +93,13 @@ fi
 %build
 :
 
+%check
+python3 - <<'PY'
+import ctypes, os
+ctypes.CDLL(os.path.abspath("usr/share/code/resources/app/extensions/microsoft-authentication/dist/libmsalruntime.so"), mode=os.RTLD_NOW | os.RTLD_LOCAL)
+print("PASS: Microsoft authentication runtime loads against Fedora libraries")
+PY
+
 %install
 # Install verbatim from the unpacked payload, keeping the bundled Electron
 # runtime, mirroring the upstream PKGBUILD.
@@ -104,6 +128,10 @@ chmod 0755 %{buildroot}/usr/share/code/chrome-sandbox
 %{_datadir}/pixmaps/vscode.png
 
 %changelog
+* Wed Oct 14 2026 kamm3r - 1.141.1-2
+- Keep the Fedora curl dependency while excluding Debian's unavailable symbol label.
+- Verify all authentication runtime symbols resolve against Fedora libraries.
+
 * Wed Oct 14 2026 kamm3r - 1.141.1-1
 - Update to the release pinned in upstream 430bdd13.
 
