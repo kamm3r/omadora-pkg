@@ -8,16 +8,18 @@
 
 Name:           openai-codex-desktop
 Version:        26.1007.71326
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Official ChatGPT desktop app with Codex
 License:        LicenseRef-proprietary
 URL:            https://chatgpt.com/codex/
 %global omarchy_pkgs_commit 430bdd13cb934126d50cd368defb11d36faa6aba
-%global hid_prebuilds usr/lib/chatgpt/resources/app.asar.unpacked/node_modules/@worklouder/device-kit-oai/node_modules/@worklouder/wl-device-kit/node_modules/node-hid/prebuilds
+%global device_kit_modules usr/lib/chatgpt/resources/app.asar.unpacked/node_modules/@worklouder/device-kit-oai/node_modules/@worklouder/wl-device-kit/node_modules
+%global hid_prebuilds %{device_kit_modules}/node-hid/prebuilds
+%global serial_prebuilds %{device_kit_modules}/serialport/node_modules/@serialport/bindings-cpp/prebuilds
 Source0:        https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_%{version}_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/openai-codex-desktop/chatgpt-launcher.sh
 ExclusiveArch:  x86_64
-BuildRequires:  binutils
+BuildRequires:  python3
 Provides:       chatgpt = %{version}-%{release}
 Provides:       codex-desktop = %{version}-%{release}
 Conflicts:      chatgpt
@@ -71,15 +73,32 @@ ar p "%{SOURCE0}" data.tar.xz | tar -xJf -
 test -f "%{hid_prebuilds}/HID-linux-x64/node-napi-v4.node"
 test -f "%{hid_prebuilds}/HID_hidraw-linux-x64/node-napi-v4.node"
 find "%{hid_prebuilds}" -mindepth 1 -maxdepth 1 -type d ! -name HID-linux-x64 ! -name HID_hidraw-linux-x64 -exec rm -rf -- {} +
+# The serial-port dependency also bundles unused ARM and Android modules.
+test -f "%{serial_prebuilds}/linux-x64/node.napi.glibc.node"
+find "%{serial_prebuilds}" -mindepth 1 -maxdepth 1 -type d ! -name linux-x64 -exec rm -rf -- {} +
+rm -f "%{serial_prebuilds}/linux-x64/node.napi.musl.node"
 
 %build
 :
 
 %check
-for module in "%{hid_prebuilds}"/*/*.node; do
-  readelf -h "$module" | grep -q "Machine:.*Advanced Micro Devices X86-64"
-done
-echo "PASS: both HID prebuilds target x86_64"
+python3 - <<'PY'
+from pathlib import Path
+count = 0
+for path in Path("usr/lib/chatgpt").rglob("*"):
+    if path.is_symlink() or not path.is_file():
+        continue
+    with path.open("rb") as stream:
+        header = stream.read(20)
+    if header[:4] != b"\x7fELF":
+        continue
+    machine = int.from_bytes(header[18:20], "little" if header[5] == 1 else "big")
+    if machine != 62:
+        raise SystemExit(f"Foreign ELF architecture {machine}: {path}")
+    count += 1
+assert count > 0
+print(f"PASS: all {count} Codex runtime ELF objects target x86_64")
+PY
 
 %install
 # Install verbatim from the unpacked payload, mirroring the upstream
@@ -109,6 +128,10 @@ fi
 %{_datadir}/swcatalog/xml/com.openai.chatgpt.xml
 
 %changelog
+* Wed Oct 14 2026 kamm3r - 26.1007.71326-3
+- Also remove unused foreign serial-port prebuilds.
+- Check every ELF object in the desktop runtime for x86_64 compatibility.
+
 * Wed Oct 14 2026 kamm3r - 26.1007.71326-2
 - Remove unused foreign-architecture HID prebuilds from the x86_64 payload.
 - Verify both retained HID backends target x86_64.
