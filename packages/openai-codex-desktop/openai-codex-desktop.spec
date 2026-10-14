@@ -8,14 +8,16 @@
 
 Name:           openai-codex-desktop
 Version:        26.1007.71326
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Official ChatGPT desktop app with Codex
 License:        LicenseRef-proprietary
 URL:            https://chatgpt.com/codex/
 %global omarchy_pkgs_commit 430bdd13cb934126d50cd368defb11d36faa6aba
+%global hid_prebuilds usr/lib/chatgpt/resources/app.asar.unpacked/node_modules/@worklouder/device-kit-oai/node_modules/@worklouder/wl-device-kit/node_modules/node-hid/prebuilds
 Source0:        https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_%{version}_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/openai-codex-desktop/chatgpt-launcher.sh
 ExclusiveArch:  x86_64
+BuildRequires:  binutils
 Provides:       chatgpt = %{version}-%{release}
 Provides:       codex-desktop = %{version}-%{release}
 Conflicts:      chatgpt
@@ -63,9 +65,21 @@ package, mirroring the upstream PKGBUILD.
 # directory to autosetup; the data payload is unpacked with ar+tar.
 %setup -q -c -T -n %{name}-%{version}
 ar p "%{SOURCE0}" data.tar.xz | tar -xJf -
+# node-hid ships prebuilds for other operating systems, ARM and musl.
+# Keep the two glibc x86_64 backends used by this package; foreign binaries
+# otherwise generate unavailable ARM library dependencies on Fedora x86_64.
+test -f "%{hid_prebuilds}/HID-linux-x64/node-napi-v4.node"
+test -f "%{hid_prebuilds}/HID_hidraw-linux-x64/node-napi-v4.node"
+find "%{hid_prebuilds}" -mindepth 1 -maxdepth 1 -type d ! -name HID-linux-x64 ! -name HID_hidraw-linux-x64 -exec rm -rf -- {} +
 
 %build
 :
+
+%check
+for module in "%{hid_prebuilds}"/*/*.node; do
+  readelf -h "$module" | grep -q "Machine:.*Advanced Micro Devices X86-64"
+done
+echo "PASS: both HID prebuilds target x86_64"
 
 %install
 # Install verbatim from the unpacked payload, mirroring the upstream
@@ -95,6 +109,10 @@ fi
 %{_datadir}/swcatalog/xml/com.openai.chatgpt.xml
 
 %changelog
+* Wed Oct 14 2026 kamm3r - 26.1007.71326-2
+- Remove unused foreign-architecture HID prebuilds from the x86_64 payload.
+- Verify both retained HID backends target x86_64.
+
 * Wed Oct 14 2026 kamm3r - 26.1007.71326-1
 - Update to the release pinned in upstream 430bdd13.
 
