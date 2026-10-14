@@ -7,12 +7,12 @@
 %global __requires_exclude ^((lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan|qt.*_shim|vips.*|log|c.._shared)\.so|libc\.musl.*|libc\.so($|[^.])|libdl\.so($|[^.])|libm\.so($|[^.])|libpthread\.so($|[^.])|libgcc_s\.so($|[^.]))|/usr/bin/(node|pwsh)$)
 
 Name:           openai-codex-desktop
-Version:        26.1007.21434
+Version:        26.1007.71326
 Release:        1%{?dist}
 Summary:        Official ChatGPT desktop app with Codex
 License:        LicenseRef-proprietary
 URL:            https://chatgpt.com/codex/
-%global omarchy_pkgs_commit 8787c23f0386eaf1df5ccd07b8402080da48b1ef
+%global omarchy_pkgs_commit 430bdd13cb934126d50cd368defb11d36faa6aba
 Source0:        https://persistent.oaistatic.com/codex-app-prod/linux/deb/pool/main/c/chatgpt/chatgpt_%{version}_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/openai-codex-desktop/chatgpt-launcher.sh
 ExclusiveArch:  x86_64
@@ -95,6 +95,9 @@ fi
 %{_datadir}/swcatalog/xml/com.openai.chatgpt.xml
 
 %changelog
+* Wed Oct 14 2026 kamm3r - 26.1007.71326-1
+- Update to the release pinned in upstream 430bdd13.
+
 * Sat Oct 10 2026 kamm3r - 26.1007.21434-1
 - Update to the release pinned in upstream 8787c23f.
 

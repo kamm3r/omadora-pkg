@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           1password-cli
-Version:        2.40.0
+Version:        2.41.0
 Release:        1%{?dist}
 Summary:        1Password command line tool
 License:        LicenseRef-1Password
@@ -43,6 +43,9 @@ fi
 %{_bindir}/op
 
 %changelog
+* Wed Oct 14 2026 kamm3r - 2.41.0-1
+- Update to the release pinned in upstream 430bdd13.
+
 * Tue Oct 06 2026 kamm3r - 2.40.0-1
 - Update to the release pinned on upstream master.
 

@@ -35,7 +35,7 @@ Requires:       libayatana-appindicator-gtk3
 Requires:       libepoxy
 Requires:       pango
 # NOTE: this is the from-source recipe. The binary repack of the upstream
-# .deb (AUR's localsend-bin) stays a separate recipe; see catalog.tsv.
+# The retired localsend-bin recipe is recorded in catalog.tsv; Terra also ships it.
 
 %description
 LocalSend shares files and messages with nearby devices over the local

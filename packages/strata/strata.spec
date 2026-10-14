@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           strata
-Version:        0.21.0
+Version:        1.0.0
 Release:        1%{?dist}
 Summary:        Fast, keyboard-first file manager for modern Linux desktops
 License:        MIT
@@ -74,6 +74,9 @@ install -D -m 0644 data/io.github.lgse.Strata.FileManager1.service %{buildroot}%
 %{_datadir}/strata/io.github.lgse.Strata.FileManager1.service
 
 %changelog
+* Wed Oct 14 2026 kamm3r - 1.0.0-1
+- Update to the release pinned in upstream 430bdd13.
+
 * Sat Oct 10 2026 kamm3r - 0.21.0-1
 - Update to the release pinned in upstream 8787c23f.
 - Avoid generating Rust debug sections discarded by the RPM.

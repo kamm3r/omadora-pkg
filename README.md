@@ -8,7 +8,9 @@ The upstream `omarchy-pkgs` snapshot at commit `e3dfdd376ce0aac7064497c7bd121f62
 
 The Elephant package family and `omarchy-walker` were [retired upstream](https://github.com/omacom/omarchy-pkgs/commit/2cce621d95555c0cd7fbb7dfdf30479c2d6d71bf) because Omarchy 4 no longer uses them. Their Fedora recipes and COPR entries have been removed. `walker` remains available.
 
-The latest version updates and added recipes follow upstream commit `e499d021c69d27e0750f77f9af7cd68534c8016f`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
+The upstream [seven-package retirement](https://github.com/omacom/omarchy-pkgs/commit/8125c215) also retires `hyprshade`, `localsend-bin`, `makima-bin`, `nautilus-open-any-terminal` (including its Caja subpackage), `openai-codex-bin`, and `wayfreeze` here. `localsend` remains available, and Omadora can also obtain `localsend-bin` from Terra. `bun-bin` remains maintained here because Ghost requires a system Bun executable at runtime and during builds; Fedora 44 and Terra currently provide no replacement. Upstream’s user-managed mise installation does not satisfy that RPM dependency.
+
+The latest version updates and added recipes follow upstream commit `430bdd13cb934126d50cd368defb11d36faa6aba`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
 
 ## Build from this repository
 

@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           signed
-Version:        0.1.0
+Version:        0.1.1
 Release:        1%{?dist}
 Summary:        Sign PDFs and place text and dates on their pages
 License:        MIT
@@ -48,5 +48,8 @@ install -D -m 0644 pkgbuild/signed.svg %{buildroot}%{_datadir}/icons/hicolor/sca
 %{_datadir}/icons/hicolor/scalable/apps/signed.svg
 
 %changelog
+* Wed Oct 14 2026 kamm3r - 0.1.1-1
+- Update to the release pinned in upstream 430bdd13.
+
 * Tue Oct 13 2026 kamm3r - 0.1.0-1
 - Port the upstream PDF signing application to Fedora, including its offscreen tests.

@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           symfony-cli
-Version:        5.22.0
+Version:        5.22.1
 Release:        1%{?dist}
 Summary:        Symfony client for creating and managing Symfony applications
 License:        AGPL-3.0-only
@@ -32,6 +32,9 @@ install -D -m 0755 symfony.bin %{buildroot}%{_bindir}/symfony
 %{_bindir}/symfony
 
 %changelog
+* Wed Oct 14 2026 kamm3r - 5.22.1-1
+- Update to the release pinned in upstream 430bdd13.
+
 * Sat Oct 10 2026 kamm3r - 5.22.0-1
 - Update to the release pinned in upstream 8787c23f.
 

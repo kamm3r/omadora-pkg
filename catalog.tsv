@@ -58,7 +58,7 @@ hype	published	COPR package
 hyprland	not-applicable	Hyprland COPR ships same version
 hyprland-guiutils	not-applicable	Hyprland COPR ships same version
 hyprland-preview-share-picker	published	Fedora RPM recipe; verified in COPR
-hyprshade	published	COPR package
+hyprshade	retired	Removed upstream in 8125c215; Fedora recipe and COPR entry retired
 hyprtoolkit	not-applicable	Hyprland COPR ships exact version
 intel-ipu7-camera	not-applicable	no-op, in-tree kernel support
 learn-omarchy	published	COPR package
@@ -80,18 +80,18 @@ linux-omarchy-bore	not-applicable	Arch kernel variant
 linux-ptl	not-applicable	stock kernel already covers PTL
 lmstudio-bin	published	Fedora RPM 0.4.26-1; verified in COPR build 11105082
 localsend	published	Fedora RPM recipe; verified in COPR
-localsend-bin	ready	Fedora RPM recipe
+localsend-bin	retired	Removed upstream in 8125c215; Fedora recipe and COPR entry retired
 m1n1-aurora	not-applicable	Apple bootloader; Fedora ships stock m1n1
 macbook12-spi-driver-dkms	not-applicable	no-op; dracut add_drivers covers
 macbook8-spi-pxa2xx-nodma-dkms	ready	Fedora RPM recipe
-makima-bin	published	Fedora RPM recipe; verified in COPR
+makima-bin	retired	Removed upstream in 8125c215; Fedora recipe and COPR entry retired
 microsoft-edge-stable-bin	published	Fedora RPM 155.0.4283.45-1; verified in COPR build 11105083
 mil-hwx-compiler	not-applicable	Apple Neural Engine compiler; aarch64 Apple Silicon only
 minecraft-launcher	ready	Fedora RPM recipe
 mise-bin	published	Fedora RPM 2026.10.9-1; verified in COPR build 11117570
 monologue	published	Fedora RPM 0.3.1-1; verified in COPR build 11105085
 nautilus-dropbox	published	Fedora RPM recipe; verified in COPR
-nautilus-open-any-terminal	published	COPR package with Caja subpackage
+nautilus-open-any-terminal	retired	Removed upstream in 8125c215; Fedora recipe and COPR entry retired
 nordvpn-bin	published	Fedora RPM 5.4.1-2; verified in COPR build 11117616
 nvidia-580xx-utils	not-applicable	superseded by RPMFusion akmod-nvidia
 nvidia-open-dkms	not-applicable	aarch64-only; x86_64 uses akmods
@@ -134,7 +134,7 @@ omawake-bin	ready	Fedora RPM recipe
 omawrite	published	COPR package
 omazed	published	COPR package
 once-bin	published	Fedora RPM 0.3.4-1; verified in COPR build 11105089
-openai-codex-bin	published	Fedora RPM 0.162.1-1; verified in COPR build 11105090
+openai-codex-bin	retired	Removed upstream in 8125c215; Fedora recipe and COPR entry retired
 openai-codex-desktop	published	Fedora RPM 26.1007.21434-1; verified in COPR build 11105091
 openclaw	published	Fedora RPM 2026.10.2-1; verified in COPR build 11117574
 openvino	published	Fedora RPM 2026.4.1-1; verified in COPR build 11105057
@@ -180,7 +180,7 @@ vi	published	Fedora RPM recipe; verified in COPR
 visual-studio-code-bin	published	Fedora RPM 1.141.0-1; verified in COPR build 11105099
 voxtype-bin	ready	Fedora RPM recipe
 walker	published	Fedora RPM 2.17.2-1; verified in COPR build 11105062
-wayfreeze	published	COPR package
+wayfreeze	retired	Removed upstream in 8125c215; Fedora recipe and COPR entry retired
 xdg-terminal-exec	published	COPR package
 xpadneo-dkms	not-applicable	Terra ships xpadneo RPM
 yaru-icon-theme	published	Fedora RPM recipe; verified in COPR
