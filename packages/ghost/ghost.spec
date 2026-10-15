@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global __brp_python_bytecompile %{nil}
-%global source_commit 844e34ead02328eff011b42b96a27329ef704c65
-%global source_epoch 1791360001
+%global source_commit 09a4fbf50a707640aa220e04499330604de90c50
+%global source_epoch 1791822391
 
 Name:           ghost
-Version:        0.6.0
+Version:        0.6.1
 Release:        1%{?dist}
 Summary:        Ghost desktop HUD for Omadora
 License:        Apache-2.0
@@ -95,5 +95,8 @@ cp -a ui-root/. %{buildroot}/
 %{_datadir}/doc/ghost/docs
 
 %changelog
+* Thu Oct 15 2026 kamm3r - 0.6.1-1
+- Update to the release pinned in upstream d9ebd3f6.
+
 * Sat Oct 10 2026 kamm3r - 0.6.0-1
 - Package the verified Ghost runtime and optional desktop HUD for Fedora.

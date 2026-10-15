@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           omacut
-Version:        0.4.0
+Version:        0.7.2
 Release:        1%{?dist}
 Summary:        Simple Qt video trimmer using FFmpeg
 License:        MIT
@@ -38,5 +38,8 @@ install -D -m 0644 pkgbuild/omacut.svg %{buildroot}%{_datadir}/icons/hicolor/sca
 %{_datadir}/icons/hicolor/scalable/apps/omacut.svg
 
 %changelog
+* Thu Oct 15 2026 kamm3r - 0.7.2-1
+- Update to the release pinned in upstream d9ebd3f6.
+
 * Mon Sep 28 2026 kamm3r - 0.4.0-1
 - Port the upstream Omarchy video trimmer to Fedora.

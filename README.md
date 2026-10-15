@@ -10,7 +10,9 @@ The Elephant package family and `omarchy-walker` were [retired upstream](https:/
 
 The upstream [seven-package retirement](https://github.com/omacom/omarchy-pkgs/commit/8125c215) also retires `hyprshade`, `localsend-bin`, `makima-bin`, `nautilus-open-any-terminal` (including its Caja subpackage), `openai-codex-bin`, and `wayfreeze` here. `localsend` remains available, and Omadora can also obtain `localsend-bin` from Terra. `bun-bin` remains maintained here because Ghost requires a system Bun executable at runtime and during builds; Fedora 44 and Terra currently provide no replacement. Upstream’s user-managed mise installation does not satisfy that RPM dependency.
 
-The latest version updates and added recipes follow upstream commit `430bdd13cb934126d50cd368defb11d36faa6aba`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
+The latest version updates and added recipes follow upstream commit `d9ebd3f6e196ffb6fed494eb0d241e4d654b1f2a`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
+
+The latest snapshot contains 185 upstream recipes. The catalog records ARM-only additions outside the current x86_64 target and keeps DingTalk, QQ, WeChat, and WPS Office CN pending because their vendor terms do not grant the redistribution needed for COPR.
 
 ## Build from this repository
 
@@ -44,7 +46,7 @@ The Fedora 44 build chroot uses the Hyprland COPR, Terra, and RPM Fusion's free 
 
 OmaCharts ships its charting app, CLI, completions, and optional agent skill. Rawmakase installs the upstream RAW photo editor with its private processing libraries. Ghost provides separate `ghost-runtime` and `ghost` RPMs; the latter adds the desktop HUD, which users enable as an Omadora shell plugin. Buzz includes its desktop workspace and CLI helpers. Its two Rust lockfiles contain identical crate versions from different sources, so it fetches both locked dependency graphs during the network-enabled binary build before compiling with `--frozen`.
 
-Signed provides PDF signing and text placement. OmaDesign ships the native design studio with its private libraries and offline documentation. Collie provides phone access to terminal agents through Tailscale; users start its service and configure phone access with the Collie CLI.
+Signed provides PDF signing and text placement. OmaDesign ships the native design studio with its private libraries and offline documentation. Collie provides phone access to terminal agents through Tailscale; users start its service and configure phone access with the Collie CLI. OmaIRC provides a Qt Quick IRC client and local CLI. `omarchy-themes-intros` adds optional theme intro videos. `thinkpad-t14-amd-touchpad-dkms` enables RMI4/SMBus touchpads on affected AMD ThinkPad T14/P14s laptops; its build checks all three modules against Fedora kernel headers.
 
 After an Omadora source change is ready, update `omadora-revision` to the published commit and push this repository. The GitHub webhook queues all SCM packages for rebuild. The COPR package definitions use `--max-builds 1` to retain only the latest build of each recipe. For a manual core retry, build `omarchy-settings` before `omarchy`.
 

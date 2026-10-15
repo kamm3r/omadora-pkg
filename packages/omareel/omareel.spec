@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
 Name:           omareel
-Version:        0.1.0
-Release:        2%{?dist}
+Version:        0.3.0
+Release:        1%{?dist}
 Summary:        Screen recorder and editor for Omarchy
 License:        MIT
 URL:            https://github.com/omacom/omareel
@@ -81,6 +81,9 @@ install -D -m 0644 pkg/omareel.desktop %{buildroot}%{_datadir}/applications/omar
 %{_datadir}/icons/hicolor/512x512/apps/omareel.png
 
 %changelog
+* Thu Oct 15 2026 kamm3r - 0.3.0-1
+- Update to the release pinned in upstream d9ebd3f6.
+
 * Sat Oct 03 2026 kamm3r - 0.1.0-2
 - Require the TurboJPEG API used by the recorder.
 - Omit build-time RPATHs from the installed program and plugin.

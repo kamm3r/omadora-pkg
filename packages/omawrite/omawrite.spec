@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           omawrite
-Version:        0.6.0
+Version:        0.7.0
 Release:        1%{?dist}
 Summary:        Simple Markdown writing app built with Qt Quick
 License:        MIT AND OFL-1.1
@@ -37,6 +37,9 @@ install -D -m 0644 pkgbuild/omawrite.svg %{buildroot}%{_datadir}/icons/hicolor/s
 %{_datadir}/icons/hicolor/scalable/apps/omawrite.svg
 
 %changelog
+* Thu Oct 15 2026 kamm3r - 0.7.0-1
+- Update to the release pinned in upstream d9ebd3f6.
+
 * Tue Oct 06 2026 kamm3r - 0.6.0-1
 - Update to the release pinned on upstream master.
 

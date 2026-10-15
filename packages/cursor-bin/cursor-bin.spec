@@ -10,12 +10,12 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node$)
 
 Name:           cursor-bin
-Version:        3.24.12
-Release:        2%{?dist}
+Version:        3.24.18
+Release:        1%{?dist}
 Summary:        AI-first coding environment
 License:        LicenseRef-Cursor
 URL:            https://www.cursor.com
-%global _commit 37b865941ccb31e2fc90c685157534efca87f964
+%global _commit be4c9e5350d77747b42cd467cbd3370a753d464b
 Source0:        https://downloads.cursor.com/production/%{_commit}/linux/x64/deb/amd64/deb/cursor_%{version}_amd64.deb#/%{name}-%{version}.deb
 ExclusiveArch:  x86_64
 Provides:       cursor = %{version}-%{release}
@@ -95,6 +95,9 @@ chmod 0755 %{buildroot}/usr/share/cursor/chrome-sandbox
 %{_datadir}/pixmaps/co.anysphere.cursor.png
 
 %changelog
+* Thu Oct 15 2026 kamm3r - 3.24.18-1
+- Update to the release pinned in upstream d9ebd3f6.
+
 * Tue Oct 13 2026 kamm3r - 3.24.12-2
 - Exclude dependency capabilities for the bundled private libraries.
 

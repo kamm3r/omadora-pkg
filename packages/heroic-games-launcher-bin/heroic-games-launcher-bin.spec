@@ -6,7 +6,7 @@
 %global __requires_exclude ^lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so
 
 Name:           heroic-games-launcher-bin
-Version:        2.22.3
+Version:        2.22.4
 Release:        1%{?dist}
 Summary:        Open source launcher for Epic, Amazon and GOG games
 License:        GPL-3.0-only
@@ -72,5 +72,8 @@ chmod 4755 %{buildroot}/opt/Heroic/chrome-sandbox
 %{_datadir}/icons/hicolor/*/apps/heroic.png
 
 %changelog
+* Thu Oct 15 2026 kamm3r - 2.22.4-1
+- Update to the release pinned in upstream d9ebd3f6.
+
 * Wed Sep 30 2026 kamm3r - 2.22.3-1
 - Repackage the upstream Omarchy Heroic Games Launcher release for Fedora.

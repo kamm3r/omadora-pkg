@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           hype
-Version:        0.4.3
+Version:        0.6.0
 Release:        1%{?dist}
 Summary:        Markdown presentations with a visual slide editor
 License:        MIT
@@ -44,5 +44,8 @@ install -D -m 0644 pkgbuild/hype.svg %{buildroot}%{_datadir}/icons/hicolor/scala
 %{_datadir}/icons/hicolor/scalable/apps/hype.svg
 
 %changelog
+* Thu Oct 15 2026 kamm3r - 0.6.0-1
+- Update to the release pinned in upstream d9ebd3f6.
+
 * Mon Sep 28 2026 kamm3r - 0.4.3-1
 - Port the upstream Omarchy presentation editor to Fedora.

@@ -14,12 +14,12 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\\.so|/usr/bin/node|libcurl\\.so\\.4\\(CURL_OPENSSL_4\\))
 
 Name:           visual-studio-code-bin
-Version:        1.141.1
-Release:        2%{?dist}
+Version:        1.142.0
+Release:        1%{?dist}
 Summary:        Editor for building and debugging modern web and cloud applications (official binary version)
 License:        LicenseRef-VSCode
 URL:            https://code.visualstudio.com/
-%global omarchy_pkgs_commit 430bdd13cb934126d50cd368defb11d36faa6aba
+%global omarchy_pkgs_commit d9ebd3f6e196ffb6fed494eb0d241e4d654b1f2a
 Source0:        https://update.code.visualstudio.com/%{version}/linux-deb-x64/stable#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/visual-studio-code-bin/visual-studio-code-bin.sh
 ExclusiveArch:  x86_64
@@ -128,6 +128,9 @@ chmod 0755 %{buildroot}/usr/share/code/chrome-sandbox
 %{_datadir}/pixmaps/vscode.png
 
 %changelog
+* Thu Oct 15 2026 kamm3r - 1.142.0-1
+- Update to the release pinned in upstream d9ebd3f6.
+
 * Wed Oct 14 2026 kamm3r - 1.141.1-2
 - Keep the Fedora curl dependency while excluding Debian's unavailable symbol label.
 - Verify all authentication runtime symbols resolve against Fedora libraries.
