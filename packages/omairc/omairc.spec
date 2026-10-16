@@ -3,7 +3,7 @@
 
 Name:           omairc
 Version:        1.10.3
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        IRC client with a Qt Quick desktop interface and local CLI
 License:        MIT AND LGPL-3.0-or-later AND OFL-1.1
 URL:            https://github.com/fredimachado/omairc
@@ -30,7 +30,7 @@ desktop notifications, and a local command interface. Its colors follow
 the Omadora desktop theme.
 
 %prep
-%autosetup
+%autosetup -p1
 
 %build
 qmake6 PREFIX=%{_prefix}
@@ -52,6 +52,9 @@ make INSTALL_ROOT=%{buildroot} install
 %{_datadir}/bash-completion/completions/omairc
 
 %changelog
+* Fri Oct 16 2026 kamm3r - 1.10.3-3
+- Apply upstream patches with their a/ and b/ path prefixes stripped.
+
 * Thu Oct 15 2026 kamm3r - 1.10.3-2
 - Apply upstream's HTTP header and offscreen click test compatibility patches.
 
