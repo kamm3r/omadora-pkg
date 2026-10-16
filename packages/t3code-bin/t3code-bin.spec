@@ -7,7 +7,7 @@
 
 Name:           t3code-bin
 Version:        0.1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Open-source control plane for coding agents
 License:        MIT
 URL:            https://t3.codes
@@ -113,7 +113,7 @@ rm -rf resources/app.asar.unpacked/node_modules/node-pty/prebuilds/linux-arm64
 
 # Guard from the upstream PKGBUILD: the AppImage's usr/ tree must only carry
 # icons and compatibility libraries; anything else stops the build.
-unexpected=$(find usr \( -type f -o -type l \) | grep -vE '^usr/share/icons/hicolor/[0-9]+x[0-9]+/apps/t3code\.png$|^usr/lib/lib(Xss\.so\.1|Xtst\.so\.6|appindicator\.so\.1|gconf-2\.so\.4|indicator\.so\.7|notify\.so\.4)$' || true)
+unexpected=$(find usr \( -type f -o -type l \) | grep -vE '^usr/share/icons/hicolor/[0-9]+x[0-9]+/apps/t3code\.png$|^usr/lib/lib(Xss\.so\.1|Xtst\.so\.6|appindicator3?\.so\.1|gconf-2\.so\.4|indicator3?\.so\.7|notify\.so\.4)(\.[0-9]+)*$' || true)
 if [ -n "$unexpected" ]; then
   echo "Unexpected files in the AppImage's usr/ tree:" >&2
   echo "$unexpected" >&2
@@ -149,6 +149,9 @@ install -D -m 0755 ../t3-launcher.sh %{buildroot}%{_bindir}/t3
 %{_datadir}/icons/hicolor/*/apps/t3code.png
 
 %changelog
+* Fri Oct 16 2026 kamm3r - 0.1.0-2
+- Accept upstream versioned compatibility libraries and GTK 3 names.
+
 * Fri Oct 16 2026 kamm3r - 0.1.0-1
 - Update to the release pinned in upstream 99243000.
 
