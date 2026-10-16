@@ -6,7 +6,7 @@
 %global __requires_exclude ^(lib(fff_c|ffmpeg|vk_swiftshader|vulkan)\.so|libc\.musl|libc\.so\(\)|/usr/bin/node)
 
 Name:           t3code-bin
-Version:        0.0.45
+Version:        0.1.0
 Release:        1%{?dist}
 Summary:        Open-source control plane for coding agents
 License:        MIT
@@ -149,6 +149,9 @@ install -D -m 0755 ../t3-launcher.sh %{buildroot}%{_bindir}/t3
 %{_datadir}/icons/hicolor/*/apps/t3code.png
 
 %changelog
+* Fri Oct 16 2026 kamm3r - 0.1.0-1
+- Update to the release pinned in upstream 99243000.
+
 * Tue Oct 06 2026 kamm3r - 0.0.45-1
 - Update to the release pinned on upstream master.
 

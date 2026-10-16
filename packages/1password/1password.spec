@@ -7,7 +7,7 @@
 
 Name:           1password
 Version:        8.12.40
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Password manager and secure wallet
 License:        LicenseRef-1Password
 URL:            https://1password.com
@@ -42,14 +42,13 @@ install -D -m 0644 resources/com.onepassword.OnePassword.desktop %{buildroot}%{_
 # for the RPM parser; the installed desktop file sees %U.
 sed -i 's|^Exec=.*|Exec=/opt/1Password/1password --force-device-scale-factor=1 %%U|' %{buildroot}%{_datadir}/applications/1password.desktop
 
-# Fill in policy kit file with a list of (the first 10) human users of the
-# system, mirroring the upstream PKGBUILD (which expands the template at
-# package time from the builder passwd).
-export POLICY_OWNERS
-POLICY_OWNERS="$(cut -d: -f1,3 /etc/passwd | grep -E ':[0-9]{4}$' | cut -d: -f1 | head -n 10 | sed 's/^/unix-user:/' | tr '\n' ' ')"
-eval "cat <<EOF
-$(cat ./com.1password.1Password.policy.tpl)
-EOF" > ./com.1password.1Password.policy
+# Render a root owner stub; the installing machine supplies its users in %%post.
+sed 's/\${POLICY_OWNERS}/unix-user:root/g' \
+    ./com.1password.1Password.policy.tpl > ./com.1password.1Password.policy
+if grep -q '\${' ./com.1password.1Password.policy; then
+  echo "Unexpanded placeholder in 1Password polkit policy" >&2
+  exit 1
+fi
 install -D -m 0644 com.1password.1Password.policy -t %{buildroot}%{_datadir}/polkit-1/actions/
 install -D -m 0644 resources/custom_allowed_browsers -t %{buildroot}%{_datadir}/doc/1password/examples/
 
@@ -75,6 +74,13 @@ getent group onepassword >/dev/null || groupadd -r onepassword
 %post
 chgrp onepassword /opt/1Password/1Password-BrowserSupport
 chmod g+s /opt/1Password/1Password-BrowserSupport
+# Polkit owners are user identities from the installed system.
+policy=%{_datadir}/polkit-1/actions/com.1password.1Password.policy
+owners=$(awk -F: '$3 >= 1000 && $3 <= 9999 && $1 ~ /^[a-z_][a-z0-9_-]*$/ { print "unix-user:" $1 }' /etc/passwd | head -n 10 | tr '\n' ' ')
+owners=${owners%% }
+if [ -n "$owners" ]; then
+  sed -i "s|\(<annotate key=\"org.freedesktop.policykit.owner\">\)[^<]*\(</annotate>\)|\1${owners}\2|" "$policy"
+fi
 
 %postun
 if [[ $1 == 0 ]]; then
@@ -90,6 +96,9 @@ fi
 %{_datadir}/doc/1password/examples/custom_allowed_browsers
 
 %changelog
+* Fri Oct 16 2026 kamm3r - 8.12.40-2
+- Set polkit owners from the installing machine instead of the build host.
+
 * Sat Oct 10 2026 kamm3r - 8.12.40-1
 - Update to the release pinned in upstream 8787c23f.
 

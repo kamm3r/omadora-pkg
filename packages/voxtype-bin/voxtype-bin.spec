@@ -12,7 +12,7 @@
 %global __requires_exclude ^(libcublas.*|libcudart.*|libcudnn.*|libcufft.*|libcurand.*|libamdhip64.*|libmigraphx_c.*|libonnxruntime.*|libonnxruntime_providers_.*|libvulkan\.so.*|libgtk-4\.so.*|libgtk4-layer-shell.*)$
 
 Name:           voxtype-bin
-Version:        1.1.0
+Version:        1.1.1
 Release:        1%{?dist}
 Summary:        Push-to-talk voice-to-text for Linux
 License:        MIT
@@ -160,5 +160,8 @@ fi
 %{_datadir}/fish/vendor_completions.d/voxtype.fish
 
 %changelog
+* Fri Oct 16 2026 kamm3r - 1.1.1-1
+- Update to the release pinned in upstream 99243000.
+
 * Wed Sep 30 2026 kamm3r - 1.1.0-1
 - Repackage the upstream Omarchy Voxtype release for Fedora.

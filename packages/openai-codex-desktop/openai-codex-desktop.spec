@@ -7,12 +7,12 @@
 %global __requires_exclude ^((lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan|qt.*_shim|vips.*|log|c.._shared)\.so|libc\.musl.*|libc\.so($|[^.])|libdl\.so($|[^.])|libm\.so($|[^.])|libpthread\.so($|[^.])|libgcc_s\.so($|[^.]))|/usr/bin/(node|pwsh)$)
 
 Name:           openai-codex-desktop
-Version:        26.1007.71326
-Release:        3%{?dist}
+Version:        26.1013.31256
+Release:        1%{?dist}
 Summary:        Official ChatGPT desktop app with Codex
 License:        LicenseRef-proprietary
 URL:            https://chatgpt.com/codex/
-%global omarchy_pkgs_commit 430bdd13cb934126d50cd368defb11d36faa6aba
+%global omarchy_pkgs_commit 992430000b5c88d0888939c494efe07a8df32474
 %global device_kit_modules usr/lib/chatgpt/resources/app.asar.unpacked/node_modules/@worklouder/device-kit-oai/node_modules/@worklouder/wl-device-kit/node_modules
 %global hid_prebuilds %{device_kit_modules}/node-hid/prebuilds
 %global serial_prebuilds %{device_kit_modules}/serialport/node_modules/@serialport/bindings-cpp/prebuilds
@@ -128,6 +128,9 @@ fi
 %{_datadir}/swcatalog/xml/com.openai.chatgpt.xml
 
 %changelog
+* Fri Oct 16 2026 kamm3r - 26.1013.31256-1
+- Update to the release pinned in upstream 99243000.
+
 * Wed Oct 14 2026 kamm3r - 26.1007.71326-3
 - Also remove unused foreign serial-port prebuilds.
 - Check every ELF object in the desktop runtime for x86_64 compatibility.
