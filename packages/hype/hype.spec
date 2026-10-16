@@ -2,7 +2,7 @@
 
 Name:           hype
 Version:        0.6.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Markdown presentations with a visual slide editor
 License:        MIT
 URL:            https://github.com/omacom/hype
@@ -12,6 +12,7 @@ BuildRequires:  make
 BuildRequires:  qt6-qtbase-devel
 BuildRequires:  qt6-qtdeclarative-devel
 BuildRequires:  qt6-qtmultimedia-devel
+BuildRequires:  qt6-qtsvg-devel
 BuildRequires:  libwebp-devel
 BuildRequires:  zlib-devel
 Requires:       ffmpeg
@@ -44,6 +45,9 @@ install -D -m 0644 pkgbuild/hype.svg %{buildroot}%{_datadir}/icons/hicolor/scala
 %{_datadir}/icons/hicolor/scalable/apps/hype.svg
 
 %changelog
+* Thu Oct 15 2026 kamm3r - 0.6.0-2
+- Require the Qt SVG development module added by Hype 0.6.
+
 * Thu Oct 15 2026 kamm3r - 0.6.0-1
 - Update to the release pinned in upstream d9ebd3f6.
 

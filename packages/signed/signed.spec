@@ -2,7 +2,7 @@
 
 Name:           signed
 Version:        0.3.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Sign PDFs and place text and dates on their pages
 License:        MIT
 URL:            https://github.com/omacom/signed
@@ -15,7 +15,11 @@ BuildRequires:  pkgconfig(poppler-qt6)
 BuildRequires:  pkgconfig(libqpdf)
 BuildRequires:  google-noto-sans-fonts
 BuildRequires:  desktop-file-utils
+BuildRequires:  nss-tools
+BuildRequires:  openssl
+BuildRequires:  python3
 Requires:       google-noto-sans-fonts
+Requires:       nss-tools
 Requires:       qt6-qtdeclarative
 Requires:       qt6-qtwayland
 Requires:       xdg-desktop-portal
@@ -48,6 +52,10 @@ install -D -m 0644 pkgbuild/signed.svg %{buildroot}%{_datadir}/icons/hicolor/sca
 %{_datadir}/icons/hicolor/scalable/apps/signed.svg
 
 %changelog
+* Thu Oct 15 2026 kamm3r - 0.3.1-2
+- Require Fedora's NSS certificate utilities for creating and importing signing keys.
+- Include the tools used by upstream's certificate and CLI tests.
+
 * Thu Oct 15 2026 kamm3r - 0.3.1-1
 - Update to the release pinned in upstream d9ebd3f6.
 

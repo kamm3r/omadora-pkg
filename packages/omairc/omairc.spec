@@ -1,12 +1,15 @@
 %global debug_package %{nil}
+%global omarchy_pkgs_commit d9ebd3f6e196ffb6fed494eb0d241e4d654b1f2a
 
 Name:           omairc
 Version:        1.10.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        IRC client with a Qt Quick desktop interface and local CLI
 License:        MIT AND LGPL-3.0-or-later AND OFL-1.1
 URL:            https://github.com/fredimachado/omairc
 Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Patch0:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/%{name}/qt6.12-http-header-case.patch
+Patch1:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/%{name}/qt6.12-leave-click.patch
 BuildRequires:  gcc-c++
 BuildRequires:  make
 BuildRequires:  python3
@@ -49,5 +52,8 @@ make INSTALL_ROOT=%{buildroot} install
 %{_datadir}/bash-completion/completions/omairc
 
 %changelog
+* Thu Oct 15 2026 kamm3r - 1.10.3-2
+- Apply upstream's HTTP header and offscreen click test compatibility patches.
+
 * Thu Oct 15 2026 kamm3r - 1.10.3-1
 - Port the upstream IRC client to Fedora with its protocol and UI tests.
