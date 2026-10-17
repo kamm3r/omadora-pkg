@@ -6,14 +6,14 @@
 %global __requires_exclude ^lib(oneauth|oneds|telclient|mip_core_gn|onnxruntime|learning_tools|vk_swiftshader|vulkan|qt.*_shim|widevinecdm)\\.so
 
 Name:           microsoft-edge-stable-bin
-Version:        155.0.4283.60
+Version:        155.0.4283.62
 Release:        1%{?dist}
 Summary:        Minimal design browser with sophisticated technology to make the web faster, safer, and easier
 License:        LicenseRef-Microsoft-Edge
 URL:            https://www.microsoftedgeinsider.com/en-us/download
 %global _pkgname microsoft-edge
 %global _pkgshortname msedge
-%global omarchy_pkgs_commit 992430000b5c88d0888939c494efe07a8df32474
+%global omarchy_pkgs_commit 64e8fbc230e94c9ab0b3f23bb1709f26f6305e78
 Source0:        https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/%{_pkgname}-stable_%{version}-1_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/microsoft-edge-stable-bin/microsoft-edge-stable.sh
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/microsoft-edge-stable-bin/Microsoft%%20Standard%%20Application%%20License%%20Terms%%20-%%20Standalone%%20(free)%%20Use%%20Terms.pdf#/%{name}-LICENSE-%{version}.pdf
@@ -101,6 +101,9 @@ rm %{buildroot}/opt/microsoft/%{_pkgshortname}/product_logo_*.png
 %{_datadir}/icons/hicolor/*/apps/%{_pkgname}.png
 
 %changelog
+* Sat Oct 17 2026 kamm3r - 155.0.4283.62-1
+- Update to the release pinned in upstream 64e8fbc2.
+
 * Fri Oct 16 2026 kamm3r - 155.0.4283.60-1
 - Update to the release pinned in upstream 99243000.
 

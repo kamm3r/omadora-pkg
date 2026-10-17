@@ -10,9 +10,11 @@ The Elephant package family and `omarchy-walker` were [retired upstream](https:/
 
 The upstream [seven-package retirement](https://github.com/omacom/omarchy-pkgs/commit/8125c215) also retires `hyprshade`, `localsend-bin`, `makima-bin`, `nautilus-open-any-terminal` (including its Caja subpackage), `openai-codex-bin`, and `wayfreeze` here. `localsend` remains available, and Omadora can also obtain `localsend-bin` from Terra. `bun-bin` remains maintained here because Ghost requires a system Bun executable at runtime and during builds; Fedora 44 and Terra currently provide no replacement. Upstream’s user-managed mise installation does not satisfy that RPM dependency.
 
-The latest version updates and added recipes follow upstream commit `992430000b5c88d0888939c494efe07a8df32474`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
+The latest version updates and added recipes follow upstream commit `64e8fbc230e94c9ab0b3f23bb1709f26f6305e78`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
 
-The latest snapshot contains 185 upstream recipes. The catalog records ARM-only additions outside the current x86_64 target and keeps DingTalk, QQ, WeChat, and WPS Office CN pending because their vendor terms do not grant the redistribution needed for COPR.
+The latest snapshot contains 187 upstream recipes. The catalog records ARM-only additions outside the current x86_64 target and keeps DingTalk, QQ, WeChat, and WPS Office CN pending because their vendor terms do not grant the redistribution needed for COPR.
+
+The upstream override retirement in `7d70768c` also removes `asusctl` and `xdg-terminal-exec` here; Terra and Fedora/Nobara provide them. Bun remains a Fedora-specific dependency for Ghost, and the matching OpenVINO runtime remains required by OpenVINO GenAI. Retired packages are not removed automatically from existing installations.
 
 ## Build from this repository
 
