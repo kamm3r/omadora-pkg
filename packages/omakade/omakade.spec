@@ -1,5 +1,5 @@
 Name:           omakade
-Version:        1.16.2
+Version:        1.17.0
 Release:        1%{?dist}
 Summary:        Local game library and launcher for Omarchy desktops
 License:        GPL-3.0-or-later AND CC-BY-SA-3.0
@@ -64,6 +64,9 @@ rm -f %{buildroot}%{_datadir}/licenses/omakade/LICENSE %{buildroot}%{_datadir}/l
 %{_datadir}/doc/omakade
 
 %changelog
+* Mon Oct 19 2026 kamm3r - 1.17.0-1
+- Update to the release pinned in upstream de0326b9.
+
 * Tue Oct 13 2026 kamm3r - 1.16.2-1
 - Update to the release pinned in upstream e499d021.
 - Add the Qt GUI private headers required for controller input.

@@ -1,15 +1,19 @@
 %global debug_package %{nil}
 
 Name:           flea
-Version:        0.3.9
+Version:        0.3.12
 Release:        1%{?dist}
 Summary:        Fast, keyboard-first file manager for Omarchy
-License:        MIT
+License:        MIT AND Apache-2.0 AND EPL-2.0 AND BSD-2-Clause
 URL:            https://github.com/thisisgm/flea
 Source0:        %{url}/releases/download/v%{version}/%{name}-v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRequires:  cargo
 BuildRequires:  rust
 BuildRequires:  gcc
+Requires:       bat
+Requires:       jq
+Requires:       quickjs-ng
+Requires:       udisks2
 Requires:       bubblewrap
 Requires:       expect
 Requires:       glib2
@@ -49,6 +53,8 @@ cargo build --frozen --release
 %install
 install -D -m 0755 target/release/flea %{buildroot}%{_bindir}/flea
 install -D -m 0755 tools/flea-gio-auth %{buildroot}/usr/lib/flea/flea-gio-auth
+install -D -m 0755 tools/flea-udisks %{buildroot}/usr/lib/flea/flea-udisks
+install -D -m 0755 tools/flea-mpris %{buildroot}/usr/lib/flea/flea-mpris
 install -D -m 0755 tools/flea-portal %{buildroot}/usr/lib/flea/flea-portal
 install -D -m 0644 packaging/flea.portal %{buildroot}%{_datadir}/xdg-desktop-portal/portals/flea.portal
 install -D -m 0644 packaging/org.freedesktop.impl.portal.desktop.flea.service %{buildroot}%{_datadir}/dbus-1/services/org.freedesktop.impl.portal.desktop.flea.service
@@ -56,10 +62,13 @@ install -D -m 0755 tools/flea-filemanager1 %{buildroot}/usr/lib/flea/flea-filema
 install -D -m 0644 packaging/com.thisisgm.flea.FileManager1.service %{buildroot}%{_datadir}/dbus-1/services/com.thisisgm.flea.FileManager1.service
 install -D -m 0644 packaging/com.thisisgm.flea.desktop %{buildroot}%{_datadir}/applications/com.thisisgm.flea.desktop
 install -D -m 0644 packaging/com.thisisgm.flea.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/com.thisisgm.flea.svg
-install -D -m 0644 ui/qmldir ui/*.qml -t %{buildroot}%{_datadir}/flea/ui
-install -D -m 0644 ui/js/*.js -t %{buildroot}%{_datadir}/flea/ui/js
-install -D -m 0644 ui/boot/shell.qml ui/boot/picker.qml -t %{buildroot}%{_datadir}/flea/ui/boot
+install -D -m 0644 ui/qmldir ui/*.qml ui/*.js -t %{buildroot}%{_datadir}/flea/ui
+install -D -m 0644 ui/js/*.js ui/js/*.mjs -t %{buildroot}%{_datadir}/flea/ui/js
+install -D -m 0644 ui/boot/shell.qml ui/boot/picker.qml ui/boot/fleatab.qml ui/boot/tabtearoff.qml -t %{buildroot}%{_datadir}/flea/ui/boot
+install -D -m 0644 ui/vendor/*.mjs -t %{buildroot}%{_datadir}/flea/ui/vendor
+install -D -m 0644 ui/vendor/LICENSES/* -t %{buildroot}%{_datadir}/flea/ui/vendor/LICENSES
 install -D -m 0644 shelf/manifest.json shelf/README.md shelf/*.qml shelf/*.js -t %{buildroot}%{_datadir}/flea/shelf
+sed -i 's/"version": "[^" ]*"/"version": "%{version}-%{release}"/' %{buildroot}%{_datadir}/flea/shelf/manifest.json
 ln -s /usr/share/omarchy/shell/Commons %{buildroot}%{_datadir}/flea/ui/Commons
 ln -s /usr/share/omarchy/shell/Ui %{buildroot}%{_datadir}/flea/ui/Ui
 ln -s /usr/share/omarchy/shell/Commons %{buildroot}%{_datadir}/flea/ui/boot/Commons
@@ -71,6 +80,8 @@ ln -s /usr/share/omarchy/shell/Ui %{buildroot}%{_datadir}/flea/ui/boot/Ui
 %{_bindir}/flea
 /usr/lib/flea/flea-gio-auth
 /usr/lib/flea/flea-portal
+/usr/lib/flea/flea-udisks
+/usr/lib/flea/flea-mpris
 /usr/lib/flea/flea-filemanager1
 %{_datadir}/xdg-desktop-portal/portals/flea.portal
 %{_datadir}/dbus-1/services/org.freedesktop.impl.portal.desktop.flea.service
@@ -80,6 +91,9 @@ ln -s /usr/share/omarchy/shell/Ui %{buildroot}%{_datadir}/flea/ui/boot/Ui
 %{_datadir}/flea
 
 %changelog
+* Mon Oct 19 2026 kamm3r - 0.3.12-1
+- Update to the release pinned in upstream de0326b9.
+
 * Tue Oct 13 2026 kamm3r - 0.3.9-1
 - Update to the release pinned in upstream e499d021.
 

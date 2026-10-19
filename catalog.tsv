@@ -89,7 +89,7 @@ linux-omarchy-aarch64	not-applicable	Omarchy aarch64 kernel; current COPR target
 linux-omarchy-bore	not-applicable	Arch kernel variant
 linux-omarchy-eevdf	not-applicable	Arch kernel variant; Fedora/Nobara kernel source is retained
 linux-omarchy-muqss	not-applicable	Arch kernel variant; Fedora/Nobara kernel source is retained
-linux-ptl	not-applicable	stock kernel already covers PTL
+linux-ptl	retired	Removed upstream; linux-omarchy carries its patches; never published here
 linuxqq	pending	Redistribution hold: QQ license sections 2.4.1-2.4.3 grant personal use and one backup; other rights require written permission
 lmstudio-bin	published	Fedora RPM 0.4.26-1; verified in COPR build 11105082
 localsend	published	Fedora RPM recipe; verified in COPR
@@ -215,3 +215,12 @@ yay	not-applicable	Arch AUR client; Fedora uses DNF and Flatpak
 yt6801-dkms	not-applicable	kernel dwmac-motorcomm replaces it
 zed	published	Fedora RPM 1.24.2-1; verified in COPR build 11132026
 zen-browser-bin	published	Fedora RPM 1.23.3b-1; verified in COPR build 11163568
+alsa-ucm-conf-aurora	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
+aura	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
+aurora-audio	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
+aurora-bless	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
+helium-browser-bin	ready	Fedora RPM 0.19.4.1-1; clean COPR build pending
+mesa-aurora	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
+omarchy-aurora-firmware	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
+speakerguardd	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
+uboot-aurora	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
