@@ -42,7 +42,7 @@ rpmbuild --rebuild /tmp/omadora-srpm/tobi-try-*.src.rpm
 
 `slack-desktop` packages Slack's x86_64 Linux client. `t3code-nightly-bin` installs alongside `t3code-bin` and provides `t3code-nightly` and `t3-nightly`, with desktop flags in `~/.config/t3code-nightly-flags.conf`. The two T3 Code channels retain upstream's shared application state and URL scheme.
 
-OpenClaw uses the packaged system CLI and the Fedora Node 24 runtime. Its install-time lifecycle runs with a scratch home and must finish before the RPM is packed. The current upstream release cannot seed the user installer, so this package follows upstream master and ships the system CLI.
+OpenClaw uses the packaged system CLI and a private upstream Node 24.22 LTS runtime. Its SQLite is new enough for OpenClaw’s WAL-reset safety check; Fedora 44’s system SQLite 3.51.2 remains unchanged. Its install-time lifecycle runs with a scratch home and must finish before the RPM is packed. The current upstream release cannot seed the user installer, so this package follows upstream master and ships the system CLI.
 
 COPR networking must be enabled for recipes that fetch npm, Flutter, Gradle, Bazel, or Git dependencies during the binary build. The project uses `copr-cli modify kammer/omadora --enable-net on`; the vendored Rust and Go recipes still build without network access.
 
