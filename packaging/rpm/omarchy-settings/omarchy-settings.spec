@@ -45,6 +45,7 @@ Requires:       bash
 Requires:       sudo
 Requires:       systemd
 Requires:       gum
+Requires:       mise >= 2026.10.11
 Requires:       plymouth-plugin-script
 Requires(pre):  coreutils
 Requires(post): coreutils
@@ -238,15 +239,18 @@ fc-cache -f %{_datadir}/fonts/omarchy >/dev/null 2>&1 || :
 %config(noreplace) %{_sysconfdir}/limine-entry-tool.d/omarchy-defaults.conf
 %config(noreplace) %{_sysconfdir}/limine-entry-tool.d/omarchy-uki.conf
 %config(noreplace) %{_sysconfdir}/mise/conf.d/omarchy.toml
+%config(noreplace) %{_sysconfdir}/mise/conf.d/omarchy-tools.toml
 %config(noreplace) %{_sysconfdir}/modprobe.d/omarchy-usb-autosuspend.conf
 %config(noreplace) %{_sysconfdir}/NetworkManager/conf.d/omarchy-wifi-powersave.conf
 %config(noreplace) %{_sysconfdir}/profile.d/omarchy.sh
 %config(noreplace) %{_sysconfdir}/sddm.conf.d/10-theme.conf
 %config(noreplace) %{_sysconfdir}/sddm.conf.d/10-wayland.conf
 %config(noreplace) %{_sysconfdir}/sudoers.d/omarchy-dns
+%config(noreplace) %{_sysconfdir}/sudoers.d/omarchy-locale-generate
 %config(noreplace) %{_sysconfdir}/sudoers.d/omarchy-passwd-tries
 %config(noreplace) %{_sysconfdir}/sudoers.d/omarchy-theme-browser
 %config(noreplace) %{_sysconfdir}/sudoers.d/omarchy-tzupdate
+%config(noreplace) %{_sysconfdir}/sysctl.d/90-omarchy-arp.conf
 %config(noreplace) %{_sysconfdir}/sysctl.d/90-omarchy-file-watchers.conf
 %config(noreplace) %{_sysconfdir}/sysctl.d/99-omarchy-sysctl.conf
 %config(noreplace) %{_sysconfdir}/systemd/logind.conf.d/10-ignore-power-button.conf
@@ -265,6 +269,14 @@ fc-cache -f %{_datadir}/fonts/omarchy >/dev/null 2>&1 || :
 %config(noreplace) %{_sysconfdir}/tmpfiles.d/omarchy-nopasswd-sudo.conf
 %config(noreplace) %{_sysconfdir}/tmpfiles.d/omarchy-zswap.conf
 %config(noreplace) %{_sysconfdir}/udev/rules.d/60-omarchy-io-scheduler.rules
+%config(noreplace) %{_sysconfdir}/mise/conf.d/omarchy-agent-accounts.toml
+%config(noreplace) %{_sysconfdir}/mpv/mpv.conf
+%config(noreplace) %{_sysconfdir}/systemd/system.conf.d/20-mount-events.conf
+%config(noreplace) %{_sysconfdir}/systemd/system/proc-sys-fs-binfmt_misc.mount.d/10-omarchy-conditions.conf
+%config(noreplace) %{_sysconfdir}/systemd/system/systemd-binfmt.service.d/10-eager-mount.conf
+%config(noreplace) %{_sysconfdir}/systemd/user/wayland-wm@hyprland.desktop.service.d/10-keep-shell.conf
+%config(noreplace) %{_sysconfdir}/xkb/rules/evdev
+%config(noreplace) %{_sysconfdir}/xkb/symbols/omarchy
 %config(noreplace) %{_sysconfdir}/xdg/kitty/kitty.conf
 %config(noreplace) %{_sysconfdir}/snapper/config-templates/omarchy
 %{_sysconfdir}/fonts/conf.d/50-omarchy.conf
