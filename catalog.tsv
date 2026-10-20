@@ -224,3 +224,5 @@ mesa-aurora	not-applicable	Aurora Apple Silicon platform component; outside the 
 omarchy-aurora-firmware	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
 speakerguardd	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
 uboot-aurora	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
+bitwarden	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
+libretro-ppsspp	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
