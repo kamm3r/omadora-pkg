@@ -1,0 +1,110 @@
+{
+  "reason": "Concurrent same-version rebuilds share Pulp artifacts; retain both records until a different version-release is published.",
+  "packages": {
+    "visual-studio-code-bin": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178780,
+      "version_release": "1.142.0-1"
+    },
+    "v4l2-relayd": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178779,
+      "version_release": "0.2.0-2"
+    },
+    "zen-browser-bin": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178778,
+      "version_release": "1.23.3b-1"
+    },
+    "vi": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178777,
+      "version_release": "1:070224-10"
+    },
+    "yaru-icon-theme": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178776,
+      "version_release": "26.10.3-2"
+    },
+    "walker": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178775,
+      "version_release": "2.17.2-1"
+    },
+    "zed": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178774,
+      "version_release": "1.24.4-1"
+    },
+    "voxtype-bin": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178773,
+      "version_release": "1.1.1-1"
+    },
+    "typora": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178772,
+      "version_release": "1.14.9-1"
+    },
+    "signed": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178770,
+      "version_release": "0.3.1-2"
+    },
+    "rawmakase-bin": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178768,
+      "version_release": "0.4.0-1"
+    },
+    "ghost": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178767,
+      "version_release": "0.7.0-1"
+    },
+    "buzz": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178766,
+      "version_release": "0.5.28-1"
+    },
+    "omacharts": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178765,
+      "version_release": "0.1.17-1"
+    },
+    "helium-browser-bin": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178764,
+      "version_release": "0.19.4.1-1"
+    },
+    "t3code-nightly-bin": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178763,
+      "version_release": "0.1.1_nightly.20261020.3411-1"
+    },
+    "slack-desktop": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178762,
+      "version_release": "4.52.178-1"
+    },
+    "thinkpad-t14-amd-touchpad-dkms": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178761,
+      "version_release": "0.2.3-1"
+    },
+    "omarchy-themes-intros": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178760,
+      "version_release": "2026.10.14-1"
+    },
+    "omairc": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178759,
+      "version_release": "1.10.3-3"
+    },
+    "openvino": {
+      "max_builds": 2,
+      "retained_duplicate_id": 11178758,
+      "version_release": "2026.4.1-1"
+    }
+  }
+}

@@ -62,3 +62,7 @@ sudo dnf install omarchy
 ```
 
 The RPMs are built for Fedora 44 x86_64. Omadora's setup also uses Terra, RPM Fusion, and a Hyprland COPR as documented in [FEDORA.md](https://github.com/kamm3r/omadora/blob/main/FEDORA.md).
+
+COPR retention exceptions for concurrent same-version rebuilds are recorded in [`.copr/retention-overrides.json`](.copr/retention-overrides.json). Keep both build records for these packages to preserve shared Pulp artifacts; return to one-build retention after publishing a different version-release.
+
+Pause COPR automatic rebuilds before the first maintenance push, keep them paused through validation and publication-record commits, and restore them after the final push webhook is delivered. Concurrent pushes can otherwise queue unchanged recipes.

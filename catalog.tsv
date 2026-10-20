@@ -1,5 +1,5 @@
 upstream_name	status	note
-1password	published	Fedora RPM 8.12.40-2; verified in COPR build 11157589
+1password	published	Fedora RPM 8.12.42-1; verified in COPR build 11178786
 1password-beta	published	Fedora RPM 8.12.42_34.BETA-1; verified in COPR build 11118787
 1password-cli	published	Fedora RPM 2.41.0-1; verified in COPR build 11118788
 aether	published	Fedora RPM 4.32.0-1; verified in COPR build 11157567
@@ -19,7 +19,7 @@ buzz	published	Fedora RPM 0.5.28-1; verified in COPR build 11105311
 claude-code	published	Fedora RPM 2.1.304-1; verified in COPR build 11177405
 claude-desktop	published	Fedora RPM 2.42304.2-1; verified in COPR build 11177406
 cliamp	published	COPR package
-collie-bin	published	Fedora RPM 1.23.0-1; verified in COPR build 11177407
+collie-bin	published	Fedora RPM 1.23.1-1; verified in COPR build 11178787
 crush-bin	published	Fedora RPM 0.98.1-1; verified in COPR build 11105073
 cua-driver-bin	published	Fedora RPM 0.33.4-1; verified in COPR build 11105074
 cua-hyprland-plugin	published	Fedora RPM 0.33.2-1; verified in COPR build 11117560
@@ -115,7 +115,7 @@ ollama	not-applicable	New upstream recipe targets aarch64 only; current COPR tar
 omacalc	published	Fedora RPM 0.3.1-1; verified in COPR build 11132009
 omacharts	published	Fedora RPM 0.1.17-1; verified in COPR build 11177413
 omacut	published	Fedora RPM 0.7.2-1; verified in COPR build 11132011
-omadesign-bin	published	Fedora RPM 0.6.3-1; verified in COPR build 11117572
+omadesign-bin	published	Fedora RPM 0.6.8-1; verified in COPR build 11178788
 omairc	published	Fedora RPM 1.10.3-3; verified in COPR build 11156369
 omakade	published	Fedora RPM 1.17.0-1; verified in COPR build 11170598
 omakeyboard	pending	Qt keyboard remapper needs a Fedora port and runtime validation
@@ -226,6 +226,6 @@ speakerguardd	not-applicable	Aurora Apple Silicon platform component; outside th
 uboot-aurora	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
 bitwarden	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
 libretro-ppsspp	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
-kujo	ready	Fedora RPM 1.8.2-1; clean COPR build pending
-maplemono-nf-cn	ready	Fedora RPM 7.9-1; clean COPR build pending
+kujo	published	Fedora RPM 1.8.2-1; verified in COPR build 11178789
+maplemono-nf-cn	published	Fedora RPM 7.9-1; verified in COPR build 11178790
 feishu-bin	pending	Vendor terms restrict redistribution without written permission; not eligible for COPR publication on current evidence
