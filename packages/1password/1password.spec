@@ -6,8 +6,8 @@
 %global __requires_exclude ^lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan|op_sdk.*)\\.so
 
 Name:           1password
-Version:        8.12.40
-Release:        2%{?dist}
+Version:        8.12.42
+Release:        1%{?dist}
 Summary:        Password manager and secure wallet
 License:        LicenseRef-1Password
 URL:            https://1password.com
@@ -96,6 +96,9 @@ fi
 %{_datadir}/doc/1password/examples/custom_allowed_browsers
 
 %changelog
+* Tue Oct 20 2026 kamm3r - 8.12.42-1
+- Update to the release pinned in upstream 2762cded.
+
 * Fri Oct 16 2026 kamm3r - 8.12.40-2
 - Set polkit owners from the installing machine instead of the build host.
 

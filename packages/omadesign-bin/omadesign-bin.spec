@@ -5,7 +5,7 @@
 %global __requires_exclude ^libonnxruntime\.so
 
 Name:           omadesign-bin
-Version:        0.6.3
+Version:        0.6.8
 Release:        1%{?dist}
 Summary:        Native design, painting, photography, and motion studio
 License:        MIT AND CDDL-1.0
@@ -67,5 +67,8 @@ cp -a lib licenses docs skills plugins %{buildroot}%{_datadir}/omadesign/
 %{_datadir}/omadesign
 
 %changelog
+* Tue Oct 20 2026 kamm3r - 0.6.8-1
+- Update to the release pinned in upstream 2762cded.
+
 * Tue Oct 13 2026 kamm3r - 0.6.3-1
 - Package the upstream Linux studio with its private libraries and offline assets.
