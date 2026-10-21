@@ -9,22 +9,22 @@ asus-proart-p14-speaker-firmware	not-applicable	aarch64 ASUS ProArt P14 H7407BA 
 asusctl	retired	Override retired upstream in 7d70768c; Fedora recipe and COPR definition retired; use Terra or Fedora/Nobara provider
 avd-fw	not-applicable	Asahi-only AVD firmware, x86_64 out of scope
 bambustudio-bin	ready	Fedora RPM recipe
-basecamp-cli	published	Fedora RPM 0.14.0-1; verified in COPR build 11177404
+basecamp-cli	published	Fedora RPM 0.15.1-1; verified in COPR build 11184453
 box64	not-applicable	Upstream aarch64-only x86 emulation; current target is Fedora 44 x86_64
 brave-bin	published	Fedora RPM 1:1.97.59-1; verified in COPR build 11163555
 brave-origin-bin	published	Fedora RPM 1:1.97.59-1; verified in COPR build 11163556
 brcmfmac-awdl-dkms	not-applicable	Upstream Apple Broadcom AWDL module is aarch64-only
 bun-bin	published	Fedora RPM 1.4.3-1; verified in COPR build 11117565; retained for Ghost build/runtime bun capability; Terra bun-bin lacks that provide
 buzz	published	Fedora RPM 0.5.28-1; verified in COPR build 11105311
-claude-code	published	Fedora RPM 2.1.304-1; verified in COPR build 11177405
-claude-desktop	published	Fedora RPM 2.42304.2-1; verified in COPR build 11177406
+claude-code	published	Fedora RPM 2.1.306-1; verified in COPR build 11184454
+claude-desktop	published	Fedora RPM 3.1623.0-1; verified in COPR build 11184455
 cliamp	published	COPR package
 collie-bin	published	Fedora RPM 1.23.1-1; verified in COPR build 11178787
 crush-bin	published	Fedora RPM 0.98.1-1; verified in COPR build 11105073
 cua-driver-bin	published	Fedora RPM 0.33.4-1; verified in COPR build 11105074
 cua-hyprland-plugin	published	Fedora RPM 0.33.2-1; verified in COPR build 11117560
 cuda	not-applicable	Upstream recipe is aarch64-only; current COPR target is Fedora 44 x86_64
-cursor-bin	published	Fedora RPM 3.25.9-1; verified in COPR build 11170595
+cursor-bin	published	Fedora RPM 3.26.13-1; verified in COPR build 11184456
 cursor-cli	published	Fedora RPM 2026.10.19.1.6bbf2c4-1; verified in COPR build 11177408
 dbxcli-bin	ready	Fedora RPM recipe
 dell-xps-touchpad-haptics	published	Fedora RPM recipe; verified in COPR
@@ -52,10 +52,10 @@ elephant-websearch	retired	Retired upstream in 2cce621d; Omarchy 4 no longer use
 flea	published	Fedora RPM 0.3.12-1; verified in COPR build 11170596
 ghost	published	Fedora RPM 0.7.0-1; verified in COPR build 11177409
 ghostty	not-applicable	Terra ships exact version incl. subpackages
-github-copilot-cli	published	Fedora RPM 1.0.100-1; verified in COPR build 11177410
+github-copilot-cli	published	Fedora RPM 1.0.101-1; verified in COPR build 11184457
 gliff	published	Fedora RPM 0.4.0-1; verified in COPR build 11131989
-google-chrome	published	Fedora RPM 155.0.8059.84-1; verified in COPR build 11157582
-grok-bot	published	Fedora RPM 0.72.0-1; verified in COPR build 11177411
+google-chrome	published	Fedora RPM 156.0.8078.47-1; verified in COPR build 11184458
+grok-bot	published	Fedora RPM 0.72.1-1; verified in COPR build 11184459
 gtk2	not-applicable	Upstream aarch64-only GTK2 recipe; Nobara/Fedora supply GTK2
 herdr	published	Fedora RPM recipe; verified in COPR
 hermes-desktop	published	Fedora RPM 2026.9.7-4; verified in COPR build 11117555
@@ -154,14 +154,14 @@ omawrite	published	Fedora RPM 0.7.2-1; verified in COPR build 11170599
 omazed	published	COPR package
 once-bin	published	Fedora RPM 0.3.4-1; verified in COPR build 11105089
 openai-codex-bin	retired	Removed upstream in 8125c215; Fedora recipe and COPR entry retired
-openai-codex-desktop	published	Fedora RPM 26.1013.40934-1; verified in COPR build 11163562
+openai-codex-desktop	published	Fedora RPM 26.1016.51333-1; verified in COPR build 11184460
 openclaw	published	Fedora RPM 2026.10.5-2; verified in COPR build 11177673
 openvino	published	Fedora RPM 2026.4.1-1; verified in COPR build 11105057; Fedora-specific runtime required by OpenVINO GenAI
 openvino-genai	published	Fedora RPM 2026.4.1.0-1; verified in COPR build 11105300
 owe	published	Fedora RPM 0.2.11-1; verified in COPR build 11170601
 owe-lockfeed	published	Fedora RPM 0.2.11-1; verified in COPR build 11170600
 perftest	not-applicable	Upstream recipe targets aarch64 only; Fedora supplies perftest
-perplexity	published	Fedora RPM 26.10.2+build117519-1; verified in COPR build 11163564
+perplexity	published	Fedora RPM 26.10.2+build122020-1; verified in COPR build 11184461
 pinta	published	Fedora RPM recipe; verified in COPR
 python-mediapipe	published	Fedora RPM 1.1.0-1; verified in COPR build 11105058
 python-sounddevice	published	COPR package
@@ -171,7 +171,7 @@ qemu-user-static	not-applicable	Fedora ships qemu-user-static natively
 qmk-hid	published	COPR package
 quickshell	not-applicable	Provided by the Hyprland COPR; keep its Qt and Hyprland stack together
 quickshell-git	not-applicable	Historical upstream name; current quickshell is provided by the Hyprland COPR
-rawmakase-bin	published	Fedora RPM 0.4.0-1; verified in COPR build 11177415
+rawmakase-bin	published	Fedora RPM 0.4.1-1; verified in COPR build 11184462
 retroarch-joypad-autoconfig-git	ready	Fedora RPM recipe
 rustdesk	published	Fedora RPM recipe; verified in COPR
 schist-bin	ready	Fedora RPM recipe
@@ -202,7 +202,7 @@ uboot-asahi	not-applicable	Apple Silicon bootloader, out of scope
 ufw-docker	not-applicable	UFW integration; Omadora uses firewalld
 v4l2-relayd	published	Fedora RPM recipe; verified in COPR
 vi	published	Fedora RPM recipe; verified in COPR
-visual-studio-code-bin	published	Fedora RPM 1.142.0-1; verified in COPR build 11132025
+visual-studio-code-bin	published	Fedora RPM 1.143.0-1; verified in COPR build 11184463
 voxtype-bin	published	Fedora RPM 1.1.1-1; verified in COPR build 11157588
 walker	published	Fedora RPM 2.17.2-1; verified in COPR build 11105062
 wayfreeze	retired	Removed upstream in 8125c215; Fedora recipe and COPR entry retired
@@ -214,7 +214,7 @@ yaru-icon-theme	published	Fedora RPM recipe; verified in COPR
 yay	not-applicable	Arch AUR client; Fedora uses DNF and Flatpak
 yt6801-dkms	not-applicable	kernel dwmac-motorcomm replaces it
 zed	published	Fedora RPM 1.24.4-1; verified in COPR build 11177417
-zen-browser-bin	published	Fedora RPM 1.23.3b-1; verified in COPR build 11163568
+zen-browser-bin	published	Fedora RPM 1.23.4b-1; verified in COPR build 11184464
 alsa-ucm-conf-aurora	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
 aura	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
 aurora-audio	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target

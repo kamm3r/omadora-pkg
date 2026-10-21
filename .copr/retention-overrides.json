@@ -1,20 +1,10 @@
 {
   "reason": "Concurrent same-version rebuilds share Pulp artifacts; retain both records until a different version-release is published.",
   "packages": {
-    "visual-studio-code-bin": {
-      "max_builds": 2,
-      "retained_duplicate_id": 11178780,
-      "version_release": "1.142.0-1"
-    },
     "v4l2-relayd": {
       "max_builds": 2,
       "retained_duplicate_id": 11178779,
       "version_release": "0.2.0-2"
-    },
-    "zen-browser-bin": {
-      "max_builds": 2,
-      "retained_duplicate_id": 11178778,
-      "version_release": "1.23.3b-1"
     },
     "vi": {
       "max_builds": 2,
@@ -50,11 +40,6 @@
       "max_builds": 2,
       "retained_duplicate_id": 11178770,
       "version_release": "0.3.1-2"
-    },
-    "rawmakase-bin": {
-      "max_builds": 2,
-      "retained_duplicate_id": 11178768,
-      "version_release": "0.4.0-1"
     },
     "ghost": {
       "max_builds": 2,
