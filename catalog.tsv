@@ -229,3 +229,8 @@ libretro-ppsspp	not-applicable	Upstream recipe is ARM-only; outside the Fedora x
 kujo	published	Fedora RPM 1.8.2-1; verified in COPR build 11178789
 maplemono-nf-cn	published	Fedora RPM 7.9-1; verified in COPR build 11178790
 feishu-bin	pending	Vendor terms restrict redistribution without written permission; not eligible for COPR publication on current evidence
+iptsd	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
+nvidia-ai-workbench	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
+surface-pro-11-sensors	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
+surface-pro-11-support	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
+surface-snapdragon-addresses	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target

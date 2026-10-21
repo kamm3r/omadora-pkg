@@ -6,18 +6,18 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node)
 
 Name:           perplexity
-Version:        26.10.2+build117519
+Version:        26.10.2+build122020
 Release:        1%{?dist}
 Summary:        Official Perplexity desktop app
 License:        LicenseRef-proprietary
 URL:            https://www.perplexity.ai
-%global omarchy_pkgs_commit 64e8fbc230e94c9ab0b3f23bb1709f26f6305e78
+%global omarchy_pkgs_commit 4c2785f42025f026590f7ac6b04517746b58047a
 # The pool filename carries a build number the index's Version field drops,
 # and upstream rebuilds under the same marketing version. The PKGBUILD
 # reconstructs the pool URL from pkgver with a literal '+' encoded as %2B
 # (the pool treats a literal '+' as a space and answers 403). RPM Version
 # keeps the '+' verbatim; only the URL encodes it.
-Source0:        https://packages.perplexity.ai/deb/pool/main/p/perplexity/perplexity_26.10.2%2Bbuild117519_amd64.deb#/%{name}-%{version}.deb
+Source0:        https://packages.perplexity.ai/deb/pool/main/p/perplexity/perplexity_26.10.2%2Bbuild122020_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/perplexity/perplexity-launcher.sh
 ExclusiveArch:  x86_64
 Requires:       alsa-lib
@@ -109,6 +109,9 @@ rm -rf %{buildroot}%{_datadir}/doc
 %{_datadir}/icons/hicolor/*/apps/perplexity.png
 
 %changelog
+* Wed Oct 21 2026 kamm3r - 26.10.2+build122020-1
+- Update to the release pinned in upstream 4c2785f4.
+
 * Sat Oct 17 2026 kamm3r - 26.10.2+build117519-1
 - Update to the release pinned in upstream 64e8fbc2.
 
