@@ -21,11 +21,6 @@
       "retained_duplicate_id": 11178775,
       "version_release": "2.17.2-1"
     },
-    "zed": {
-      "max_builds": 2,
-      "retained_duplicate_id": 11178774,
-      "version_release": "1.24.4-1"
-    },
     "voxtype-bin": {
       "max_builds": 2,
       "retained_duplicate_id": 11178773,
@@ -51,20 +46,10 @@
       "retained_duplicate_id": 11178766,
       "version_release": "0.5.28-1"
     },
-    "omacharts": {
-      "max_builds": 2,
-      "retained_duplicate_id": 11178765,
-      "version_release": "0.1.17-1"
-    },
     "helium-browser-bin": {
       "max_builds": 2,
       "retained_duplicate_id": 11178764,
       "version_release": "0.19.4.1-1"
-    },
-    "t3code-nightly-bin": {
-      "max_builds": 2,
-      "retained_duplicate_id": 11178763,
-      "version_release": "0.1.1_nightly.20261020.3411-1"
     },
     "slack-desktop": {
       "max_builds": 2,
