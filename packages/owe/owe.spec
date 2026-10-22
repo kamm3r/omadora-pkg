@@ -1,13 +1,13 @@
 %global debug_package %{nil}
 
 Name:           owe
-Version:        0.2.11
+Version:        0.2.12
 Release:        1%{?dist}
 Summary:        Wallpaper engine for Omarchy
 License:        MIT
 URL:            https://github.com/omacom/owe
 Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
-%global omarchy_pkgs_commit de0326b909c0f489957f9ee13faf74af44521f78
+%global omarchy_pkgs_commit de5c031f87bd82035b8061a5775b95e0e87aeafd
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/owe/package-restart
 BuildRequires:  gcc
 BuildRequires:  meson
@@ -77,6 +77,9 @@ fi
 %{_libexecdir}/owe/package-restart
 
 %changelog
+* Thu Oct 22 2026 kamm3r - 0.2.12-1
+- Update to the release pinned in upstream de5c031f.
+
 * Mon Oct 19 2026 kamm3r - 0.2.11-1
 - Update to the release pinned in upstream de0326b9.
 

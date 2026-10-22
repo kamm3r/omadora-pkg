@@ -234,3 +234,5 @@ nvidia-ai-workbench	not-applicable	Upstream recipe is ARM-only; outside the Fedo
 surface-pro-11-sensors	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
 surface-pro-11-support	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
 surface-snapdragon-addresses	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
+nvidia-sync	pending	New upstream recipe 0.117.3_12; NVIDIA redistribution terms need review before COPR publication
+rumb	not-applicable	Arch and Omarchy dashboard depends on pacman-contrib and AUR tools; Fedora needs a backend port

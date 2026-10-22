@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           github-copilot-cli
-Version:        1.0.101
+Version:        1.0.102
 Release:        1%{?dist}
 Summary:        GitHub Copilot CLI for the terminal
 License:        LicenseRef-GitHub-Copilot
@@ -92,6 +92,9 @@ cp CHANGELOG-%{version}.md CHANGELOG.md
 %{_datadir}/fish/vendor_completions.d/copilot.fish
 
 %changelog
+* Thu Oct 22 2026 kamm3r - 1.0.102-1
+- Update to the release pinned in upstream de5c031f.
+
 * Wed Oct 21 2026 kamm3r - 1.0.101-1
 - Update to the release pinned in upstream 4c2785f4.
 
