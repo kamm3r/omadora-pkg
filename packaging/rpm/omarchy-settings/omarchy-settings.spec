@@ -242,6 +242,7 @@ fc-cache -f %{_datadir}/fonts/omarchy >/dev/null 2>&1 || :
 %config(noreplace) %{_sysconfdir}/mise/conf.d/omarchy-tools.toml
 %config(noreplace) %{_sysconfdir}/modprobe.d/omarchy-usb-autosuspend.conf
 %config(noreplace) %{_sysconfdir}/NetworkManager/conf.d/omarchy-wifi-powersave.conf
+%config(noreplace) %{_sysconfdir}/NetworkManager/conf.d/omarchy-connectivity.conf
 %config(noreplace) %{_sysconfdir}/profile.d/omarchy.sh
 %config(noreplace) %{_sysconfdir}/sddm.conf.d/10-theme.conf
 %config(noreplace) %{_sysconfdir}/sddm.conf.d/10-wayland.conf
