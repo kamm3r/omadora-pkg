@@ -14,12 +14,12 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\\.so|/usr/bin/node|libcurl\\.so\\.4\\(CURL_OPENSSL_4\\))
 
 Name:           visual-studio-code-bin
-Version:        1.143.0
+Version:        1.143.1
 Release:        1%{?dist}
 Summary:        Editor for building and debugging modern web and cloud applications (official binary version)
 License:        LicenseRef-VSCode
 URL:            https://code.visualstudio.com/
-%global omarchy_pkgs_commit 4c2785f42025f026590f7ac6b04517746b58047a
+%global omarchy_pkgs_commit 5cf421897f9a9fcaa293b370266462ae4776c9d9
 Source0:        https://update.code.visualstudio.com/%{version}/linux-deb-x64/stable#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/visual-studio-code-bin/visual-studio-code-bin.sh
 ExclusiveArch:  x86_64
@@ -128,6 +128,9 @@ chmod 0755 %{buildroot}/usr/share/code/chrome-sandbox
 %{_datadir}/pixmaps/vscode.png
 
 %changelog
+* Fri Oct 23 2026 kamm3r - 1.143.1-1
+- Update to the release pinned in upstream 5cf42189.
+
 * Wed Oct 21 2026 kamm3r - 1.143.0-1
 - Update to the release pinned in upstream 4c2785f4.
 

@@ -6,13 +6,13 @@
 %global __requires_exclude ^lib(vk_swiftshader|vulkan|qt.*_shim)\\.so
 
 Name:           brave-bin
-Version:        1.97.59
+Version:        1.98.60
 Release:        1%{?dist}
 Summary:        Web browser that blocks ads and trackers by default (binary release)
 License:        MPL-2.0-only AND BSD-3-Clause AND LicenseRef-Chromium
 URL:            https://brave.com
 Epoch:          1
-%global omarchy_pkgs_commit 64e8fbc230e94c9ab0b3f23bb1709f26f6305e78
+%global omarchy_pkgs_commit 5cf421897f9a9fcaa293b370266462ae4776c9d9
 Source0:        https://github.com/brave/brave-browser/releases/download/v%{version}/brave-browser-%{version}-linux-amd64.zip#/%{name}-%{version}.zip
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/brave-bin/brave-bin.sh
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/brave-bin/brave-browser.desktop
@@ -90,6 +90,9 @@ done
 %{_datadir}/icons/hicolor/*/apps/brave-desktop.png
 
 %changelog
+* Fri Oct 23 2026 kamm3r - 1.98.60-1
+- Update to the release pinned in upstream 5cf42189.
+
 * Sat Oct 17 2026 kamm3r - 1.97.59-1
 - Update to the release pinned in upstream 64e8fbc2.
 

@@ -5,7 +5,7 @@
 %global __requires_exclude ^/usr/bin/node$
 
 Name:           cursor-cli
-Version:        2026.10.19.1.6bbf2c4
+Version:        2026.10.22.1.27dcf5f
 Release:        1%{?dist}
 Summary:        CLI tool for Cursor, the AI-first coding agent
 License:        LicenseRef-Cursor
@@ -14,7 +14,7 @@ URL:            https://cursor.com/cli
 # hashes are not monotonically ordered, so it is YYYY.MM.DD.<n>.<hash>: n
 # resets to 1 on a new date and increments when the same date gets a new
 # hash, mirroring the upstream PKGBUILD scheme.
-%global _upstream_ver 2026.10.19-6bbf2c4
+%global _upstream_ver 2026.10.22-27dcf5f
 Source0:        https://downloads.cursor.com/lab/%{_upstream_ver}/linux/x64/agent-cli-package.tar.gz#/%{name}-%{version}.tar.gz
 ExclusiveArch:  x86_64
 Requires:       git
@@ -181,6 +181,9 @@ EOF
 %{_bindir}/cursor-agent
 
 %changelog
+* Fri Oct 23 2026 kamm3r - 2026.10.22.1.27dcf5f-1
+- Update to the release pinned in upstream 5cf42189.
+
 * Tue Oct 20 2026 kamm3r - 2026.10.19.1.6bbf2c4-1
 - Update to the release pinned in upstream 3e3a4343.
 

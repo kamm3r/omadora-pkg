@@ -2,7 +2,7 @@
 %global __strip /bin/true
 
 Name:           kujo
-Version:        1.8.2
+Version:        1.9.0
 Release:        1%{?dist}
 Summary:        Programming language and runtime for AI-native software
 License:        MIT
@@ -37,5 +37,8 @@ install -Dm644 %{SOURCE1} %{buildroot}%{_licensedir}/%{name}/LICENSE
 %{_bindir}/kujo
 
 %changelog
+* Fri Oct 23 2026 kamm3r - 1.9.0-1
+- Update to the release pinned in upstream 5cf42189.
+
 * Tue Oct 20 2026 kamm3r - 1.8.2-1
 - Port the upstream Kujo recipe to Fedora.

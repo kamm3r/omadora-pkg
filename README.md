@@ -10,7 +10,7 @@ The Elephant package family and `omarchy-walker` were [retired upstream](https:/
 
 The upstream [seven-package retirement](https://github.com/omacom/omarchy-pkgs/commit/8125c215) also retires `hyprshade`, `localsend-bin`, `makima-bin`, `nautilus-open-any-terminal` (including its Caja subpackage), `openai-codex-bin`, and `wayfreeze` here. `localsend` remains available, and Omadora can also obtain `localsend-bin` from Terra. `bun-bin` remains maintained here because Ghost requires a system Bun executable at runtime and during builds; Fedora 44 has no matching provider, and Terra's `bun-bin` currently lacks the `bun` RPM capability that Ghost requires. Upstream’s user-managed mise installation does not satisfy that RPM dependency.
 
-The latest version updates and added recipes follow upstream commit `de5c031f87bd82035b8061a5775b95e0e87aeafd`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
+The latest version updates and added recipes follow upstream commit `5cf421897f9a9fcaa293b370266462ae4776c9d9`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
 
 The latest snapshot contains 207 upstream recipes. The catalog records ARM-only additions outside the current x86_64 target and keeps DingTalk, Feishu, QQ, WeChat, and WPS Office CN pending because their vendor terms do not grant the redistribution needed for COPR.
 

@@ -2,7 +2,7 @@
 %global _lto_cflags %{nil}
 
 Name:           omacharts
-Version:        0.1.22
+Version:        0.2.1
 Release:        1%{?dist}
 Summary:        Charting desktop application and command line tools
 License:        MIT
@@ -64,6 +64,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/$id.desktop
 %{_mandir}/man1/omacharts.1*
 
 %changelog
+* Fri Oct 23 2026 kamm3r - 0.2.1-1
+- Update to the release pinned in upstream 5cf42189.
+
 * Thu Oct 22 2026 kamm3r - 0.1.22-1
 - Update to the release pinned in upstream de5c031f.
 
