@@ -3,8 +3,8 @@
 %global node_version 24.22.0
 
 Name:           openclaw
-Version:        2026.10.5
-Release:        2%{?dist}
+Version:        2026.10.7
+Release:        1%{?dist}
 Summary:        Multi-channel AI gateway with extensible messaging integrations
 License:        MIT AND LicenseRef-Nodejs-Bundled-Dependencies
 URL:            https://github.com/openclaw/openclaw
@@ -101,6 +101,9 @@ test ! -s version.err
 %{_prefix}/lib/node_modules/%{name}/
 
 %changelog
+* Mon Oct 26 2026 kamm3r - 2026.10.7-1
+- Update to the release pinned in upstream d5e4ad59.
+
 * Tue Oct 20 2026 kamm3r - 2026.10.5-2
 - Bundle verified upstream Node 24.22 LTS with compatible SQLite privately.
 - Check OpenClaw runtime compatibility during the binary build.

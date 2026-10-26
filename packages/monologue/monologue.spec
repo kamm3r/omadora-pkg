@@ -2,7 +2,7 @@
 
 Name:           monologue
 Version:        0.3.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Theme synced webcam recorder for Omarchy
 License:        MIT
 URL:            https://github.com/omacom/monologue
@@ -13,7 +13,7 @@ BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  qt6-qtbase-devel
 BuildRequires:  qt6-qtdeclarative-devel
 BuildRequires:  qt6-qtmultimedia-devel
-Requires:       ffmpeg
+Requires:       /usr/bin/ffmpeg
 Requires:       qt6-qtmultimedia
 Requires:       xdg-desktop-portal
 Requires:       hicolor-icon-theme

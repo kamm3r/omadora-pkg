@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
 Name:           omasnap
-Version:        1.21.0
-Release:        3%{?dist}
+Version:        1.23.0
+Release:        1%{?dist}
 Summary:        Wayland screenshot and annotation overlay for Hyprland
 License:        MIT AND OFL-1.1 AND ISC
 URL:            https://github.com/omacom/omasnap
@@ -13,6 +13,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  pkgconf-pkg-config
 BuildRequires:  qt6-qtbase-devel
 BuildRequires:  layer-shell-qt-devel
+BuildRequires:  pkgconfig(libdeflate)
 BuildRequires:  wayland-devel
 BuildRequires:  wayland-protocols-devel
 BuildRequires:  tesseract
@@ -51,6 +52,9 @@ XDG_RUNTIME_DIR="$runtime_dir" QT_QPA_PLATFORM=offscreen QT_QPA_PLATFORMTHEME= Q
 %{_datadir}/licenses/omasnap/*.txt
 
 %changelog
+* Mon Oct 26 2026 kamm3r - 1.23.0-1
+- Update to the release pinned in upstream d5e4ad59.
+
 * Mon Sep 28 2026 kamm3r - 1.21.0-3
 - Install the OCR engine, English model, and test font in the buildroot.
 

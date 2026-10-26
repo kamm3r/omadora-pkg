@@ -2,7 +2,7 @@
 
 Name:           cliamp
 Version:        2.3.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Retro terminal music player
 License:        MIT
 URL:            https://github.com/bjarneo/cliamp
@@ -16,7 +16,7 @@ BuildRequires:  flac-devel
 BuildRequires:  mpg123-devel
 BuildRequires:  gcc
 Requires:       alsa-lib
-Requires:       ffmpeg
+Requires:       /usr/bin/ffmpeg
 Requires:       yt-dlp
 Requires:       hicolor-icon-theme
 

@@ -2,7 +2,7 @@
 
 Name:           omacut
 Version:        0.7.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Simple Qt video trimmer using FFmpeg
 License:        MIT
 URL:            https://github.com/omacom-io/omacut
@@ -12,7 +12,7 @@ BuildRequires:  make
 BuildRequires:  qt6-qtbase-devel
 BuildRequires:  qt6-qtdeclarative-devel
 BuildRequires:  qt6-qtmultimedia-devel
-Requires:       ffmpeg
+Requires:       /usr/bin/ffmpeg
 Requires:       qt6-qtmultimedia
 Requires:       xdg-desktop-portal
 Requires:       hicolor-icon-theme

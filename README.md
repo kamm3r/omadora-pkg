@@ -10,9 +10,11 @@ The Elephant package family and `omarchy-walker` were [retired upstream](https:/
 
 The upstream [seven-package retirement](https://github.com/omacom/omarchy-pkgs/commit/8125c215) also retires `hyprshade`, `localsend-bin`, `makima-bin`, `nautilus-open-any-terminal` (including its Caja subpackage), `openai-codex-bin`, and `wayfreeze` here. `localsend` remains available, and Omadora can also obtain `localsend-bin` from Terra. `bun-bin` remains maintained here because Ghost requires a system Bun executable at runtime and during builds; Fedora 44 has no matching provider, and Terra's `bun-bin` currently lacks the `bun` RPM capability that Ghost requires. Upstream’s user-managed mise installation does not satisfy that RPM dependency.
 
-The latest version updates and added recipes follow upstream commit `5cf421897f9a9fcaa293b370266462ae4776c9d9`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
+The latest version updates and added recipes follow upstream commit `d5e4ad593139f096eb3efffa065c1db90d584a94`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
 
-The latest snapshot contains 207 upstream recipes. The catalog records ARM-only additions outside the current x86_64 target and keeps DingTalk, Feishu, QQ, WeChat, and WPS Office CN pending because their vendor terms do not grant the redistribution needed for COPR.
+The latest snapshot contains 211 upstream recipes. The catalog records ARM-only additions outside the current x86_64 target and keeps DingTalk, Feishu, QQ, WeChat, and WPS Office CN pending because their vendor terms do not grant the redistribution needed for COPR.
+
+The October 26 updates cover 22 existing recipes and add Fedora recipes for Omaroll and Wayshare; their source RPMs are verified and await COPR publication. `omarchy-speedtest` remains pending until Go 1.27 is available for Fedora builds, and the ARM-only `spark-hwmon-dkms` is outside the current target.
 
 The upstream override retirement in `7d70768c` also removes `asusctl` and `xdg-terminal-exec` here; Terra and Fedora/Nobara provide them. Bun remains a Fedora-specific dependency for Ghost, and the matching OpenVINO runtime remains required by OpenVINO GenAI. Retired packages are not removed automatically from existing installations.
 
@@ -46,7 +48,7 @@ OpenClaw uses the packaged system CLI and a private upstream Node 24.22 LTS runt
 
 COPR networking must be enabled for recipes that fetch npm, Flutter, Gradle, Bazel, or Git dependencies during the binary build. The project uses `copr-cli modify kammer/omadora --enable-net on`; the vendored Rust and Go recipes still build without network access.
 
-The Fedora 44 build chroot uses the Hyprland COPR, Terra, and RPM Fusion's free release and updates repositories. OWE's media tests require the full RPM Fusion `ffmpeg` package with its H.264 encoder, also required at runtime.
+The Fedora 44 build chroot uses the Hyprland COPR, Terra, and RPM Fusion's free release and updates repositories. OWE's media tests use the full RPM Fusion `ffmpeg` package with its H.264 encoder at build time. Cliamp, Hype, Monologue, Omacut, and OWE require `/usr/bin/ffmpeg` at runtime so Fedora/Nobara's `ffmpeg-free` and the full `ffmpeg` package can both satisfy the dependency. The runtime build still needs the codecs used by the selected media and export settings; Nobara's `libavcodec-freeworld` supplies additional codecs without replacing its FFmpeg library stack.
 
 OmaCharts ships its charting app, CLI, completions, and optional agent skill. Rawmakase installs the upstream RAW photo editor with its private processing libraries. Ghost provides separate `ghost-runtime` and `ghost` RPMs; the latter adds the desktop HUD, which users enable as an Omadora shell plugin. Buzz includes its desktop workspace and CLI helpers. Its two Rust lockfiles contain identical crate versions from different sources, so it fetches both locked dependency graphs during the network-enabled binary build before compiling with `--frozen`.
 

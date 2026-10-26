@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           ttfx
-Version:        0.5.0
+Version:        0.5.1
 Release:        1%{?dist}
 Summary:        Terminal text effects as a Rust binary
 License:        MIT
@@ -36,5 +36,8 @@ target/release/ttfx --print-completion zsh >%{buildroot}%{_datadir}/zsh/site-fun
 %{_datadir}/zsh/site-functions/_ttfx
 
 %changelog
+* Mon Oct 26 2026 kamm3r - 0.5.1-1
+- Update to the release pinned in upstream d5e4ad59.
+
 * Mon Sep 28 2026 kamm3r - 0.5.0-1
 - Port the upstream Omarchy recipe to Fedora with vendored Cargo dependencies.

@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           tmog-bin
-Version:        1.0.0
+Version:        1.1.0
 Release:        1%{?dist}
 Summary:        Native system monitor and task manager
 License:        LicenseRef-proprietary
@@ -49,5 +49,8 @@ done
 %{_datadir}/icons/hicolor/*/apps/tmog-task-manager.png
 
 %changelog
+* Mon Oct 26 2026 kamm3r - 1.1.0-1
+- Update to the release pinned in upstream d5e4ad59.
+
 * Wed Sep 30 2026 kamm3r - 1.0.0-1
 - Repackage the upstream Omarchy TMOG release for Fedora.

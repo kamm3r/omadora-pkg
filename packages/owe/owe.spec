@@ -2,7 +2,7 @@
 
 Name:           owe
 Version:        0.2.12
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Wallpaper engine for Omarchy
 License:        MIT
 URL:            https://github.com/omacom/owe
@@ -29,7 +29,7 @@ BuildRequires:  python3
 BuildRequires:  mesa-dri-drivers
 BuildRequires:  ffmpeg
 Requires:       mpv
-Requires:       ffmpeg
+Requires:       /usr/bin/ffmpeg
 Requires:       socat
 Requires(posttrans): systemd
 

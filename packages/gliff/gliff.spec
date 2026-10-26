@@ -2,7 +2,7 @@
 %global _lto_cflags %{nil}
 
 Name:           gliff
-Version:        0.4.0
+Version:        0.4.1
 Release:        1%{?dist}
 Summary:        Hyprland remote desktop over SSH
 License:        MIT AND BSD-2-Clause
@@ -61,6 +61,9 @@ install -Dm644 pkgbuild/gliff.desktop %{buildroot}%{_datadir}/applications/gliff
 %{_datadir}/applications/gliff.desktop
 
 %changelog
+* Mon Oct 26 2026 kamm3r - 0.4.1-1
+- Update to the release pinned in upstream d5e4ad59.
+
 * Thu Oct 15 2026 kamm3r - 0.4.0-1
 - Update to the release pinned in upstream d9ebd3f6.
 

@@ -2,7 +2,7 @@
 
 Name:           hype
 Version:        0.6.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Markdown presentations with a visual slide editor
 License:        MIT
 URL:            https://github.com/omacom/hype
@@ -15,7 +15,7 @@ BuildRequires:  qt6-qtmultimedia-devel
 BuildRequires:  qt6-qtsvg-devel
 BuildRequires:  libwebp-devel
 BuildRequires:  zlib-devel
-Requires:       ffmpeg
+Requires:       /usr/bin/ffmpeg
 Requires:       qt6-qtmultimedia
 Requires:       qt6-qtimageformats
 Requires:       qt6-qtsvg
