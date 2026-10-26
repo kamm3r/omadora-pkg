@@ -5,7 +5,7 @@
 
 Name:           ghost
 Version:        0.8.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Ghost desktop HUD for Omadora
 License:        Apache-2.0
 URL:            https://github.com/ferdousbhai/ghost
@@ -91,10 +91,12 @@ cp -a ui-root/. %{buildroot}/
 %{_datadir}/doc/ghost/ARCH.md
 %{_datadir}/doc/ghost/README.md
 %{_datadir}/doc/ghost/CONTRACTS.md
-%{_datadir}/doc/ghost/THIRD_PARTY_NOTICES.md
 %{_datadir}/doc/ghost/docs
 
 %changelog
+* Mon Oct 26 2026 kamm3r - 0.8.1-2
+- Remove the stale documentation entry; notices ship in the license directory.
+
 * Mon Oct 26 2026 kamm3r - 0.8.1-1
 - Update to the release pinned in upstream d5e4ad59.
 
