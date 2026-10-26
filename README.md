@@ -14,7 +14,7 @@ The latest version updates and added recipes follow upstream commit `d5e4ad59313
 
 The latest snapshot contains 211 upstream recipes. The catalog records ARM-only additions outside the current x86_64 target and keeps DingTalk, Feishu, QQ, WeChat, and WPS Office CN pending because their vendor terms do not grant the redistribution needed for COPR.
 
-The October 26 updates cover 22 existing recipes and add Fedora recipes for Omaroll and Wayshare; their source RPMs are verified and await COPR publication. `omarchy-speedtest` remains pending until Go 1.27 is available for Fedora builds, and the ARM-only `spark-hwmon-dkms` is outside the current target.
+The October 26 publication includes 39 package updates, including new Fedora recipes for Omaroll and Wayshare. All builds passed for Fedora 44 x86_64. `omarchy-speedtest` remains pending until Go 1.27 is available for Fedora builds, and the ARM-only `spark-hwmon-dkms` is outside the current target.
 
 The upstream override retirement in `7d70768c` also removes `asusctl` and `xdg-terminal-exec` here; Terra and Fedora/Nobara provide them. Bun remains a Fedora-specific dependency for Ghost, and the matching OpenVINO runtime remains required by OpenVINO GenAI. Retired packages are not removed automatically from existing installations.
 

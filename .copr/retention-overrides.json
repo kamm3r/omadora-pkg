@@ -36,25 +36,10 @@
       "retained_duplicate_id": 11178770,
       "version_release": "0.3.1-2"
     },
-    "ghost": {
-      "max_builds": 2,
-      "retained_duplicate_id": 11178767,
-      "version_release": "0.7.0-1"
-    },
     "buzz": {
       "max_builds": 2,
       "retained_duplicate_id": 11178766,
       "version_release": "0.5.28-1"
-    },
-    "helium-browser-bin": {
-      "max_builds": 2,
-      "retained_duplicate_id": 11178764,
-      "version_release": "0.19.4.1-1"
-    },
-    "slack-desktop": {
-      "max_builds": 2,
-      "retained_duplicate_id": 11178762,
-      "version_release": "4.52.178-1"
     },
     "thinkpad-t14-amd-touchpad-dkms": {
       "max_builds": 2,
