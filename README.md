@@ -14,7 +14,7 @@ The latest version updates and added recipes follow upstream commit `a18022b72cc
 
 The latest snapshot contains 211 upstream recipes. The catalog records ARM-only additions outside the current x86_64 target and keeps DingTalk, Feishu, QQ, WeChat, and WPS Office CN pending because their vendor terms do not grant the redistribution needed for COPR.
 
-The October 27 updates cover Basecamp CLI, Claude Code, GitHub Copilot CLI, Grok Bot, Microsoft Edge, and T3 Code nightly. Source downloads are verified; COPR publication is pending.
+The October 27 updates cover Basecamp CLI, Claude Code, GitHub Copilot CLI, Grok Bot, Microsoft Edge, and T3 Code nightly. All six packages passed Fedora 44 x86_64 COPR builds.
 
 The October 26 publication includes 39 package updates, including new Fedora recipes for Omaroll and Wayshare. All builds passed for Fedora 44 x86_64. `omarchy-speedtest` remains pending until Go 1.27 is available for Fedora builds, and the ARM-only `spark-hwmon-dkms` is outside the current target.
 
