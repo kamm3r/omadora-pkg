@@ -70,3 +70,9 @@ The RPMs are built for Fedora 44 x86_64. Omadora's setup also uses Terra, RPM Fu
 COPR retention exceptions for concurrent same-version rebuilds are recorded in [`.copr/retention-overrides.json`](.copr/retention-overrides.json). Keep both build records for these packages to preserve shared Pulp artifacts; return to one-build retention after publishing a different version-release.
 
 Pause COPR automatic rebuilds before the first maintenance push, keep them paused through validation and publication-record commits, and restore them after the final push webhook is delivered. Concurrent pushes can otherwise queue unchanged recipes.
+
+## Limine packaging
+
+The Limine boot stack is maintained separately in [kamm3r/limine-pkg](https://github.com/kamm3r/limine-pkg) and published through [kammer/limine](https://copr.fedorainfracloud.org/coprs/kammer/limine/). This includes `limine`, `limine-entry-tool`, `limine-snapper-sync`, and the Fedora-specific `limine-dracut` integration. The Snapper recipe moved out of this repository; the existing Omadora COPR build remains available during transition, with automatic rebuilding disabled and its source redirected to the new repository.
+
+Omadora branding, boot defaults, and hardware policy remain in Omadora. Existing `/usr/local` tools and `/etc/kernel/install.d` overrides need explicit migration before switching to the packaged helper stack; see the new repository's migration notes. The running bootloader is not changed by this source separation.

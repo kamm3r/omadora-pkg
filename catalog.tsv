@@ -77,7 +77,7 @@ libretro-uae-git	not-applicable	not in Fedora set; Flatpak fallback
 libretro-vice-git	not-applicable	not in Fedora set; Flatpak fallback
 libva-v4l2_request-avd	not-applicable	Asahi fork; Fedora ships libva-v4l2-request
 limine-mkinitcpio-hook	not-applicable	mkinitcpio hook; Omadora uses dracut
-limine-snapper-sync	published	Fedora RPM recipe; verified in COPR
+limine-snapper-sync	published	Packaging moved to kamm3r/limine-pkg; new builds in kammer/limine COPR; existing kammer/omadora build retained for transition
 link-studio	published	Fedora RPM recipe; verified in COPR
 linux-aarch64-pkgbase-shim	not-applicable	Arch Linux ARM kernel shim; Fedora kernel packaging differs
 linux-aurora	not-applicable	Asahi kernel; Fedora boots stock kernel
