@@ -7,13 +7,15 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node)
 
 Name:           grok-bot
-Version:        0.75.8
+Version:        0.77.0
 Release:        1%{?dist}
 Summary:        Grok Bot desktop agent
 License:        LicenseRef-proprietary
 URL:            https://x.ai/bot
-%global omarchy_pkgs_commit d5e4ad593139f096eb3efffa065c1db90d584a94
-Source0:        https://downloads.cursor.com/aptrepo/pool/grok-bot/g/gr/grok-bot_%{version}_amd64.deb#/%{name}-%{version}.deb
+%global omarchy_pkgs_commit a18022b72ccdff9e9e08120eda08513e2eaf14b8
+# The release feed moves before Cursor's apt pool; pin its release commit.
+%global upstream_commit fe85646036572e2b9a531b337a0dcb56a32f9369
+Source0:        https://downloads.cursor.com/grokbot/stable/%{upstream_commit}/linux/x64/grok-bot_%{version}_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/grok-bot/grok-bot.sh
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/grok-bot/grok-bot.desktop
 ExclusiveArch:  x86_64
@@ -77,6 +79,10 @@ chmod 0755 "%{buildroot}/opt/Grok Bot/chrome-sandbox"
 %{_datadir}/icons/hicolor/*/apps/grok-bot.png
 
 %changelog
+* Tue Oct 27 2026 kamm3r - 0.77.0-1
+- Update to the release pinned in upstream a18022b7.
+- Use the pinned release-feed download because the apt pool lags releases.
+
 * Mon Oct 26 2026 kamm3r - 0.75.8-1
 - Update to the release pinned in upstream d5e4ad59.
 

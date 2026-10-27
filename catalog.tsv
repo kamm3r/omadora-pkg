@@ -9,14 +9,14 @@ asus-proart-p14-speaker-firmware	not-applicable	aarch64 ASUS ProArt P14 H7407BA 
 asusctl	retired	Override retired upstream in 7d70768c; Fedora recipe and COPR definition retired; use Terra or Fedora/Nobara provider
 avd-fw	not-applicable	Asahi-only AVD firmware, x86_64 out of scope
 bambustudio-bin	ready	Fedora RPM recipe
-basecamp-cli	published	Fedora RPM 0.18.1-1; verified in COPR build 11210811
+basecamp-cli	ready	Fedora RPM 0.19.0-1; source RPM verified; awaiting COPR build; previous COPR build 11210811
 box64	not-applicable	Upstream aarch64-only x86 emulation; current target is Fedora 44 x86_64
 brave-bin	published	Fedora RPM 1:1.98.60-1; verified in COPR build 11210812
 brave-origin-bin	published	Fedora RPM 1:1.98.60-1; verified in COPR build 11210813
 brcmfmac-awdl-dkms	not-applicable	Upstream Apple Broadcom AWDL module is aarch64-only
 bun-bin	published	Fedora RPM 1.4.3-1; verified in COPR build 11117565; retained for Ghost build/runtime bun capability; Terra bun-bin lacks that provide
 buzz	published	Fedora RPM 0.5.28-1; verified in COPR build 11105311
-claude-code	published	Fedora RPM 2.1.310-1; verified in COPR build 11210814
+claude-code	ready	Fedora RPM 2.1.311-1; source RPM verified; awaiting COPR build; previous COPR build 11210814
 claude-desktop	published	Fedora RPM 3.6556.2-1; verified in COPR build 11210815
 cliamp	published	Fedora RPM 2.3.0-2; verified in COPR build 11210816
 collie-bin	published	Fedora RPM 1.24.0-1; verified in COPR build 11210818
@@ -52,10 +52,10 @@ elephant-websearch	retired	Retired upstream in 2cce621d; Omarchy 4 no longer use
 flea	published	Fedora RPM 0.3.12-1; verified in COPR build 11170596
 ghost	published	Fedora RPM 0.8.1-2; verified in COPR build 11210873
 ghostty	not-applicable	Terra ships exact version incl. subpackages
-github-copilot-cli	published	Fedora RPM 1.0.103-1; verified in COPR build 11210823
+github-copilot-cli	ready	Fedora RPM 1.0.104-1; source RPM verified; awaiting COPR build; previous COPR build 11210823
 gliff	published	Fedora RPM 0.4.1-1; verified in COPR build 11210824
 google-chrome	published	Fedora RPM 156.0.8078.47-1; verified in COPR build 11184458
-grok-bot	published	Fedora RPM 0.75.8-1; verified in COPR build 11210826
+grok-bot	ready	Fedora RPM 0.77.0-1; source RPM verified; awaiting COPR build; previous COPR build 11210826
 gtk2	not-applicable	Upstream aarch64-only GTK2 recipe; Nobara/Fedora supply GTK2
 herdr	published	Fedora RPM recipe; verified in COPR
 hermes-desktop	published	Fedora RPM 2026.9.7-4; verified in COPR build 11117555
@@ -98,7 +98,7 @@ m1n1-aurora	not-applicable	Apple bootloader; Fedora ships stock m1n1
 macbook12-spi-driver-dkms	not-applicable	no-op; dracut add_drivers covers
 macbook8-spi-pxa2xx-nodma-dkms	ready	Fedora RPM recipe
 makima-bin	retired	Removed upstream in 8125c215; Fedora recipe and COPR entry retired
-microsoft-edge-stable-bin	published	Fedora RPM 156.0.4314.42-1; verified in COPR build 11210831
+microsoft-edge-stable-bin	ready	Fedora RPM 156.0.4314.50-1; source RPM verified; awaiting COPR build; previous COPR build 11210831
 mil-hwx-compiler	not-applicable	Apple Neural Engine compiler; aarch64 Apple Silicon only
 minecraft-launcher	ready	Fedora RPM recipe
 mise-bin	published	Fedora RPM 2026.10.19-1; verified in COPR build 11210833
@@ -187,7 +187,7 @@ supergfxctl	ready	Fedora RPM recipe
 superwhisper-bin	pending	Proprietary voice dictation app needs Fedora port and redistribution review
 symfony-cli	published	Fedora RPM 5.22.2-1; verified in COPR build 11163566
 t3code-bin	published	Fedora RPM 0.1.2-1; verified in COPR build 11210847
-t3code-nightly-bin	published	Fedora RPM 0.1.3_nightly.20261026.3717-1; verified in COPR build 11210848
+t3code-nightly-bin	ready	Fedora RPM 0.1.3_nightly.20261026.3740-1; source RPM verified; awaiting COPR build; previous COPR build 11210848
 tensaku	published	COPR package
 thinkpad-t14-amd-touchpad-dkms	published	Fedora RPM 0.2.3-1; verified in COPR build 11132023
 tmog-bin	published	Fedora RPM 1.1.0-1; verified in COPR build 11210849
@@ -238,5 +238,5 @@ nvidia-sync	pending	New upstream recipe 0.117.3_12; NVIDIA redistribution terms 
 rumb	not-applicable	Arch and Omarchy dashboard depends on pacman-contrib and AUR tools; Fedora needs a backend port
 omaroll	published	Fedora RPM 1.18.0-1; verified in COPR build 11210839
 wayshare	published	Fedora RPM 0.2.4-1; verified in COPR build 11210852
-omarchy-speedtest	pending	Upstream 0.2.0 requires Go 1.27; Fedora 44 currently supplies Go 1.26
+omarchy-speedtest	pending	Upstream 0.2.1 requires Go 1.27; Fedora 44 currently supplies Go 1.26
 spark-hwmon-dkms	not-applicable	NVIDIA GB10 hwmon driver is ARM-only; outside the Fedora x86_64 target
