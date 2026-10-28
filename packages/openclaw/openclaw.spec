@@ -3,8 +3,8 @@
 %global node_version 24.22.1
 
 Name:           openclaw
-Version:        2026.10.7
-Release:        2%{?dist}
+Version:        2026.10.8
+Release:        1%{?dist}
 Summary:        Multi-channel AI gateway with extensible messaging integrations
 License:        MIT AND LicenseRef-Nodejs-Bundled-Dependencies
 URL:            https://github.com/openclaw/openclaw
@@ -101,6 +101,9 @@ test ! -s version.err
 %{_prefix}/lib/node_modules/%{name}/
 
 %changelog
+* Wed Oct 28 2026 kamm3r - 2026.10.8-1
+- Update to the release pinned in upstream aa38eb00.
+
 * Mon Oct 26 2026 kamm3r - 2026.10.7-2
 - Update the private Node runtime to the minimum required 24.22.1 release.
 

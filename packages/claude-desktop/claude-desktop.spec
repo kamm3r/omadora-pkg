@@ -6,12 +6,12 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node)
 
 Name:           claude-desktop
-Version:        3.6556.2
+Version:        4.29.0
 Release:        1%{?dist}
 Summary:        Official Claude desktop app with Claude Code
 License:        LicenseRef-proprietary
 URL:            https://claude.ai
-%global omarchy_pkgs_commit d5e4ad593139f096eb3efffa065c1db90d584a94
+%global omarchy_pkgs_commit aa38eb009b20230e008e5cf7005bbdd6b59463f5
 Source0:        https://downloads.claude.ai/claude-desktop/apt/stable/pool/main/c/claude-desktop/claude-desktop_%{version}_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/claude-desktop/claude-desktop-launcher.sh
 ExclusiveArch:  x86_64
@@ -92,6 +92,9 @@ fi
 %{_datadir}/icons/hicolor/*/apps/claude-desktop.png
 
 %changelog
+* Wed Oct 28 2026 kamm3r - 4.29.0-1
+- Update to the release pinned in upstream aa38eb00.
+
 * Mon Oct 26 2026 kamm3r - 3.6556.2-1
 - Update to the release pinned in upstream d5e4ad59.
 

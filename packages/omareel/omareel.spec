@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           omareel
-Version:        0.3.0
+Version:        0.4.0
 Release:        1%{?dist}
 Summary:        Screen recorder and editor for Omarchy
 License:        MIT
@@ -81,6 +81,9 @@ install -D -m 0644 pkg/omareel.desktop %{buildroot}%{_datadir}/applications/omar
 %{_datadir}/icons/hicolor/512x512/apps/omareel.png
 
 %changelog
+* Wed Oct 28 2026 kamm3r - 0.4.0-1
+- Update to the release pinned in upstream aa38eb00.
+
 * Thu Oct 15 2026 kamm3r - 0.3.0-1
 - Update to the release pinned in upstream d9ebd3f6.
 

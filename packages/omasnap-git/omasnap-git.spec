@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           omasnap-git
-Version:        1.23.0.r0.g4306e88
+Version:        1.24.0.r31.g6208946
 Release:        1%{?dist}
 Summary:        Wayland screenshot and annotation overlay for Hyprland (main-branch build)
 License:        MIT AND OFL-1.1 AND ISC
@@ -9,7 +9,7 @@ URL:            https://github.com/omacom/omasnap
 # Pinned main-branch commit, mirroring the upstream -git PKGBUILD: every
 # main tip becomes a commit pin, versioned <last tag>.r<commits>.g<sha> so
 # it sorts above the tagged release it follows and below the next one.
-%global _commit 4306e88b6951672d1ad7742f5e48d788e2b86976
+%global _commit 6208946d73a98cb81e666c862b0217bdb37ef494
 Source0:        %{url}/archive/%{_commit}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRequires:  cmake
 BuildRequires:  ninja-build
@@ -63,6 +63,9 @@ XDG_RUNTIME_DIR="$runtime_dir" QT_QPA_PLATFORM=offscreen QT_QPA_PLATFORMTHEME= Q
 %{_datadir}/licenses/omasnap/*.txt
 
 %changelog
+* Wed Oct 28 2026 kamm3r - 1.24.0.r31.g6208946-1
+- Update to the release pinned in upstream aa38eb00.
+
 * Mon Oct 26 2026 kamm3r - 1.23.0.r0.g4306e88-1
 - Update to the release pinned in upstream d5e4ad59.
 

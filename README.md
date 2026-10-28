@@ -10,9 +10,11 @@ The Elephant package family and `omarchy-walker` were [retired upstream](https:/
 
 The upstream [seven-package retirement](https://github.com/omacom/omarchy-pkgs/commit/8125c215) also retires `hyprshade`, `localsend-bin`, `makima-bin`, `nautilus-open-any-terminal` (including its Caja subpackage), `openai-codex-bin`, and `wayfreeze` here. `localsend` remains available, and Omadora can also obtain `localsend-bin` from Terra. `bun-bin` remains maintained here because Ghost requires a system Bun executable at runtime and during builds; Fedora 44 has no matching provider, and Terra's `bun-bin` currently lacks the `bun` RPM capability that Ghost requires. Upstream’s user-managed mise installation does not satisfy that RPM dependency.
 
-The latest version updates and added recipes follow upstream commit `a18022b72ccdff9e9e08120eda08513e2eaf14b8`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
+The latest version updates and added recipes follow upstream commit `aa38eb009b20230e008e5cf7005bbdd6b59463f5`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
 
-The latest snapshot contains 211 upstream recipes. The catalog records ARM-only additions outside the current x86_64 target and keeps DingTalk, Feishu, QQ, WeChat, and WPS Office CN pending because their vendor terms do not grant the redistribution needed for COPR.
+The latest snapshot contains 213 upstream recipes. The catalog records ARM-only additions outside the current x86_64 target and keeps DingTalk, Feishu, QQ, WeChat, and WPS Office CN pending because their vendor terms do not grant the redistribution needed for COPR.
+
+The October 28 update tracks upstream `aa38eb00`: 24 existing recipes and the new native `omarchy-screensaver`. Sources and checksum manifests are verified; clean Fedora 44 COPR publication is pending. The Amiga screensaver remains pending because its bundled demos lack a clear redistribution grant, and Superwhisper remains pending distribution review. ARM-only changes remain outside the x86_64 target; the OmaIRC revision is an Arch dependency rebuild with unchanged source and patches, so the Fedora recipe is unchanged.
 
 The October 27 updates cover Basecamp CLI, Claude Code, GitHub Copilot CLI, Grok Bot, Microsoft Edge, and T3 Code nightly. All six packages passed Fedora 44 x86_64 COPR builds.
 

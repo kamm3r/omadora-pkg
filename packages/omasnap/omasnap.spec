@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           omasnap
-Version:        1.23.0
+Version:        1.24.0
 Release:        1%{?dist}
 Summary:        Wayland screenshot and annotation overlay for Hyprland
 License:        MIT AND OFL-1.1 AND ISC
@@ -52,6 +52,9 @@ XDG_RUNTIME_DIR="$runtime_dir" QT_QPA_PLATFORM=offscreen QT_QPA_PLATFORMTHEME= Q
 %{_datadir}/licenses/omasnap/*.txt
 
 %changelog
+* Wed Oct 28 2026 kamm3r - 1.24.0-1
+- Update to the release pinned in upstream aa38eb00.
+
 * Mon Oct 26 2026 kamm3r - 1.23.0-1
 - Update to the release pinned in upstream d5e4ad59.
 

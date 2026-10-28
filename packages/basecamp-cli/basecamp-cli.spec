@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           basecamp-cli
-Version:        0.19.0
+Version:        0.20.1
 Release:        1%{?dist}
 Summary:        Command line client for Basecamp
 License:        MIT
@@ -35,6 +35,9 @@ install -D -m 0644 completions/_basecamp %{buildroot}%{_datadir}/zsh/site-functi
 %{_datadir}/zsh/site-functions/_basecamp
 
 %changelog
+* Wed Oct 28 2026 kamm3r - 0.20.1-1
+- Update to the release pinned in upstream aa38eb00.
+
 * Tue Oct 27 2026 kamm3r - 0.19.0-1
 - Update to the release pinned in upstream a18022b7.
 

@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           mise-bin
-Version:        2026.10.19
+Version:        2026.10.21
 Release:        1%{?dist}
 Summary:        Dev tools, env vars, task runner
 License:        MIT
@@ -57,6 +57,9 @@ install -D -m 0644 completions/mise.fish %{buildroot}%{_datadir}/fish/vendor_com
 %{_datadir}/fish/vendor_completions.d/mise.fish
 
 %changelog
+* Wed Oct 28 2026 kamm3r - 2026.10.21-1
+- Update to the release pinned in upstream aa38eb00.
+
 * Mon Oct 26 2026 kamm3r - 2026.10.19-1
 - Update to the release pinned in upstream d5e4ad59.
 

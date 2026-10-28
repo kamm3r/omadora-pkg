@@ -6,7 +6,7 @@
 %global __requires_exclude ^lib(telio|quench|mooseworker|moosenordvpnapp)\.so
 
 Name:           nordvpn-bin
-Version:        6.0.1
+Version:        6.0.2
 Release:        1%{?dist}
 Summary:        NordVPN CLI tool for Linux
 License:        GPL-3.0-only
@@ -89,6 +89,9 @@ getent group nordvpn >/dev/null || groupadd -r nordvpn
 %{_datadir}/zsh/functions/Completion/Unix/_nordvpn_auto_complete
 
 %changelog
+* Wed Oct 28 2026 kamm3r - 6.0.2-1
+- Update to the release pinned in upstream aa38eb00.
+
 * Thu Oct 22 2026 kamm3r - 6.0.1-1
 - Update to the release pinned in upstream de5c031f.
 

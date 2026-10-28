@@ -6,13 +6,13 @@
 %global __requires_exclude ^lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan|qt.*_shim|widevinecdm)\\.so
 
 Name:           google-chrome
-Version:        156.0.8078.47
+Version:        156.0.8078.73
 Release:        1%{?dist}
 Summary:        Popular web browser by Google (Stable Channel)
 License:        LicenseRef-Google-Chrome
 URL:            https://www.google.com/chrome
 %global _channel stable
-%global omarchy_pkgs_commit 4c2785f42025f026590f7ac6b04517746b58047a
+%global omarchy_pkgs_commit aa38eb009b20230e008e5cf7005bbdd6b59463f5
 Source0:        https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-%{_channel}/google-chrome-%{_channel}_%{version}-1_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/google-chrome/google-chrome-stable.sh
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/google-chrome/eula_text.html
@@ -111,6 +111,9 @@ rm -rf %{buildroot}/etc
 %{_datadir}/doc/google-chrome-stable/changelog.gz
 
 %changelog
+* Wed Oct 28 2026 kamm3r - 156.0.8078.73-1
+- Update to the release pinned in upstream aa38eb00.
+
 * Wed Oct 21 2026 kamm3r - 156.0.8078.47-1
 - Update to the release pinned in upstream 4c2785f4.
 
