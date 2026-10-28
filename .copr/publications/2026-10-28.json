@@ -1,0 +1,32 @@
+{
+  "upstream_commit": "aa38eb009b20230e008e5cf7005bbdd6b59463f5",
+  "source_commit": "7dc292d",
+  "builds": {
+    "basecamp-cli": 11220310,
+    "brave-bin": 11220311,
+    "brave-origin-bin": 11220312,
+    "claude-code": 11220313,
+    "claude-desktop": 11220314,
+    "collie-bin": 11220315,
+    "cursor-bin": 11220316,
+    "dropbox": 11220317,
+    "github-copilot-cli": 11220318,
+    "google-chrome": 11220319,
+    "grok-bot": 11220320,
+    "mise-bin": 11220321,
+    "nordvpn-bin": 11220322,
+    "omareel": 11220323,
+    "omasnap-git": 11220324,
+    "omasnap": 11220325,
+    "openai-codex-desktop": 11220326,
+    "openclaw": 11220327,
+    "perplexity": 11220328,
+    "rawmakase-bin": 11220329,
+    "t3code-bin": 11220330,
+    "t3code-nightly-bin": 11220332,
+    "visual-studio-code-bin": 11220333,
+    "zed": 11220334,
+    "omarchy-screensaver": 11220335
+  },
+  "note": "Source checks passed. Builds submitted; consult COPR for final publication status. Two new upstream additions remain pending distribution review."
+}
