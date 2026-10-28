@@ -2,13 +2,16 @@
 
 Name:           omareel
 Version:        0.4.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Screen recorder and editor for Omarchy
-License:        MIT
+License:        MIT AND Apache-2.0
 URL:            https://github.com/omacom/omareel
 Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 Conflicts:      omarecord
 BuildRequires:  cmake
+BuildRequires:  corrosion
+BuildRequires:  cargo
+BuildRequires:  rust
 BuildRequires:  ninja-build
 BuildRequires:  gcc-c++
 BuildRequires:  pkgconf-pkg-config
@@ -42,8 +45,12 @@ cursor, auto zooms, and a camera bubble.
 
 %prep
 %autosetup
+# Corrosion builds the Rust workspace through CMake using Cargo.lock.
+cargo fetch --locked
 
 %build
+export CARGO_NET_OFFLINE=true
+export CARGO_BUILD_JOBS=2
 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release \
   -DOMAREEL_BUILD_HYPRLAND_PLUGIN=ON -DCMAKE_SKIP_RPATH=ON
 cmake --build build --parallel %{_smp_build_ncpus}
@@ -81,6 +88,9 @@ install -D -m 0644 pkg/omareel.desktop %{buildroot}%{_datadir}/applications/omar
 %{_datadir}/icons/hicolor/512x512/apps/omareel.png
 
 %changelog
+* Wed Oct 28 2026 kamm3r - 0.4.0-2
+- Add Corrosion and locked Rust dependency preparation for the 0.4 rewrite.
+
 * Wed Oct 28 2026 kamm3r - 0.4.0-1
 - Update to the release pinned in upstream aa38eb00.
 

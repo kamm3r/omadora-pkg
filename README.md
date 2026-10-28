@@ -14,6 +14,8 @@ The latest version updates and added recipes follow upstream commit `aa38eb009b2
 
 The latest snapshot contains 213 upstream recipes. The catalog records ARM-only additions outside the current x86_64 target and keeps DingTalk, Feishu, QQ, WeChat, and WPS Office CN pending because their vendor terms do not grant the redistribution needed for COPR.
 
+The October 28 follow-up fixes Omareel's new Corrosion/Rust build requirements and repins the core Omadora pair to published source `becc224a`, resolving the missing NetworkManager configuration in the previous settings build. Core packaging regression tests pass against that source. Omatrack's checksum-verified source RPM is ready for its first clean COPR build; the ARM-only Steam/FEX recipe is outside this repository's x86_64 target.
+
 The October 28 update tracks upstream `aa38eb00`: 24 existing recipes and the new native `omarchy-screensaver`. Sources and checksum manifests are verified; the 25 clean Fedora 44 COPR builds are submitted, with IDs recorded in [`.copr/publications/2026-10-28.json`](.copr/publications/2026-10-28.json). Publication is pending COPR result processing. The Amiga screensaver remains pending because its bundled demos lack a clear redistribution grant, and Superwhisper remains pending distribution review. ARM-only changes remain outside the x86_64 target; the OmaIRC revision is an Arch dependency rebuild with unchanged source and patches, so the Fedora recipe is unchanged.
 
 The October 27 updates cover Basecamp CLI, Claude Code, GitHub Copilot CLI, Grok Bot, Microsoft Edge, and T3 Code nightly. All six packages passed Fedora 44 x86_64 COPR builds.

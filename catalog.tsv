@@ -120,7 +120,7 @@ omairc	published	Fedora RPM 1.10.3-3; verified in COPR build 11156369
 omakade	published	Fedora RPM 1.18.0-1; verified in COPR build 11210838
 omakeyboard	pending	Qt keyboard remapper needs a Fedora port and runtime validation
 omapresent	published	COPR package
-omarchy	published	COPR package
+omarchy	ready	Repinned with matching settings to Omadora becc224a; local core packaging tests pass; clean build pending
 omarchy-ane-dkms	not-applicable	Apple Neural Engine driver; aarch64 Apple Silicon only
 omarchy-audio-tuner	published	COPR package
 omarchy-billboard-generator	published	Fedora RPM recipe; verified in COPR
@@ -137,18 +137,18 @@ omarchy-meeting-recorder-bin	published	Fedora RPM 1.8.0-1; verified in COPR buil
 omarchy-mlx	not-applicable	Apple Silicon ML runtime; x86_64 out of scope
 omarchy-nvim	published	Fedora RPM 2026.9.21-3; verified in COPR build 11117559
 omarchy-power-profiles-daemon	pending	Custom power-profiles daemon needs Fedora hardware patch assessment
-omarchy-settings	published	COPR package
+omarchy-settings	ready	Previous build 11195920 failed on a stale source pin; repinned to published Omadora becc224a; local core packaging tests pass; clean build pending
 omarchy-settings-dev	not-applicable	covered by core settings spec via dev_suffix
-omarchy-steam-fex	ready	Fedora RPM recipe
+omarchy-steam-fex	not-applicable	aarch64-only Steam/FEX recipe; outside the Fedora 44 x86_64 target
 omarchy-task-manager	published	Fedora RPM recipe; verified in COPR
 omarchy-themes-intros	published	Fedora RPM 2026.10.14-1; verified in COPR build 11132015
 omarchy-walker	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses this meta package
 omarchy-zsh	published	COPR package
-omareel	ready	Fedora RPM 0.4.0-1; source checksums verified; October 28 COPR build 11220323 submitted; publication pending
+omareel	ready	0.4.0-2 fixes missing Corrosion/Rust build dependencies; clean rebuild pending
 omasnap	ready	Fedora RPM 1.24.0-1; source checksums verified; October 28 COPR build 11220325 submitted; publication pending
 omasnap-git	ready	Fedora RPM 1.24.0.r31.g6208946-1; source checksums verified; October 28 COPR build 11220324 submitted; publication pending
 omaspeak-bin	ready	Fedora RPM recipe
-omatrack	ready	Fedora RPM recipe; source from a checksum-verified fork
+omatrack	ready	1.8.6 source checksums and source RPM verified; first clean COPR build pending
 omawake-bin	ready	Fedora RPM recipe
 omawrite	published	Fedora RPM 0.7.2-1; verified in COPR build 11170599
 omazed	published	COPR package
