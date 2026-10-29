@@ -141,7 +141,17 @@ install -d %{buildroot}%{_sysconfdir}/fonts/conf.d
 ln -s %{_datadir}/fontconfig/conf.avail/50-omarchy.conf %{buildroot}%{_sysconfdir}/fonts/conf.d/50-omarchy.conf
 install -d %{buildroot}%{_datadir}/xdg-terminal-exec
 install -m 0644 default/xdg-terminal-exec/*.list %{buildroot}%{_datadir}/xdg-terminal-exec/
-install -D -m 0644 default/applications/mimeapps.list %{buildroot}%{_datadir}/applications/mimeapps.list
+# shared-mime-info owns the generic file on Fedora. The Omarchy session
+# advertises Hyprland, so use its desktop-specific distribution defaults.
+install -D -m 0644 default/applications/mimeapps.list %{buildroot}%{_datadir}/applications/hyprland-mimeapps.list
+# The pinned release can predate these drop-ins while a local checkout has
+# them. Package the source's files without requiring them in older archives.
+printf '%%s\n' "%{_datadir}/applications/hyprland-mimeapps.list" > omarchy-desktop-files
+for relative in pipewire/client.conf.d/50-omarchy-rtkit.conf pipewire/jack.conf.d/50-omarchy-rtkit.conf; do
+  if [ -f "%{buildroot}%{_sysconfdir}/$relative" ]; then
+    printf '%%%%config(noreplace) %%s\n' "%{_sysconfdir}/$relative" >> omarchy-desktop-files
+  fi
+done
 install -d %{buildroot}%{_userunitdir}
 install -m 0644 default/systemd/user/*.service %{buildroot}%{_userunitdir}/
 install -D -m 0644 default/systemd/user/app.slice.d/10-oomd.conf %{buildroot}%{_userunitdir}/app.slice.d/10-oomd.conf
@@ -210,7 +220,7 @@ fc-cache -f %{_datadir}/fonts/omarchy >/dev/null 2>&1 || :
 # cleanup is in place (docs/passwordless-sudo.md).
 /usr/bin/omarchy-sudo-passwordless __package-installed
 
-%files
+%files -f omarchy-desktop-files
 %license LICENSE
 %{_bindir}/omarchy-debug
 %{_bindir}/omarchy-debug-idle
@@ -293,7 +303,6 @@ fc-cache -f %{_datadir}/fonts/omarchy >/dev/null 2>&1 || :
 %{_prefix}/lib/environment.d/*.conf
 %{_datadir}/fontconfig/conf.avail/50-omarchy.conf
 %{_datadir}/xdg-terminal-exec/*.list
-%{_datadir}/applications/mimeapps.list
 %{_userunitdir}/*.service
 %{_userunitdir}/app.slice.d/10-oomd.conf
 %{_prefix}/lib/systemd/system-sleep/unmount-fuse
