@@ -2,7 +2,7 @@
 %global _lto_cflags %{nil}
 
 Name:           wayshare
-Version:        0.2.4
+Version:        0.3.0
 Release:        1%{?dist}
 Summary:        macOS Screen Sharing server for Hyprland
 License:        Apache-2.0
@@ -52,5 +52,8 @@ install -Dm644 contrib/config.example.toml %{buildroot}%{_docdir}/%{name}/config
 %{_userunitdir}/wayshare.service
 
 %changelog
+* Thu Oct 29 2026 kamm3r - 0.3.0-1
+- Update to the release pinned in upstream 38a5e499.
+
 * Mon Oct 26 2026 kamm3r - 0.2.4-1
 - Port the upstream screen sharing server with vendored Cargo dependencies.

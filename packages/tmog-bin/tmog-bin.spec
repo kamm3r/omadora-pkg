@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           tmog-bin
-Version:        1.1.0
+Version:        1.1.1
 Release:        1%{?dist}
 Summary:        Native system monitor and task manager
 License:        LicenseRef-proprietary
@@ -49,6 +49,9 @@ done
 %{_datadir}/icons/hicolor/*/apps/tmog-task-manager.png
 
 %changelog
+* Thu Oct 29 2026 kamm3r - 1.1.1-1
+- Update to the release pinned in upstream 38a5e499.
+
 * Mon Oct 26 2026 kamm3r - 1.1.0-1
 - Update to the release pinned in upstream d5e4ad59.
 
