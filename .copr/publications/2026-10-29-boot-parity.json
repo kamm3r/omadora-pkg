@@ -1,0 +1,76 @@
+{
+  "scope": "Fedora boot and update parity",
+  "upstream_ref": "37c404a57f271a87163b9e628826b908100da965",
+  "packages": {
+    "omarchy-power-profiles-daemon": {
+      "build_id": 11223291,
+      "state": "published",
+      "version_release": "0.30-1.fc44",
+      "chroot": "fedora-44-x86_64",
+      "validation": "All 175 upstream tests passed; exact version-release verified in DNF repository metadata",
+      "metadata_verified": true
+    },
+    "limine-dracut": {
+      "failed_build_id": 11227084,
+      "failure": "COPR absolute spec path did not match source archive branch; local Makefile fix validated and source RPM resubmitted",
+      "build_id": 11227088,
+      "state": "published",
+      "version_release": "0.2.0-2.fc44",
+      "source_revision": "777bf33",
+      "factory_fix": "Committed as 758493e; absolute COPR spec path source build verified locally",
+      "metadata_verified": true
+    },
+    "omarchy": {
+      "state": "published",
+      "source_revision": "e4c8bb74b6b03c1f9b35dca5d9032a483c6f5bb8",
+      "scope": "Signed kernel-picker and upstream power-profile integration follow-up",
+      "version_release": "4.0.0~alpha-0.75.gite4c8bb74b6.fc44",
+      "build_id": 11227294,
+      "metadata_verified": true
+    },
+    "omarchy-settings": {
+      "state": "published",
+      "source_revision": "e4c8bb74b6b03c1f9b35dca5d9032a483c6f5bb8",
+      "scope": "Signed kernel-picker and upstream power-profile integration follow-up",
+      "version_release": "4.0.0~alpha-0.75.gite4c8bb74b6.fc44",
+      "build_id": 11227293,
+      "metadata_verified": true
+    }
+  },
+  "feature_followup": {
+    "state": "published",
+    "kernel_picker_commit": "13f60f475",
+    "power_profiles_commit": "e4c8bb74b",
+    "packaging_commit": "6f28753"
+  },
+  "webhook_delivery": {
+    "packaging_revision": "7300219b52",
+    "status_code": 200
+  },
+  "previous_core_release": {
+    "omarchy": {
+      "state": "published",
+      "source_revision": "a147d350e",
+      "version_release": "4.0.0~alpha-0.73.gita147d350e1.fc44",
+      "scope": "Already-signed boot/update release; newer kernel-picker and power-profile default changes await commit signing",
+      "build_id": 11227134,
+      "metadata_verified": true
+    },
+    "omarchy-settings": {
+      "state": "published",
+      "source_revision": "a147d350e",
+      "version_release": "4.0.0~alpha-0.73.gita147d350e1.fc44",
+      "scope": "Already-signed boot/update release; newer kernel-picker and power-profile default changes await commit signing",
+      "build_id": 11227110,
+      "metadata_verified": true
+    }
+  },
+  "automatic_rebuilds_policy": "Restore the 129 previously enabled definitions and enable the new power-profile definition after final publication-record webhook delivery.",
+  "validation": {
+    "core_packaging": "10 checks passed against signed source e4c8bb74b",
+    "kernel_picker": "CLI regression tests and running-menu visual verification passed",
+    "power_profiles": "175 upstream tests passed in clean Fedora COPR build",
+    "boot_recovery": "Normal UKI startup and snapshot restoration still require reboot/VM verification"
+  },
+  "upstream_audit_scope": "Targeted core and power-profile work only; the wider upstream reconciliation remains partial with 12 unresolved packages at the last check."
+}
