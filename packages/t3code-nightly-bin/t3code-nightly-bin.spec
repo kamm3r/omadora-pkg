@@ -6,14 +6,14 @@
 %global __requires_exclude ^(lib(fff_c|ffmpeg|vk_swiftshader|vulkan)\.so|libc\.musl|libc\.so\(\)|/usr/bin/node)
 
 Name:           t3code-nightly-bin
-Version:        0.1.4_nightly.20261028.3841
+Version:        0.1.4_nightly.20261029.3853
 Release:        1%{?dist}
 Summary:        Open-source control plane for coding agents (nightly)
 License:        MIT
 URL:            https://t3.codes
 # Upstream ships a bare AppImage (plus a license file), not a tarball, so
 # there is no top directory to autosetup; it is extracted with 7z in %%prep.
-%global upstream_version 0.1.4-nightly.20261028.3841
+%global upstream_version 0.1.4-nightly.20261029.3853
 Source0:        https://github.com/pingdotgg/t3code/releases/download/v%{upstream_version}/T3-Code-%{upstream_version}-x86_64.AppImage#/%{name}-%{version}-x86_64.AppImage
 Source1:        https://raw.githubusercontent.com/pingdotgg/t3code/v%{upstream_version}/LICENSE#/%{name}-LICENSE-%{version}
 ExclusiveArch:  x86_64
@@ -150,6 +150,9 @@ install -D -m 0755 ../t3-launcher.sh %{buildroot}%{_bindir}/t3-nightly
 %{_datadir}/icons/hicolor/*/apps/t3code-nightly.png
 
 %changelog
+* Thu Oct 29 2026 kamm3r - 0.1.4_nightly.20261029.3853-1
+- Update to the nightly pinned by upstream 941cc6bf.
+
 * Thu Oct 29 2026 kamm3r - 0.1.4_nightly.20261028.3841-1
 - Update to the release pinned in upstream 38a5e499.
 

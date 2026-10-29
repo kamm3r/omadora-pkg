@@ -3,7 +3,7 @@
 
 Name:           wayshare
 Version:        0.3.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        macOS Screen Sharing server for Hyprland
 License:        Apache-2.0
 URL:            https://github.com/wesleygrimes/wayshare
@@ -12,6 +12,7 @@ Source1:        %{name}-vendor-%{version}.tar.gz
 BuildRequires:  cargo
 BuildRequires:  rust >= 1.89
 BuildRequires:  gcc
+BuildRequires:  gcc-c++
 BuildRequires:  pkgconf-pkg-config
 BuildRequires:  mesa-libgbm-devel
 BuildRequires:  mesa-libEGL-devel
@@ -52,6 +53,9 @@ install -Dm644 contrib/config.example.toml %{buildroot}%{_docdir}/%{name}/config
 %{_userunitdir}/wayshare.service
 
 %changelog
+* Thu Oct 29 2026 kamm3r - 0.3.0-2
+- Add the C++ compiler required to build OpenH264.
+
 * Thu Oct 29 2026 kamm3r - 0.3.0-1
 - Update to the release pinned in upstream 38a5e499.
 
