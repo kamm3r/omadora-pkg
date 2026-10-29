@@ -28,5 +28,12 @@
     "zed": 11220334,
     "omarchy-screensaver": 11220335
   },
-  "note": "Source checks passed. Builds submitted; consult COPR for final publication status. Two new upstream additions remain pending distribution review."
+  "note": "Original build IDs retained. All original builds succeeded except Omareel and Omasnap; follow-up IDs track corrected builds. See October 29 publication record for current status.",
+  "followup_builds": {
+    "omareel": 11220449,
+    "omasnap": 11221477,
+    "omatrack": 11221469,
+    "omarchy-settings": 11220451,
+    "omarchy": 11220452
+  }
 }
