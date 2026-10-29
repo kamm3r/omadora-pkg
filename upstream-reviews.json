@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "packages": {
+    "omarchy-power-profiles-daemon": {
+      "local_digest": "2caa417651b372cf25cc1c52e301b47775f6e7517cce5d1f912a164f829b5c3b",
+      "reason": "Ported upstream 0.30 and all four checksum-verified patches with Fedora Meson, service and replacement integration. COPR build 11223291 succeeded with all 175 tests; exact 0.30-1.fc44 is present in Fedora 44 x86_64 repository metadata.",
+      "upstream_commit": "37c404a57f271a87163b9e628826b908100da965",
+      "upstream_digest": "ad5fb4d932f02ad878fd2017ee07a1fcf78c62b65d60ff8d4b95aee61164abb9"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+90f2c95024861d9f4062abedd514084939224e7a49edd468f001af7260ec8e6c  power-profiles-daemon-0.30.tar.gz
+5c3e350afd1baf668aca5d64d9692ec816f72d90ed93aec1f655aeb0d75b2bf1  nvidia-rtx-spark-power-profiles.patch
+79c6958cd8b5642a238300f89cb2e2549a6fcc323b1933bf8cad5b2479ffd6c9  cpufreq-caps.patch
+d22145fec7c753f78b606a3de2437299d6ff74c33b8aa70b87cfd4ecda9225a0  cpufreq-boost-driver.patch
+5fa8b0073ee25fe8c655b23235445fee5d55a089650a17e89e0df9909f8173de  balanced-performance-spelling.patch
