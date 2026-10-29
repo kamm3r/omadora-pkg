@@ -122,12 +122,11 @@ install -d "$skel/.config/omarchy/branding"
 install -m 0644 icon.txt "$skel/.config/omarchy/branding/about.txt"
 install -m 0644 logo.txt "$skel/.config/omarchy/branding/screensaver.txt"
 
-# The shared default tree. omadora-sync is runtime code and ships with omarchy;
-# the Arch pacman and ALPM trees are reference only.
+# The shared default tree. Arch pacman and ALPM trees are reference only.
 install -d "$share/default"
 for entry in default/*; do
   case ${entry##*/} in
-    omadora-sync | pacman | libalpm) continue ;;
+    pacman | libalpm) continue ;;
   esac
   cp -a "$entry" "$share/default/"
 done

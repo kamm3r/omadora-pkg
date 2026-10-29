@@ -83,8 +83,7 @@ pass "new users start with every migration applied"
 if grep -E '/libalpm/|/default/pacman/|/mkinitcpio\.conf\.d/|^/etc/nsswitch\.conf$|__pycache__|/\.git/' "$test_tmp/runtime.list" "$test_tmp/settings.list"; then
   fail "no Arch-only or generated files ship"
 fi
-grep -qxF /usr/share/omarchy/default/omadora-sync/omadora_sync/dnf.py "$test_tmp/runtime.list" || fail "omadora-sync ships with omarchy"
-pass "no Arch-only or generated files ship, and omadora-sync is runtime"
+pass "no Arch-only or generated files ship"
 
 # The settings scriptlet copies the files Fedora packages own into place and
 # leaves nsswitch.conf to authselect. Run it against a fake root.

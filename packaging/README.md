@@ -3,7 +3,7 @@
 Omadora ships as two noarch RPMs, built from the Omadora source tree with the specs in this directory:
 
 - `omarchy-settings` (`packaging/rpm/omarchy-settings/omarchy-settings.spec`): everything that must exist before the runtime and before the first user: `/etc` drop-ins, the `/etc/skel` defaults, package-owned files under `/usr`, fonts, the Plymouth and SDDM themes, branding, and the passwordless-sudo helper with its expiry support and scriptlets.
-- `omarchy` (`packaging/rpm/omarchy/omarchy.spec`): every command in `/usr/bin` (linked back from `/usr/share/omarchy/bin`), the install and migration scripts, themes, the Quickshell desktop, and `omadora-sync`. It requires the `omarchy-settings` built from the same commit.
+- `omarchy` (`packaging/rpm/omarchy/omarchy.spec`): every command in `/usr/bin` (linked back from `/usr/share/omarchy/bin`), the install and migration scripts, themes, the Quickshell desktop. It requires the `omarchy-settings` built from the same commit.
 
 Omadora's `docs/file-layout.md` maps every source path to its package and installed location. Both specs also build `-dev` variants (`--define "dev_suffix -dev"`) that provide and replace the release packages, which is what `omarchy dev pkg-test` installs.
 

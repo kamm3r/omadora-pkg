@@ -27,8 +27,7 @@ Name:           omarchy%{?dev_suffix}
 Version:        %{omarchy_version}
 Release:        %{omarchy_release}%{?dist}
 Summary:        Omadora, an Omarchy Hyprland desktop for Fedora
-# omadora-sync is a modified copy of nobara-updater (GPL-3.0-or-later).
-License:        MIT AND GPL-3.0-or-later
+License:        MIT
 URL:            https://github.com/kamm3r/omadora
 Source0:        omarchy-%{omarchy_version}.tar.gz
 BuildArch:      noarch
@@ -39,7 +38,6 @@ Requires:       sudo
 Requires:       systemd
 Requires:       dnf5
 Requires:       python3
-Requires:       python3-libdnf5
 Requires:       gum
 Requires:       jq
 Requires:       util-linux
@@ -53,7 +51,7 @@ Conflicts:      omarchy-dev
 %endif
 
 %description
-The Omadora runtime: every omarchy command and omadora-sync, the install,
+The Omadora runtime: every omarchy command, the install,
 hardware, and migration scripts, the stock themes, and the Quickshell desktop,
 installed under /usr/share/omarchy with the commands in /usr/bin.
 
@@ -90,7 +88,6 @@ done
 
 cp -a install migrations themes shell version "$share/"
 install -d "$share/default"
-cp -a default/omadora-sync "$share/default/"
 
 # New users start with every shipped migration already applied.
 install -d %{buildroot}%{_sysconfdir}/skel/.local/state/omarchy/migrations
@@ -100,7 +97,6 @@ done
 
 %files -f %{name}.files
 %license LICENSE
-%license default/omadora-sync/LICENSE
 %doc README.md FEDORA.md
 %dir %{_datadir}/omarchy
 %dir %{_datadir}/omarchy/bin
@@ -110,7 +106,6 @@ done
 %{_datadir}/omarchy/shell
 %{_datadir}/omarchy/version
 %dir %{_datadir}/omarchy/default
-%{_datadir}/omarchy/default/omadora-sync
 %dir %{_sysconfdir}/skel/.local
 %dir %{_sysconfdir}/skel/.local/state
 %dir %{_sysconfdir}/skel/.local/state/omarchy
