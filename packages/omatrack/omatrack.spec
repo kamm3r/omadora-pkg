@@ -5,7 +5,7 @@
 
 Name:           omatrack
 Version:        1.8.6
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Cross-format motorsport telemetry analysis workstation
 License:        MIT
 URL:            https://github.com/tobi/omatrack
@@ -25,6 +25,7 @@ BuildRequires:  qt6-qtbase-devel
 BuildRequires:  qt6-qtdeclarative-devel
 BuildRequires:  mpv-libs-devel
 BuildRequires:  libyaml-devel
+BuildRequires:  pkgconfig(libzstd)
 Requires:       hicolor-icon-theme
 Requires:       mpv-libs
 Requires:       libyaml
@@ -66,5 +67,8 @@ rm %{buildroot}%{_datadir}/doc/omatrack/LICENSE
 %{_datadir}/doc/omatrack/THIRD_PARTY_NOTICES.md
 
 %changelog
+* Thu Oct 29 2026 kamm3r - 1.8.6-2
+- Declare the zstd development dependency for telemetry caches.
+
 * Wed Sep 30 2026 kamm3r - 1.8.6-1
 - Port the upstream Omarchy recipe to Fedora.

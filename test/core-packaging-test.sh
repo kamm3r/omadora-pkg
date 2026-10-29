@@ -132,3 +132,10 @@ pinned_version=$(git -C "$ROOT" show "$revision:version" | sed -E 's/[.-]([a-z])
   fail "the COPR source RPM records its version and release" "$(rpm -qp --qf '%{VERSION}-%{RELEASE}' "$srpm")"
 head -2 "$test_tmp/srpm/omarchy-settings.spec" | grep -q '^%global omarchy_release 0\.' || fail "the COPR spec carries its release"
 pass "the COPR source RPM carries the pinned commit's version and a per-commit release"
+
+# The working checkout can contain newer files than the pin. Rebuild the
+# actual pinned SRPM too, so a spec listing a not-yet-pinned file fails here.
+rpmbuild --rebuild --define "_topdir $test_tmp/pinned-build" \
+  --define "_binary_payload w0.ufdio" "$srpm" >"$test_tmp/pinned-build.log" 2>&1 ||
+  fail "the pinned source RPM builds with every settings file present" "$(grep -E '^(error|  *Installed \(but unpackaged\)|   /)' "$test_tmp/pinned-build.log" | head -20)"
+pass "the pinned source RPM builds with every settings file present"
