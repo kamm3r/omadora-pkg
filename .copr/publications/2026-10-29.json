@@ -1,7 +1,7 @@
 {
-  "upstream_commit": "38a5e499edd68fb9778de2c08b7f6d66c739cdeb",
-  "source_commit": "bb21f04",
-  "checked_at": "2026-10-29T04:43:23.900965+00:00",
+  "upstream_commit": "941cc6bf115242d7564c6c7b602fd0c634030df9",
+  "source_commit": "7348df1",
+  "checked_at": "2026-10-29T07:28:59.287566+00:00",
   "builds": {
     "basecamp-cli": 11221471,
     "brave-bin": 11220311,
@@ -24,7 +24,7 @@
     "perplexity": 11220328,
     "rawmakase-bin": 11220329,
     "t3code-bin": 11220330,
-    "t3code-nightly-bin": 11221474,
+    "t3code-nightly-bin": 11222266,
     "visual-studio-code-bin": 11220333,
     "zed": 11220334,
     "omarchy-screensaver": 11220335,
@@ -34,11 +34,11 @@
     "helium-browser-bin": 11221472,
     "omacharts": 11221473,
     "tmog-bin": 11221475,
-    "wayshare": 11221476,
+    "wayshare": 11222265,
     "splinterm": 11221479
   },
   "build_states": {
-    "basecamp-cli": "pending",
+    "basecamp-cli": "running",
     "brave-bin": "succeeded",
     "brave-origin-bin": "succeeded",
     "claude-code": "succeeded",
@@ -53,24 +53,32 @@
     "nordvpn-bin": "succeeded",
     "omareel": "succeeded",
     "omasnap-git": "succeeded",
-    "omasnap": "pending",
+    "omasnap": "running",
     "openai-codex-desktop": "succeeded",
     "openclaw": "succeeded",
     "perplexity": "succeeded",
     "rawmakase-bin": "succeeded",
     "t3code-bin": "succeeded",
-    "t3code-nightly-bin": "pending",
+    "t3code-nightly-bin": "starting",
     "visual-studio-code-bin": "succeeded",
     "zed": "succeeded",
     "omarchy-screensaver": "succeeded",
-    "omatrack": "pending",
+    "omatrack": "succeeded",
     "omarchy-settings": "succeeded",
     "omarchy": "succeeded",
-    "helium-browser-bin": "pending",
-    "omacharts": "pending",
-    "tmog-bin": "pending",
-    "wayshare": "pending",
+    "helium-browser-bin": "running",
+    "omacharts": "running",
+    "tmog-bin": "running",
+    "wayshare": "starting",
     "splinterm": "running"
   },
-  "note": "Published versions are verified against COPR repository metadata. Nine follow-up/new builds are queued; pending builds are not yet available to DNF. No new upstream gaming or Limine updates remain. ARM-only Steam/FEX is excluded from the x86_64 target."
+  "note": "Wayshare retry declares gcc-c++; T3 nightly follows upstream 941cc6bf. Both replacement SRPMs pass checksum and packaging checks. Seven previous builder logs completed successfully; final COPR publication is pending. Omatrack is present in repository metadata. ARM-only Aurora updates remain outside this target.",
+  "superseded_builds": {
+    "wayshare": [
+      11221476
+    ],
+    "t3code-nightly-bin": [
+      11221474
+    ]
+  }
 }
