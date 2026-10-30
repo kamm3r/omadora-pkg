@@ -1,0 +1,368 @@
+{
+  "schema": 1,
+  "state": "baseline-copying",
+  "recorded_at": "2026-10-30T11:29:34.695620+00:00",
+  "policy": {
+    "owner": "kammer",
+    "chroot": "fedora-44-x86_64",
+    "projects": {
+      "edge": "omadora-edge",
+      "rc": "omadora-rc",
+      "stable": "omadora"
+    },
+    "transitions": [
+      [
+        "edge",
+        "rc"
+      ],
+      [
+        "rc",
+        "stable"
+      ]
+    ],
+    "required_evidence": {
+      "rc": [
+        "automated-tests"
+      ],
+      "stable": [
+        "automated-tests",
+        "desktop-tests"
+      ]
+    },
+    "groups": [
+      [
+        "omarchy",
+        "omarchy-settings"
+      ],
+      [
+        "hyprland",
+        "hyprland-devel",
+        "hyprland-uwsm",
+        "omarchy-hyprland-titlebars"
+      ]
+    ],
+    "source_repository": "https://github.com/kamm3r/omadora-pkg.git",
+    "source_ref": "main"
+  },
+  "stable_repository_unchanged": true,
+  "baseline": {
+    "definitions": 137,
+    "successful_builds": 136,
+    "rpm_count": 350,
+    "bytes": 23254016166,
+    "content_identity_sha256": "3888bf0af2f101a9c4f92ffd3f72de1026dfe14c1adfb84362591601825a65b2",
+    "all_stable_metadata_versions_sizes_checksums_rechecked_unchanged": true
+  },
+  "seed_actions": {
+    "edge": {
+      "id": 2903968,
+      "state": "waiting",
+      "url": "https://copr.fedorainfracloud.org/coprs/kammer/omadora-edge/action/2903968/"
+    },
+    "rc": {
+      "id": 2903969,
+      "state": "waiting",
+      "url": "https://copr.fedorainfracloud.org/coprs/kammer/omadora-rc/action/2903969/"
+    }
+  },
+  "bootstrap_scope": "One-time identical stable baseline copies into new edge/rc projects; no reverse release promotion and no new stable RPM publication.",
+  "automation": {
+    "github_hook_id": 687144543,
+    "github_hook_target": "kammer/omadora-edge",
+    "edge_enabled_count": 0,
+    "edge_enabled_after_final_verification": [
+      "aether",
+      "tobi-try",
+      "omarchy-audio-tuner",
+      "omazed",
+      "omarchy-emacs",
+      "ttf-jetbrains-mono-nerd-basic",
+      "omarchy-fish",
+      "omarchy-zsh",
+      "ttfx",
+      "omacalc",
+      "hype",
+      "monologue",
+      "omacut",
+      "omawrite",
+      "owe",
+      "owe-lockfeed",
+      "omasnap",
+      "python-sounddevice",
+      "python-terminaltexteffects",
+      "tensaku",
+      "ttf-ia-writer",
+      "tzupdate",
+      "omapresent",
+      "omakade",
+      "basecamp-cli",
+      "disktree-bin",
+      "omarchy-meeting-recorder-bin",
+      "qmk-hid",
+      "learn-omarchy",
+      "cliamp",
+      "retroarch-joypad-autoconfig-git",
+      "1password",
+      "1password-beta",
+      "1password-cli",
+      "asdcontrol",
+      "bambustudio-bin",
+      "brave-bin",
+      "brave-origin-bin",
+      "bun-bin",
+      "claude-code",
+      "claude-desktop",
+      "crush-bin",
+      "cua-driver-bin",
+      "cua-hyprland-plugin",
+      "cursor-bin",
+      "cursor-cli",
+      "dbxcli-bin",
+      "dell-xps13-sidecar-amps",
+      "dell-xps-touchpad-haptics",
+      "dropbox",
+      "dropbox-cli",
+      "flea",
+      "github-copilot-cli",
+      "gliff",
+      "google-chrome",
+      "grok-bot",
+      "herdr",
+      "hermes-desktop",
+      "heroic-games-launcher-bin",
+      "hyprland-preview-share-picker",
+      "link-studio",
+      "lmstudio-bin",
+      "localsend",
+      "macbook8-spi-pxa2xx-nodma-dkms",
+      "microsoft-edge-stable-bin",
+      "minecraft-launcher",
+      "mise-bin",
+      "nautilus-dropbox",
+      "nordvpn-bin",
+      "obsidian",
+      "omarchy-billboard-generator",
+      "omarchy-chromium-bin",
+      "omarchy-nvim",
+      "omarchy-steam-fex",
+      "omarchy-task-manager",
+      "omareel",
+      "omasnap-git",
+      "omaspeak-bin",
+      "omawake-bin",
+      "once-bin",
+      "openai-codex-desktop",
+      "openclaw",
+      "openvino-genai",
+      "perplexity",
+      "pinta",
+      "python-mediapipe",
+      "rustdesk",
+      "schist-bin",
+      "slap-notes-bin",
+      "spotify",
+      "strata",
+      "sublime-text-4",
+      "sunshine",
+      "supergfxctl",
+      "symfony-cli",
+      "t3code-bin",
+      "tmog-bin",
+      "typora",
+      "v4l2-relayd",
+      "vi",
+      "visual-studio-code-bin",
+      "voxtype-bin",
+      "walker",
+      "yaru-icon-theme",
+      "zed",
+      "zen-browser-bin",
+      "openvino",
+      "slack-desktop",
+      "t3code-nightly-bin",
+      "buzz",
+      "ghost",
+      "omacharts",
+      "rawmakase-bin",
+      "collie-bin",
+      "omadesign-bin",
+      "signed",
+      "omairc",
+      "omarchy-themes-intros",
+      "thinkpad-t14-amd-touchpad-dkms",
+      "helium-browser-bin",
+      "kujo",
+      "maplemono-nf-cn",
+      "omaroll",
+      "wayshare",
+      "omarchy-screensaver",
+      "omatrack",
+      "splinterm",
+      "omarchy-power-profiles-daemon",
+      "gridcraft-bin",
+      "wordcraft-bin",
+      "omakeyboard",
+      "omarchy-hyprland-titlebars",
+      "ufw-docker",
+      "omarchy-speedtest"
+    ],
+    "core_pair": "manual coordinated edge builds after omadora-revision changes",
+    "rc_enabled_count": 0,
+    "stable_enabled_count": 0,
+    "edge_scoped_definitions": 136
+  },
+  "retention": {
+    "max_builds": 0,
+    "definitions_configured": 411,
+    "reason": "Retain build records to protect Pulp artifacts referenced by whole-project same-version copies."
+  },
+  "validation": {
+    "unit_tests": {
+      "passed": 14,
+      "failed": 0
+    },
+    "nested_source_rpm": "ufw-docker source SHA256 and SRPM passed through recipe-directory invocation of root .copr/Makefile",
+    "clean_fedora_build": {
+      "id": 11230548,
+      "state": "succeeded",
+      "source_commit": "73952e989b8fbef317d81db779d214a2c577482f",
+      "url": "https://copr.fedorainfracloud.org/coprs/build/11230548/",
+      "artifacts": [
+        {
+          "name": "ufw-docker",
+          "arch": "noarch",
+          "evr": {
+            "epoch": "0",
+            "ver": "20261029",
+            "rel": "1.fc44"
+          },
+          "checksum_type": "sha256",
+          "checksum": "ef040a776c5c17729260315b1047a4a1a4ed2818d6f3fdb9fc775b44efc6b9b0",
+          "size": 38980,
+          "location": "Packages/u/ufw-docker-20261029-1.fc44.noarch.rpm",
+          "requires": [
+            {
+              "name": "ufw"
+            },
+            {
+              "name": "procps-ng"
+            },
+            {
+              "name": "iptables"
+            },
+            {
+              "name": "docker-cli"
+            },
+            {
+              "name": "diffutils"
+            },
+            {
+              "name": "bash"
+            },
+            {
+              "name": "/usr/bin/bash"
+            }
+          ],
+          "content": {
+            "header_sha256": "0d5b1c9e92613fc81c229d8fa9189b672cabb8093dd267a87d233b743f4d105c",
+            "payload_sha256": [
+              "d2b5bff6e6bdc9c757bf59b5e1bfe572dbccee8c94d822ea10b6dc315f0a2dcc"
+            ]
+          }
+        },
+        {
+          "name": "ufw-docker",
+          "arch": "src",
+          "evr": {
+            "epoch": "0",
+            "ver": "20261029",
+            "rel": "1.fc44"
+          },
+          "checksum_type": "sha256",
+          "checksum": "fd29df7205c35a2a85f0dbc29af4f6c744751d091f8477dd11b2408a274ff983",
+          "size": 63910,
+          "location": "Packages/u/ufw-docker-20261029-1.fc44.src.rpm",
+          "requires": [],
+          "content": {
+            "header_sha256": "70f42f3349f56bcb792de47f844894fd63a5e55ca3d835ac21aeb967b0feffb3",
+            "payload_sha256": [
+              "5aa93efdf8b9abcd3543c2d678b41533a83785a47210f51f5160936ce4f7e762"
+            ]
+          }
+        }
+      ]
+    },
+    "edge_rc_live_preflight": "Correctly rejects intermediate empty repository; final baseline preflight pending COPR publication",
+    "rc_stable_live_preflight": "Pending COPR publication"
+  },
+  "reconciliation": {
+    "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+    "ordinary_exit_code": 1,
+    "complete_exit_code": 1,
+    "existing_review_issues": 168,
+    "existing_unresolved_count": 10,
+    "scope": "Infrastructure-only change. No upstream recipe disposition or fully audited snapshot advanced.",
+    "unresolved": [
+      {
+        "package": "dingtalk-bin",
+        "status": "pending",
+        "note": "Redistribution hold: vendor service agreement section 14 requires written authorization for copying and republication; no COPR payload published"
+      },
+      {
+        "package": "feishu-bin",
+        "status": "pending",
+        "note": "Vendor terms restrict redistribution without written permission; not eligible for COPR publication on current evidence"
+      },
+      {
+        "package": "geekbench6",
+        "status": "pending",
+        "note": "Upstream 6.7.1 proprietary binary archive contains no license notice granting redistribution; COPR publication needs vendor redistribution permission"
+      },
+      {
+        "package": "hyprland",
+        "status": "pending",
+        "note": "Fedora Hyprland COPR supplies 0.57.0-1, but provider spec lacks upstream NVIDIA teardown, wl_output grace and monitor VRR patches; coordinated Fedora stack patching and compositor runtime tests required"
+      },
+      {
+        "package": "linuxqq",
+        "status": "pending",
+        "note": "Redistribution hold: QQ license sections 2.4.1-2.4.3 grant personal use and one backup; other rights require written permission"
+      },
+      {
+        "package": "nvidia-sync",
+        "status": "pending",
+        "note": "New upstream recipe 0.117.3_12; NVIDIA redistribution terms need review before COPR publication"
+      },
+      {
+        "package": "omarchy-amiga-screensaver",
+        "status": "pending",
+        "note": "Upstream 2026.10.27 bundles custom-licensed Amiga demos; clear redistribution grant required before COPR publication"
+      },
+      {
+        "package": "superwhisper-bin",
+        "status": "pending",
+        "note": "Proprietary signed vendor bundle; COPR distribution eligibility unresolved; upstream 1.1.2 reviewed"
+      },
+      {
+        "package": "wechat-bin",
+        "status": "pending",
+        "note": "Redistribution hold: WeChat Software terms prohibit distribution and redistribution without prior written consent"
+      },
+      {
+        "package": "wps-office-cn",
+        "status": "pending",
+        "note": "Redistribution hold: upstream addition 03305349 is explicitly labelled draft because the licence forbids redistribution"
+      }
+    ]
+  },
+  "limitations": [
+    "COPR project administrators can bypass the client workflow with direct API/CLI actions.",
+    "COPR fork publication is asynchronous and not an atomic multi-package transaction.",
+    "Maintainers must supply truthful test attestations bound to the frozen plan."
+  ],
+  "remaining_setup": [
+    "COPR must finish both seed-copy actions; verify baseline identity and live forward plans.",
+    "Final follow-up and configuration receipt commit needs the signing key unlocked or user authorization for an unsigned commit.",
+    "Enable exactly the planned 134 scoped edge automatic-build definitions only after the final push delivery and baseline verification; rc/stable stay disabled."
+  ]
+}

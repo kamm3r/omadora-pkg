@@ -15,7 +15,7 @@ The version comes from `version`, with a pre-release suffix turned into RPM's ti
 
 The live project is [kammer/omadora](https://copr.fedorainfracloud.org/coprs/kammer/omadora/) for Fedora 44 x86_64. Its two SCM package entries clone this repository, whose `.copr/core.mk` archives the [Omadora](https://github.com/kamm3r/omadora) commit pinned in `omadora-revision` and packs it with the specs here. Both package entries have GitHub push rebuilds enabled.
 
-To publish a change, push the Omadora commit, update `omadora-revision` in `omadora-pkg` to its full hash, and push that repository. Its GitHub webhook asks COPR to rebuild both packages from the pinned source. For a manual retry, use `copr-cli build-package kammer/omadora --name omarchy-settings` and then `copr-cli build-package kammer/omadora --name omarchy`.
+To publish a change, push the Omadora commit, update `omadora-revision` in `omadora-pkg` to its full hash, and push that repository. Build both core packages explicitly in edge from the pinned source: use `copr-cli build-package kammer/omadora-edge --name omarchy-settings` and then `copr-cli build-package kammer/omadora-edge --name omarchy`. Core automatic rebuilds are disabled so documentation pushes do not create unchanged-version builds. After testing, follow [the forward-only channel workflow](../docs/release-channels.md) to promote the pair through rc to stable.
 
 Adding `fedora-45-x86_64` (or `fedora-rawhide-x86_64`) later is `copr-cli edit-chroot` or the project settings page; nothing in the specs is release-specific.
 

@@ -40,7 +40,7 @@ UFW follows official Omarchy again. The `ufw-docker` recipe packages the pinned 
 
 ## Build from this repository
 
-COPR SCM packages use the `make_srpm` method and this repository's `.copr/Makefile`. The core package entries use these spec paths:
+COPR SCM packages use the `make_srpm` method and this repository's `.copr/Makefile`. The core recipes live at these repository paths:
 
 | COPR package | Spec path |
 | --- | --- |
@@ -64,7 +64,7 @@ rpmbuild --rebuild /tmp/omadora-srpm/tobi-try-*.src.rpm
 
 OpenClaw uses the packaged system CLI and a private upstream Node 24.22 LTS runtime. Its SQLite is new enough for OpenClaw’s WAL-reset safety check; Fedora 44’s system SQLite 3.51.2 remains unchanged. Its install-time lifecycle runs with a scratch home and must finish before the RPM is packed. The current upstream release cannot seed the user installer, so this package follows upstream master and ships the system CLI.
 
-COPR networking must be enabled for recipes that fetch npm, Flutter, Gradle, Bazel, or Git dependencies during the binary build. The project uses `copr-cli modify kammer/omadora --enable-net on`; the vendored Rust and Go recipes still build without network access.
+COPR networking must be enabled for recipes that fetch npm, Flutter, Gradle, Bazel, or Git dependencies during the binary build. The edge build project uses `copr-cli modify kammer/omadora-edge --enable-net on`; the vendored Rust and Go recipes still build without network access.
 
 The Fedora 44 build chroot uses the Hyprland COPR, Terra, and RPM Fusion's free release and updates repositories. OWE's media tests use the full RPM Fusion `ffmpeg` package with its H.264 encoder at build time. Cliamp, Hype, Monologue, Omacut, and OWE require `/usr/bin/ffmpeg` at runtime so Fedora/Nobara's `ffmpeg-free` and the full `ffmpeg` package can both satisfy the dependency. The runtime build still needs the codecs used by the selected media and export settings; Nobara's `libavcodec-freeworld` supplies additional codecs without replacing its FFmpeg library stack.
 

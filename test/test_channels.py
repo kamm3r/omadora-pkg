@@ -38,6 +38,10 @@ class PromotionTests(unittest.TestCase):
         left, right = package(), package()
         right['checksum'] = 'different destination signature'
         self.assertEqual(self.validate([left], [right]), [])
+        self.assertEqual(len(channels.latest([left, right])), 1)
+        right['content']['header_sha256'] = 'conflicting header'
+        with self.assertRaisesRegex(ValueError, 'Ambiguous same-NEVRA'):
+            channels.latest([left, right])
 
     def test_same_version_changed_payload_is_rejected(self):
         with self.assertRaisesRegex(ValueError, 'same-version'):
@@ -125,6 +129,28 @@ class PromotionTests(unittest.TestCase):
             copied['artifacts'][0]['content']['header_sha256'] = 'changed header'
             with self.assertRaisesRegex(ValueError, 'altered artifact'):
                 instance.verify(channels.read_json(submitted), Path(directory)/'bad.json')
+
+    def test_forked_builds_are_selected_and_partial_copy_is_rejected(self):
+        from types import SimpleNamespace as S
+        from unittest.mock import patch
+        instance = channels.Channels.__new__(channels.Channels)
+        instance.config, instance.owner = CONFIG, 'kammer'
+        item = S(name='example', source_type='scm', auto_rebuild=False,
+                 source_dict={'clone_url': CONFIG['source_repository'], 'committish': 'main'},
+                 builds={'latest': {'id': 42, 'state': 'forked'}, 'latest_succeeded': None})
+        instance.packages = lambda channel: [item]
+        build = S(id=42, state='forked', chroots=[CONFIG['chroot']], source_package={'name': 'example'})
+        info = S(chroot_repos={CONFIG['chroot']: 'https://example.test/'})
+        instance.client = S(project_proxy=S(get=lambda *a: info), build_proxy=S(get_list=lambda *a: [build]))
+        result = b'{"packages":[{"name":"example","epoch":null,"version":"1.0","release":"1.fc44","arch":"x86_64"}]}'
+        with patch.object(channels, 'fetch', return_value=result), \
+             patch.object(channels, 'metadata', return_value=[package()]), \
+             patch.object(channels, 'enrich_artifacts', side_effect=lambda base, artifacts: artifacts):
+            self.assertEqual(instance.snapshot('edge')['definitions'][0]['successful'], 42)
+        with patch.object(channels, 'fetch', return_value=result), \
+             patch.object(channels, 'metadata', return_value=[]):
+            with self.assertRaisesRegex(ValueError, 'Latest successful builds'):
+                instance.snapshot('edge')
 
     def test_receipts_cannot_be_overwritten(self):
         with tempfile.TemporaryDirectory() as directory:

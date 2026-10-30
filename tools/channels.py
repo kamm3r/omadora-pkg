@@ -51,7 +51,7 @@ def header_identity(url):
     """Read immutable header/payload digests; COPR replaces only RPM signatures."""
     import rpm
     # Read enough bytes for both RPM headers, without fetching a large payload.
-    limit = 1024 * 1024
+    limit = 64 * 1024
     for attempt in range(3):
         request = urllib.request.Request(url, headers={'Range': f'bytes=0-{limit-1}'})
         with urllib.request.urlopen(request, timeout=120) as response:
@@ -137,13 +137,13 @@ def compare(left, right):
     return rpm.labelCompare(evr(left), evr(right))
 
 
-def latest(packages):
+def latest(packages, check_content=True):
     result = {}
     for package in packages:
         key = identity(package)
         if key not in result or compare(package, result[key]) > 0:
             result[key] = package
-        elif compare(package, result[key]) == 0 and not same_content(package, result[key]):
+        elif check_content and compare(package, result[key]) == 0 and not same_content(package, result[key]):
             raise ValueError(f'Ambiguous same-NEVRA artifacts: {key}')
     return result
 
@@ -235,10 +235,11 @@ class Channels:
         with ThreadPoolExecutor(max_workers=6) as pool:
             selected = {tuple(p) for group in pool.map(outputs, definitions) for p in group}
         artifacts = metadata(info.chroot_repos[self.config['chroot']], enrich=False)
-        visible = {(p['name'], p['arch'], *evr(p)) for p in latest(artifacts).values()}
+        visible = {(p['name'], p['arch'], *evr(p)) for p in latest(artifacts, check_content=False).values()}
         if selected != visible:
             raise ValueError('Latest successful builds do not match latest repository RPMs; time-based fork would select unexpected versions. Missing: ' + str(sorted(selected - visible)[:8]) + '; unexpected: ' + str(sorted(visible - selected)[:8]))
         artifacts = enrich_artifacts(info.chroot_repos[self.config['chroot']], artifacts)
+        latest(artifacts)  # Reject genuinely conflicting content under one NEVRA.
         return {'project': project, 'chroot': self.config['chroot'],
                 'definitions': sorted(definitions, key=lambda p: p['name']),
                 'artifacts': artifacts}
