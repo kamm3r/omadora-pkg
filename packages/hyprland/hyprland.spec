@@ -13,7 +13,7 @@ Patch0:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_
 Patch1:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_patches_ref}/pkgbuilds/hyprland/wl-output-global-grace.patch
 Patch2:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_patches_ref}/pkgbuilds/hyprland/monitor-rule-vrr.patch
 # The Fedora test/ABI patch is pinned to an immutable packaging commit.
-Patch3:         https://raw.githubusercontent.com/kamm3r/omadora-pkg/10b84a7b3acb7227c02d68d9045828a57f0d378a/packages/hyprland/fedora-regression-tests.patch
+Patch3:         https://raw.githubusercontent.com/kamm3r/omadora-pkg/af93df57b2b1ba69f7ccee4fe354f82ddcd028e3/packages/hyprland/fedora-regression-tests.patch
 ExclusiveArch:  x86_64
 BuildRequires:  ninja-build gtest-devel patch
 BuildRequires:  cmake

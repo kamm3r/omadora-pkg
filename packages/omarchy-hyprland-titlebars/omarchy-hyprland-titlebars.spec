@@ -38,6 +38,9 @@ test -s %{buildroot}%{_prefix}/lib/%{name}/titlebars.so
 %{_prefix}/lib/%{name}
 
 %changelog
+* Fri Oct 30 2026 kamm3r - 0.3.0-4.omadora
+- Pin the matching 0.57.0-4.omadora staged compositor and patch-specific ABI.
+
 * Fri Oct 30 2026 kamm3r - 0.3.0-2.omadora
 - Rebuild against the staged Omarchy-patched Fedora Hyprland ABI.
 
