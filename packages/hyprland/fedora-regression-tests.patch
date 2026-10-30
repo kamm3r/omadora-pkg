@@ -1,0 +1,124 @@
+--- a/src/protocols/core/Output.hpp
++++ b/src/protocols/core/Output.hpp
+@@ -31,6 +31,7 @@
+ };
+ 
+ class CWLOutputProtocol : public IWaylandProtocol {
++    friend class COutputTest; // Test fixture advances the real removal timer deterministically.
+   public:
+     CWLOutputProtocol(const wl_interface* iface, const int& ver, const std::string& name, PHLMONITOR pMonitor);
+     virtual ~CWLOutputProtocol();
+--- a/tests/protocols/Output.cpp
++++ b/tests/protocols/Output.cpp
+@@ -72,7 +72,8 @@
+     void                                                       bindOutput(uint32_t version = 4);
+     void                                                       readOutputEvents(std::vector<uint32_t>& opcodes);
+     void                                                       readOutputEvents(std::vector<SOutputTestEvent>& events);
+-    void                                                       releaseOutput();
++    void                                                       releaseOutput(bool expireGrace = true);
++    void                                                       advanceRemovalGrace();
+     void                                                       disconnectClient();
+     void                                                       drainOutput(uint32_t version);
+ 
+@@ -132,6 +133,7 @@
+     g_pCompositor                = makeUnique<CCompositor>(true);
+     g_pCompositor->m_wlDisplay   = m_display.get();
+     g_pCompositor->m_wlEventLoop = wl_display_get_event_loop(m_display.get());
++    g_pEventLoopManager = makeUnique<CEventLoopManager>(m_display.get(), g_pCompositor->m_wlEventLoop);
+     // Only construct config defaults; the dummy path is never loaded.
+     g_pCompositor->m_explicitConfigPath = "output-test.lua";
+     Config::Supplementary::Jeremy::flushCachedCfgPath();
+@@ -174,6 +176,7 @@
+     Config::animationTree().reset();
+     Config::mgr().reset();
+     Config::watcher().reset();
++    g_pEventLoopManager.reset();
+     g_pCompositor.reset();
+     Event::bus().reset();
+ 
+@@ -273,7 +276,18 @@
+     }
+ }
+ 
+-void COutputTest::releaseOutput() {
++void COutputTest::advanceRemovalGrace() {
++    auto protocols = PROTO::defunctOutputs;
++    for (const auto& [_, protocol] : PROTO::outputs)
++        protocols.emplace_back(protocol);
++    for (const auto& protocol : protocols) {
++        if (protocol->m_removeTimer)
++            protocol->m_removeTimer->updateTimeout(std::chrono::nanoseconds(0));
++    }
++    g_pEventLoopManager->onTimerFire();
++}
++
++void COutputTest::releaseOutput(bool expireGrace) {
+     // wl_output.release: object 2, eight-byte request, opcode 0 (since v3).
+     const std::array<uint32_t, 2> request = {
+         2U,
+@@ -282,12 +296,15 @@
+     ASSERT_EQ(send(m_socket.get(), request.data(), sizeof(request), MSG_NOSIGNAL), sc<ssize_t>(sizeof(request)));
+     ASSERT_EQ(wl_event_loop_dispatch(wl_display_get_event_loop(m_display.get()), 0), 0);
+     EXPECT_EQ(wl_client_get_object(m_client, 2), nullptr);
++    if (expireGrace)
++        advanceRemovalGrace();
+ }
+ 
+ void COutputTest::disconnectClient() {
+     m_socket.reset();
+     ASSERT_EQ(wl_event_loop_dispatch(wl_display_get_event_loop(m_display.get()), 0), 0);
+     m_client = nullptr;
++    advanceRemovalGrace();
+ }
+ 
+ void COutputTest::drainOutput(uint32_t version) {
+@@ -833,3 +850,27 @@
+ }
+ 
+ INSTANTIATE_TEST_SUITE_P(Modes, COutputPowerModeTest, ::testing::Values(false, true));
++
++TEST_F(COutputTest, RemovalGraceRetainsUnboundOutputForLateBind) {
++    m_protocol->remove();
++    ASSERT_TRUE(m_protocol->isDefunct());
++    ASSERT_FALSE(m_protocol->hasBoundResources());
++    EXPECT_TRUE(PROTO::outputs.contains(m_monitor->m_name));
++    g_pEventLoopManager->onTimerFire();
++    EXPECT_TRUE(PROTO::outputs.contains(m_monitor->m_name));
++    ASSERT_NO_FATAL_FAILURE(bindOutput());
++    ASSERT_NO_FATAL_FAILURE(releaseOutput(false));
++    EXPECT_TRUE(PROTO::outputs.contains(m_monitor->m_name));
++    advanceRemovalGrace();
++    EXPECT_TRUE(PROTO::outputs.empty());
++}
++
++TEST_F(COutputTest, RemovalGraceExpiryKeepsBoundOutputUntilRelease) {
++    m_protocol->remove();
++    ASSERT_NO_FATAL_FAILURE(bindOutput());
++    advanceRemovalGrace();
++    EXPECT_TRUE(PROTO::outputs.contains(m_monitor->m_name));
++    EXPECT_TRUE(m_protocol->hasBoundResources());
++    ASSERT_NO_FATAL_FAILURE(releaseOutput());
++    EXPECT_TRUE(PROTO::outputs.empty());
++}
+--- /dev/null
++++ b/tests/config/shared/MonitorRuleVRR.cpp
+@@ -0,0 +1,19 @@
++#include <config/shared/monitor/MonitorRule.hpp>
++#include <gtest/gtest.h>
++
++TEST(MonitorRuleVRR, ChangingOnlyVRRRequestsSoftRefresh) {
++    Config::CMonitorRule active;
++    active.m_vrr = 0;
++    auto requested = active;
++    requested.m_vrr = 1;
++    EXPECT_EQ(active.compare(requested), Config::COMPARISON_SOFT_MISMATCH);
++    EXPECT_EQ(requested.compare(active), Config::COMPARISON_SOFT_MISMATCH);
++    EXPECT_EQ(active.compare(active), Config::COMPARISON_FULL_MATCH);
++}
++
++TEST(MonitorRuleVRR, ExplicitVRRDiffersFromInheritedDefault) {
++    Config::CMonitorRule inherited;
++    auto requested = inherited;
++    requested.m_vrr = 0;
++    EXPECT_EQ(inherited.compare(requested), Config::COMPARISON_SOFT_MISMATCH);
++}

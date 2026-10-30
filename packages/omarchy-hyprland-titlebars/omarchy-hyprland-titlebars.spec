@@ -2,17 +2,17 @@
 %global _lto_cflags %{nil}
 Name:           omarchy-hyprland-titlebars
 Version:        0.3.0
-Release:        1%{?dist}
+Release:        2.omadora%{?dist}
 Summary:        Titlebars for Omarchy floating workspaces
 License:        BSD-3-Clause AND MIT
 URL:            https://github.com/omacom/omarchy-hyprland-titlebars
 Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRequires:  gcc-c++ cmake ninja-build pkgconf-pkg-config
-BuildRequires:  hyprland-devel = 0.57.0-1%{?dist}
+BuildRequires:  hyprland-devel = 0.57.0-2.omadora%{?dist}
 BuildRequires:  pkgconfig(libdrm) pkgconfig(libinput) pkgconfig(libudev)
 BuildRequires:  pkgconfig(pixman-1) pkgconfig(wayland-server) pkgconfig(xkbcommon)
 # Plugin ABI must match the exact Fedora Hyprland build used for compilation.
-Requires:       hyprland%{?_isa} = 0.57.0-1%{?dist}
+Requires:       hyprland%{?_isa} = 0.57.0-2.omadora%{?dist}
 
 %description
 Hyprland plugin adding titlebars for Omarchy floating workspaces. It is pinned
@@ -38,5 +38,8 @@ test -s %{buildroot}%{_prefix}/lib/%{name}/titlebars.so
 %{_prefix}/lib/%{name}
 
 %changelog
+* Fri Oct 30 2026 kamm3r - 0.3.0-2.omadora
+- Rebuild against the staged Omarchy-patched Fedora Hyprland ABI.
+
 * Fri Oct 30 2026 kamm3r - 0.3.0-1
 - Port upstream plugin against Fedora Hyprland 0.57.0-1 with exact ABI dependency.
