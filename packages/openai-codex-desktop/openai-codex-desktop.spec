@@ -7,7 +7,7 @@
 %global __requires_exclude ^((lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan|qt.*_shim|vips.*|log|c.._shared)\.so|libc\.musl.*|libc\.so($|[^.])|libdl\.so($|[^.])|libm\.so($|[^.])|libpthread\.so($|[^.])|libgcc_s\.so($|[^.]))|/usr/bin/(node|pwsh)$)
 
 Name:           openai-codex-desktop
-Version:        26.1023.51421
+Version:        26.1027.30824
 Release:        1%{?dist}
 Summary:        Official ChatGPT desktop app with Codex
 License:        LicenseRef-proprietary
@@ -128,6 +128,9 @@ fi
 %{_datadir}/swcatalog/xml/com.openai.chatgpt.xml
 
 %changelog
+* Fri Oct 30 2026 kamm3r - 26.1027.30824-1
+- Update to upstream b766e177.
+
 * Wed Oct 28 2026 kamm3r - 26.1023.51421-1
 - Update to the release pinned in upstream aa38eb00.
 

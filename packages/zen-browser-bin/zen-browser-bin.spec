@@ -10,7 +10,7 @@
 %global __requires_exclude ^lib(vk_swiftshader|vulkan|qt.*_shim)\\.so
 
 Name:           zen-browser-bin
-Version:        1.23.4b
+Version:        1.24b
 Release:        1%{?dist}
 Summary:        Privacy-focused, feature packed Firefox-based web browser (binary release)
 License:        MPL-2.0-only
@@ -85,6 +85,9 @@ install -m 0644 policies.json %{buildroot}/opt/zen-browser-bin/distribution/poli
 %{_datadir}/icons/hicolor/*/apps/zen-browser.png
 
 %changelog
+* Fri Oct 30 2026 kamm3r - 1.24b-1
+- Update to upstream b766e177.
+
 * Wed Oct 21 2026 kamm3r - 1.23.4b-1
 - Update to the release pinned in upstream 4c2785f4.
 

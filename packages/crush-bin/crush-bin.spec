@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           crush-bin
-Version:        0.98.2
+Version:        0.99.0
 Release:        1%{?dist}
 Summary:        Terminal-based AI assistant for developers
 License:        FSL-1.1-MIT
@@ -37,6 +37,9 @@ install -D -m 0644 manpages/crush.1.gz %{buildroot}%{_mandir}/man1/crush.1.gz
 %{_mandir}/man1/crush.1.gz
 
 %changelog
+* Fri Oct 30 2026 kamm3r - 0.99.0-1
+- Update to upstream b766e177.
+
 * Mon Oct 26 2026 kamm3r - 0.98.2-1
 - Update to the release pinned in upstream d5e4ad59.
 

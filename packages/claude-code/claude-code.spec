@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           claude-code
-Version:        2.1.312
+Version:        2.1.314
 Release:        1%{?dist}
 Summary:        Agentic coding tool that lives in your terminal
 License:        LicenseRef-claude-code
@@ -47,6 +47,9 @@ chmod 0755 %{buildroot}%{_bindir}/claude
 %{_bindir}/claude
 
 %changelog
+* Fri Oct 30 2026 kamm3r - 2.1.314-1
+- Update to upstream b766e177.
+
 * Wed Oct 28 2026 kamm3r - 2.1.312-1
 - Update to the release pinned in upstream aa38eb00.
 

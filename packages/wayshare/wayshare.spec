@@ -3,8 +3,8 @@
 
 Name:           wayshare
 Version:        0.3.0
-Release:        2%{?dist}
-Summary:        macOS Screen Sharing server for Hyprland
+Release:        3%{?dist}
+Summary:        Screen sharing server for Hyprland with macOS and RDP support
 License:        Apache-2.0
 URL:            https://github.com/wesleygrimes/wayshare
 Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
@@ -20,6 +20,7 @@ BuildRequires:  wayland-devel
 BuildRequires:  systemd-rpm-macros
 Requires:       hyprland >= 0.56
 Requires:       mesa-libgbm
+Requires:       zlib
 Requires:       mesa-libEGL
 Recommends:     libva
 Recommends:     x265-libs
@@ -46,13 +47,17 @@ install -Dm644 wayshare.service %{buildroot}%{_userunitdir}/wayshare.service
 install -Dm644 contrib/config.example.toml %{buildroot}%{_docdir}/%{name}/config.example.toml
 
 %files
-%license LICENSE
+%license LICENSE THIRD-PARTY-LICENSES
 %doc README.md
 %{_docdir}/%{name}/config.example.toml
 %{_bindir}/wayshare
 %{_userunitdir}/wayshare.service
 
 %changelog
+* Fri Oct 30 2026 kamm3r - 0.3.0-3
+- Track upstream RDP support, zlib dependency and third-party notices.
+- Existing users can rerun wayshare setup for RDP firewall access on TCP 3389.
+
 * Thu Oct 29 2026 kamm3r - 0.3.0-2
 - Add the C++ compiler required to build OpenH264.
 

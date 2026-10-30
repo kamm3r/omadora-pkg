@@ -1,9 +1,9 @@
 %global debug_package %{nil}
 %global omarchy_pkgs_commit 8787c23f0386eaf1df5ccd07b8402080da48b1ef
-%global _build 4
+%global _build 2
 
 Name:           lmstudio-bin
-Version:        0.4.26
+Version:        0.4.27
 Release:        1%{?dist}
 Summary:        Desktop app for exploring and running large language models locally
 License:        LicenseRef-LMStudio
@@ -52,6 +52,9 @@ ln -s /opt/lm-studio/lm-studio.AppImage %{buildroot}%{_bindir}/lm-studio
 %{_datadir}/pixmaps/lmstudio-bin.png
 
 %changelog
+* Fri Oct 30 2026 kamm3r - 0.4.27-1
+- Update to upstream b766e177.
+
 * Sat Oct 10 2026 kamm3r - 0.4.26-1
 - Update to the release pinned in upstream 8787c23f.
 

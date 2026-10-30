@@ -6,7 +6,7 @@
 %global __requires_exclude ^lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan|qt.*_shim|widevinecdm)\\.so
 
 Name:           google-chrome
-Version:        156.0.8078.73
+Version:        156.0.8078.79
 Release:        1%{?dist}
 Summary:        Popular web browser by Google (Stable Channel)
 License:        LicenseRef-Google-Chrome
@@ -111,6 +111,9 @@ rm -rf %{buildroot}/etc
 %{_datadir}/doc/google-chrome-stable/changelog.gz
 
 %changelog
+* Fri Oct 30 2026 kamm3r - 156.0.8078.79-1
+- Update to upstream b766e177.
+
 * Wed Oct 28 2026 kamm3r - 156.0.8078.73-1
 - Update to the release pinned in upstream aa38eb00.
 

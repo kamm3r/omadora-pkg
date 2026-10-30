@@ -6,7 +6,7 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node)
 
 Name:           claude-desktop
-Version:        4.29.0
+Version:        4.4212.0
 Release:        1%{?dist}
 Summary:        Official Claude desktop app with Claude Code
 License:        LicenseRef-proprietary
@@ -92,6 +92,9 @@ fi
 %{_datadir}/icons/hicolor/*/apps/claude-desktop.png
 
 %changelog
+* Fri Oct 30 2026 kamm3r - 4.4212.0-1
+- Update to upstream b766e177.
+
 * Wed Oct 28 2026 kamm3r - 4.29.0-1
 - Update to the release pinned in upstream aa38eb00.
 
