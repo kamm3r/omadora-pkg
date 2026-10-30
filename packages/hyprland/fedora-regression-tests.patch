@@ -1,45 +1,18 @@
 --- a/src/protocols/core/Output.hpp
 +++ b/src/protocols/core/Output.hpp
-@@ -31,6 +31,7 @@
- };
- 
- class CWLOutputProtocol : public IWaylandProtocol {
+@@ -33,0 +34 @@
 +    friend class COutputTest; // Test fixture advances the real removal timer deterministically.
-   public:
-     CWLOutputProtocol(const wl_interface* iface, const int& ver, const std::string& name, PHLMONITOR pMonitor);
-     virtual ~CWLOutputProtocol();
 --- a/tests/protocols/Output.cpp
 +++ b/tests/protocols/Output.cpp
-@@ -72,7 +72,8 @@
-     void                                                       bindOutput(uint32_t version = 4);
-     void                                                       readOutputEvents(std::vector<uint32_t>& opcodes);
-     void                                                       readOutputEvents(std::vector<SOutputTestEvent>& events);
+@@ -75 +75,2 @@
 -    void                                                       releaseOutput();
 +    void                                                       releaseOutput(bool expireGrace = true);
 +    void                                                       advanceRemovalGrace();
-     void                                                       disconnectClient();
-     void                                                       drainOutput(uint32_t version);
- 
-@@ -132,6 +133,7 @@
-     g_pCompositor                = makeUnique<CCompositor>(true);
-     g_pCompositor->m_wlDisplay   = m_display.get();
-     g_pCompositor->m_wlEventLoop = wl_display_get_event_loop(m_display.get());
+@@ -134,0 +136 @@
 +    g_pEventLoopManager = makeUnique<CEventLoopManager>(m_display.get(), g_pCompositor->m_wlEventLoop);
-     // Only construct config defaults; the dummy path is never loaded.
-     g_pCompositor->m_explicitConfigPath = "output-test.lua";
-     Config::Supplementary::Jeremy::flushCachedCfgPath();
-@@ -174,6 +176,7 @@
-     Config::animationTree().reset();
-     Config::mgr().reset();
-     Config::watcher().reset();
+@@ -176,0 +179 @@
 +    g_pEventLoopManager.reset();
-     g_pCompositor.reset();
-     Event::bus().reset();
- 
-@@ -273,7 +276,18 @@
-     }
- }
- 
+@@ -276 +279,12 @@
 -void COutputTest::releaseOutput() {
 +void COutputTest::advanceRemovalGrace() {
 +    auto protocols = PROTO::defunctOutputs;
@@ -53,29 +26,12 @@
 +}
 +
 +void COutputTest::releaseOutput(bool expireGrace) {
-     // wl_output.release: object 2, eight-byte request, opcode 0 (since v3).
-     const std::array<uint32_t, 2> request = {
-         2U,
-@@ -282,12 +296,15 @@
-     ASSERT_EQ(send(m_socket.get(), request.data(), sizeof(request), MSG_NOSIGNAL), sc<ssize_t>(sizeof(request)));
-     ASSERT_EQ(wl_event_loop_dispatch(wl_display_get_event_loop(m_display.get()), 0), 0);
-     EXPECT_EQ(wl_client_get_object(m_client, 2), nullptr);
+@@ -284,0 +299,2 @@
 +    if (expireGrace)
 +        advanceRemovalGrace();
- }
- 
- void COutputTest::disconnectClient() {
-     m_socket.reset();
-     ASSERT_EQ(wl_event_loop_dispatch(wl_display_get_event_loop(m_display.get()), 0), 0);
-     m_client = nullptr;
+@@ -290,0 +307 @@
 +    advanceRemovalGrace();
- }
- 
- void COutputTest::drainOutput(uint32_t version) {
-@@ -833,3 +850,27 @@
- }
- 
- INSTANTIATE_TEST_SUITE_P(Modes, COutputPowerModeTest, ::testing::Values(false, true));
+@@ -835,0 +853,24 @@
 +
 +TEST_F(COutputTest, RemovalGraceRetainsUnboundOutputForLateBind) {
 +    m_protocol->remove();
@@ -124,26 +80,14 @@
 +}
 --- a/src/plugins/PluginAPI.cpp
 +++ b/src/plugins/PluginAPI.cpp
-@@ -29,7 +29,7 @@
-         return std::string{v.substr(0, v.find_last_of('.'))};
-     };
- 
+@@ -32 +32 @@
 -    static const std::string ver = std::format("{}_aq_{}_hu_{}_hg_{}_hc_{}_hlg_{}", GIT_COMMIT_HASH, stripPatch(AQUAMARINE_VERSION), stripPatch(HYPRUTILS_VERSION),
 +    static const std::string ver = std::format("{}_omadora_912521ee8a53_aq_{}_hu_{}_hg_{}_hc_{}_hlg_{}", GIT_COMMIT_HASH, stripPatch(AQUAMARINE_VERSION), stripPatch(HYPRUTILS_VERSION),
-                                                stripPatch(HYPRGRAPHICS_VERSION), stripPatch(HYPRCURSOR_VERSION), stripPatch(HYPRLANG_VERSION));
- 
-     return ver.c_str();
 --- a/src/plugins/PluginAPI.hpp
 +++ b/src/plugins/PluginAPI.hpp
-@@ -401,7 +401,7 @@
-         return std::string{v.substr(0, v.find_last_of('.'))};
-     };
- 
+@@ -404 +404 @@
 -    static const std::string ver = std::format("{}_aq_{}_hu_{}_hg_{}_hc_{}_hlg_{}", GIT_COMMIT_HASH, stripPatch(AQUAMARINE_VERSION), stripPatch(HYPRUTILS_VERSION),
 +    static const std::string ver = std::format("{}_omadora_912521ee8a53_aq_{}_hu_{}_hg_{}_hc_{}_hlg_{}", GIT_COMMIT_HASH, stripPatch(AQUAMARINE_VERSION), stripPatch(HYPRUTILS_VERSION),
-                                                stripPatch(HYPRGRAPHICS_VERSION), stripPatch(HYPRCURSOR_VERSION), stripPatch(HYPRLANG_VERSION));
- 
-     return ver.c_str();
 --- /dev/null
 +++ b/tests/plugins/OmadoraABI.cpp
 @@ -0,0 +1,8 @@
