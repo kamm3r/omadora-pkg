@@ -14,11 +14,9 @@ The latest version updates and added recipes follow upstream commit `941cc6bf115
 
 The latest snapshot contains 214 upstream recipes. The catalog records ARM-only additions outside the current x86_64 target and keeps DingTalk, Feishu, QQ, WeChat, and WPS Office CN pending because their vendor terms do not grant the redistribution needed for COPR.
 
-The October 29 follow-up tracks upstream `941cc6bf`: T3 Code nightly advances to `0.1.4_nightly.20261029.3853`, and Wayshare 0.3.0-2 declares the C++ compiler required by its OpenH264 dependency. Both replacement source RPMs pass checksum and packaging checks. The other seven previously queued packages completed their binary builds; COPR API status and repository metadata determine when they are available to install. The new Aurora changes are ARM-only and remain outside the x86_64 target.
+The October 29 publication check confirms all 33 builds in [the publication record](.copr/publications/2026-10-29.json) succeeded and their exact versions are present in Fedora 44 x86_64 repository metadata. This includes Basecamp CLI, Helium, OmaCharts, Omasnap, T3 Code nightly, tmog, Wayshare, and Splinterm, which were previously awaiting publication verification.
 
-The October 29 audit covers all maintained recipes against upstream `38a5e499`. The October 28 batch is published except Omasnap: Omareel's Corrosion/Rust dependencies and the core Omadora source pin were corrected, and their replacement builds passed. T3 Code 0.1.3 is present in repository metadata. The exact pinned settings SRPM now has a packaging regression check.
-
-Six newer releases (Basecamp CLI, Helium, Omacharts, T3 Code nightly, tmog, and Wayshare), Omasnap's deterministic hover-test setup, Omatrack's missing zstd build dependency, and the new Splinterm terminal/MCP adapter have been submitted for clean Fedora 44 builds. Their source RPMs and upstream checksums pass; binary publication is pending COPR. Build IDs and states are recorded in [`.copr/publications/2026-10-29.json`](.copr/publications/2026-10-29.json). Quickshell's upstream changes only rebuild unchanged sources against Arch dependencies. Limine and gaming recipes match their latest upstream releases and commit pins.
+Upstream target `37c404a57f271a87163b9e628826b908100da965` has no recipe-file changes since `941cc6bf115242d7564c6c7b602fd0c634030df9`. The newly introduced reconciliation tool requires an initial review of every catalog entry; that audit remains incomplete, so the fully audited snapshot above has not advanced. See [the reconciliation report](docs/reconciliation-2026-10-29.md) for exact accounting and outstanding work.
 
 The Amiga screensaver remains pending because its bundled demos lack a clear redistribution grant, and Superwhisper remains pending distribution review. ARM-only changes remain outside the x86_64 target; the OmaIRC revision is an Arch dependency rebuild with unchanged source and patches, so the Fedora recipe is unchanged.
 
@@ -29,6 +27,16 @@ The October 26 publication includes 39 package updates, including new Fedora rec
 The upstream override retirement in `7d70768c` also removes `asusctl` and `xdg-terminal-exec` here; Terra and Fedora/Nobara provide them. Bun remains a Fedora-specific dependency for Ghost, and the matching OpenVINO runtime remains required by OpenVINO GenAI. Retired packages are not removed automatically from existing installations.
 
 Helium browser is packaged for x86_64. Aurora Apple Silicon additions are recorded as outside this target. Upstream retired `linux-ptl`, which was never published here. OpenClaw keeps its working system CLI until Omadora supplies the user-managed installer integration required by upstream’s seed-only package.
+
+The October 30 update targets upstream `b766e177b0ab827f2154e4b76cf8c7c158d3b86b` (220 recipes, 32 changed recipe directories). It ports the current maintained releases and adds native Gridcraft, Wordcraft, OmaKeyboard, Hyprland titlebars, Speedtest and the UFW Docker helper. Speedtest uses a verified private Go 1.27.3 build toolchain; it does not replace system Go. The Cirrus firmware assessment is resolved by Fedora's existing firmware aliases. Titlebars is pinned to the exact Fedora Hyprland build; loading it remains explicit.
+
+The update remains partial: the Fedora Hyprland provider lacks Omarchy's extra compositor patches, proprietary redistribution holds remain, and the initial reconciliation audit is unfinished. See [the October 30 report](docs/reconciliation-2026-10-30.md) and [publication record](.copr/publications/2026-10-30.json) for exact build and publication results. The fully audited snapshot has not advanced.
+
+## Updating from upstream
+
+Follow [the upstream reconciliation procedure](docs/upstream-updates.md). `python3 tools/reconcile.py --upstream /path/to/omarchy-pkgs check` reports additions, removals, changed recipe files, local inconsistencies, and the unresolved backlog. Use `check --complete` to require that pending and unpublished work is resolved too.
+
+UFW follows official Omarchy again. The `ufw-docker` recipe packages the pinned upstream helper without activating firewall rules during RPM installation. Its source and binary RPM builds pass; current COPR publication evidence is in the October 30 record.
 
 ## Build from this repository
 

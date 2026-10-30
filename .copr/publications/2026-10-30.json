@@ -1,0 +1,273 @@
+{
+  "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+  "upstream_recipes": 220,
+  "changed_upstream_recipe_directories": 32,
+  "checked_at": "2026-10-30T05:02:29.147507+00:00",
+  "source_commit": "ceeab1385c05d59ceee247952f51ac23f60d5ae5",
+  "builds": {
+    "claude-code": 11229278,
+    "claude-desktop": 11229279,
+    "collie-bin": 11229280,
+    "crush-bin": 11229281,
+    "ghost": 11229282,
+    "google-chrome": 11229283,
+    "lmstudio-bin": 11229284,
+    "microsoft-edge-stable-bin": 11229285,
+    "mise-bin": 11229286,
+    "openai-codex-desktop": 11229287,
+    "rawmakase-bin": 11229288,
+    "t3code-bin": 11229289,
+    "t3code-nightly-bin": 11229290,
+    "zen-browser-bin": 11229291,
+    "gridcraft-bin": 11229292,
+    "wordcraft-bin": 11229293,
+    "omakeyboard": 11229303,
+    "omarchy-hyprland-titlebars": 11229295,
+    "ufw-docker": 11229296,
+    "wayshare": 11229297,
+    "omarchy-speedtest": 11229305
+  },
+  "build_states": {
+    "claude-code": "succeeded",
+    "claude-desktop": "succeeded",
+    "collie-bin": "succeeded",
+    "crush-bin": "succeeded",
+    "ghost": "succeeded",
+    "google-chrome": "succeeded",
+    "lmstudio-bin": "succeeded",
+    "microsoft-edge-stable-bin": "succeeded",
+    "mise-bin": "succeeded",
+    "openai-codex-desktop": "succeeded",
+    "rawmakase-bin": "succeeded",
+    "t3code-bin": "succeeded",
+    "t3code-nightly-bin": "succeeded",
+    "zen-browser-bin": "succeeded",
+    "gridcraft-bin": "succeeded",
+    "wordcraft-bin": "succeeded",
+    "omakeyboard": "succeeded",
+    "omarchy-hyprland-titlebars": "succeeded",
+    "ufw-docker": "succeeded",
+    "wayshare": "succeeded",
+    "omarchy-speedtest": "succeeded"
+  },
+  "repository_artifacts": {
+    "claude-code": {
+      "version_release": "2.1.314-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/c/claude-code-2.1.314-1.fc44.x86_64.rpm",
+      "size": 107382444,
+      "sha256": "732639e0cce169b657c752768536eb8be21b9b2c732535328cd73e0e80f08c1c",
+      "download_size": 107382444,
+      "size_matches": true
+    },
+    "claude-desktop": {
+      "version_release": "4.4212.0-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/c/claude-desktop-4.4212.0-1.fc44.x86_64.rpm",
+      "size": 176714932,
+      "sha256": "6fea83a2ed1967c2b525d114743674ebf12d08e19c40d55ca998c3431c1c1ad1",
+      "download_size": 176714932,
+      "size_matches": true
+    },
+    "collie-bin": {
+      "version_release": "1.24.3-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/c/collie-bin-1.24.3-1.fc44.x86_64.rpm",
+      "size": 46179800,
+      "sha256": "79a6140d0d2d9f41990af1ed140aa4898208cf867c1e547ab23f0913a3d21c7d",
+      "download_size": 46179800,
+      "size_matches": true
+    },
+    "crush-bin": {
+      "version_release": "0.99.0-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/c/crush-bin-0.99.0-1.fc44.x86_64.rpm",
+      "size": 20564904,
+      "sha256": "76ab95ac0a975074863215c63fd5da60ced53cf56c42a6905fde1aa2eb1cdeda",
+      "download_size": 20564904,
+      "size_matches": true
+    },
+    "ghost": {
+      "version_release": "0.11.0-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/g/ghost-0.11.0-1.fc44.noarch.rpm",
+      "size": 172955,
+      "sha256": "a2b193d77626fa738da3323ff92fd1afa098c6b04129887bd91ab8e0a0c19e5b",
+      "download_size": 172955,
+      "size_matches": true
+    },
+    "ghost-runtime": {
+      "version_release": "0.11.0-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/g/ghost-runtime-0.11.0-1.fc44.noarch.rpm",
+      "size": 190390,
+      "sha256": "b8b3c86922d6b0bef267381b347d3eb75386ac69e8c7a05683c539a9f751ecde",
+      "download_size": 190390,
+      "size_matches": true
+    },
+    "google-chrome": {
+      "version_release": "156.0.8078.79-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/g/google-chrome-156.0.8078.79-1.fc44.x86_64.rpm",
+      "size": 164805543,
+      "sha256": "39e15b805f6804a0a852c8fbdaa74e49a13a7a6877bfb0b1e4d7f9a81f4ffbc1",
+      "download_size": 164805543,
+      "size_matches": true
+    },
+    "lmstudio-bin": {
+      "version_release": "0.4.27-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/l/lmstudio-bin-0.4.27-1.fc44.x86_64.rpm",
+      "size": 512492,
+      "sha256": "3587e43dd00b1e784d0d0d6419f0e895c4dfe58b1af82f54f130c2dae548e24e",
+      "download_size": 512492,
+      "size_matches": true
+    },
+    "microsoft-edge-stable-bin": {
+      "version_release": "156.0.4314.56-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/m/microsoft-edge-stable-bin-156.0.4314.56-1.fc44.x86_64.rpm",
+      "size": 221039570,
+      "sha256": "85d28793416ff93247249df3c5b8a1cf1300d1e9be7c4b80913ee7200fc94d70",
+      "download_size": 221039570,
+      "size_matches": true
+    },
+    "mise-bin": {
+      "version_release": "2026.10.22-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/m/mise-bin-2026.10.22-1.fc44.x86_64.rpm",
+      "size": 42600661,
+      "sha256": "576e25fea95039c02724e7214ebe2543ec11b22d02cd36f7e270837c24a28c12",
+      "download_size": 42600661,
+      "size_matches": true
+    },
+    "openai-codex-desktop": {
+      "version_release": "26.1027.30824-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/o/openai-codex-desktop-26.1027.30824-1.fc44.x86_64.rpm",
+      "size": 537976268,
+      "sha256": "97c782bf199f2f58a009817fcf634ffd5c548aaaab6bbde505cb6e5d20b77f97",
+      "download_size": 537976268,
+      "size_matches": true
+    },
+    "rawmakase-bin": {
+      "version_release": "0.4.8-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/r/rawmakase-bin-0.4.8-1.fc44.x86_64.rpm",
+      "size": 26552994,
+      "sha256": "dd746bac67ae2d19c889e516004adb68b3103f73bc3fb3f8916e692af95c98e1",
+      "download_size": 26552994,
+      "size_matches": true
+    },
+    "t3code-bin": {
+      "version_release": "0.1.5-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/t/t3code-bin-0.1.5-1.fc44.x86_64.rpm",
+      "size": 150293110,
+      "sha256": "f771e3c74f775730dfe24120d4dd30b131b3d01d11a226b74dfe62fe15600565",
+      "download_size": 150293110,
+      "size_matches": true
+    },
+    "t3code-nightly-bin": {
+      "version_release": "0.1.6_nightly.20261029.3892-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/t/t3code-nightly-bin-0.1.6_nightly.20261029.3892-1.fc44.x86_64.rpm",
+      "size": 151654408,
+      "sha256": "adf648786ef07f803b57d24dac7c3ff5c1c8f5cb7396e603c4d526d9d2f79eba",
+      "download_size": 151654408,
+      "size_matches": true
+    },
+    "zen-browser-bin": {
+      "version_release": "1.24b-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/z/zen-browser-bin-1.24b-1.fc44.x86_64.rpm",
+      "size": 123104540,
+      "sha256": "9456802a98ab5ccc0291f10253321a4abf2fcb1af525737a99fb886db56dade4",
+      "download_size": 123104540,
+      "size_matches": true
+    },
+    "gridcraft-bin": {
+      "version_release": "0.13.0-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/g/gridcraft-bin-0.13.0-1.fc44.x86_64.rpm",
+      "size": 37086491,
+      "sha256": "4cd98f7ff3fb5c746909dbe48e967cd5764e991a7d3ba461866848494ea3a797",
+      "download_size": 37086491,
+      "size_matches": true
+    },
+    "wordcraft-bin": {
+      "version_release": "0.12.0-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/w/wordcraft-bin-0.12.0-1.fc44.x86_64.rpm",
+      "size": 85394217,
+      "sha256": "25c0a71827d0ef39e47a81e92f2015a932b582df4a967bd4aa54e920807a6a80",
+      "download_size": 85394217,
+      "size_matches": true
+    },
+    "omakeyboard": {
+      "version_release": "0.1.0-2.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/o/omakeyboard-0.1.0-2.fc44.x86_64.rpm",
+      "size": 832950,
+      "sha256": "353d7e55e6a14464964e481b96b6db371621f6e665104b1aac8f114906a080c7",
+      "download_size": 832950,
+      "size_matches": true
+    },
+    "omarchy-hyprland-titlebars": {
+      "version_release": "0.3.0-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/o/omarchy-hyprland-titlebars-0.3.0-1.fc44.x86_64.rpm",
+      "size": 155566,
+      "sha256": "7f03617a717474bb1deda98e65c877ca8b02631f7ea7cdc42acfc7e840966ca7",
+      "download_size": 155566,
+      "size_matches": true
+    },
+    "ufw-docker": {
+      "version_release": "20261029-1.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/u/ufw-docker-20261029-1.fc44.noarch.rpm",
+      "size": 38980,
+      "sha256": "c89f24799abf9cbab04da5dc65ae223dfceb012f4ac418ff5ef5259860d32801",
+      "download_size": 38980,
+      "size_matches": true
+    },
+    "wayshare": {
+      "version_release": "0.3.0-3.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/w/wayshare-0.3.0-3.fc44.x86_64.rpm",
+      "size": 5305086,
+      "sha256": "2e2ffaf4e9b0e6c184187446755e9e703b39eac66c13f55d966929d8c1d0efbe",
+      "download_size": 5305086,
+      "size_matches": true
+    },
+    "omarchy-speedtest": {
+      "version_release": "0.2.1-2.fc44",
+      "in_metadata": true,
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora/fedora-44-x86_64/Packages/o/omarchy-speedtest-0.2.1-2.fc44.x86_64.rpm",
+      "size": 2526653,
+      "sha256": "f5dfeb046bb4dc78401a4a0158104363a8f04ffea9db218f4f19c70b247bd1a9",
+      "download_size": 2526653,
+      "size_matches": true
+    }
+  },
+  "superseded_builds": {
+    "omakeyboard": {
+      "11229294": "Failed empty debugsource list after passing engine and UI tests; corrected Fedora qmake flags and added test/runtime dependencies"
+    },
+    "omarchy-speedtest": {
+      "11229302": "Application tests passed; go test also scanned bundled compiler tests. Corrected compiler directory exclusion."
+    }
+  },
+  "validation": [
+    "All 21 source recipes validated with .copr/Makefile: source checksums and SRPM creation",
+    "Source hashes checked against pinned upstream; Chrome vendor payload also verified with upstream SHA512",
+    "reconcile-test.py passed",
+    "t3code-appimage-layout-test.py passed for both channels",
+    "core-packaging-test.sh passed",
+    "Omakeyboard replacement: 61 passed, 0 failed, 0 skipped, offscreen all-page UI smoke passed",
+    "Speedtest private Go 1.27.3 archive checksum verified; toolchain not installed in RPM",
+    "Repository exact version-release and HTTP Content-Length verified for each artifact marked size_matches"
+  ],
+  "scope": "No installed-system upgrades, firewall activation or live Hyprland plugin loading performed. Complete upstream reconciliation remains partial; see docs/reconciliation-2026-10-30.md.",
+  "webhook_policy": "130 previously enabled SCM webhooks paused across maintenance pushes. Restore those and the six new entries after the final push webhook delivery; preserve previously disabled entries."
+}

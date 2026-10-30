@@ -1,11 +1,500 @@
 {
-  "schema": 1,
   "packages": {
+    "asus-zenbook-a16-audio": {
+      "local_digest": "b205dfbd00deba6c7293d5a9831d92c6a06b6605c4bcad1975d488c0096c78ff",
+      "reason": "Reviewed topology aliases, UCM fixed boot sequence, SoundWire runtime-PM rule, WirePlumber soft mixer and tests. All target Snapdragon X2 Zenbook A16 aarch64, outside current Fedora 44 x86_64 builds.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "c2cd34a4d997c1467506af85404b425a7cdef4b8260365f071f2a3e6e0f215c0"
+    },
+    "asusctl": {
+      "local_digest": "f679fa7a291a56f0524f991be0386e4a22dd6cecf56a3480871ad03ff5bb3f37",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Override retired upstream in 7d70768c; Fedora recipe and COPR definition retired; use Terra or Fedora/Nobara provider. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "basecamp-cli": {
+      "local_digest": "6b8d80e391b1c29689f65ddd235b77ffd9ee993b81e9c61e5662846d095f6ebd",
+      "reason": "Release tarball checksum matches upstream; CLI and three shell completions are packaged. Recipe files unchanged between 941cc6bf and target. COPR build 11221471 succeeded; exact 0.21.0-1.fc44 verified in Fedora 44 x86_64 primary metadata. No new build submitted.",
+      "upstream_commit": "37c404a57f271a87163b9e628826b908100da965",
+      "upstream_digest": "06704f16431448987c3081b79f4f2993cbc87793f9d841e54073412a07d9a5b0"
+    },
+    "bitwarden": {
+      "local_digest": "17e6d61e56321dd3ed488da992700623261067086af7c084ccc2ca8c27a4bae2",
+      "reason": "Version 2026.10.2 still targets only aarch64; upstream directs x86_64 to the native Arch package. Fedora x86_64 package scope is unchanged.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "510ec572544d0d7630b5ba982ee57042ebe9d00119fe124e74221684b08840e8"
+    },
+    "bun-bin": {
+      "local_digest": "afd860032d0a478f0919cdc100e466accb794f0b234d033be6387905811288b8",
+      "reason": "Retain Fedora-specific system Bun provider after upstream retirement. Ghost still requires bun for both RPM build and runtime; retained recipe explicitly Provides bun. No source update needed in this snapshot.",
+      "retain_removed": true,
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "claude-code": {
+      "local_digest": "71dfc5b47ef669bdf37b36959562dac21508fc33ae1a6b4068c428f6e37490a1",
+      "reason": "Upstream 2.1.314 x86_64 executable checksum matches pinned recipe. Current legal documentation is SHA256 pinned; existing system launcher/self-update policy retained. Fedora RPM 2.1.314-1.fc44; clean COPR build 11229278 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "b632bee6c3636fecdf9c6d62e5e208de772cc22eb2f51c6dbbd6f62addec693c"
+    },
+    "claude-desktop": {
+      "local_digest": "1a9739cf4460f841722ab2229ce094a1b013a13735ee1fddf5c46172cf83009d",
+      "reason": "Upstream official Debian payload updated to 4.4212.0 with matching x86_64 checksum; existing Electron-private library isolation and launcher retained. Fedora RPM 4.4212.0-1.fc44; clean COPR build 11229279 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "00c16fab014e305045681a808378dc975366b497e3b249727a57043005beb6ed"
+    },
+    "collie-bin": {
+      "local_digest": "5b3e8cb19ab952fc5af64d9150d47ca44cc7ff4c04f29ac377f6b211d0dbe7cf",
+      "reason": "Upstream 1.24.3 Linux x64 release checksum verified; Bun executable preservation and Tailscale/tmux integration dependencies retained. Fedora RPM 1.24.3-1.fc44; clean COPR build 11229280 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "f5b55ec3624e012c503792c849519937478320fe504fb46b2676a6535174ecec"
+    },
+    "crush-bin": {
+      "local_digest": "f4095ea9c4967b8c63329c62d730290776f44c560efe1493b722394c75de1325",
+      "reason": "Upstream 0.99.0 release checksum verified; CLI and license remain packaged with no Arch-specific dependency translation. Fedora RPM 0.99.0-1.fc44; clean COPR build 11229281 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "3fe91a70a5e5273396348d8b4dc619e5b9f2ffc6789ec33e5aa5f694c89d2886"
+    },
+    "dingtalk-bin": {
+      "local_digest": "4fdb516e3404da706072ba0231fc8e1eca62392fe11f61e8076a0fe9808dc894",
+      "reason": "Reassessed unchanged pinned upstream vendor recipe and existing redistribution disposition. No new vendor authorization is recorded. Redistribution hold: vendor service agreement section 14 requires written authorization for copying and republication; no COPR payload published; no COPR payload submitted.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "83438c47f85c23d3e25df1404142e85e783cbace2153727a5bddf829808a466b"
+    },
+    "elephant": {
+      "local_digest": "a5e59826458d357c74fecc17ebc57467221819c8d14ceed87cc64ce918c22299",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "elephant-all": {
+      "local_digest": "e274bf8ce7281dd92ae1db2ab36d2667eba6b3694ab22c48dff9e040607c0640",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "elephant-archlinuxpkgs": {
+      "local_digest": "d1afc26efdbfbc64becb56d5f876e17a26e367954c321eda12648565850f4c06",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Arch-only provider was never ported to Fedora. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "elephant-bluetooth": {
+      "local_digest": "c0b3752ad4aa05d0ec4562e0aae470b61c96640573a0c76f903f50534eb6ced3",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "elephant-calc": {
+      "local_digest": "e844ea955826bcf55dda1932c70d1fff0a68801f5aba10928ea0e46f68bb24a0",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "elephant-clipboard": {
+      "local_digest": "b0b0c1a37239c7b12e80addf965856cf67db3790eac45e1b36019c89361a781c",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "elephant-desktopapplications": {
+      "local_digest": "219703b9f29d0ba59662437816b7c99718161d4658676d853b6bafd386f46d48",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "elephant-files": {
+      "local_digest": "ef4ab70001e812a5b4dae777beffa0558724cae5badd57d3bea65b3fa0169093",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "elephant-menus": {
+      "local_digest": "c6a7b3f1d04b911522d06d78b3c3ef212b0bf770e098cfde53eb33c7ed8d5e96",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "elephant-providerlist": {
+      "local_digest": "24e075a930820923e9467df03f19343194e602500c7588790700a3a949a2040b",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "elephant-runner": {
+      "local_digest": "815aea20635dc083bcea2893c5eee05600b3aaeee8f18aa0d4ce394d434caced",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "elephant-symbols": {
+      "local_digest": "86279fd50709b8e942b6268559dcd935025762483329232fb61772fa93a8fb2f",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "elephant-todo": {
+      "local_digest": "c6a84249832cd8826e2a8c69d09d8bde04135a43dc8bc2d72ab1748b82372af3",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "elephant-unicode": {
+      "local_digest": "7b9dae415b8bb5ec09dc396232c90ded2f14ea71925868b68c8f1ff2179771b8",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "elephant-websearch": {
+      "local_digest": "79a87440722156bcd560874aed8e1d12bac257bfae170e111614d233b854b792",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "feishu-bin": {
+      "local_digest": "6f7d0f06aea40cbce11c582ce6b202e1589518d2ae40032e3a189237d25242ac",
+      "reason": "Reassessed unchanged pinned upstream vendor recipe and existing redistribution disposition. No new vendor authorization is recorded. Vendor terms restrict redistribution without written permission; not eligible for COPR publication on current evidence; no COPR payload submitted.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "c179a5e24aa1c332e06052ffa9bcc5d2aa1e807a29a7e9ba36c300c8aa88e7da"
+    },
+    "geekbench6": {
+      "local_digest": "8565c161ebcc5383faf8ba2d5d975f0d7a8260d0335e3e34a6d79ffe09391295",
+      "reason": "Reviewed proprietary 6.7.1 x86_64 archive and upstream recipe. Archive has executable/data files only and no redistribution grant. Source checksum available, but COPR publication remains blocked on vendor redistribution permission; no RPM submitted.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "b221e9526e259777675df28fa05d73fc2f4bbf1fc018bb1af76222b7f47820f2"
+    },
+    "ghost": {
+      "local_digest": "d7b7db1a66882f9a19fecb556e3942cff38f3e8af33982e510065d9ffe2e33f6",
+      "reason": "Upstream 0.11.0 source/runtime checksums verified. Release manifests pin source 3cd5dbd20f0b58331751aecf0f53645e2ec76f5e and epoch 1793294281; verification/install-payload scripts passed. Separate runtime and desktop HUD payloads retained. Fedora RPM 0.11.0-1.fc44; clean COPR build 11229282 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "1a9e2bbd544b3d6d5e29c4048b6f9fba7f8224a35d4d75b8c81bc0839e746056"
+    },
+    "google-chrome": {
+      "local_digest": "59ee419092891c5eb34f2aec6862ab3fa3c4da2980004f1c17f37c082877b524",
+      "reason": "Upstream 156.0.8078.79 Debian payload checked against pinned upstream SHA512, then SHA256 recorded locally. Existing wrapper, EULA and private-library dependency exclusions retained. Fedora RPM 156.0.8078.79-1.fc44; clean COPR build 11229283 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "12cec5649c39101ddc2c34520154d5c9b4357784bd970daa8ba8a28ee7042d3a"
+    },
+    "gridcraft-bin": {
+      "local_digest": "e43e90e8adc23c5b64032a326905b9ecdac9a7f8abe644bce827d10aafddeac9",
+      "reason": "New 0.13.0 x86_64 native release checksum matches upstream. GUI/CLI, desktop metadata, MIME registration, icons and MIT/Apache/OFL font notices packaged; Fedora system library dependencies checked by clean build. Fedora RPM 0.13.0-1.fc44; clean COPR build 11229292 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "6d79df445242e711c6d568cfa148fe46f0e63e05927875d149da935ba6345354"
+    },
+    "helium-browser-bin": {
+      "local_digest": "0200335c2b4585f6fc417bd707e23cbbc8a1bb79f1884c2cd5cc5b74b3db2858",
+      "reason": "Linux x86_64 release and license checksums match upstream; Fedora wrapper, launcher, and system dependency mappings retained. Recipe files unchanged between 941cc6bf and target. COPR build 11221472 succeeded; exact 0.20.2.1-1.fc44 verified in Fedora 44 x86_64 primary metadata. No new build submitted.",
+      "upstream_commit": "37c404a57f271a87163b9e628826b908100da965",
+      "upstream_digest": "c9727a18f8cabe37ff578ebbee1301cb2d0e3072762a173a8506ea385fb870e4"
+    },
+    "hyprland": {
+      "local_digest": "24a7f64cb45db056b9e1edff017ecfcf070e718ebe6b839afe9cd999f0bb35a5",
+      "reason": "Upstream 0.57.0-2 expands x86_64 packaging and carries NVIDIA teardown, wl_output global grace and monitor-rule VRR patches. Inspected LionHeartP/hyprlandRPM provider spec: Fedora 0.57.0-1 does not apply these patches. Matching versions alone are insufficient; changed catalog from not-applicable to pending coordinated stack patching and runtime validation.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "01d46ec7790292c2d7682f8c3dcfb6959dab831824ce2eb74ffb28f7cd22c268"
+    },
+    "hyprland-guiutils": {
+      "local_digest": "2fdf29085ded5a70d75c9941c445d6464967b1efd6b7f7bd5fa4b74af2667488",
+      "reason": "Historical override removed in upstream 7d70768c. No local spec and no Omadora COPR package definition; mark retired in catalog while Fedora Hyprland provider remains available.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "hyprshade": {
+      "local_digest": "a9846b3e39a51c41aa53e5ad86e677b3a7ccc6c7e7aec7ad29142c4199bdec1b",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Removed upstream in 8125c215; Fedora recipe and COPR entry retired. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "hyprtoolkit": {
+      "local_digest": "52d5697c4f2ea373a52f83029df1409e9f0d08863d81132dfb4094715f0525e4",
+      "reason": "Historical override removed in upstream 7d70768c. No local spec and no Omadora COPR package definition; mark retired in catalog while Fedora Hyprland provider remains available.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "limine-snapper-sync": {
+      "external_recipe": "https://github.com/kamm3r/limine-pkg",
+      "local_digest": "a674d207909d9ef2ac7687bf8e0e88c8e380353a0e18067653c773ef19242f07",
+      "reason": "Recipe maintained separately at kamm3r/limine-pkg; verified local external repository remote and packages/limine-snapper-sync spec. Existing Omadora transition build retained; no fake local spec.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "698dfe4b2438d774cb8931f115ed935f4f7d3a01824f97c212625ef30de48450"
+    },
+    "linux-aurora": {
+      "local_digest": "6198ed9c3e06cf5c8807acbfbca0aa00687dff9fe6a313d7fa3839ba5bd18c5f",
+      "reason": "CONFIG_MTD_PHRAM=m packaging rebuild for Asahi ARM kernel. Fedora/Nobara kernel is retained; no x86_64 recipe to port.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "5eeacb5e2ab39b4b0e2b4275e73a84be53ad6c38c722c40f3179f291529725b2"
+    },
+    "linux-firmware-cirrus": {
+      "local_digest": "d53c469fd92f5bbe408699fca07ebdf8ccd4a8d43a06b1201a71c5a46b9ae505",
+      "reason": "Historical Arch firmware override removed in upstream 7d70768c. No local spec or COPR definition; Fedora cirrus-audio-firmware supplies the native payload. Catalog marks override retired.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "linux-firmware-cirrus-dx13260": {
+      "local_digest": "d610342ca2427885152767e9fe1d049b22a53c4f2207902b5058c68167d0450b",
+      "reason": "Fedora cirrus-audio-firmware 20261019-1.fc44 owns all nine 10280e54 aliases and the Rev4.5.9 firmware. Verified symlink targets match the upstream aliases, with Fedora .xz compression. Native provider resolves prior pending assessment; no extra firmware RPM or mkinitcpio hook needed.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "f4260b92e8f6c3556fa8084f733d9fb0bb3c2da54dc879aa89e20b0c6187fbb0"
+    },
+    "linux-omarchy-aarch64": {
+      "local_digest": "b8ae953f76cd2c377f906f3b4f55bffabe224f85c6c90cb6e55747ee2dc67e4e",
+      "reason": "7.3-6 adds Qualcomm SoundWire re-enumeration and Zenbook digital speaker ceiling patches; aarch64-only kernel, outside current x86_64 target.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "a6a07944cbae30faef47d899d8fa2cfd8d34d73930d44897f7c0a1cf48b2bb49"
+    },
+    "linux-ptl": {
+      "local_digest": "49edf8b801347b3f5e1b5cbb2a383d55fe03bfa0bfbc9c2e80e7241627165a96",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Removed upstream; linux-omarchy carries its patches; never published here. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "linuxqq": {
+      "local_digest": "712d357f5764b99a9376ce46b16f89370b9b348929a8fddc969cdb0532b12571",
+      "reason": "Reassessed unchanged pinned upstream vendor recipe and existing redistribution disposition. No new vendor authorization is recorded. Redistribution hold: QQ license sections 2.4.1-2.4.3 grant personal use and one backup; other rights require written permission; no COPR payload submitted.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "440ff4b6991b31b1be9bc7bb41afabb31059d393eba02c9ec6eaad4c48937609"
+    },
+    "lmstudio-bin": {
+      "local_digest": "7bb809f7000da35f11dd3a93876c0916bf2772fcd9f2d46108f5bdfe93c7cccc",
+      "reason": "Upstream 0.4.27 vendor build 2 AppImage checksum verified; updated _build macro while retaining launcher/icon assets and existing Fedora dependencies. Fedora RPM 0.4.27-1.fc44; clean COPR build 11229284 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "8a27c974b4f118bf249ff5ee0caaab979a78a06f73e4d2a7bf3651de057c0f84"
+    },
+    "localsend-bin": {
+      "local_digest": "741aeeb835662eb078f99327872783ed8604460b0ca9df40f3bb471e36fbb087",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Removed upstream in 8125c215; Fedora recipe and COPR entry retired. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "makima-bin": {
+      "local_digest": "c2e3928a884bb915e90220341b33027c1a4940916d837626d2e170fcc314cfd4",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Removed upstream in 8125c215; Fedora recipe and COPR entry retired. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "mesa-aurora": {
+      "local_digest": "7b5bb201d91241d91cc5952fef063283d7b6f9eca9f61e621ba19f3a8dbc29bb",
+      "reason": "Reviewed llvmpipe addition, shared LLVM soname dependency, rebuild trigger and linked-library assertions. Asahi ARM-specific graphics stack remains outside x86_64 target; native Fedora/Nobara Mesa retained.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "055c2d80a8763fec355b7d7ae5fd39a0d3fcf2810bc60b1049ac9e3bc7f06448"
+    },
+    "microsoft-edge-stable-bin": {
+      "local_digest": "db3679d3ddce35fc40d94f7f20bd7b3eb68c633728bf245f618ba6634011f9f6",
+      "reason": "Upstream 156.0.4314.56 Debian payload checksum verified; launcher and license checksums retained with renamed versioned source filename. Fedora RPM 156.0.4314.56-1.fc44; clean COPR build 11229285 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "92a40776abb1972bc807a125c9132334a3ecce660cbeb05a849537d242c299b3"
+    },
+    "mise-bin": {
+      "local_digest": "c62357c0ec392b059ba1d718623c11c1f420c4f2a1609aaf3a41e0f68e7bcf08",
+      "reason": "Upstream 2026.10.22 release checksums verified for both x64 and arm64 source archives; current binary build target is Fedora x86_64. Existing completions and system-managed update policy retained. Fedora RPM 2026.10.22-1.fc44; clean COPR build 11229286 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "149eaf818b4fd1dab59f2910895eb73cf9b81dc052a10ef40ef028568ebc9672"
+    },
+    "nautilus-open-any-terminal": {
+      "local_digest": "6ae25e7013e3efbbb7c545f7cc02a10d9220cc04b03e36aa01178a3f0f021440",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Removed upstream in 8125c215; Fedora recipe and COPR entry retired. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "nvidia-sync": {
+      "local_digest": "be03b41a98064c92040bc9ec7ecded2c9ccf6f013662d0fa61616787ce4fda53",
+      "reason": "Reassessed bundled NVIDIA SLA and AI Product Terms. Redistribution is conditional on product classification, customer/end-user terms and reporting; applicability to standalone Sync COPR redistribution is not established. Keep pending, no payload published.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "9bd6001718a6f906c751aeba27851d679d2849a4c8a1b5fe6cab27d33a8aa5aa"
+    },
+    "omacharts": {
+      "local_digest": "4bebaaa0352f360560ffd567cedf90bc0ec783d88f9b0a91342e97e9c60e693f",
+      "reason": "Source checksum matches upstream; GTK application, CLI, completions, documentation and agent assets retained with frozen vendored Cargo build. Recipe files unchanged between 941cc6bf and target. COPR build 11221473 succeeded; exact 0.2.3-1.fc44 verified in Fedora 44 x86_64 primary metadata. No new build submitted.",
+      "upstream_commit": "37c404a57f271a87163b9e628826b908100da965",
+      "upstream_digest": "7fec2253c6ec2c133f25188d1e927a111c469087a69e417a92072a7a2255e0c7"
+    },
+    "omakeyboard": {
+      "local_digest": "1e402bc1ff7f890612d8a7274d3851904f728cf403095097982d0c4f54763421",
+      "reason": "Ported upstream 0.1.0 Qt Quick application. Fedora qmake macro supplies compiler/debug flags; Lua, xkbcli and keyboard data are explicit test/runtime dependencies. Clean build runs engine tests and the offscreen all-page interface smoke test; no user configuration modified. Fedora RPM 0.1.0-2.fc44; clean COPR build 11229303 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "a2d4143705df1310654cd0e1d18257920ca836bf51c17a8160c04e5a09e68194"
+    },
+    "omarchy-amiga-screensaver": {
+      "local_digest": "664fad11797bb7fd84e9dfabb62cd2fae4b7a8107f82af7e498c42e746f25986",
+      "reason": "Pinned f5d2d086 demo bundle is still custom licensed; redistribution permission for all bundled Amiga demos has not been established. Pending hold retained.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "a3372ef374aa637b0ecb19c3b0d617ef974a54792c5f662fc3ade4aee78873da"
+    },
+    "omarchy-ane": {
+      "local_digest": "ab41f135b20144fa87ef8f998e77b595b2978c53a997da3102e7e1241cc2fd28",
+      "reason": "New aarch64 Apple ANE userspace/tools split carries overlays and Arch hooks; no x86_64 hardware target.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "eb919f73cba1d2a693eb13b2b531077fad2cb1b107389584814322951e525142"
+    },
+    "omarchy-ane-dkms": {
+      "local_digest": "c527829d4497d542646e6f874077b57f78fa9fe9a19fd93156861fc4c57bd1f2",
+      "reason": "Module-only split now depends on omarchy-ane and supplies ANE ABI=1. Apple Silicon aarch64-only remains outside Fedora x86_64 target.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "ffea7ec1a274296834a6abadfa1433cb739bc209dcbd5683e711fd28f00b6b92"
+    },
+    "omarchy-dev": {
+      "local_digest": "2565c0e42812a2fb7ddc9a7cc31e37f567e726e9ca5270140c9c74e4db1cea3b",
+      "reason": "Upstream development source pin advances to 7f4b1dd. Fedora core builds from the separate Omadora source pin, not the Arch development package; no additional development RPM is required.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "4ad4b5b74337da226602a851311a712a86ed866c7ed6037b963430238acf1491"
+    },
+    "omarchy-hyprland-titlebars": {
+      "local_digest": "98227e4517b349aed6aaaefb91d836aa57155cac86dc78d076e1354462ffb647",
+      "reason": "Ported upstream 0.3.0 source with matching checksum. Clean compilation against hyprland-devel 0.57.0-1.fc44; exact matching runtime Hyprland NEVR required. No automatic plugin activation or live-session load; compositor patch divergence recorded separately under hyprland. Fedora RPM 0.3.0-1.fc44; clean COPR build 11229295 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "89c20196ef122241cca8c20a5ac5875eec8695fd651abdb290d830ac7c413b27"
+    },
     "omarchy-power-profiles-daemon": {
       "local_digest": "2caa417651b372cf25cc1c52e301b47775f6e7517cce5d1f912a164f829b5c3b",
       "reason": "Ported upstream 0.30 and all four checksum-verified patches with Fedora Meson, service and replacement integration. COPR build 11223291 succeeded with all 175 tests; exact 0.30-1.fc44 is present in Fedora 44 x86_64 repository metadata.",
       "upstream_commit": "37c404a57f271a87163b9e628826b908100da965",
       "upstream_digest": "ad5fb4d932f02ad878fd2017ee07a1fcf78c62b65d60ff8d4b95aee61164abb9"
+    },
+    "omarchy-settings": {
+      "local_digest": "d95cba207c1d6ab664336e694631d0fe4ca6736f692119e9f51366c70155d89c",
+      "reason": "Changed Arch install script applies more overrides on Apple Silicon while preserving its os-release identity. Fedora x86_64 spec retains its own authselect/system integration; core packaging and exact pinned SRPM tests pass.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "f11b2b3991d8463aea953ad7274901d42bd213dd5361eff79ccf887d40ed02df"
+    },
+    "omarchy-settings-dev": {
+      "local_digest": "223e1dc1f4287e47fe7f95a075379de32efe2c1fa2839a4c28030270cec11b1e",
+      "reason": "Arch dev source pin and Apple Silicon etc-overrides change are not Fedora RPM scriptlets. Fedora uses the maintained core settings recipe and Omadora pin; focus core packaging tests passed.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "be31ad25dd21f1fb7d5da6a6767cd94f988522f366cdfa6d206266fe504d4e8d"
+    },
+    "omarchy-speedtest": {
+      "local_digest": "f31848fd208c30fc64f743f87b3303e873ec286861245b56c488f830b53a3597",
+      "reason": "Ported 0.2.1 with SHA256-verified official Go 1.27.3 as private build-only toolchain. No external Go modules; local go list ./... confirms compiler sources excluded. Upstream Go tests retained; installed payload is only the speedtest helper and its license. Fedora RPM 0.2.1-2.fc44; clean COPR build 11229305 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "6487231ac520c333237ae351551196d090b7ac584dc1f51365b349620bea369c"
+    },
+    "omarchy-walker": {
+      "local_digest": "9503653141c6dc061699290a169c224f50980e2384f1bebc92aef5bfae64fba6",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Retired upstream in 2cce621d; Omarchy 4 no longer uses this meta package. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "omasnap": {
+      "local_digest": "bfc090128a89b9dd53c014a392e66161a3f86b02bf6543b33dfdb78a299f72bf",
+      "reason": "Source release retained with Fedora Qt/Wayland dependencies and deterministic hover-test setup. Recipe files unchanged between 941cc6bf and target. COPR build 11221477 succeeded; exact 1.24.0-2.fc44 verified in Fedora 44 x86_64 primary metadata. No new build submitted.",
+      "upstream_commit": "37c404a57f271a87163b9e628826b908100da965",
+      "upstream_digest": "4a837898f7ff27ce962838351aa6d26ebcb14adafb925cd4a22b5db7b19d7328"
+    },
+    "openai-codex-bin": {
+      "local_digest": "02a20822847dca660ae9657e01c73fba73f37ce5db7e097801bf7ea1c166953c",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Removed upstream in 8125c215; Fedora recipe and COPR entry retired. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "openai-codex-desktop": {
+      "local_digest": "c459403141c2499683874a2a55ba246b67d3f29ad998600b5faf66a5700333f0",
+      "reason": "Upstream 26.1027.30824 official ChatGPT Debian payload checksum verified; private Electron/device-toolchain exclusions, launcher and desktop integration retained. Fedora RPM 26.1027.30824-1.fc44; clean COPR build 11229287 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "2a82b7938c09bc9febfe1fdd99ea4ff907dd12b06c2c82993fac486323184207"
+    },
+    "openvino": {
+      "local_digest": "0200499bd70bc7b899d66dea717b3f2e4f7ac9f0f7ba3c1380653086bf82aea5",
+      "reason": "Retain Fedora-specific OpenVINO 2026.4.1 runtime after upstream removal; openvino-genai spec requires exact matching runtime and development packages. Local recipe maintained for this dependency.",
+      "retain_removed": true,
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "rawmakase-bin": {
+      "local_digest": "31ecebc4cb3e7c1cade91acb273dd48480a54ed7c088665ee18be740d5edd7d3",
+      "reason": "Upstream 0.4.8 x86_64 native release checksum verified; private image-processing libraries, desktop files and bundled license/font notices retained. Fedora RPM 0.4.8-1.fc44; clean COPR build 11229288 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "4ee2b9a4b6e438bdfb614e31822f04f75142ebd670882b8ce828fdb4ba644e98"
+    },
+    "rumb": {
+      "local_digest": "f88bae0d2ec37c8b1f62ba363ee128547242ed17b4e921061547229e5990251a",
+      "reason": "0.1.7 is still an Arch update/problem dashboard requiring pacman/AUR integrations; unchanged Fedora backend-port exclusion.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "3591b3c4178035dd9001afe3837fb01cfc78064d7b365c52f7fa6b9187798ed3"
+    },
+    "splinterm": {
+      "local_digest": "f0008ac228f5c0b4188a1e7237009aa76d4c20038240b6bb3517a382e340d311",
+      "reason": "Release tarball checksum matches upstream; terminal daemon, helpers, desktop assets and separate MCP subpackage retained. Recipe files unchanged between 941cc6bf and target. COPR build 11221479 succeeded; exact 0.1.1-1.fc44 verified in Fedora 44 x86_64 primary metadata. No new build submitted.",
+      "upstream_commit": "37c404a57f271a87163b9e628826b908100da965",
+      "upstream_digest": "e77e232bc81edbceb9505f33869d9f2c0436111631df68260322770feef0a46b"
+    },
+    "superwhisper-bin": {
+      "local_digest": "2229fed5a4c2600e49f62d4510bc6fd75924c592c7d25b401fde196cd38b460a",
+      "reason": "Reviewed unchanged 1.1.2 proprietary signed vendor-bundle recipe and integration. Signature verification authenticates origin but does not establish COPR redistribution permission. No new authorization in repository; pending hold retained.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "d992c24f91021c0eec9eadfe07792ffb34c340138fa922391d5e58f72b49382f"
+    },
+    "surface-laptop-8-support": {
+      "local_digest": "8e695178d6f39821541b1c82db8d81089175213314569c42ce22d1060746aaf5",
+      "reason": "Reviewed aarch64-only Surface Laptop 8 topology, Qualcomm board record extraction, USB4 firmware helper, DMI identity and power-management rules. No x86_64 payload; excluded from current target.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "78a491a4604701ffbf7da83ee3e5a2aac20d540781aee6811942ba3b204d0ede"
+    },
+    "t3code-bin": {
+      "local_digest": "4f5ac8c64ff7ce5d9f80bf446a912d344fbe3b4c2ffb177cae8c9b28ac4165db",
+      "reason": "Upstream 0.1.5 AppImage checksum verified; system-library packaging, shared URL scheme and CLI launcher retained. AppImage layout regression tests pass. Fedora RPM 0.1.5-1.fc44; clean COPR build 11229289 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "d60a47a584a4884a6d15a9bccabb18d43fb06c77d91a2af8c3dedb713378f6f9"
+    },
+    "t3code-nightly-bin": {
+      "local_digest": "dc37657db4fa57aaab8bcb059462c6aeda681cc1abd265eae5b3152e119b2c73",
+      "reason": "Upstream 0.1.6-nightly.20261029.3892 AppImage checksum verified; RPM version uses underscore while download version uses hyphen. Separate nightly launchers retained; layout regression tests pass. Fedora RPM 0.1.6_nightly.20261029.3892-1.fc44; clean COPR build 11229290 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "16237db6f999ce2075d2f426121996b11bcce72429bf44f3a52fe7c4abec1bdd"
+    },
+    "tmog-bin": {
+      "local_digest": "b237ed2696d8a3f72c19f55afc87b2c08393d6d7bdfcfb1d8631416ea4420932",
+      "reason": "Vendor tarball checksum matches upstream; system Qt dependencies and desktop assets retained. Recipe files unchanged between 941cc6bf and target. COPR build 11221475 succeeded; exact 1.1.1-1.fc44 verified in Fedora 44 x86_64 primary metadata. No new build submitted.",
+      "upstream_commit": "37c404a57f271a87163b9e628826b908100da965",
+      "upstream_digest": "5e253c226c5d0e0ce47812bc5ac37aec8145f6682f4466609fc13fa545d88e3c"
+    },
+    "ufw-docker": {
+      "local_digest": "5cdd60c9a710c55f85488ca9f69fcbe9c9a98c90198417f32f5115d238b6f33d",
+      "reason": "Published the pre-existing Fedora helper recipe pinned to chaifeng commit 020a8699f95592561f254d8d4ad1bb40d401dfc7. Fedora intentionally follows this explicit commit rather than Arch date tag 251123; helper checksum and bash syntax checked, local and clean COPR builds pass. Installation does not execute firewall-changing commands. Fedora RPM 20261029-1.fc44; clean COPR build 11229296 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "ea0000663ece4819a5ff36f1f000381d6e2298dd5a4ba353560f356d2ebcff62"
+    },
+    "wayfreeze": {
+      "local_digest": "cfea5338a73aed193cdfd66825c73284d1626539a6eedc475b0c5e0fb6174634",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Removed upstream in 8125c215; Fedora recipe and COPR entry retired. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "wayshare": {
+      "local_digest": "7de25eefa2d72a09335471e9331fdde21ff1b4e392b1406c49bff28da8a70757",
+      "reason": "Source 0.3.0 unchanged; ported upstream RDP summary, zlib dependency and THIRD-PARTY-LICENSES. Fedora release bumped to 3. Service/config retained; documentation tells existing users to rerun setup for TCP 3389 rather than silently editing firewall rules. Fedora RPM 0.3.0-3.fc44; clean COPR build 11229297 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "2295c3699ba68fc3b5edfdd30483a1b119d18ea881689c69b54f0b771a20c77e"
+    },
+    "wechat-bin": {
+      "local_digest": "8dd5d4479daeacbbb9ffbc6fe6d2ca629cc28f6ed162f1a3d6b22f4c103afa8b",
+      "reason": "Reassessed unchanged pinned upstream vendor recipe and existing redistribution disposition. No new vendor authorization is recorded. Redistribution hold: WeChat Software terms prohibit distribution and redistribution without prior written consent; no COPR payload submitted.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "4077aef6eaebc05f2b235f6a56d36490524b366faea0351584225390951ec5b8"
+    },
+    "wordcraft-bin": {
+      "local_digest": "92483ce4b6170dc90d9056ceaef6ec6e8c7a1c5077315e43ef22f694d4386d34",
+      "reason": "New 0.12.0 x86_64 native release checksum matches upstream. GUI/CLI, desktop metadata, MIME registration, icons and MIT/Apache/OFL font notices packaged; Fedora system library dependencies checked by clean build. Fedora RPM 0.12.0-1.fc44; clean COPR build 11229293 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "31ca8dca781107362bd33090d5209ec5bb23c5538cd9b8e3f5e4875f867ac8c5"
+    },
+    "wps-office-cn": {
+      "local_digest": "703e05829e258c39d9d3e9be5b9877425867fc82807da17bb0da8ebd4d5655a9",
+      "reason": "Reassessed unchanged pinned upstream vendor recipe and existing redistribution disposition. No new vendor authorization is recorded. Redistribution hold: upstream addition 03305349 is explicitly labelled draft because the licence forbids redistribution; no COPR payload submitted.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "94eb36017f90b1ffb9b6eba616e4f35febb43ca5919043d5274adb37ca9e5dd2"
+    },
+    "xdg-terminal-exec": {
+      "local_digest": "0d38a8069ce4458e74d7f76dec9d52b1adb3a6c651bcc05c4ba32a6169e783cb",
+      "reason": "Retirement rechecked against full target tree: upstream recipe absent, local recipe directory absent, no active Omadora COPR definition. Override retired upstream in 7d70768c; Fedora recipe and COPR definition retired; use Terra or Fedora/Nobara provider. Existing installed packages are not uninstalled by this repository change.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": null
+    },
+    "zen-browser-bin": {
+      "local_digest": "b31dad3c0a1af22574f4ac78418aa6b6799f2c90ba1411aec3513ed7ede0a1fa",
+      "reason": "Upstream 1.24b archive checksum verified; existing launcher, policies and desktop assets retain their reviewed source hashes. Fedora RPM 1.24b-1.fc44; clean COPR build 11229291 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+      "upstream_digest": "b1455063dc39f0366aefc9cfca2dcf5da4671893f57f1f1ad1fe888c1f569e27"
     }
-  }
+  },
+  "schema": 1
 }

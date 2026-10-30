@@ -1,7 +1,7 @@
 {
   "upstream_commit": "941cc6bf115242d7564c6c7b602fd0c634030df9",
   "source_commit": "7348df1",
-  "checked_at": "2026-10-29T07:28:59.287566+00:00",
+  "checked_at": "2026-10-29T10:38:34.968111+00:00",
   "builds": {
     "basecamp-cli": 11221471,
     "brave-bin": 11220311,
@@ -38,7 +38,7 @@
     "splinterm": 11221479
   },
   "build_states": {
-    "basecamp-cli": "running",
+    "basecamp-cli": "succeeded",
     "brave-bin": "succeeded",
     "brave-origin-bin": "succeeded",
     "claude-code": "succeeded",
@@ -53,26 +53,26 @@
     "nordvpn-bin": "succeeded",
     "omareel": "succeeded",
     "omasnap-git": "succeeded",
-    "omasnap": "running",
+    "omasnap": "succeeded",
     "openai-codex-desktop": "succeeded",
     "openclaw": "succeeded",
     "perplexity": "succeeded",
     "rawmakase-bin": "succeeded",
     "t3code-bin": "succeeded",
-    "t3code-nightly-bin": "starting",
+    "t3code-nightly-bin": "succeeded",
     "visual-studio-code-bin": "succeeded",
     "zed": "succeeded",
     "omarchy-screensaver": "succeeded",
     "omatrack": "succeeded",
     "omarchy-settings": "succeeded",
     "omarchy": "succeeded",
-    "helium-browser-bin": "running",
-    "omacharts": "running",
-    "tmog-bin": "running",
-    "wayshare": "starting",
-    "splinterm": "running"
+    "helium-browser-bin": "succeeded",
+    "omacharts": "succeeded",
+    "tmog-bin": "succeeded",
+    "wayshare": "succeeded",
+    "splinterm": "succeeded"
   },
-  "note": "Wayshare retry declares gcc-c++; T3 nightly follows upstream 941cc6bf. Both replacement SRPMs pass checksum and packaging checks. Seven previous builder logs completed successfully; final COPR publication is pending. Omatrack is present in repository metadata. ARM-only Aurora updates remain outside this target.",
+  "note": "All 33 recorded builds succeeded; exact source version-release (with Fedora dist suffix) verified in Fedora 44 x86_64 primary repository metadata. Latest upstream target has no recipe-file changes since 941cc6bf. Initial full reconciliation audit remains incomplete; see docs/reconciliation-2026-10-29.md.",
   "superseded_builds": {
     "wayshare": [
       11221476
@@ -80,5 +80,41 @@
     "t3code-nightly-bin": [
       11221474
     ]
-  }
+  },
+  "repository_versions": {
+    "basecamp-cli": "0.21.0-1.fc44",
+    "brave-bin": "1.98.62-1.fc44",
+    "brave-origin-bin": "1.98.62-1.fc44",
+    "claude-code": "2.1.312-1.fc44",
+    "claude-desktop": "4.29.0-1.fc44",
+    "collie-bin": "1.24.2-1.fc44",
+    "cursor-bin": "3.27.22-1.fc44",
+    "dropbox": "276.4.5325-1.fc44",
+    "github-copilot-cli": "1.0.105-1.fc44",
+    "google-chrome": "156.0.8078.73-1.fc44",
+    "grok-bot": "0.78.1-1.fc44",
+    "mise-bin": "2026.10.21-1.fc44",
+    "nordvpn-bin": "6.0.2-1.fc44",
+    "omareel": "0.4.0-2.fc44",
+    "omasnap-git": "1.24.0.r31.g6208946-1.fc44",
+    "omasnap": "1.24.0-2.fc44",
+    "openai-codex-desktop": "26.1023.51421-1.fc44",
+    "openclaw": "2026.10.8-1.fc44",
+    "perplexity": "26.10.3+build131497-1.fc44",
+    "rawmakase-bin": "0.4.6-1.fc44",
+    "t3code-bin": "0.1.3-1.fc44",
+    "t3code-nightly-bin": "0.1.4_nightly.20261029.3853-1.fc44",
+    "visual-studio-code-bin": "1.144.0-1.fc44",
+    "zed": "1.26.2-1.fc44",
+    "omarchy-screensaver": "1.3.1-1.fc44",
+    "omatrack": "1.8.6-2.fc44",
+    "omarchy-settings": "4.0.0~alpha-0.66.gitbecc224a03.fc44",
+    "omarchy": "4.0.0~alpha-0.66.gitbecc224a03.fc44",
+    "helium-browser-bin": "0.20.2.1-1.fc44",
+    "omacharts": "0.2.3-1.fc44",
+    "tmog-bin": "1.1.1-1.fc44",
+    "wayshare": "0.3.0-2.fc44",
+    "splinterm": "0.1.1-1.fc44"
+  },
+  "verified_upstream_commit": "37c404a57f271a87163b9e628826b908100da965"
 }
