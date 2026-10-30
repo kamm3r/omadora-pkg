@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [main, hyprland-testing]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  fedora:
+    name: Fedora 44 tests and core RPMs
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    container: fedora:44
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Install test dependencies
+        run: >-
+          dnf -y install git make python3 python3-rpm rpm-build
+          systemd-rpm-macros cpio findutils diffutils tar gzip which
+
+      - name: Check out package recipes
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Test release promotion gates
+        run: python3 -m unittest discover -s test -p test_channels.py -v
+
+      - name: Test upstream reconciliation behavior
+        run: python3 test/reconcile-test.py
+
+      - name: Check AppImage packaging layout
+        run: python3 test/t3code-appimage-layout-test.py
+
+      - name: Fetch the pinned Omadora source
+        run: |
+          set -euo pipefail
+          revision=$(cat omadora-revision)
+          [[ "$revision" =~ ^[0-9a-f]{40}$ ]]
+          git clone --filter=blob:none --no-checkout https://github.com/kamm3r/omadora.git "$RUNNER_TEMP/omadora"
+          git -C "$RUNNER_TEMP/omadora" checkout --detach "$revision"
+          test "$(git -C "$RUNNER_TEMP/omadora" rev-parse HEAD)" = "$revision"
+          test "$(git -C "$RUNNER_TEMP/omadora" rev-parse --is-shallow-repository)" = false
+
+      - name: Build and test core RPMs
+        env:
+          OMADORA_SOURCE: ${{ runner.temp }}/omadora
+        run: |
+          set -euo pipefail
+          # These prerequisites are mandatory here; the local test's skip paths
+          # must not turn a missing tool/source into a green CI result.
+          command -v rpmbuild
+          command -v rpm2cpio
+          git -C "$OMADORA_SOURCE" cat-file -e "$(cat omadora-revision)^{commit}"
+          bash test/core-packaging-test.sh

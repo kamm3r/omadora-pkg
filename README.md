@@ -74,6 +74,10 @@ Signed provides PDF signing and text placement. OmaDesign ships the native desig
 
 After an Omadora source change is ready, update `omadora-revision` to the published commit and push this repository. The GitHub webhook queues changed recipe directories in the edge channel only. The core pair is built explicitly when `omadora-revision` changes. RC and stable receive tested build copies through `tools/channels.py`; their automatic rebuilds remain disabled. Channel package definitions use `--max-builds 0` to retain build records; whole-project copies can otherwise prune artifacts referenced by repeated same-version promotions. For a manual core retry, build `omarchy-settings` before `omarchy`.
 
+## CI
+
+[GitHub Actions CI](.github/workflows/ci.yml) runs the release-promotion gates, reconciliation regression test, AppImage layout checks and core RPM packaging tests in Fedora 44. Core builds use a clean checkout of the full commit in `omadora-revision`, including the history needed for per-commit release numbers. It runs on main pushes and pull requests, with a manual dispatch available. Package promotion still requires the build-specific evidence described in the release-channel workflow.
+
 ## Install
 
 ```bash
