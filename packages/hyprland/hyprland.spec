@@ -12,8 +12,8 @@ Source4:        https://raw.githubusercontent.com/LionHeartP/hyprlandRPM/1a24228
 Patch0:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_patches_ref}/pkgbuilds/hyprland/nvidia-egl-teardown.patch
 Patch1:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_patches_ref}/pkgbuilds/hyprland/wl-output-global-grace.patch
 Patch2:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_patches_ref}/pkgbuilds/hyprland/monitor-rule-vrr.patch
-# This branch artifact is pinned by sources.sha256, including test changes.
-Patch3:         https://raw.githubusercontent.com/kamm3r/omadora-pkg/hyprland-testing/packages/hyprland/fedora-regression-tests.patch
+# The Fedora test/ABI patch is pinned to an immutable packaging commit.
+Patch3:         https://raw.githubusercontent.com/kamm3r/omadora-pkg/10b84a7b3acb7227c02d68d9045828a57f0d378a/packages/hyprland/fedora-regression-tests.patch
 ExclusiveArch:  x86_64
 BuildRequires:  ninja-build gtest-devel patch
 BuildRequires:  cmake
