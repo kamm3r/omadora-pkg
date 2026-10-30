@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "state": "baseline-copying",
+  "state": "baseline-verified",
   "recorded_at": "2026-10-30T11:29:34.695620+00:00",
   "policy": {
     "owner": "kammer",
@@ -50,18 +50,25 @@
     "successful_builds": 136,
     "rpm_count": 350,
     "bytes": 23254016166,
-    "content_identity_sha256": "3888bf0af2f101a9c4f92ffd3f72de1026dfe14c1adfb84362591601825a65b2",
-    "all_stable_metadata_versions_sizes_checksums_rechecked_unchanged": true
+    "all_stable_metadata_versions_sizes_checksums_rechecked_unchanged": true,
+    "latest_content_identity_sha256": "5380d37f4d4b86425e28312cbf2590f35569a86964fbd0f774dcb52ae74945b3",
+    "verified_total_rpm_counts": {
+      "edge": 319,
+      "rc": 319,
+      "stable": 350
+    },
+    "verified_latest_rpm_count_per_channel": 319,
+    "history_scope": "Stable retains 31 older-version RPMs. The seed forks correctly copy only the latest successful builds; all 319 current RPMs have identical immutable content across channels."
   },
   "seed_actions": {
     "edge": {
       "id": 2903968,
-      "state": "waiting",
+      "state": "succeeded",
       "url": "https://copr.fedorainfracloud.org/coprs/kammer/omadora-edge/action/2903968/"
     },
     "rc": {
       "id": 2903969,
-      "state": "waiting",
+      "state": "succeeded",
       "url": "https://copr.fedorainfracloud.org/coprs/kammer/omadora-rc/action/2903969/"
     }
   },
@@ -69,7 +76,6 @@
   "automation": {
     "github_hook_id": 687144543,
     "github_hook_target": "kammer/omadora-edge",
-    "edge_enabled_count": 0,
     "edge_enabled_after_final_verification": [
       "aether",
       "tobi-try",
@@ -209,7 +215,9 @@
     "core_pair": "manual coordinated edge builds after omadora-revision changes",
     "rc_enabled_count": 0,
     "stable_enabled_count": 0,
-    "edge_scoped_definitions": 136
+    "edge_scoped_definitions": 136,
+    "edge_enabled_count_at_recording": 0,
+    "restoration_policy": "All hooks are deliberately paused for the final evidence push. After its GitHub delivery is confirmed, enable exactly edge_enabled_after_final_verification; rc and stable remain disabled."
   },
   "retention": {
     "max_builds": 0,
@@ -292,8 +300,18 @@
         }
       ]
     },
-    "edge_rc_live_preflight": "Correctly rejects intermediate empty repository; final baseline preflight pending COPR publication",
-    "rc_stable_live_preflight": "Pending COPR publication"
+    "edge_rc_live_preflight": {
+      "result": "passed",
+      "changed_rpms": 0,
+      "plan_sha256": "a7e69f27f548e0208fab2bd1ac74b5dc93cac4a308c7c0723c8c1faf5b1a0ab1"
+    },
+    "rc_stable_live_preflight": {
+      "result": "passed",
+      "changed_rpms": 0,
+      "source_snapshot_sha256": "edd5952a1d129293685fd90b38b14df3287e9691e9887380a4f70c9ff312dc36",
+      "destination_snapshot_sha256": "48162a4c72113315661de35d0eb30d9384f517e8d548350451b4218bd1e6add4"
+    },
+    "project_signatures_change_file_checksums": 319
   },
   "reconciliation": {
     "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
@@ -360,9 +378,7 @@
     "COPR fork publication is asynchronous and not an atomic multi-package transaction.",
     "Maintainers must supply truthful test attestations bound to the frozen plan."
   ],
-  "remaining_setup": [
-    "COPR must finish both seed-copy actions; verify baseline identity and live forward plans.",
-    "Final follow-up and configuration receipt commit needs the signing key unlocked or user authorization for an unsigned commit.",
-    "Enable exactly the planned 134 scoped edge automatic-build definitions only after the final push delivery and baseline verification; rc/stable stay disabled."
-  ]
+  "remaining_setup": [],
+  "verified_at": "2026-10-30T11:38:52.045702+00:00",
+  "post_publication_action": "Restore and verify exactly 134 edge automatic-build flags after the final evidence push is delivered; this is the standard maintenance-unpause step."
 }
