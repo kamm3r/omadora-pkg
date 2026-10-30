@@ -61,5 +61,6 @@
       "retained_duplicate_id": 11178758,
       "version_release": "2026.4.1-1"
     }
-  }
+  },
+  "superseded_by": "Channel workflow sets max_builds=0 on all definitions in omadora-edge, omadora-rc and omadora. Entries below are historical; do not restore their old limits automatically."
 }

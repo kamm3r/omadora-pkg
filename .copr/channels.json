@@ -1,0 +1,42 @@
+{
+  "owner": "kammer",
+  "chroot": "fedora-44-x86_64",
+  "projects": {
+    "edge": "omadora-edge",
+    "rc": "omadora-rc",
+    "stable": "omadora"
+  },
+  "transitions": [
+    [
+      "edge",
+      "rc"
+    ],
+    [
+      "rc",
+      "stable"
+    ]
+  ],
+  "required_evidence": {
+    "rc": [
+      "automated-tests"
+    ],
+    "stable": [
+      "automated-tests",
+      "desktop-tests"
+    ]
+  },
+  "groups": [
+    [
+      "omarchy",
+      "omarchy-settings"
+    ],
+    [
+      "hyprland",
+      "hyprland-devel",
+      "hyprland-uwsm",
+      "omarchy-hyprland-titlebars"
+    ]
+  ],
+  "source_repository": "https://github.com/kamm3r/omadora-pkg.git",
+  "source_ref": "main"
+}

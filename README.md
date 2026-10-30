@@ -1,6 +1,6 @@
 # Omadora packages
 
-Fedora RPM build entry point for [Omadora](https://github.com/kamm3r/omadora), modeled after the separate upstream [Omarchy package repository](https://github.com/omacom/omarchy-pkgs). The [kammer/omadora COPR](https://copr.fedorainfracloud.org/coprs/kammer/omadora/) publishes the packages.
+Fedora RPM build entry point for [Omadora](https://github.com/kamm3r/omadora), modeled after the separate upstream [Omarchy package repository](https://github.com/omacom/omarchy-pkgs). The [kammer/omadora COPR](https://copr.fedorainfracloud.org/coprs/kammer/omadora/) is the stable channel. New builds go to `kammer/omadora-edge`, then move through `kammer/omadora-rc` after testing. See [the release-channel workflow](docs/release-channels.md) for forward-only promotion.
 
 The `omarchy-settings` and `omarchy` RPM specs live here under `packaging/rpm/` (see [`packaging/README.md`](packaging/README.md)), and `.copr/core.mk` builds them from the Omadora commit pinned in `omadora-revision`, so both COPR builds use exactly the same source and version. Fedora recipes for upstream Omarchy packages live under `packages/`.
 
@@ -72,7 +72,7 @@ OmaCharts ships its charting app, CLI, completions, and optional agent skill. Ra
 
 Signed provides PDF signing and text placement. OmaDesign ships the native design studio with its private libraries and offline documentation. Collie provides phone access to terminal agents through Tailscale; users start its service and configure phone access with the Collie CLI. OmaIRC provides a Qt Quick IRC client and local CLI. `omarchy-themes-intros` adds optional theme intro videos. `thinkpad-t14-amd-touchpad-dkms` enables RMI4/SMBus touchpads on affected AMD ThinkPad T14/P14s laptops; its build checks all three modules against Fedora kernel headers.
 
-After an Omadora source change is ready, update `omadora-revision` to the published commit and push this repository. The GitHub webhook queues all SCM packages for rebuild. The COPR package definitions use `--max-builds 1` to retain only the latest build of each recipe. For a manual core retry, build `omarchy-settings` before `omarchy`.
+After an Omadora source change is ready, update `omadora-revision` to the published commit and push this repository. The GitHub webhook queues enabled SCM packages in the edge channel only. RC and stable receive tested build copies through `tools/channels.py`; their automatic rebuilds remain disabled. Channel package definitions use `--max-builds 0` to retain build records; whole-project copies can otherwise prune artifacts referenced by repeated same-version promotions. For a manual core retry, build `omarchy-settings` before `omarchy`.
 
 ## Install
 
@@ -83,9 +83,9 @@ sudo dnf install omarchy
 
 The RPMs are built for Fedora 44 x86_64. Omadora's setup also uses Terra, RPM Fusion, and a Hyprland COPR as documented in [FEDORA.md](https://github.com/kamm3r/omadora/blob/main/FEDORA.md).
 
-COPR retention exceptions for concurrent same-version rebuilds are recorded in [`.copr/retention-overrides.json`](.copr/retention-overrides.json). Keep both build records for these packages to preserve shared Pulp artifacts; return to one-build retention after publishing a different version-release.
+Historical COPR retention exceptions are recorded in [`.copr/retention-overrides.json`](.copr/retention-overrides.json). Channel promotion supersedes those per-package limits with `max_builds=0` for all three channels. Do not prune shared same-version build records without a separate artifact-reference review.
 
-Pause COPR automatic rebuilds before the first maintenance push, keep them paused through validation and publication-record commits, and restore them after the final push webhook is delivered. Concurrent pushes can otherwise queue unchanged recipes.
+Pause edge automatic rebuilds before the first maintenance push, keep them paused through validation and publication-record commits, and restore them after the final push webhook is delivered. RC and stable remain disabled. Use the freeze receipt and commands in [the release-channel workflow](docs/release-channels.md). Concurrent pushes can otherwise queue unchanged recipes.
 
 ## Limine packaging
 
