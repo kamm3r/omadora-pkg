@@ -71,7 +71,7 @@ herdr	published	Fedora RPM recipe; verified in COPR
 hermes-desktop	published	Fedora RPM 2026.9.7-4; verified in COPR build 11117555
 heroic-games-launcher-bin	published	Fedora RPM 2.22.4-1; verified in COPR build 11132005
 hype	published	Fedora RPM 0.6.0-3; verified in COPR build 11210829
-hyprland	pending	Fedora Hyprland COPR supplies 0.57.0-1, but provider spec lacks upstream NVIDIA teardown, wl_output grace and monitor VRR patches; coordinated Fedora stack patching and compositor runtime tests required
+hyprland	ready	Omarchy-patched 0.57.0-4.omadora.fc44 candidate published only in kammer/omadora-hyprland-testing (build 11229543); 836 tests and isolated late-bind/ABI/exit checks pass; physical NVIDIA, VRR, suspend and dock qualification required before production promotion
 hyprland-guiutils	retired	Override removed upstream in 7d70768c; no local RPM recipe or Omadora COPR definition; native Fedora/Hyprland provider retained
 hyprland-preview-share-picker	published	Fedora RPM recipe; verified in COPR
 hyprshade	retired	Removed upstream in 8125c215; Fedora recipe and COPR entry retired
@@ -148,7 +148,7 @@ omarchy-chromium-bin	published	Fedora RPM 148.0.7778.96-1.fc44; verified in COPR
 omarchy-dev	not-applicable	covered by core omarchy spec via dev_suffix
 omarchy-emacs	published	COPR package
 omarchy-fish	published	COPR package
-omarchy-hyprland-titlebars	published	Fedora RPM 0.3.0-1.fc44; clean COPR build 11229295 succeeded; exact repository version and download Content-Length verified on October 30
+omarchy-hyprland-titlebars	ready	Production remains 0.3.0-1.fc44 (build 11229295); candidate 0.3.0-4.omadora.fc44 requires exact patched Hyprland release and passed clean testing COPR build 11229633 plus isolated load/unload; see docs/hyprland-candidate-2026-10-30.md for build/runtime evidence and production promotion blockers
 omarchy-keyring	not-applicable	pacman keyring; Fedora uses RPM signing keys
 omarchy-mac	not-applicable	Apple Silicon aarch64 add-on, x86_64 out of scope
 omarchy-mac-boot	not-applicable	Arch mkinitcpio boot stack; Omadora uses dracut+kernel-install

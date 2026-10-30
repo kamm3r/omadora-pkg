@@ -1,0 +1,958 @@
+{
+  "checked_at": "2026-10-30T06:12:23.582461+00:00",
+  "scope": "testing-only; not promoted to production; full upstream audit remains partial",
+  "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+  "source_branch": "hyprland-testing",
+  "binary_source_commit": "b8763283375ad8aee6590a16c29ea0c116de8f5c",
+  "runtime_probe_commit": "1f9a4fee1123d4ef8d079a2d589e1d78397c9373",
+  "builds": {
+    "hyprland": 11229543,
+    "omarchy-hyprland-titlebars": 11229633
+  },
+  "build_states": {
+    "hyprland": "succeeded",
+    "omarchy-hyprland-titlebars": "succeeded"
+  },
+  "superseded_candidate_builds": {
+    "11229535": "canceled",
+    "11229536": "canceled"
+  },
+  "repository_artifacts": [
+    {
+      "name": "hyprland",
+      "version": {
+        "epoch": "0",
+        "ver": "0.57.0",
+        "rel": "4.omadora.fc44"
+      },
+      "sha256": "a45274a9fc68ce527a2b51d4eef594cafc02a3544cb72687539ce7c1e4b9accf",
+      "size": 52816420,
+      "url": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-hyprland-testing/fedora-44-x86_64/Packages/h/hyprland-0.57.0-4.omadora.fc44.x86_64.rpm"
+    },
+    {
+      "name": "hyprland-devel",
+      "version": {
+        "epoch": "0",
+        "ver": "0.57.0",
+        "rel": "4.omadora.fc44"
+      },
+      "sha256": "67eb0e6c3957b4bec15785d8059a191ed5d6cee8052c4413436ccd6ac803ab49",
+      "size": 334797,
+      "url": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-hyprland-testing/fedora-44-x86_64/Packages/h/hyprland-devel-0.57.0-4.omadora.fc44.x86_64.rpm"
+    },
+    {
+      "name": "omarchy-hyprland-titlebars",
+      "version": {
+        "epoch": "0",
+        "ver": "0.3.0",
+        "rel": "4.omadora.fc44"
+      },
+      "sha256": "cb81189058721bdd5f8dadad478ed47a886fd6fbc7f8be00cb6f33a96d7a27f4",
+      "size": 155822,
+      "url": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-hyprland-testing/fedora-44-x86_64/Packages/o/omarchy-hyprland-titlebars-0.3.0-4.omadora.fc44.x86_64.rpm"
+    }
+  ],
+  "validation": {
+    "source_checksums": "passed both recipes",
+    "source_rpms": "passed both recipes through .copr/Makefile",
+    "gtests": {
+      "passed": 836,
+      "suites": 98,
+      "failed": 0,
+      "library": "same uninstrumented release hyprland_lib as shipped executable"
+    },
+    "unpatched_runtime_baseline": "late wl_output bind fails EPROTO 71 after same-name connector flap",
+    "candidate_runtime_checks": [
+      "PASS: in-flight wl_output bind survives output removal and releases cleanly",
+      "PASS: plugin built for unpatched compositor rejected",
+      "PASS: matching titlebars loads and unloads in the nested session",
+      "PASS: compositor exits cleanly"
+    ]
+  },
+  "hardware_blockers": [
+    "NVIDIA EGL exit on physical NVIDIA hardware",
+    "VRR on a physical monitor",
+    "suspend/resume in a real session",
+    "dock hotplug on physical hardware"
+  ],
+  "production_protection": {
+    "incidental_build_ids": [
+      11229533,
+      11229532,
+      11229531,
+      11229530,
+      11229529,
+      11229528,
+      11229527,
+      11229526,
+      11229525,
+      11229524,
+      11229523,
+      11229522,
+      11229521,
+      11229520,
+      11229519,
+      11229518,
+      11229517,
+      11229516,
+      11229515,
+      11229514,
+      11229513,
+      11229512,
+      11229511,
+      11229510,
+      11229509,
+      11229508,
+      11229507,
+      11229506,
+      11229505,
+      11229504,
+      11229503,
+      11229502,
+      11229501,
+      11229500,
+      11229499,
+      11229498,
+      11229497,
+      11229496,
+      11229495,
+      11229494,
+      11229493,
+      11229492,
+      11229491,
+      11229490,
+      11229489,
+      11229488,
+      11229487,
+      11229486,
+      11229485,
+      11229484,
+      11229483,
+      11229482,
+      11229481,
+      11229480,
+      11229479,
+      11229478,
+      11229477,
+      11229476,
+      11229475,
+      11229474,
+      11229473,
+      11229472,
+      11229471,
+      11229470,
+      11229469,
+      11229468,
+      11229467,
+      11229466,
+      11229465,
+      11229464,
+      11229463,
+      11229462,
+      11229461,
+      11229460,
+      11229459,
+      11229458,
+      11229457,
+      11229456,
+      11229455,
+      11229454,
+      11229453,
+      11229452,
+      11229451,
+      11229450,
+      11229449,
+      11229448,
+      11229447,
+      11229446,
+      11229445,
+      11229444,
+      11229443,
+      11229442,
+      11229441,
+      11229440,
+      11229439,
+      11229438,
+      11229437,
+      11229436,
+      11229435,
+      11229434,
+      11229433,
+      11229432,
+      11229431,
+      11229430,
+      11229429,
+      11229428
+    ],
+    "all_canceled": true,
+    "incidental_successes": 0,
+    "production_main_pins_verified": true,
+    "paused_webhooks": 136
+  },
+  "production_artifact_verification": {
+    "verified_names": [
+      "claude-code",
+      "claude-desktop",
+      "collie-bin",
+      "crush-bin",
+      "ghost",
+      "ghost-runtime",
+      "google-chrome",
+      "lmstudio-bin",
+      "microsoft-edge-stable-bin",
+      "mise-bin",
+      "openai-codex-desktop",
+      "rawmakase-bin",
+      "t3code-bin",
+      "t3code-nightly-bin",
+      "zen-browser-bin",
+      "gridcraft-bin",
+      "wordcraft-bin",
+      "omakeyboard",
+      "omarchy-hyprland-titlebars",
+      "ufw-docker",
+      "wayshare",
+      "omarchy-speedtest"
+    ],
+    "metadata_checksums_and_sizes_unchanged": true,
+    "download_content_length_matches": true
+  },
+  "webhook_policy": "136 previously enabled production hooks remain paused for final evidence push; verify GitHub delivery then restore exactly that enabled set, preserving explicit main pins. Testing hooks stay off.",
+  "reconciliation": {
+    "ordinary_exit_code": 1,
+    "complete_exit_code": 1,
+    "initial_adoption_review_issues": 168,
+    "issues": [
+      {
+        "package": "1password",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "1password-beta",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "1password-cli",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "aether",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "alsa-ucm-conf-aurora",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "aquamarine",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "asdcontrol",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "asus-proart-p14-speaker-firmware",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "aura",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "aurora-audio",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "aurora-bless",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "avd-fw",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "bambustudio-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "box64",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "brave-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "brave-origin-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "brcmfmac-awdl-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "buzz",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "cliamp",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "cua-driver-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "cua-hyprland-plugin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "cuda",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "cursor-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "cursor-cli",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "dbxcli-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "dell-xps-touchpad-haptics",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "dell-xps13-sidecar-amps",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "disktree-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "dotnet-core-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "dropbox",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "dropbox-cli",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "flea",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "ghostty",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "github-copilot-cli",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "gliff",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "grok-bot",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "gtk2",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "herdr",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "hermes-desktop",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "heroic-games-launcher-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "hype",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "hyprland-preview-share-picker",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "intel-ipu7-camera",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "iptsd",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "kujo",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "learn-omarchy",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "lib32-nvidia-580xx-utils",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libfprint-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libretro-cap32-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libretro-database-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libretro-fbneo-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libretro-ppsspp",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libretro-uae-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libretro-vice-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libva-v4l2_request-avd",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "limine-mkinitcpio-hook",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "link-studio",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "linux-aarch64-pkgbase-shim",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "linux-n1x",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "linux-omarchy",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "linux-omarchy-bore",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "linux-omarchy-eevdf",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "linux-omarchy-muqss",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "localsend",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "m1n1-aurora",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "macbook12-spi-driver-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "macbook8-spi-pxa2xx-nodma-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "maplemono-nf-cn",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "mil-hwx-compiler",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "minecraft-launcher",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "monologue",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "nautilus-dropbox",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "nordvpn-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "nvidia-580xx-utils",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "nvidia-ai-workbench",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "nvidia-open-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "nvidia-utils",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "obs-studio",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "obsidian",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "ollama",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omacalc",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omacut",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omadesign-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omairc",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omakade",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omapresent",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-audio-tuner",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-aurora-firmware",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-billboard-generator",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-chromium-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-emacs",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-fish",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-keyring",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-mac",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-mac-boot",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-mac-ml",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-meeting-recorder-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-mlx",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-nvim",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-screensaver",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-steam-fex",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-task-manager",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-themes-intros",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-zsh",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omareel",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omaroll",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omasnap-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omaspeak-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omatrack",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omawake-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omawrite",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omazed",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "once-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "openclaw",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "openvino-genai",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "owe",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "owe-lockfeed",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "perftest",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "perplexity",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "pinta",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "python-mediapipe",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "python-sounddevice",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "python-terminaltexteffects",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "qcom-firmware-extract",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "qemu-user-static",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "qmk-hid",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "quickshell",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "quickshell-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "retroarch-joypad-autoconfig-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "rustdesk",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "schist-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "signed",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "slack-desktop",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "slap-notes-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "spark-hwmon-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "speakerguardd",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "spotify",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "steam",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "strata",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "sublime-text-4",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "sunshine",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "supergfxctl",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "surface-pro-11-sensors",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "surface-pro-11-support",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "surface-snapdragon-addresses",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "symfony-cli",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "tensaku",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "thinkpad-t14-amd-touchpad-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "tobi-try",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "ttf-ia-writer",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "ttf-jetbrains-mono-nerd-basic",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "ttfx",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "tuxedo-drivers-nocompatcheck-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "typora",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "tzupdate",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "uboot-asahi",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "uboot-aurora",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "v4l2-relayd",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "vi",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "visual-studio-code-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "voxtype-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "walker",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "xpadneo-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "yaru-icon-theme",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "yay",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "yt6801-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "zed",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      }
+    ],
+    "unresolved": [
+      {
+        "package": "dingtalk-bin",
+        "status": "pending",
+        "note": "Redistribution hold: vendor service agreement section 14 requires written authorization for copying and republication; no COPR payload published"
+      },
+      {
+        "package": "feishu-bin",
+        "status": "pending",
+        "note": "Vendor terms restrict redistribution without written permission; not eligible for COPR publication on current evidence"
+      },
+      {
+        "package": "geekbench6",
+        "status": "pending",
+        "note": "Upstream 6.7.1 proprietary binary archive contains no license notice granting redistribution; COPR publication needs vendor redistribution permission"
+      },
+      {
+        "package": "hyprland",
+        "status": "ready",
+        "note": "Omarchy-patched 0.57.0-4.omadora.fc44 candidate published only in kammer/omadora-hyprland-testing (build 11229543); 836 tests and isolated late-bind/ABI/exit checks pass; physical NVIDIA, VRR, suspend and dock qualification required before production promotion"
+      },
+      {
+        "package": "linuxqq",
+        "status": "pending",
+        "note": "Redistribution hold: QQ license sections 2.4.1-2.4.3 grant personal use and one backup; other rights require written permission"
+      },
+      {
+        "package": "nvidia-sync",
+        "status": "pending",
+        "note": "New upstream recipe 0.117.3_12; NVIDIA redistribution terms need review before COPR publication"
+      },
+      {
+        "package": "omarchy-amiga-screensaver",
+        "status": "pending",
+        "note": "Upstream 2026.10.27 bundles custom-licensed Amiga demos; clear redistribution grant required before COPR publication"
+      },
+      {
+        "package": "omarchy-hyprland-titlebars",
+        "status": "ready",
+        "note": "Production remains 0.3.0-1.fc44 (build 11229295); candidate 0.3.0-4.omadora.fc44 requires exact patched Hyprland release and passed clean testing COPR build 11229633 plus isolated load/unload; see docs/hyprland-candidate-2026-10-30.md for build/runtime evidence and production promotion blockers"
+      },
+      {
+        "package": "superwhisper-bin",
+        "status": "pending",
+        "note": "Proprietary signed vendor bundle; COPR distribution eligibility unresolved; upstream 1.1.2 reviewed"
+      },
+      {
+        "package": "wechat-bin",
+        "status": "pending",
+        "note": "Redistribution hold: WeChat Software terms prohibit distribution and redistribution without prior written consent"
+      },
+      {
+        "package": "wps-office-cn",
+        "status": "pending",
+        "note": "Redistribution hold: upstream addition 03305349 is explicitly labelled draft because the licence forbids redistribution"
+      }
+    ],
+    "readme_audited_snapshot_advanced": false
+  }
+}

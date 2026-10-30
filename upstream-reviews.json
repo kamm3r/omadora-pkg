@@ -188,8 +188,8 @@
       "upstream_digest": "c9727a18f8cabe37ff578ebbee1301cb2d0e3072762a173a8506ea385fb870e4"
     },
     "hyprland": {
-      "local_digest": "24a7f64cb45db056b9e1edff017ecfcf070e718ebe6b839afe9cd999f0bb35a5",
-      "reason": "Upstream 0.57.0-2 expands x86_64 packaging and carries NVIDIA teardown, wl_output global grace and monitor-rule VRR patches. Inspected LionHeartP/hyprlandRPM provider spec: Fedora 0.57.0-1 does not apply these patches. Matching versions alone are insufficient; changed catalog from not-applicable to pending coordinated stack patching and runtime validation.",
+      "local_digest": "726753928b1dc42699f2ee3663fa75220b20b10a5e30b42d16fbf9bbcb97e95f",
+      "reason": "Ported all three unchanged Omarchy patches to Fedora 0.57.0-4.omadora.fc44, pinned checksummed sources and zero-fuzz application, isolated testing COPR build 11229543 succeeded with all 836 release-library tests. Reproduced stale wl_output bind EPROTO on unpatched installed build and verified candidate passes, rejects unpatched titlebars and exits cleanly. Candidate only: physical NVIDIA/VRR/suspend/dock qualification blocks production promotion; see docs/hyprland-candidate-2026-10-30.md.",
       "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
       "upstream_digest": "01d46ec7790292c2d7682f8c3dcfb6959dab831824ce2eb74ffb28f7cd22c268"
     },
@@ -339,8 +339,8 @@
       "upstream_digest": "4ad4b5b74337da226602a851311a712a86ed866c7ed6037b963430238acf1491"
     },
     "omarchy-hyprland-titlebars": {
-      "local_digest": "98227e4517b349aed6aaaefb91d836aa57155cac86dc78d076e1354462ffb647",
-      "reason": "Ported upstream 0.3.0 source with matching checksum. Clean compilation against hyprland-devel 0.57.0-1.fc44; exact matching runtime Hyprland NEVR required. No automatic plugin activation or live-session load; compositor patch divergence recorded separately under hyprland. Fedora RPM 0.3.0-1.fc44; clean COPR build 11229295 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
+      "local_digest": "24ee3cd997d4f8eebb2d953ea2217979e6d23b3e93464ff997ebf7099efa3670",
+      "reason": "Rebuilt unchanged upstream 0.3.0 against exact patched Hyprland 0.57.0-4.omadora.fc44 SDK; source SHA256 and SRPM passed; clean testing COPR build 11229633 succeeded; downloaded RPM checksum/size match metadata and candidate plugin loads/unloads in isolated nested session. Old production plugin is rejected by candidate ABI. Production 0.3.0-1 retained; candidate only, pending compositor hardware qualification. See docs/hyprland-candidate-2026-10-30.md.",
       "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
       "upstream_digest": "89c20196ef122241cca8c20a5ac5875eec8695fd651abdb290d830ac7c413b27"
     },
