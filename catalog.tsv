@@ -71,11 +71,11 @@ herdr	published	Fedora RPM recipe; verified in COPR
 hermes-desktop	published	Fedora RPM 2026.9.7-4; verified in COPR build 11117555
 heroic-games-launcher-bin	published	Fedora RPM 2.22.4-1; verified in COPR build 11132005
 hype	published	Fedora RPM 0.6.0-3; verified in COPR build 11210829
-hyprland	not-applicable	Hyprland COPR ships same version
-hyprland-guiutils	not-applicable	Hyprland COPR ships same version
+hyprland	pending	Fedora Hyprland COPR supplies 0.57.0-1, but provider spec lacks upstream NVIDIA teardown, wl_output grace and monitor VRR patches; coordinated Fedora stack patching and compositor runtime tests required
+hyprland-guiutils	retired	Override removed upstream in 7d70768c; no local RPM recipe or Omadora COPR definition; native Fedora/Hyprland provider retained
 hyprland-preview-share-picker	published	Fedora RPM recipe; verified in COPR
 hyprshade	retired	Removed upstream in 8125c215; Fedora recipe and COPR entry retired
-hyprtoolkit	not-applicable	Hyprland COPR ships exact version
+hyprtoolkit	retired	Override removed upstream in 7d70768c; no local RPM recipe or Omadora COPR definition; native Fedora/Hyprland provider retained
 intel-ipu7-camera	not-applicable	no-op, in-tree kernel support
 iptsd	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
 kujo	published	Fedora RPM 1.9.0-1; verified in COPR build 11210830
@@ -94,7 +94,7 @@ limine-snapper-sync	published	Packaging moved to kamm3r/limine-pkg; new builds i
 link-studio	published	Fedora RPM recipe; verified in COPR
 linux-aarch64-pkgbase-shim	not-applicable	Arch Linux ARM kernel shim; Fedora kernel packaging differs
 linux-aurora	not-applicable	Asahi kernel; Fedora boots stock kernel
-linux-firmware-cirrus	not-applicable	Arch shim; Fedora uses linux-firmware bundle
+linux-firmware-cirrus	retired	Override removed upstream in 7d70768c; no local RPM recipe or Omadora COPR definition; native Fedora/Hyprland provider retained
 linux-firmware-cirrus-dx13260	not-applicable	Fedora cirrus-audio-firmware 20261019-1.fc44 already supplies all nine 10280e54 aliases and CS35L56 Rev4.5.9 firmware; verified RPM files and symlink targets
 linux-n1x	not-applicable	Experimental NVIDIA N1x aarch64 kernel; current COPR target is Fedora 44 x86_64
 linux-omarchy	not-applicable	Arch kernel; Fedora uses stock kernel
@@ -160,7 +160,7 @@ omarchy-power-profiles-daemon	published	Fedora RPM 0.30-1.fc44; upstream four pa
 omarchy-screensaver	published	Fedora RPM 1.3.1-1.fc44; source checksums verified; COPR build 11220335 published and present in repository metadata
 omarchy-settings	published	Fedora RPM 4.0.0~alpha-0.66.gitbecc224a03.fc44; source checksums verified; COPR build 11220451 published and present in repository metadata
 omarchy-settings-dev	not-applicable	covered by core settings spec via dev_suffix
-omarchy-speedtest	pending	Upstream 0.2.1 requires Go 1.27; Fedora 44 currently supplies Go 1.26
+omarchy-speedtest	ready	Fedora RPM 0.2.1-1.fc44; pinned official Go 1.27.3 toolchain used only during build; source/toolchain SHA256 and SRPM verified; clean COPR tests pending
 omarchy-steam-fex	not-applicable	aarch64-only Steam/FEX recipe; outside the Fedora 44 x86_64 target
 omarchy-task-manager	published	Fedora RPM recipe; verified in COPR
 omarchy-themes-intros	published	Fedora RPM 2026.10.14-1; verified in COPR build 11132015
