@@ -1,11 +1,12 @@
 Name:           omakeyboard
 Version:        0.1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Keyboard remapping and shortcuts for Omarchy
 License:        MIT
 URL:            https://github.com/gabamnml/omakeyboard
 Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRequires:  gcc-c++ make desktop-file-utils
+BuildRequires:  lua libxkbcommon-utils xkeyboard-config
 BuildRequires:  qt6-qtbase-devel qt6-qtdeclarative-devel
 Requires:       hyprland
 Requires:       lua
@@ -13,6 +14,8 @@ Requires:       qt6-qtwayland
 Requires:       qt6-qtdeclarative
 Requires:       hicolor-icon-theme
 Requires:       libxkbcommon
+Requires:       libxkbcommon-utils
+Requires:       xkeyboard-config
 
 %description
 Qt Quick keyboard remapper and shortcut editor for Omarchy. Uses hyprctl
@@ -25,7 +28,7 @@ and Lua to read and apply keyboard configuration in the user's session.
 %set_build_flags
 mkdir build
 cd build
-qmake6 ../omakeyboard.pro
+%qmake_qt6 ../omakeyboard.pro
 %make_build
 
 %check
@@ -49,5 +52,9 @@ install -Dm644 resources/wordmark.svg %{buildroot}%{_datadir}/omakeyboard/wordma
 %{_datadir}/omakeyboard
 
 %changelog
+* Fri Oct 30 2026 kamm3r - 0.1.0-2
+- Use Fedora qmake flags so debug source packaging receives compiler symbols.
+- Exercise Lua and xkbcli tests and require their runtime tools.
+
 * Fri Oct 30 2026 kamm3r - 0.1.0-1
 - Port the Qt Quick application with upstream engine and interface smoke tests.
