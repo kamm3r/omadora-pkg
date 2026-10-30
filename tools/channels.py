@@ -305,7 +305,7 @@ class Channels:
         for package in changed:
             self.verify_download(src['project'], package)
         # Write a durable intent before requesting COPR's asynchronous fork.
-        write_json(output, {'schema': 1, 'state': 'submitted', 'submitted_at': now(),
+        write_json(output, {'schema': 1, 'state': 'submission-intent', 'recorded_at': now(),
                             'plan': plan, 'evidence': evidence})
         # A whole-project fork also copies unchanged NEVRAs. Keep all build records
         # to avoid deleting artifacts still referenced by same-version copies.

@@ -113,7 +113,7 @@ class PromotionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             submitted = Path(directory)/'submitted.json'
             instance.apply(plan, evidence, submitted)
-            self.assertEqual(channels.read_json(submitted)['state'], 'submitted')
+            self.assertEqual(channels.read_json(submitted)['state'], 'submission-intent')
             self.assertTrue(any(call[:3] == ('kammer', 'omadora-edge', 'kammer') for call in calls))
             copied = copy.deepcopy(source)
             copied['project'] = 'omadora-rc'

@@ -3,6 +3,15 @@
 spec ?= packaging/rpm/omarchy/omarchy.spec
 outdir ?= $(CURDIR)/srpm
 
+# COPR uses subdirectory to filter webhook changes, then invokes this root
+# Makefile from that package directory. Re-enter the root for shared helpers.
+repo_root := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/..)
+ifneq ($(CURDIR),$(repo_root))
+.PHONY: srpm
+srpm:
+	$(MAKE) -C '$(repo_root)' -f .copr/Makefile srpm spec='$(spec)' outdir='$(abspath $(outdir))'
+else
+
 .PHONY: srpm
 srpm:
 	@set -e; \
@@ -65,3 +74,5 @@ srpm:
 	  *) echo "Unknown Omadora package spec: $$spec" >&2; exit 1 ;; \
 	esac; \
 	:
+
+endif

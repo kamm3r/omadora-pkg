@@ -2,7 +2,7 @@
 
 Omadora uses `edge -> rc -> stable` for Fedora 44 x86_64. Stable remains `kammer/omadora`, so existing installations keep their repository URL. The other projects are `kammer/omadora-edge` and `kammer/omadora-rc`. Enable exactly one Omadora channel on a machine. Channel switching does not automatically downgrade installed RPMs.
 
-New builds run in edge. RC and stable have package automatic rebuilds disabled and receive copies of tested builds. The existing GitHub integration targets edge, with package sources explicitly pinned to `main` (external recipes retain their reviewed source configuration). The separate `omadora-hyprland-testing` sandbox is not automatically promoted; its remaining hardware qualification still applies. Limine and gaming remain separate repositories.
+New builds run in edge. RC and stable have package automatic rebuilds disabled and receive copies of tested builds. The existing GitHub integration targets edge, with package sources explicitly pinned to `main` (external recipes retain their reviewed source configuration). Each automatic edge recipe sets its COPR subdirectory to its own `packages/<name>` directory, so documentation and other recipes do not rebuild it. The root `.copr/Makefile` supports COPR invoking it from those directories. Shared build-helper changes need an explicit review and targeted rebuilds with increased releases where appropriate. The separate `omadora-hyprland-testing` sandbox is not automatically promoted; its remaining hardware qualification still applies. Limine and gaming remain separate repositories.
 
 ## Promotion unit and identity
 
@@ -18,9 +18,13 @@ The [channel policy](../.copr/channels.json) and [promotion tool](../tools/chann
 - Only the configured single chroot is supported. Latest successful build outputs must match the visible latest RPMs; COPR's build-time selection cannot silently pick an older version.
 - Source and destination must have no active builds or automatic rebuilds. Plans pin definitions, build IDs, repository checksums and immutable content digests. A stale plan is rejected.
 - Test evidence must reference the plan hash. RC requires automated-test evidence; stable also requires desktop-test evidence.
-- Submission and publication verification are separate. Copy failures or partial copies never become a verified release receipt. Receipts cannot overwrite earlier records.
+- The tool writes a `submission-intent` receipt before calling COPR, preserving recovery information even if the request fails. An intent receipt alone does not prove submission or publication. Submission and publication verification are separate. Copy failures or partial copies never become a verified release receipt. Receipts cannot overwrite earlier records.
 
 This is a maintainer workflow, not a COPR server authorization feature. Project administrators can bypass it with direct builds or fork commands. Do not submit manual builds, edit definitions or perform another promotion while a snapshot is frozen. COPR does not offer an atomic lock across projects, and a fork is asynchronous; an unsuccessful copy may leave partial content visible. Keep rc/stable promotion credentials restricted to release maintainers, and investigate a failed copy before retrying. The tool does not claim atomic multi-package publication or a full DNF dependency solve.
+
+## Core builds
+
+The `omarchy` and `omarchy-settings` definitions are manual in edge: their shared `omadora-revision` lives outside their recipe directories, and a broad root webhook would rebuild unchanged versions on every documentation push. After changing that pin, explicitly build `omarchy-settings` and then `omarchy` in **edge**. Check their matching version/release before creating the release plan. The other 134 previously automatic recipes retain automatic edge builds, now scoped to their own directories. New recipe definitions must also use `main`, a recipe subdirectory, `make_srpm`, and `max_builds=0`.
 
 ## Run a release
 
