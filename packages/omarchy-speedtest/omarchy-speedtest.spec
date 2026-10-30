@@ -2,7 +2,7 @@
 %global go_version 1.27.3
 Name:           omarchy-speedtest
 Version:        0.2.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Omarchy network speed test client
 License:        MIT
 URL:            https://github.com/omacom/omarchy-speedtest
@@ -19,17 +19,17 @@ private helper path for desktop integration.
 
 %prep
 %autosetup
-mkdir toolchain
-tar -xf %{SOURCE1} -C toolchain --strip-components=1
+mkdir .toolchain
+tar -xf %{SOURCE1} -C .toolchain --strip-components=1
 
 %build
 %set_build_flags
-export GOROOT=$PWD/toolchain GOTOOLCHAIN=local GOCACHE=$PWD/.gocache
+export GOROOT=$PWD/.toolchain GOTOOLCHAIN=local GOCACHE=$PWD/.gocache
 export CGO_ENABLED=1 GOFLAGS='-buildmode=pie -trimpath -mod=readonly -modcacherw'
 $GOROOT/bin/go build -ldflags "-linkmode external -extldflags '$LDFLAGS' -X main.version=%{version}" -o omarchy-speedtest .
 
 %check
-export GOROOT=$PWD/toolchain GOTOOLCHAIN=local GOCACHE=$PWD/.gocache
+export GOROOT=$PWD/.toolchain GOTOOLCHAIN=local GOCACHE=$PWD/.gocache
 $GOROOT/bin/go test ./...
 
 %install
@@ -40,5 +40,8 @@ install -Dm755 omarchy-speedtest %{buildroot}%{_prefix}/lib/omarchy/speedtest
 %{_prefix}/lib/omarchy/speedtest
 
 %changelog
+* Fri Oct 30 2026 kamm3r - 0.2.1-2
+- Keep the private compiler outside Go package discovery for upstream tests.
+
 * Fri Oct 30 2026 kamm3r - 0.2.1-1
 - Port upstream release using verified Go 1.27.3 as a private build toolchain.
