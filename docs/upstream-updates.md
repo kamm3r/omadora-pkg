@@ -20,7 +20,7 @@ Use `tools/reconcile.py` to account for the complete upstream tree. It reads Git
 
    A review records a manual decision, not a successful build. Keep `pending` and `ready` truthful; acknowledging a blocker does not make a package published.
 
-5. Follow the README's webhook pause and publication procedure. Verify COPR results and repository metadata for every submitted build, update the publication record and catalog, then record reviews again for changed catalog rows. Distinguish submitted, failed, published, and intentionally excluded packages. Removing a recipe from the repository or COPR does not uninstall it from existing systems.
+5. Follow the README's webhook pause and publication procedure. Production SCM definitions must explicitly pin `committish=main`; an empty branch field also responds to pushes of staging branches. Keep candidate branch definitions in a separate testing project. Verify COPR results and repository metadata for every submitted build, update the publication record and catalog, then record reviews again for changed catalog rows. Distinguish submitted, failed, published, and intentionally excluded packages. Removing a recipe from the repository or COPR does not uninstall it from existing systems.
 
 6. Run both final checks against the pinned target:
 
