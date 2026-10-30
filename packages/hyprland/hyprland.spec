@@ -3,7 +3,7 @@
 %global omarchy_patches_ref b766e177b0ab827f2154e4b76cf8c7c158d3b86b
 Name:           hyprland
 Version:        0.57.0
-Release:        3.omadora%{?dist}
+Release:        4.omadora%{?dist}
 Summary:        Hyprland compositor with Omarchy monitor and EGL fixes
 License:        BSD-3-Clause AND BSD-2-Clause AND HPND-sell-variant AND LGPL-2.1-or-later
 URL:            https://github.com/hyprwm/Hyprland
@@ -179,7 +179,7 @@ cp %{SOURCE4} macros.hyprland
 sed -i 's/@@HYPRLAND_VERSION@@/%{version}/g' macros.hyprland
 
 %build
-%cmake -GNinja -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF
+%cmake -GNinja -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DWITH_TESTS=OFF -DFEDORA_UNIT_TESTS=ON
 %cmake_build
 
 %install
@@ -189,10 +189,8 @@ install -d %{buildroot}%{_userunitdir}
 mv %{buildroot}%{_libdir}/systemd/user/* %{buildroot}%{_userunitdir}/
 
 %check
-# Build tests separately so coverage instrumentation never reaches shipped binaries.
-%cmake -B build-tests -GNinja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DWITH_TESTS=ON
-cmake --build build-tests --target hyprland_gtests -j2
-build-tests/hyprland_gtests
+# Tests link the exact uninstrumented release library used by the compositor.
+%{_vpath_builddir}/hyprland_fedora_gtests
 %{_vpath_builddir}/Hyprland --version
 
 %files
@@ -220,6 +218,10 @@ build-tests/hyprland_gtests
 %{_rpmconfigdir}/macros.d/macros.hyprland
 
 %changelog
+* Fri Oct 30 2026 kamm3r - 0.57.0-4.omadora
+- Run unit tests against the exact shipped release library in a single build.
+- Keep the interactive test harness and coverage instrumentation out of RPMs.
+
 * Fri Oct 30 2026 kamm3r - 0.57.0-3.omadora
 - Give patched plugin headers and compositor a matching patch-specific ABI tag.
 - Use upstream WITH_TESTS switch and run GTests directly in the coverage build.

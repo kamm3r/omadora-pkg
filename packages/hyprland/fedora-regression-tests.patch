@@ -99,3 +99,19 @@
 +    EXPECT_STREQ(__hyprland_api_get_hash(), __hyprland_api_get_client_hash());
 +    EXPECT_TRUE(std::string_view(__hyprland_api_get_hash()).contains("_omadora_912521ee8a53_"));
 +}
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -748,0 +749,13 @@
++
++# Fedora packaging: exercise the shipped release library without enabling
++# coverage instrumentation or installing the interactive hyprtester harness.
++option(FEDORA_UNIT_TESTS "Build unit tests against the release library" OFF)
++if(FEDORA_UNIT_TESTS)
++  find_package(GTest CONFIG REQUIRED)
++  file(GLOB_RECURSE FEDORA_TESTFILES "tests/*.cpp")
++  add_executable(hyprland_fedora_gtests ${FEDORA_TESTFILES})
++  target_include_directories(hyprland_fedora_gtests
++    PUBLIC "./include"
++    PRIVATE "./src" "./src/include" "./protocols" "${CMAKE_BINARY_DIR}")
++  target_link_libraries(hyprland_fedora_gtests hyprland_lib GTest::gtest_main)
++endif()
