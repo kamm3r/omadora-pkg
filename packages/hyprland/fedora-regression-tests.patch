@@ -122,3 +122,36 @@
 +    requested.m_vrr = 0;
 +    EXPECT_EQ(inherited.compare(requested), Config::COMPARISON_SOFT_MISMATCH);
 +}
+--- a/src/plugins/PluginAPI.cpp
++++ b/src/plugins/PluginAPI.cpp
+@@ -29,7 +29,7 @@
+         return std::string{v.substr(0, v.find_last_of('.'))};
+     };
+ 
+-    static const std::string ver = std::format("{}_aq_{}_hu_{}_hg_{}_hc_{}_hlg_{}", GIT_COMMIT_HASH, stripPatch(AQUAMARINE_VERSION), stripPatch(HYPRUTILS_VERSION),
++    static const std::string ver = std::format("{}_omadora_912521ee8a53_aq_{}_hu_{}_hg_{}_hc_{}_hlg_{}", GIT_COMMIT_HASH, stripPatch(AQUAMARINE_VERSION), stripPatch(HYPRUTILS_VERSION),
+                                                stripPatch(HYPRGRAPHICS_VERSION), stripPatch(HYPRCURSOR_VERSION), stripPatch(HYPRLANG_VERSION));
+ 
+     return ver.c_str();
+--- a/src/plugins/PluginAPI.hpp
++++ b/src/plugins/PluginAPI.hpp
+@@ -401,7 +401,7 @@
+         return std::string{v.substr(0, v.find_last_of('.'))};
+     };
+ 
+-    static const std::string ver = std::format("{}_aq_{}_hu_{}_hg_{}_hc_{}_hlg_{}", GIT_COMMIT_HASH, stripPatch(AQUAMARINE_VERSION), stripPatch(HYPRUTILS_VERSION),
++    static const std::string ver = std::format("{}_omadora_912521ee8a53_aq_{}_hu_{}_hg_{}_hc_{}_hlg_{}", GIT_COMMIT_HASH, stripPatch(AQUAMARINE_VERSION), stripPatch(HYPRUTILS_VERSION),
+                                                stripPatch(HYPRGRAPHICS_VERSION), stripPatch(HYPRCURSOR_VERSION), stripPatch(HYPRLANG_VERSION));
+ 
+     return ver.c_str();
+--- /dev/null
++++ b/tests/plugins/OmadoraABI.cpp
+@@ -0,0 +1,8 @@
++#include <plugins/PluginAPI.hpp>
++#include <gtest/gtest.h>
++#include <string_view>
++
++TEST(OmadoraABI, CandidateClientAndServerHashesMatch) {
++    EXPECT_STREQ(__hyprland_api_get_hash(), __hyprland_api_get_client_hash());
++    EXPECT_TRUE(std::string_view(__hyprland_api_get_hash()).contains("_omadora_912521ee8a53_"));
++}

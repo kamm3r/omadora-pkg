@@ -3,7 +3,7 @@
 %global omarchy_patches_ref b766e177b0ab827f2154e4b76cf8c7c158d3b86b
 Name:           hyprland
 Version:        0.57.0
-Release:        2.omadora%{?dist}
+Release:        3.omadora%{?dist}
 Summary:        Hyprland compositor with Omarchy monitor and EGL fixes
 License:        BSD-3-Clause AND BSD-2-Clause AND HPND-sell-variant AND LGPL-2.1-or-later
 URL:            https://github.com/hyprwm/Hyprland
@@ -15,7 +15,7 @@ Patch2:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_
 # This branch artifact is pinned by sources.sha256, including test changes.
 Patch3:         https://raw.githubusercontent.com/kamm3r/omadora-pkg/hyprland-testing/packages/hyprland/fedora-regression-tests.patch
 ExclusiveArch:  x86_64
-BuildRequires:  ninja-build gtest-devel
+BuildRequires:  ninja-build gtest-devel patch
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  meson
@@ -41,7 +41,7 @@ BuildRequires:  pkgconfig(libcanberra)
 BuildRequires:  pkgconfig(libdisplay-info)
 BuildRequires:  pkgconfig(libdrm)
 BuildRequires:  pkgconfig(libeis-1.0)
-BuildRequires:  pkgconfig(libinput) >= 1.28
+BuildRequires:  pkgconfig(libinput) >= 1.29
 BuildRequires:  pkgconfig(libliftoff)
 BuildRequires:  pkgconfig(libseat)
 BuildRequires:  pkgconfig(libudev)
@@ -56,7 +56,7 @@ BuildRequires:  pkgconfig(systemd)
 BuildRequires:  pkgconfig(tomlplusplus)
 BuildRequires:  pkgconfig(uuid)
 BuildRequires:  pkgconfig(wayland-client)
-BuildRequires:  pkgconfig(wayland-protocols) >= 1.45
+BuildRequires:  pkgconfig(wayland-protocols) >= 1.49
 BuildRequires:  pkgconfig(wayland-scanner)
 BuildRequires:  pkgconfig(wayland-server)
 BuildRequires:  pkgconfig(xcb-composite)
@@ -127,7 +127,7 @@ Requires:       pkgconfig(libcanberra)
 Requires:       pkgconfig(libdisplay-info)
 Requires:       pkgconfig(libdrm)
 Requires:       pkgconfig(libeis-1.0)
-Requires:       pkgconfig(libinput) >= 1.28
+Requires:       pkgconfig(libinput) >= 1.29
 Requires:       pkgconfig(libliftoff)
 Requires:       pkgconfig(libseat)
 Requires:       pkgconfig(libudev)
@@ -142,7 +142,7 @@ Requires:       pkgconfig(systemd)
 Requires:       pkgconfig(tomlplusplus)
 Requires:       pkgconfig(uuid)
 Requires:       pkgconfig(wayland-client)
-Requires:       pkgconfig(wayland-protocols) >= 1.45
+Requires:       pkgconfig(wayland-protocols) >= 1.49
 Requires:       pkgconfig(wayland-scanner)
 Requires:       pkgconfig(wayland-server)
 Requires:       pkgconfig(xcb-composite)
@@ -190,9 +190,9 @@ mv %{buildroot}%{_libdir}/systemd/user/* %{buildroot}%{_userunitdir}/
 
 %check
 # Build tests separately so coverage instrumentation never reaches shipped binaries.
-%cmake -B build-tests -GNinja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=ON
+%cmake -B build-tests -GNinja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DWITH_TESTS=ON
 cmake --build build-tests --target hyprland_gtests -j2
-ctest --test-dir build-tests --output-on-failure --parallel 1
+build-tests/hyprland_gtests
 %{_vpath_builddir}/Hyprland --version
 
 %files
@@ -220,6 +220,10 @@ ctest --test-dir build-tests --output-on-failure --parallel 1
 %{_rpmconfigdir}/macros.d/macros.hyprland
 
 %changelog
+* Fri Oct 30 2026 kamm3r - 0.57.0-3.omadora
+- Give patched plugin headers and compositor a matching patch-specific ABI tag.
+- Use upstream WITH_TESTS switch and run GTests directly in the coverage build.
+
 * Fri Oct 30 2026 kamm3r - 0.57.0-2.omadora
 - Adapt Fedora provider integration for a staged Omarchy-patched compositor.
 - Apply three unchanged upstream patches and exercise VRR/output regressions.
