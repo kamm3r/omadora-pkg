@@ -28,8 +28,11 @@ def json_get(url, token=None):
     headers = {'Accept': 'application/vnd.github+json'} if token else {}
     if token:
         headers['Authorization'] = 'Bearer ' + token
-    with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=120) as response:
-        return json.load(response)
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=120) as response:
+            return json.load(response)
+    except urllib.error.HTTPError as error:
+        raise ValueError(f'Metadata API HTTP {error.code}: {url}') from None
 
 
 def fingerprints(ref):
@@ -115,7 +118,7 @@ def main():
     names = changed_inputs(before, current)
     catalog = {row.split('\t')[0]: row.split('\t')[1] for row in (ROOT/'catalog.tsv').read_text().splitlines()[1:]}
     names = [name for name in names if name in {'omarchy', 'omarchy-settings'} or catalog.get(name) in {'published', 'ready'}]
-    project = json_get(f'{API}/project/{OWNER}/{PROJECT}')
+    project = json_get(f'{API}/project?ownername={OWNER}&projectname={PROJECT}')
     endpoint = os.environ['COPR_EDGE_WEBHOOK_URL']
     validate_endpoint(endpoint, project['id'])
     packages = json_get(f'{API}/package/list?ownername={OWNER}&projectname={PROJECT}&with_latest_build=true')['items']
@@ -162,7 +165,7 @@ def main():
             raise ValueError('COPR webhook submission failed; inspect edge before retrying') from None
         for item in selected:
             for attempt in range(5):
-                package = json_get(f'{API}/package/{OWNER}/{PROJECT}/{item["name"]}')
+                package = json_get(f'{API}/package?ownername={OWNER}&projectname={PROJECT}&package_name={item["name"]}&with_latest_build=true')
                 build = package['builds']['latest']
                 if build and build['id'] != item['previous_build_id']:
                     receipt['builds'][item['name']] = {'id':build['id'],'version_release':item['version_release'],'state':'submitted','url':f'https://copr.fedorainfracloud.org/coprs/build/{build["id"]}/'}
