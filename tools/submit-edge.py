@@ -57,6 +57,12 @@ def changed_inputs(previous, current):
     return sorted(name for name, value in current.items() if previous.get(name) != value)
 
 
+def automatic_inputs(names, catalog):
+    # Core source pins keep their separate coordinated manual release procedure.
+    return [name for name in names if name not in {'omarchy', 'omarchy-settings'}
+            and catalog.get(name) in {'published', 'ready'}]
+
+
 def validate_context(event, ref):
     if event != 'push' or ref != 'refs/heads/main':
         raise ValueError('Edge submissions require a successful main push CI run')
@@ -117,7 +123,10 @@ def main():
     current = fingerprints(head)
     names = changed_inputs(before, current)
     catalog = {row.split('\t')[0]: row.split('\t')[1] for row in (ROOT/'catalog.tsv').read_text().splitlines()[1:]}
-    names = [name for name in names if name in {'omarchy', 'omarchy-settings'} or catalog.get(name) in {'published', 'ready'}]
+    manual_core = [name for name in names if name in {'omarchy', 'omarchy-settings'}]
+    names = automatic_inputs(names, catalog)
+    if manual_core:
+        print('Core inputs changed: use the coordinated manual edge build procedure for ' + ', '.join(manual_core))
     project = json_get(f'{API}/project?ownername={OWNER}&projectname={PROJECT}')
     endpoint = os.environ['COPR_EDGE_WEBHOOK_URL']
     validate_endpoint(endpoint, project['id'])
@@ -149,7 +158,7 @@ def main():
         if existing and any(channels.compare(desired,p) <= 0 for p in existing):
             raise ValueError(f'{name}: changed recipe must increase epoch/version/release beyond edge')
         selected.append({'name':name,'directory':source.get('subdirectory',''),'previous_build_id':latest_build['id'] if latest_build else None,'version_release':version+'-'+release})
-    receipt = {'schema':1,'head':head,'state':'prepared','fingerprints':before.copy(),'builds':{}}
+    receipt = {'schema':1,'head':head,'state':'prepared','fingerprints':before.copy(),'builds':{},'manual_core_inputs':manual_core}
     OUTPUT.write_text(json.dumps(receipt,indent=2)+'\n')
     if selected:
         payload = {'repository':{'clone_url':'https://github.com/kamm3r/omadora-pkg.git'},'ref':'refs/heads/main','after':head,

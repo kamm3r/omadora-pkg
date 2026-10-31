@@ -28,6 +28,10 @@ class SubmissionTests(unittest.TestCase):
     def test_new_recipe_is_selected_but_retirement_is_not_a_build(self):
         self.assertEqual(submit.changed_inputs({'old':'hash'}, {'new':'hash'}),['new'])
 
+    def test_manual_core_and_blocked_recipes_do_not_block_normal_submissions(self):
+        self.assertEqual(submit.automatic_inputs(['omarchy','omarchy-settings','allowed','blocked','new'],
+                         {'allowed':'ready','blocked':'pending','new':'not-applicable'}),['allowed'])
+
     def test_committed_inputs_have_stable_fingerprints(self):
         head=submit.git('rev-parse','HEAD')
         inputs=submit.fingerprints(head)
