@@ -4,7 +4,7 @@
 %global __strip /bin/true
 
 Name:           helium-browser-bin
-Version:        0.20.2.1
+Version:        0.20.3.1
 Release:        1%{?dist}
 Summary:        Private Chromium-based web browser
 License:        GPL-3.0-only AND BSD-3-Clause
@@ -64,6 +64,9 @@ test -x %{buildroot}/opt/%{name}/helium
 %{_datadir}/icons/hicolor/256x256/apps/helium-browser.png
 
 %changelog
+* Sat Oct 31 2026 kamm3r - 0.20.3.1-1
+- Update to pinned upstream acb60f95; CI submits the tested source to edge.
+
 * Thu Oct 29 2026 kamm3r - 0.20.2.1-1
 - Update to the release pinned in upstream 38a5e499.
 

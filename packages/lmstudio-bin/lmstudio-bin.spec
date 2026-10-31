@@ -3,7 +3,7 @@
 %global _build 2
 
 Name:           lmstudio-bin
-Version:        0.4.27
+Version:        0.4.28
 Release:        1%{?dist}
 Summary:        Desktop app for exploring and running large language models locally
 License:        LicenseRef-LMStudio
@@ -52,6 +52,9 @@ ln -s /opt/lm-studio/lm-studio.AppImage %{buildroot}%{_bindir}/lm-studio
 %{_datadir}/pixmaps/lmstudio-bin.png
 
 %changelog
+* Sat Oct 31 2026 kamm3r - 0.4.28-1
+- Update to pinned upstream acb60f95; CI submits the tested source to edge.
+
 * Fri Oct 30 2026 kamm3r - 0.4.27-1
 - Update to upstream b766e177.
 

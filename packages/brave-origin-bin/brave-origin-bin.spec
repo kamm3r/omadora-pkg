@@ -6,7 +6,7 @@
 %global __requires_exclude ^lib(vk_swiftshader|vulkan|qt.*_shim)\\.so
 
 Name:           brave-origin-bin
-Version:        1.98.62
+Version:        1.98.63
 Release:        1%{?dist}
 Summary:        Minimalist browser from the makers of Brave (binary release)
 License:        MPL-2.0-only AND BSD-3-Clause AND LicenseRef-Chromium
@@ -89,6 +89,9 @@ done
 %{_datadir}/icons/hicolor/*/apps/brave-origin.png
 
 %changelog
+* Sat Oct 31 2026 kamm3r - 1.98.63-1
+- Update to pinned upstream acb60f95; CI submits the tested source to edge.
+
 * Wed Oct 28 2026 kamm3r - 1.98.62-1
 - Update to the release pinned in upstream aa38eb00.
 

@@ -6,7 +6,7 @@
 %global __requires_exclude ^lib(oneauth|oneds|telclient|mip_core_gn|onnxruntime|learning_tools|vk_swiftshader|vulkan|qt.*_shim|widevinecdm)\\.so
 
 Name:           microsoft-edge-stable-bin
-Version:        156.0.4314.56
+Version:        156.0.4314.58
 Release:        1%{?dist}
 Summary:        Minimal design browser with sophisticated technology to make the web faster, safer, and easier
 License:        LicenseRef-Microsoft-Edge
@@ -101,6 +101,9 @@ rm %{buildroot}/opt/microsoft/%{_pkgshortname}/product_logo_*.png
 %{_datadir}/icons/hicolor/*/apps/%{_pkgname}.png
 
 %changelog
+* Sat Oct 31 2026 kamm3r - 156.0.4314.58-1
+- Update to pinned upstream acb60f95; CI submits the tested source to edge.
+
 * Fri Oct 30 2026 kamm3r - 156.0.4314.56-1
 - Update to upstream b766e177.
 
