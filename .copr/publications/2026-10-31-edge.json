@@ -1,0 +1,1131 @@
+{
+  "checked_at": "2026-10-31T07:31:09.240540+00:00",
+  "scope": "Omadora edge candidates only. No local package builds, RC/stable promotion or package installation.",
+  "upstream_commit": "acb60f95615b3528774f9a43937e9bd88e9af558",
+  "previous_upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
+  "upstream_recipes": 221,
+  "changed_upstream_recipe_directories": 30,
+  "candidate_source_commit": "8184657f42acd881e885ec1c8e98b532cd313843",
+  "claude_retry_source_commit": "646d525d05a3acdfdda851647da0af52e914bf4a",
+  "ci_runs": {
+    "initial_candidate_submission": 41179485376,
+    "claude_checksum_retry": 41180003351
+  },
+  "ci_results": "Both complete CI workflows succeeded; candidate run submitted exactly 16 recipes, checksum-fix run submitted only Claude Code. Current suite has 20 unit tests plus reconciliation, AppImage and core RPM packaging checks.",
+  "builds": {
+    "basecamp-cli": 11234474,
+    "brave-bin": 11234483,
+    "brave-origin-bin": 11234478,
+    "claude-code": 11234496,
+    "collie-bin": 11234479,
+    "helium-browser-bin": 11234484,
+    "hyprland-preview-share-picker": 11234476,
+    "lmstudio-bin": 11234488,
+    "microsoft-edge-stable-bin": 11234473,
+    "mise-bin": 11234487,
+    "openclaw": 11234485,
+    "owe": 11234482,
+    "owe-lockfeed": 11234480,
+    "rawmakase-bin": 11234481,
+    "slap-notes-bin": 11234486,
+    "t3code-nightly-bin": 11234477
+  },
+  "build_states": {
+    "basecamp-cli": "succeeded",
+    "brave-bin": "succeeded",
+    "brave-origin-bin": "succeeded",
+    "claude-code": "succeeded",
+    "collie-bin": "succeeded",
+    "helium-browser-bin": "succeeded",
+    "hyprland-preview-share-picker": "succeeded",
+    "lmstudio-bin": "succeeded",
+    "microsoft-edge-stable-bin": "succeeded",
+    "mise-bin": "succeeded",
+    "openclaw": "succeeded",
+    "owe": "succeeded",
+    "owe-lockfeed": "succeeded",
+    "rawmakase-bin": "succeeded",
+    "slap-notes-bin": "succeeded",
+    "t3code-nightly-bin": "succeeded"
+  },
+  "source_rpms": {
+    "basecamp-cli": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234474/basecamp-cli-0.22.0-1.src.rpm",
+    "brave-bin": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234483/brave-bin-1.98.63-1.src.rpm",
+    "brave-origin-bin": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234478/brave-origin-bin-1.98.63-1.src.rpm",
+    "claude-code": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234496/claude-code-2.1.316-1.src.rpm",
+    "collie-bin": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234479/collie-bin-1.25.2-1.src.rpm",
+    "helium-browser-bin": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234484/helium-browser-bin-0.20.3.1-1.src.rpm",
+    "hyprland-preview-share-picker": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234476/hyprland-preview-share-picker-0.3.0.r3.g07602ef-1.src.rpm",
+    "lmstudio-bin": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234488/lmstudio-bin-0.4.28-1.src.rpm",
+    "microsoft-edge-stable-bin": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234473/microsoft-edge-stable-bin-156.0.4314.58-1.src.rpm",
+    "mise-bin": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234487/mise-bin-2026.10.23-1.src.rpm",
+    "openclaw": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234485/openclaw-2026.10.9-1.src.rpm",
+    "owe": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234482/owe-0.2.13-1.src.rpm",
+    "owe-lockfeed": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234480/owe-lockfeed-0.2.13-1.src.rpm",
+    "rawmakase-bin": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234481/rawmakase-bin-0.4.9-1.src.rpm",
+    "slap-notes-bin": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234486/slap-notes-bin-0.2.5-1.src.rpm",
+    "t3code-nightly-bin": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/srpm-builds/11234477/t3code-nightly-bin-0.1.6_nightly.20261031.3956-1.src.rpm"
+  },
+  "repository_artifacts": {
+    "basecamp-cli": {
+      "version_release": "0.22.0-1.fc44",
+      "epoch": "0",
+      "arch": "x86_64",
+      "size": 13339587,
+      "sha256": "fbd90729eb6543b5574d71026e5c1d22a438415616c421dcc26abb39a8195605",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/b/basecamp-cli-0.22.0-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "brave-bin": {
+      "version_release": "1.98.63-1.fc44",
+      "epoch": "1",
+      "arch": "x86_64",
+      "size": 168051172,
+      "sha256": "e7b89a7befdf07d3300704f5057412574ad7dea7fb77652a0179bf0ebc6cc7f4",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/b/brave-bin-1.98.63-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "brave-origin-bin": {
+      "version_release": "1.98.63-1.fc44",
+      "epoch": "1",
+      "arch": "x86_64",
+      "size": 150165061,
+      "sha256": "1a876b7bed69cdea86a38793487d54a58d3cb5b9c85e957adcc1de2fd3ea1522",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/b/brave-origin-bin-1.98.63-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "collie-bin": {
+      "version_release": "1.25.2-1.fc44",
+      "epoch": "0",
+      "arch": "x86_64",
+      "size": 46315094,
+      "sha256": "04e08e6a78574c182b10f9d88325b5afe4d34dbbac32d5670e12d1e3f5142413",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/c/collie-bin-1.25.2-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "helium-browser-bin": {
+      "version_release": "0.20.3.1-1.fc44",
+      "epoch": "0",
+      "arch": "x86_64",
+      "size": 133476387,
+      "sha256": "bf033bc918fe29aec2d31a2edecc83fd3379ef8e6b61c9d5cc765f233add60f8",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/h/helium-browser-bin-0.20.3.1-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "lmstudio-bin": {
+      "version_release": "0.4.28-1.fc44",
+      "epoch": "0",
+      "arch": "x86_64",
+      "size": 512572,
+      "sha256": "40bd5172af174140588ba29e9744088869004635a7fe34006f7945b5da92e164",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/l/lmstudio-bin-0.4.28-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "mise-bin": {
+      "version_release": "2026.10.23-1.fc44",
+      "epoch": "0",
+      "arch": "x86_64",
+      "size": 42583633,
+      "sha256": "b3dff812d57ad362acb523d324da6fb883e13b3973a56a96c2ae4e7ca1edeee4",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/m/mise-bin-2026.10.23-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "owe": {
+      "version_release": "0.2.13-1.fc44",
+      "epoch": "0",
+      "arch": "x86_64",
+      "size": 181763,
+      "sha256": "136ebfa15fbc081af6a7b53d5ac8a385952227d6b87adabc8d449ec92e340988",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/o/owe-0.2.13-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "owe-lockfeed": {
+      "version_release": "0.2.13-1.fc44",
+      "epoch": "0",
+      "arch": "x86_64",
+      "size": 37643,
+      "sha256": "893ae3a1f5e679cf953fd013b546be9807b0176d4c2e929a7545ab25199ab312",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/o/owe-lockfeed-0.2.13-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "rawmakase-bin": {
+      "version_release": "0.4.9-1.fc44",
+      "epoch": "0",
+      "arch": "x86_64",
+      "size": 27177674,
+      "sha256": "0c3ee54866d93d8667dd0730afc0a7563fdc612038208d022513360ac3601d0c",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/r/rawmakase-bin-0.4.9-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "slap-notes-bin": {
+      "version_release": "0.2.5-1.fc44",
+      "epoch": "0",
+      "arch": "x86_64",
+      "size": 108380627,
+      "sha256": "f0c423b0b70afe4c38af9202c832621adc2344d8855ca83df1508d3d31520d83",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/s/slap-notes-bin-0.2.5-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "t3code-nightly-bin": {
+      "version_release": "0.1.6_nightly.20261031.3956-1.fc44",
+      "epoch": "0",
+      "arch": "x86_64",
+      "size": 151700776,
+      "sha256": "8dc8803bedbc32bdd43f3bb7b6a47fa40239973b282504188eab0572cd72f66b",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/t/t3code-nightly-bin-0.1.6_nightly.20261031.3956-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "hyprland-preview-share-picker": {
+      "version_release": "0.3.0.r3.g07602ef-1.fc44",
+      "epoch": "0",
+      "arch": "x86_64",
+      "size": 1879235,
+      "sha256": "615bb26c4b5c619f1e9211cd5837a2ecf6e1188012a3c9b0fd601513e23e5000",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/h/hyprland-preview-share-picker-0.3.0.r3.g07602ef-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "microsoft-edge-stable-bin": {
+      "version_release": "156.0.4314.58-1.fc44",
+      "epoch": "0",
+      "arch": "x86_64",
+      "size": 221096935,
+      "sha256": "e99fc803a1ca88d52d9f11ee13574e45c67876b61ea63529468ec0d2b173f04e",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/m/microsoft-edge-stable-bin-156.0.4314.58-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "openclaw": {
+      "version_release": "2026.10.9-1.fc44",
+      "epoch": "0",
+      "arch": "x86_64",
+      "size": 163479964,
+      "sha256": "fb9fd6decf63005c1eab3c745e0c92a13ecd279c599d6ec4005bd59009c0fa1e",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/o/openclaw-2026.10.9-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    },
+    "claude-code": {
+      "version_release": "2.1.316-1.fc44",
+      "epoch": "0",
+      "arch": "x86_64",
+      "size": 118822201,
+      "sha256": "24ce21be795fe6e60e1d61054233776714248acba4c499544018890f5ccb3692",
+      "location": "https://download.copr.fedorainfracloud.org/results/kammer/omadora-edge/fedora-44-x86_64/Packages/c/claude-code-2.1.316-1.fc44.x86_64.rpm",
+      "metadata_and_full_download_verified": true
+    }
+  },
+  "official_source_verification": {
+    "basecamp-cli": {
+      "url": "https://github.com/basecamp/basecamp-cli/releases/tag/v0.22.0",
+      "tag": "v0.22.0",
+      "draft": false,
+      "manifest_hashes_matching_official_asset_digests": [
+        "e7ddaaae8df09a506ba940069e54f07806ba1bb400a1cd8a67a8a3331b4bb82b"
+      ]
+    },
+    "brave-bin": {
+      "url": "https://github.com/brave/brave-browser/releases/tag/v1.98.63",
+      "tag": "v1.98.63",
+      "draft": false,
+      "manifest_hashes_matching_official_asset_digests": [
+        "2473a889dc41cadf43a2401a442ac0cf9dfb1b0343e7fad88d505749565fca4e"
+      ]
+    },
+    "brave-origin-bin": {
+      "url": "https://github.com/brave/brave-browser/releases/tag/v1.98.63",
+      "tag": "v1.98.63",
+      "draft": false,
+      "manifest_hashes_matching_official_asset_digests": [
+        "7714b3c2bb3e92c14f8f8ab373e2d298ff941abe1d81589c21c5f9227ac07c0b"
+      ]
+    },
+    "collie-bin": {
+      "url": "https://github.com/AltanS/collie/releases/tag/v1.25.2",
+      "tag": "v1.25.2",
+      "draft": false,
+      "manifest_hashes_matching_official_asset_digests": [
+        "97dd7ca0bd2591fe9e160a0a5d90c73debfdeba3719388088f2339a2c12b416c"
+      ]
+    },
+    "helium-browser-bin": {
+      "url": "https://github.com/imputnet/helium-linux/releases/tag/0.20.3.1",
+      "tag": "0.20.3.1",
+      "draft": false,
+      "manifest_hashes_matching_official_asset_digests": [
+        "3759ea4e95bf4ef4a0a6477e3d73576b0f03906f2e80357275bfc6cacafb5fac"
+      ]
+    },
+    "mise-bin": {
+      "url": "https://github.com/jdx/mise/releases/tag/v2026.10.23",
+      "tag": "v2026.10.23",
+      "draft": false,
+      "manifest_hashes_matching_official_asset_digests": [
+        "2fc250d93b50a9bd7c5069f08f794d32c1aa3ba49cc6e0834eb0b2fe0be224c1",
+        "19b43f33d81e3977e5a0ecf027ed01ed5f1f31af182ee9ca9cba492dad4d4b8e"
+      ]
+    },
+    "owe": {
+      "url": "https://github.com/omacom/owe/releases/tag/v0.2.13",
+      "tag": "v0.2.13",
+      "draft": false,
+      "manifest_hashes_matching_official_asset_digests": []
+    },
+    "owe-lockfeed": {
+      "url": "https://github.com/omacom/owe/releases/tag/v0.2.13",
+      "tag": "v0.2.13",
+      "draft": false,
+      "manifest_hashes_matching_official_asset_digests": []
+    },
+    "rawmakase-bin": {
+      "url": "https://github.com/pch/rawmakase/releases/tag/v0.4.9",
+      "tag": "v0.4.9",
+      "draft": false,
+      "manifest_hashes_matching_official_asset_digests": [
+        "6ff7864beffbf8f38347b9f0e83156eac455a4832922511d40007f8a9da6298e"
+      ]
+    },
+    "slap-notes-bin": {
+      "url": "https://github.com/Onefailatatime/slap-notes/releases/tag/0.2.5",
+      "tag": "0.2.5",
+      "draft": false,
+      "manifest_hashes_matching_official_asset_digests": [
+        "ea3bd13d3f675b291cc806909b56ef2f77e8f9750ed805b61654219cf89280cb"
+      ]
+    },
+    "t3code-nightly-bin": {
+      "url": "https://github.com/pingdotgg/t3code/releases/tag/v0.1.6-nightly.20261031.3956",
+      "tag": "v0.1.6-nightly.20261031.3956",
+      "draft": false,
+      "manifest_hashes_matching_official_asset_digests": [
+        "f41514caa2ea44b23096ae41ef381a996009cc363561f3584a1facb0f892c9b7"
+      ]
+    },
+    "lmstudio-bin": {
+      "url": "https://installers.lmstudio.ai/linux/x64/0.4.28-2/LM-Studio-0.4.28-2-x64.AppImage",
+      "http_status": 206,
+      "range_response_bytes": "1"
+    },
+    "microsoft-edge-stable-bin": {
+      "url": "https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_156.0.4314.58-1_amd64.deb",
+      "http_status": 206,
+      "range_response_bytes": "1"
+    },
+    "claude-code": {
+      "url": "https://downloads.claude.ai/claude-code-releases/2.1.316/linux-x64/claude",
+      "http_status": 206,
+      "range_response_bytes": "1"
+    },
+    "openclaw": {
+      "url": "https://registry.npmjs.org/openclaw/2026.10.9",
+      "version": "2026.10.9",
+      "integrity": "sha512-KbIl0/7an0/nKBo92FnJg7LFcEpFVQyOgSRfHNE9yxELg1Ebql7BmBsdLL+1dDOLZnQtuwjt6Hy45CCrmYdJNA=="
+    },
+    "hyprland-preview-share-picker": {
+      "url": "https://github.com/WhySoBad/hyprland-preview-share-picker/commit/07602efe7a65dcef5399e22c162edf9fc331c46d",
+      "commit": "07602efe7a65dcef5399e22c162edf9fc331c46d"
+    }
+  },
+  "superseded_builds": {
+    "claude-code": [
+      {
+        "id": 11234475,
+        "state": "failed",
+        "reason": "Source manifest rejected changed vendor legal-and-compliance.md; binary download checksum passed. Reviewed current official document and refreshed its hash; no checksum checks were disabled. Replacement 11234496 succeeded."
+      }
+    ]
+  },
+  "channel_protection": {
+    "stable": {
+      "unchanged": true,
+      "artifacts": 350
+    },
+    "rc": {
+      "unchanged": true,
+      "artifacts": 319
+    },
+    "direct_github_copr_webhook_active": false,
+    "ci_webhook_capability": "GitHub Actions secret COPR_EDGE_WEBHOOK_URL, validated against the edge project ID. No COPR API token exposed to CI.",
+    "promotions": "RC and stable remain evidence-gated manual promotions; core pair keeps its existing coordinated manual edge procedure."
+  },
+  "exclusions_and_pending_assessments": {
+    "asus-zenbook-a16-firmware": "New aarch64-only ASUS Snapdragon X2 UX3607OA DSP and ath12k board firmware, extracted from a vendor Windows BSP without execution. Outside the Fedora 44 x86_64 target; no RPM/COPR definition added.",
+    "alsa-ucm-conf-aurora": "Reviewed 10.aurora3 source pin and upstream aarch64 hardware changes. This Asahi/Qualcomm ARM audio integration remains outside the x86_64 target.",
+    "linux-aurora": "Reviewed integration/aurora source-pin changes. Fedora/Nobara kernel remains the native provider; ARM integration kernel not ported to x86_64 COPR.",
+    "linux-omarchy": "Reviewed 7.2.14 patch-series refresh and removal of BORE suffix in kernel package name. Fedora/Nobara native kernel retained; Arch kernel recipe remains not applicable.",
+    "linux-omarchy-bore": "Reviewed 7.2.14 scheduler/kernel pin. Fedora/Nobara kernel provider retained rather than an Arch kernel package.",
+    "linux-omarchy-eevdf": "Reviewed 7.2.14 kernel base and associated patch refresh. Fedora/Nobara kernel provider retained; no additional Arch-kernel RPM.",
+    "linux-omarchy-muqss": "Reviewed 7.2.14 kernel base pin. Fedora/Nobara kernel provider retained; no additional Arch-kernel RPM.",
+    "linux-omarchy-aarch64": "Reviewed Zenbook A16 enablement, QCC2072 power/firmware/device-tree patches and ARM kernel config changes. Outside Fedora 44 x86_64 scope.",
+    "omarchy-ane-dkms": "Reviewed 0.5.7 Apple Neural Engine module update. Apple Silicon aarch64/Arch DKMS integration remains outside x86_64 target.",
+    "omarchy-dev": "Upstream development pin advanced to bda3aaf. Fedora core remains built from the separate full Omadora pin and coordinated core recipes, not the Arch development PKGBUILD.",
+    "omarchy-settings-dev": "Development pin advanced to bda3aaf; Fedora uses its own core settings integration and Omadora pin. No duplicate Arch development-settings RPM added.",
+    "qcom-firmware-extract": "Reviewed Windows-ranked node-specific driver firmware selection and regression tests. Qualcomm aarch64 hardware integration is outside x86_64 scope.",
+    "surface-snapdragon-addresses": "Reviewed renamed Wi-Fi interface handling, rules rename and tests. Surface Snapdragon aarch64-only integration remains outside x86_64 scope.",
+    "sunshine": "New upstream x86_64 default requires CUDA instead of autodetection. Existing Fedora 2026.914.233613-2 remains published with CUDA disabled. Porting/enabling the Fedora CUDA build toolchain and qualifying encoder/runtime behavior is unfinished; marked pending and excluded from submissions rather than claiming equivalence.",
+    "dingtalk-bin": "Reassessed existing unresolved disposition at this pinned snapshot; no new validated resolution or redistribution authorization established in this pass. Redistribution hold: vendor service agreement section 14 requires written authorization for copying and republication; no COPR payload published. No candidate submitted.",
+    "feishu-bin": "Reassessed existing unresolved disposition at this pinned snapshot; no new validated resolution or redistribution authorization established in this pass. Vendor terms restrict redistribution without written permission; not eligible for COPR publication on current evidence. No candidate submitted.",
+    "geekbench6": "Reassessed existing unresolved disposition at this pinned snapshot; no new validated resolution or redistribution authorization established in this pass. Upstream 6.7.1 proprietary binary archive contains no license notice granting redistribution; COPR publication needs vendor redistribution permission. No candidate submitted.",
+    "hyprland": "Reassessed existing unresolved disposition at this pinned snapshot; no new validated resolution or redistribution authorization established in this pass. Fedora Hyprland COPR supplies 0.57.0-1, but provider spec lacks upstream NVIDIA teardown, wl_output grace and monitor VRR patches; coordinated Fedora stack patching and compositor runtime tests required. No candidate submitted.",
+    "linuxqq": "Reassessed existing unresolved disposition at this pinned snapshot; no new validated resolution or redistribution authorization established in this pass. Redistribution hold: QQ license sections 2.4.1-2.4.3 grant personal use and one backup; other rights require written permission. No candidate submitted.",
+    "nvidia-sync": "Reassessed existing unresolved disposition at this pinned snapshot; no new validated resolution or redistribution authorization established in this pass. New upstream recipe 0.117.3_12; NVIDIA redistribution terms need review before COPR publication. No candidate submitted.",
+    "omarchy-amiga-screensaver": "Reassessed existing unresolved disposition at this pinned snapshot; no new validated resolution or redistribution authorization established in this pass. Upstream 2026.10.27 bundles custom-licensed Amiga demos; clear redistribution grant required before COPR publication. No candidate submitted.",
+    "superwhisper-bin": "Reassessed existing unresolved disposition at this pinned snapshot; no new validated resolution or redistribution authorization established in this pass. Proprietary signed vendor bundle; COPR distribution eligibility unresolved; upstream 1.1.2 reviewed. No candidate submitted.",
+    "wechat-bin": "Reassessed existing unresolved disposition at this pinned snapshot; no new validated resolution or redistribution authorization established in this pass. Redistribution hold: WeChat Software terms prohibit distribution and redistribution without prior written consent. No candidate submitted.",
+    "wps-office-cn": "Reassessed existing unresolved disposition at this pinned snapshot; no new validated resolution or redistribution authorization established in this pass. Redistribution hold: upstream addition 03305349 is explicitly labelled draft because the licence forbids redistribution. No candidate submitted."
+  },
+  "reconciliation": {
+    "ordinary_exit_code": 1,
+    "complete_exit_code": 1,
+    "initial_adoption_reviews_outstanding": 153,
+    "issues": [
+      {
+        "package": "1password",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "1password-beta",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "1password-cli",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "aether",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "aquamarine",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "asdcontrol",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "asus-proart-p14-speaker-firmware",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "aura",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "aurora-audio",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "aurora-bless",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "avd-fw",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "bambustudio-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "box64",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "brcmfmac-awdl-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "buzz",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "cliamp",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "cua-driver-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "cua-hyprland-plugin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "cuda",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "cursor-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "cursor-cli",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "dbxcli-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "dell-xps-touchpad-haptics",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "dell-xps13-sidecar-amps",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "disktree-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "dotnet-core-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "dropbox",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "dropbox-cli",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "flea",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "ghostty",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "github-copilot-cli",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "gliff",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "grok-bot",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "gtk2",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "herdr",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "hermes-desktop",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "heroic-games-launcher-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "hype",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "intel-ipu7-camera",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "iptsd",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "kujo",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "learn-omarchy",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "lib32-nvidia-580xx-utils",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libfprint-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libretro-cap32-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libretro-database-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libretro-fbneo-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libretro-ppsspp",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libretro-uae-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libretro-vice-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "libva-v4l2_request-avd",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "limine-mkinitcpio-hook",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "link-studio",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "linux-aarch64-pkgbase-shim",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "linux-n1x",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "localsend",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "m1n1-aurora",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "macbook12-spi-driver-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "macbook8-spi-pxa2xx-nodma-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "maplemono-nf-cn",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "mil-hwx-compiler",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "minecraft-launcher",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "monologue",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "nautilus-dropbox",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "nordvpn-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "nvidia-580xx-utils",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "nvidia-ai-workbench",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "nvidia-open-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "nvidia-utils",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "obs-studio",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "obsidian",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "ollama",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omacalc",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omacut",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omadesign-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omairc",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omakade",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omapresent",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-audio-tuner",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-aurora-firmware",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-billboard-generator",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-chromium-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-emacs",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-fish",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-keyring",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-mac",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-mac-boot",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-mac-ml",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-meeting-recorder-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-mlx",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-nvim",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-screensaver",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-steam-fex",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-task-manager",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-themes-intros",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omarchy-zsh",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omareel",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omaroll",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omasnap-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omaspeak-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omatrack",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omawake-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omawrite",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "omazed",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "once-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "openvino-genai",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "perftest",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "perplexity",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "pinta",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "python-mediapipe",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "python-sounddevice",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "python-terminaltexteffects",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "qemu-user-static",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "qmk-hid",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "quickshell",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "quickshell-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "retroarch-joypad-autoconfig-git",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "rustdesk",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "schist-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "signed",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "slack-desktop",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "spark-hwmon-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "speakerguardd",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "spotify",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "steam",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "strata",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "sublime-text-4",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "supergfxctl",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "surface-pro-11-sensors",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "surface-pro-11-support",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "symfony-cli",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "tensaku",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "thinkpad-t14-amd-touchpad-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "tobi-try",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "ttf-ia-writer",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "ttf-jetbrains-mono-nerd-basic",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "ttfx",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "tuxedo-drivers-nocompatcheck-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "typora",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "tzupdate",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "uboot-asahi",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "uboot-aurora",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "v4l2-relayd",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "vi",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "visual-studio-code-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "voxtype-bin",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "walker",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "xpadneo-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "yaru-icon-theme",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "yay",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "yt6801-dkms",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      },
+      {
+        "package": "zed",
+        "reason": "review required (upstream files, local recipe, or catalog changed)"
+      }
+    ],
+    "unresolved": [
+      {
+        "package": "basecamp-cli",
+        "status": "ready",
+        "note": "Candidate 0.22.0-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234474; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "brave-bin",
+        "status": "ready",
+        "note": "Candidate 1.98.63-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234483; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "brave-origin-bin",
+        "status": "ready",
+        "note": "Candidate 1.98.63-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234478; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "claude-code",
+        "status": "ready",
+        "note": "Candidate 2.1.316-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234496; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "collie-bin",
+        "status": "ready",
+        "note": "Candidate 1.25.2-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234479; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "dingtalk-bin",
+        "status": "pending",
+        "note": "Redistribution hold: vendor service agreement section 14 requires written authorization for copying and republication; no COPR payload published"
+      },
+      {
+        "package": "feishu-bin",
+        "status": "pending",
+        "note": "Vendor terms restrict redistribution without written permission; not eligible for COPR publication on current evidence"
+      },
+      {
+        "package": "geekbench6",
+        "status": "pending",
+        "note": "Upstream 6.7.1 proprietary binary archive contains no license notice granting redistribution; COPR publication needs vendor redistribution permission"
+      },
+      {
+        "package": "helium-browser-bin",
+        "status": "ready",
+        "note": "Candidate 0.20.3.1-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234484; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "hyprland",
+        "status": "pending",
+        "note": "Fedora Hyprland COPR supplies 0.57.0-1, but provider spec lacks upstream NVIDIA teardown, wl_output grace and monitor VRR patches; coordinated Fedora stack patching and compositor runtime tests required"
+      },
+      {
+        "package": "hyprland-preview-share-picker",
+        "status": "ready",
+        "note": "Candidate 0.3.0.r3.g07602ef-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234476; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "linuxqq",
+        "status": "pending",
+        "note": "Redistribution hold: QQ license sections 2.4.1-2.4.3 grant personal use and one backup; other rights require written permission"
+      },
+      {
+        "package": "lmstudio-bin",
+        "status": "ready",
+        "note": "Candidate 0.4.28-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234488; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "microsoft-edge-stable-bin",
+        "status": "ready",
+        "note": "Candidate 156.0.4314.58-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234473; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "mise-bin",
+        "status": "ready",
+        "note": "Candidate 2026.10.23-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234487; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "nvidia-sync",
+        "status": "pending",
+        "note": "New upstream recipe 0.117.3_12; NVIDIA redistribution terms need review before COPR publication"
+      },
+      {
+        "package": "omarchy-amiga-screensaver",
+        "status": "pending",
+        "note": "Upstream 2026.10.27 bundles custom-licensed Amiga demos; clear redistribution grant required before COPR publication"
+      },
+      {
+        "package": "openclaw",
+        "status": "ready",
+        "note": "Candidate 2026.10.9-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234485; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "owe",
+        "status": "ready",
+        "note": "Candidate 0.2.13-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234482; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "owe-lockfeed",
+        "status": "ready",
+        "note": "Candidate 0.2.13-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234480; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "rawmakase-bin",
+        "status": "ready",
+        "note": "Candidate 0.4.9-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234481; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "slap-notes-bin",
+        "status": "ready",
+        "note": "Candidate 0.2.5-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234486; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "sunshine",
+        "status": "pending",
+        "note": "Existing 2026.914.233613-2.fc44 remains published; new upstream x86_64 CUDA-on build behavior is not ported: Fedora CUDA-toolchain and encoder/runtime qualification required; current recipe remains CUDA-off"
+      },
+      {
+        "package": "superwhisper-bin",
+        "status": "pending",
+        "note": "Proprietary signed vendor bundle; COPR distribution eligibility unresolved; upstream 1.1.2 reviewed"
+      },
+      {
+        "package": "t3code-nightly-bin",
+        "status": "ready",
+        "note": "Candidate 0.1.6_nightly.20261031.3956-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234477; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence"
+      },
+      {
+        "package": "wechat-bin",
+        "status": "pending",
+        "note": "Redistribution hold: WeChat Software terms prohibit distribution and redistribution without prior written consent"
+      },
+      {
+        "package": "wps-office-cn",
+        "status": "pending",
+        "note": "Redistribution hold: upstream addition 03305349 is explicitly labelled draft because the licence forbids redistribution"
+      }
+    ],
+    "fully_audited_readme_snapshot_advanced": false
+  }
+}

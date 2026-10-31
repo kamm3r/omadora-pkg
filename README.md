@@ -10,9 +10,9 @@ The Elephant package family and `omarchy-walker` were [retired upstream](https:/
 
 The upstream [seven-package retirement](https://github.com/omacom/omarchy-pkgs/commit/8125c215) also retires `hyprshade`, `localsend-bin`, `makima-bin`, `nautilus-open-any-terminal` (including its Caja subpackage), `openai-codex-bin`, and `wayfreeze` here. `localsend` remains available, and Omadora can also obtain `localsend-bin` from Terra. `bun-bin` remains maintained here because Ghost requires a system Bun executable at runtime and during builds; Fedora 44 has no matching provider, and Terra's `bun-bin` currently lacks the `bun` RPM capability that Ghost requires. Upstream’s user-managed mise installation does not satisfy that RPM dependency.
 
-The latest version updates and added recipes follow upstream commit `941cc6bf115242d7564c6c7b602fd0c634030df9`. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
+The fully audited catalog baseline remains upstream commit `941cc6bf115242d7564c6c7b602fd0c634030df9`; later partial updates are recorded below. The catalogue also records additions after the original snapshot, including the matching OpenVINO runtime required by OpenVINO GenAI.
 
-The latest snapshot contains 214 upstream recipes. The catalog records ARM-only additions outside the current x86_64 target and keeps DingTalk, Feishu, QQ, WeChat, and WPS Office CN pending because their vendor terms do not grant the redistribution needed for COPR.
+That fully audited snapshot contains 214 upstream recipes. The catalog records ARM-only additions outside the current x86_64 target and keeps DingTalk, Feishu, QQ, WeChat, and WPS Office CN pending because their vendor terms do not grant the redistribution needed for COPR.
 
 The October 29 publication check confirms all 33 builds in [the publication record](.copr/publications/2026-10-29.json) succeeded and their exact versions are present in Fedora 44 x86_64 repository metadata. This includes Basecamp CLI, Helium, OmaCharts, Omasnap, T3 Code nightly, tmog, Wayshare, and Splinterm, which were previously awaiting publication verification.
 
@@ -31,6 +31,8 @@ Helium browser is packaged for x86_64. Aurora Apple Silicon additions are record
 The October 30 update targets upstream `b766e177b0ab827f2154e4b76cf8c7c158d3b86b` (220 recipes, 32 changed recipe directories). It ports the current maintained releases and adds native Gridcraft, Wordcraft, OmaKeyboard, Hyprland titlebars, Speedtest and the UFW Docker helper. Speedtest uses a verified private Go 1.27.3 build toolchain; it does not replace system Go. The Cirrus firmware assessment is resolved by Fedora's existing firmware aliases. Titlebars is pinned to the exact Fedora Hyprland build; loading it remains explicit.
 
 The update remains partial: the Fedora Hyprland provider lacks Omarchy's extra compositor patches, proprietary redistribution holds remain, and the initial reconciliation audit is unfinished. See [the October 30 report](docs/reconciliation-2026-10-30.md) and [publication record](.copr/publications/2026-10-30.json) for exact build and publication results. The fully audited snapshot has not advanced.
+
+The October 31 edge update targets `acb60f95615b3528774f9a43937e9bd88e9af558` (221 upstream recipes, 30 changed directories). All 16 maintained version candidates passed CI-gated remote source/binary builds and full RPM download verification. The CUDA-on Sunshine port, redistribution holds and initial-adoption audit remain pending; stable and RC are unchanged. See [the reconciliation report](docs/reconciliation-2026-10-31.md) and [edge publication record](.copr/publications/2026-10-31-edge.json). No local package builds were performed.
 
 ## Updating from upstream
 
