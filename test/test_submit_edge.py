@@ -32,6 +32,31 @@ class SubmissionTests(unittest.TestCase):
         self.assertEqual(submit.automatic_inputs(['omarchy','omarchy-settings','allowed','blocked','new'],
                          {'allowed':'ready','blocked':'pending','new':'not-applicable'}),['allowed'])
 
+    def test_receipt_uses_creation_time_instead_of_artifact_id_or_api_order(self):
+        import io
+        import json
+        import zipfile
+        from types import SimpleNamespace
+        from unittest.mock import patch
+        artifacts = [
+            {'id':900,'created_at':'2026-10-31T07:12:00Z','expired':False,'workflow_run':{'id':1},'archive_download_url':'https://example.test/old'},
+            {'id':100,'created_at':'2026-10-31T07:19:00Z','expired':False,'workflow_run':{'id':2},'archive_download_url':'https://example.test/new'}]
+        def metadata(url, token):
+            if '/actions/artifacts?' in url:return {'artifacts':artifacts}
+            identifier=int(url.rsplit('/',1)[1])
+            return {'event':'push','head_branch':'main','workflow_id':77,'head_sha':str(identifier)*40}
+        def download(request, timeout):
+            identifier=2 if request.full_url.endswith('/new') else 1
+            data=io.BytesIO()
+            with zipfile.ZipFile(data,'w') as archive:
+                archive.writestr('edge-submission.json',json.dumps({'state':'submitted','head':str(identifier)*40,'fingerprints':{'example':str(identifier)}}))
+            return io.BytesIO(data.getvalue())
+        with patch.object(submit,'json_get',side_effect=metadata), \
+             patch.object(submit.urllib.request,'build_opener',return_value=SimpleNamespace(open=download)), \
+             patch.object(submit.subprocess,'run',return_value=SimpleNamespace(returncode=0)):
+            receipt=submit.prior_receipt('owner/repo',77,'3'*40,'test-token')
+            self.assertEqual(receipt['fingerprints']['example'],'2')
+
     def test_committed_inputs_have_stable_fingerprints(self):
         head=submit.git('rev-parse','HEAD')
         inputs=submit.fingerprints(head)

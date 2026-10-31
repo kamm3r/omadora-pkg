@@ -8,7 +8,7 @@ Recipe versions, source selections, archive roots and checksum manifests were up
 
 GitHub CI now tests a main commit before submitting its changed recipe inputs to **kammer/omadora-edge** at that exact commit. The direct GitHub-to-COPR push webhook is disabled. CI uses an edge-only capability and records submitted build IDs/input fingerprints as an Actions artifact. Core builds retain their separate coordinated manual edge procedure. CI submission success is distinct from a successful COPR build and verified repository publication.
 
-[Candidate CI run](https://github.com/kamm3r/omadora-pkg/actions/runs/41179485376) passed and submitted 16 builds. [Checksum-fix CI run](https://github.com/kamm3r/omadora-pkg/actions/runs/41180003351) passed and correctly submitted only Claude Code; the other 15 were not rebuilt. The current suite has 20 promotion/submission unit tests, the reconciliation regression test, AppImage layout checks and pinned core RPM packaging tests.
+[Candidate CI run](https://github.com/kamm3r/omadora-pkg/actions/runs/41179485376) passed and submitted 16 builds. [Checksum-fix CI run](https://github.com/kamm3r/omadora-pkg/actions/runs/41180003351) passed and correctly submitted only Claude Code; the other 15 were not rebuilt. The current suite has 21 promotion/submission unit tests, the reconciliation regression test, AppImage layout checks and pinned core RPM packaging tests.
 
 **No package builds ran locally.** Source checksums and source RPMs were validated remotely by `.copr/Makefile` on COPR. All 16 clean binary builds succeeded. Their exact versions, repository sizes, download Content-Length and full streamed SHA256 hashes were verified. The [publication record](../.copr/publications/2026-10-31-edge.json) contains every build ID, source-RPM URL and binary digest.
 
@@ -46,3 +46,5 @@ The nine proprietary redistribution holds remain: DingTalk, Feishu, Geekbench, Q
 ## Final accounting
 
 Ordinary and `--complete` reconciliation checks both exit 1: **153 initial-adoption reviews** remain outstanding, all reported as review-required rather than structural inconsistencies. There are **11 pending blockers** and **16 ready edge candidates** (27 unresolved entries). All current changed recipes have an individual review. The machine-readable record lists every remaining issue and concrete pending reason.
+
+The evidence-only final CI check exposed nonchronological GitHub artifact listing order. The version guard stopped a duplicate Claude submission before a webhook call. Receipt selection now sorts by creation time, with a regression test covering out-of-order artifact IDs; the final CI run validates a zero-build evidence push.

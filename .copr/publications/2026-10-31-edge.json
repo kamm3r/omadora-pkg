@@ -11,7 +11,7 @@
     "initial_candidate_submission": 41179485376,
     "claude_checksum_retry": 41180003351
   },
-  "ci_results": "Both complete CI workflows succeeded; candidate run submitted exactly 16 recipes, checksum-fix run submitted only Claude Code. Current suite has 20 unit tests plus reconciliation, AppImage and core RPM packaging checks.",
+  "ci_results": "Both complete CI workflows succeeded; candidate run submitted exactly 16 recipes, checksum-fix run submitted only Claude Code. Current suite has 21 unit tests plus reconciliation, AppImage and core RPM packaging checks.",
   "builds": {
     "basecamp-cli": 11234474,
     "brave-bin": 11234483,
@@ -1127,5 +1127,6 @@
       }
     ],
     "fully_audited_readme_snapshot_advanced": false
-  }
+  },
+  "ci_submission_hardening": "Evidence-only run 41181043572 failed safely before submission because artifact listing order selected an older cursor. Sort receipts by created_at with a regression test; no duplicate build was queued."
 }

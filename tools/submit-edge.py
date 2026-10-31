@@ -77,7 +77,8 @@ def validate_endpoint(url, project_id):
 def prior_receipt(repository, workflow, head, token):
     base = f'https://api.github.com/repos/{repository}'
     artifacts = json_get(base + '/actions/artifacts?name=copr-edge-submission&per_page=100', token)['artifacts']
-    for artifact in artifacts:
+    # Artifact IDs/list order are not a reliable submission chronology.
+    for artifact in sorted(artifacts, key=lambda item: item['created_at'], reverse=True):
         if artifact['expired']:
             continue
         run = json_get(base + '/actions/runs/' + str(artifact['workflow_run']['id']), token)
