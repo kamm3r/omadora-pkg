@@ -165,7 +165,7 @@ def main():
             raise ValueError('COPR webhook submission failed; inspect edge before retrying') from None
         for item in selected:
             for attempt in range(5):
-                package = json_get(f'{API}/package?ownername={OWNER}&projectname={PROJECT}&package_name={item["name"]}&with_latest_build=true')
+                package = json_get(f'{API}/package?ownername={OWNER}&projectname={PROJECT}&packagename={item["name"]}&with_latest_build=true')
                 build = package['builds']['latest']
                 if build and build['id'] != item['previous_build_id']:
                     receipt['builds'][item['name']] = {'id':build['id'],'version_release':item['version_release'],'state':'submitted','url':f'https://copr.fedorainfracloud.org/coprs/build/{build["id"]}/'}
