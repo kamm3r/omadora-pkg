@@ -20,7 +20,7 @@ Use `tools/reconcile.py` to account for the complete upstream tree. It reads Git
 
    A review records a manual decision, not a successful build. Keep `pending` and `ready` truthful; acknowledging a blocker does not make a package published.
 
-5. Follow the README's webhook pause and [release-channel promotion procedure](release-channels.md). SCM definitions for this repository must explicitly pin `committish=main`; empty branch fields also react to staging pushes. New builds belong in edge; rc and stable have automatic rebuilds disabled and receive only forward promotions of tested frozen snapshots through `tools/channels.py`. Verify COPR results and repository metadata for every submitted build, update the publication record and catalog, then record reviews again for changed catalog rows. Distinguish submitted, failed, published, and intentionally excluded packages. Removing a recipe from the repository or COPR does not uninstall it from existing systems.
+5. Follow the README's CI submission/freeze and [release-channel promotion procedure](release-channels.md). SCM definitions for this repository must explicitly pin `committish=main`; empty branch fields also react to staging pushes. New builds belong in edge; rc and stable have automatic rebuilds disabled and receive only forward promotions of tested frozen snapshots through `tools/channels.py`. Verify COPR results and repository metadata for every submitted build, update the publication record and catalog, then record reviews again for changed catalog rows. Distinguish submitted, failed, published, and intentionally excluded packages. Removing a recipe from the repository or COPR does not uninstall it from existing systems.
 
 6. Run both final checks against the pinned target:
 

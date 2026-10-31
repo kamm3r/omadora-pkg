@@ -11,7 +11,7 @@ permissions:
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 jobs:
   fedora:
@@ -34,7 +34,7 @@ jobs:
           persist-credentials: false
 
       - name: Test release promotion gates
-        run: python3 -m unittest discover -s test -p test_channels.py -v
+        run: python3 -m unittest discover -s test -p 'test_*.py' -v
 
       - name: Test upstream reconciliation behavior
         run: python3 test/reconcile-test.py
@@ -63,3 +63,38 @@ jobs:
           command -v rpm2cpio
           git -C "$OMADORA_SOURCE" cat-file -e "$(cat omadora-revision)^{commit}"
           bash test/core-packaging-test.sh
+
+  submit-edge:
+    name: Submit tested recipes to COPR edge
+    needs: fedora
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    container: fedora:44
+    permissions:
+      contents: read
+      actions: read
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Install submission tools
+        run: dnf -y install git python3 python3-rpm rpm-build
+      - name: Check out the tested commit and release history
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Submit changed recipe inputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COPR_EDGE_WEBHOOK_URL: ${{ secrets.COPR_EDGE_WEBHOOK_URL }}
+        run: python3 tools/submit-edge.py
+      - name: Record submitted build IDs and input fingerprints
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: copr-edge-submission
+          path: edge-submission.json
+          if-no-files-found: ignore
+          retention-days: 90

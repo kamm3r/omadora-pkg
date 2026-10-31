@@ -2,7 +2,11 @@
 
 Omadora uses `edge -> rc -> stable` for Fedora 44 x86_64. Stable remains `kammer/omadora`, so existing installations keep their repository URL. The other projects are `kammer/omadora-edge` and `kammer/omadora-rc`. Enable exactly one Omadora channel on a machine. Channel switching does not automatically downgrade installed RPMs.
 
-New builds run in edge. RC and stable have package automatic rebuilds disabled and receive copies of tested builds. The existing GitHub integration targets edge, with package sources explicitly pinned to `main` (external recipes retain their reviewed source configuration). Each automatic edge recipe sets its COPR subdirectory to its own `packages/<name>` directory, so documentation and other recipes do not rebuild it. The root `.copr/Makefile` supports COPR invoking it from those directories. Shared build-helper changes need an explicit review and targeted rebuilds with increased releases where appropriate. The separate `omadora-hyprland-testing` sandbox is not automatically promoted; its remaining hardware qualification still applies. Limine and gaming remain separate repositories.
+New builds run in edge. GitHub CI tests main pushes first, then `tools/submit-edge.py` submits changed committed recipe inputs to COPR using an edge-only webhook capability stored in GitHub Actions. The old direct GitHub-to-COPR webhook is disabled, so failed CI cannot trigger a package build. Pull requests and other branches never receive the submission secret or publish packages.
+
+Submission is pinned to the exact tested Git commit. Its receipt records build IDs and input fingerprints in a GitHub Actions artifact. Later runs compare against that receipt (or `.copr/edge-ci-baseline` for the first run), so skipped intermediate pushes do not lose recipe changes and documentation-only pushes do not rebuild unchanged packages. If artifacts expire, the conservative baseline comparison can reject already-published same-version inputs; review and reseed the baseline rather than forcing a rebuild. Changed inputs must have a higher RPM epoch/version/release than edge. A successful submission job means COPR accepted the builds; COPR results and repository metadata must still be verified before promotion.
+
+RC and stable have automatic rebuilds disabled and receive tested build copies. The separate Hyprland sandbox remains outside this pipeline pending hardware qualification. Limine and gaming remain separate repositories. Core builds retain the coordinated manual edge procedure below.
 
 ## Promotion unit and identity
 
@@ -30,7 +34,7 @@ The `omarchy` and `omarchy-settings` definitions are manual in edge: their share
 
 Install `python3-copr` and `python3-rpm` and configure COPR credentials normally. Use the system Python so the RPM bindings are available. Keep plans, evidence and receipts under `.copr/promotions/` with unique names and commit them after verification. No credentials belong in those files.
 
-Pause automatic builds before the first maintenance push. Keep them paused until the final push webhook is delivered, then restore exactly the edge enabled set from the freeze receipt. RC and stable stay disabled.
+Freeze edge while preparing a release or maintaining build definitions. CI refuses to submit changed inputs while their definitions are frozen. Thaw the exact saved enabled set when ready for CI submissions; rerun a main CI job if it already reached the frozen submission gate. The direct push webhook stays disabled permanently. RC and stable stay disabled.
 
 ```bash
 python3 tools/channels.py freeze edge --out .copr/promotions/release-freeze.json
@@ -62,7 +66,7 @@ python3 tools/channels.py verify --receipt .copr/promotions/release-edge-rc-subm
 
 After real desktop testing, create a **new** rc-to-stable plan and evidence containing both `automated-tests` and `desktop-tests`. Use the same apply/verify commands. Reuse neither the edge plan nor its hash. Keep edge frozen through verification, or complete edge-to-rc verification before thawing edge for another development cycle. RC remains frozen while it is tested and promoted.
 
-Commit the evidence and verified receipts, verify the final GitHub delivery, then resume edge:
+Commit the evidence and verified receipts, then resume edge. CI recognizes unchanged recipe fingerprints and submits no package builds for evidence-only commits:
 
 ```bash
 python3 tools/channels.py thaw --receipt .copr/promotions/release-freeze.json

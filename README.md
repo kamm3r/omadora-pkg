@@ -72,11 +72,11 @@ OmaCharts ships its charting app, CLI, completions, and optional agent skill. Ra
 
 Signed provides PDF signing and text placement. OmaDesign ships the native design studio with its private libraries and offline documentation. Collie provides phone access to terminal agents through Tailscale; users start its service and configure phone access with the Collie CLI. OmaIRC provides a Qt Quick IRC client and local CLI. `omarchy-themes-intros` adds optional theme intro videos. `thinkpad-t14-amd-touchpad-dkms` enables RMI4/SMBus touchpads on affected AMD ThinkPad T14/P14s laptops; its build checks all three modules against Fedora kernel headers.
 
-After an Omadora source change is ready, update `omadora-revision` to the published commit and push this repository. The GitHub webhook queues changed recipe directories in the edge channel only. The core pair is built explicitly when `omadora-revision` changes. RC and stable receive tested build copies through `tools/channels.py`; their automatic rebuilds remain disabled. Channel package definitions use `--max-builds 0` to retain build records; whole-project copies can otherwise prune artifacts referenced by repeated same-version promotions. For a manual core retry, build `omarchy-settings` before `omarchy`.
+After an Omadora source change is ready, update `omadora-revision` to the published commit and push this repository. After GitHub CI passes, its submission job queues changed recipe inputs in edge at the tested commit. The direct COPR push webhook is disabled. The core pair is built explicitly when `omadora-revision` changes. RC and stable receive tested build copies through `tools/channels.py`; their automatic rebuilds remain disabled. Channel package definitions use `--max-builds 0` to retain build records; whole-project copies can otherwise prune artifacts referenced by repeated same-version promotions. For a manual core retry, build `omarchy-settings` before `omarchy`.
 
 ## CI
 
-[GitHub Actions CI](.github/workflows/ci.yml) runs the release-promotion gates, reconciliation regression test, AppImage layout checks and core RPM packaging tests in Fedora 44. Core builds use a clean checkout of the full commit in `omadora-revision`, including the history needed for per-commit release numbers. It runs on main pushes and pull requests, with a manual dispatch available. Package promotion still requires the build-specific evidence described in the release-channel workflow.
+[GitHub Actions CI](.github/workflows/ci.yml) runs the release-promotion gates, reconciliation regression test, AppImage layout checks and core RPM packaging tests in Fedora 44. Core builds use a clean checkout of the full commit in `omadora-revision`, including the history needed for per-commit release numbers. It runs on main pushes and pull requests, with a manual dispatch available. Successful main pushes additionally submit changed recipes to COPR edge and record build IDs; this does not automatically promote packages to RC or stable. Package promotion still requires the build-specific evidence described in the release-channel workflow.
 
 ## Install
 
@@ -89,7 +89,7 @@ The RPMs are built for Fedora 44 x86_64. Omadora's setup also uses Terra, RPM Fu
 
 Historical COPR retention exceptions are recorded in [`.copr/retention-overrides.json`](.copr/retention-overrides.json). Channel promotion supersedes those per-package limits with `max_builds=0` for all three channels. Do not prune shared same-version build records without a separate artifact-reference review.
 
-Pause edge automatic rebuilds before the first maintenance push, keep them paused through validation and publication-record commits, and restore them after the final push webhook is delivered. RC and stable remain disabled. Use the freeze receipt and commands in [the release-channel workflow](docs/release-channels.md). Concurrent pushes can otherwise queue unchanged recipes.
+Freeze edge while preparing a release or maintaining definitions, then restore the saved set when CI submissions may resume. CI refuses changed-recipe submissions while frozen; the direct push webhook remains disabled. RC and stable remain disabled. Use the freeze receipt and commands in [the release-channel workflow](docs/release-channels.md). Concurrent pushes can otherwise queue unchanged recipes.
 
 ## Limine packaging
 
