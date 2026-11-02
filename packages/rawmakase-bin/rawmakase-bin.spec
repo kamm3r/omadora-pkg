@@ -3,7 +3,7 @@
 %global __requires_exclude ^lib(raw_r|lcms2|jpeg|onnxruntime)\.so
 
 Name:           rawmakase-bin
-Version:        0.4.9
+Version:        0.4.10
 Release:        1%{?dist}
 Summary:        RAW photo editor compatible with Lightroom workflows
 License:        MIT AND LGPL-2.1-or-later AND CDDL-1.0 AND OFL-1.1 AND Ubuntu-font-1.0 AND ISC AND BSD-3-Clause AND IJG
@@ -58,6 +58,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/rawmakase.desktop
 %{_datadir}/icons/hicolor/scalable/apps/rawmakase.svg
 
 %changelog
+* Mon Nov 02 2026 kamm3r - 0.4.10-1
+- Update to pinned upstream 99aa5aa6.
+
 * Sat Oct 31 2026 kamm3r - 0.4.9-1
 - Update to pinned upstream acb60f95; CI submits the tested source to edge.
 

@@ -1,16 +1,17 @@
 %global upstream_name power-profiles-daemon
-%global patches_ref 37c404a57f271a87163b9e628826b908100da965
+%global patches_ref 99aa5aa6585ed6f17dde56218d83a0a56256b112
 Name:           omarchy-power-profiles-daemon
 Version:        0.30
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Omarchy power profiles with ARM CPPC and boost support
 License:        GPL-3.0-or-later
 URL:            https://gitlab.freedesktop.org/upower/power-profiles-daemon
 Source0:        %{url}/-/archive/%{version}/%{upstream_name}-%{version}.tar.gz
 Patch0:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{patches_ref}/pkgbuilds/%{name}/nvidia-rtx-spark-power-profiles.patch
-Patch1:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{patches_ref}/pkgbuilds/%{name}/balanced-performance-spelling.patch
-Patch2:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{patches_ref}/pkgbuilds/%{name}/cpufreq-boost-driver.patch
-Patch3:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{patches_ref}/pkgbuilds/%{name}/cpufreq-caps.patch
+Patch1:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{patches_ref}/pkgbuilds/%{name}/nvidia-gb10.patch
+Patch2:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{patches_ref}/pkgbuilds/%{name}/balanced-performance-spelling.patch
+Patch3:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{patches_ref}/pkgbuilds/%{name}/cpufreq-boost-driver.patch
+Patch4:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{patches_ref}/pkgbuilds/%{name}/cpufreq-caps.patch
 BuildRequires:  gcc meson systemd-rpm-macros
 BuildRequires:  argparse-manpage python3dist(shtab)
 BuildRequires:  pkgconfig(bash-completion) pkgconfig(gio-2.0) pkgconfig(gudev-1.0)

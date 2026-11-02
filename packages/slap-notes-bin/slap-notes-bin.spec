@@ -6,7 +6,7 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node)
 
 Name:           slap-notes-bin
-Version:        0.2.5
+Version:        0.2.6
 Release:        1%{?dist}
 Summary:        Local-first block notes with wiki-link graph and AI research agent
 License:        LicenseRef-proprietary
@@ -115,6 +115,9 @@ install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 %{_datadir}/icons/hicolor/*/apps/slap-notes.png
 
 %changelog
+* Mon Nov 02 2026 kamm3r - 0.2.6-1
+- Update to pinned upstream 99aa5aa6.
+
 * Sat Oct 31 2026 kamm3r - 0.2.5-1
 - Update to pinned upstream acb60f95; CI submits the tested source to edge.
 

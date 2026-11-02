@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           rustdesk
-Version:        1.5.0
+Version:        1.5.1
 Release:        1%{?dist}
 Summary:        Remote desktop software written in Rust
 License:        AGPL-3.0-only
@@ -10,7 +10,7 @@ Source0:        https://github.com/rustdesk/rustdesk/archive/refs/tags/%{version
 Source1:        %{name}-vendor-%{version}.tar.gz
 # The release tarball leaves the hbb_common submodule empty; pin the commit
 # the upstream recipe uses. vendor-prep unpacks it before cargo vendor too.
-%global hbb_commit 229b904508364c8997aad0fb5af57effac859f60
+%global hbb_commit fae47e024dd83cef6aaecde0aa7d11731df11649
 Source2:        https://github.com/rustdesk/hbb_common/archive/%{hbb_commit}.tar.gz#/hbb_common-%{hbb_commit}.tar.gz
 BuildRequires:  cargo
 BuildRequires:  rust
@@ -117,6 +117,9 @@ EOF
 %{_datadir}/icons/hicolor/256x256/apps/rustdesk.png
 
 %changelog
+* Mon Nov 02 2026 kamm3r - 1.5.1-1
+- Update to pinned upstream 99aa5aa6.
+
 * Tue Oct 06 2026 kamm3r - 1.5.0-1
 - Update to the release pinned on upstream master and its hbb_common revision.
 - Use current Clang with upstream bindgen and drop the retired PAM dependency.

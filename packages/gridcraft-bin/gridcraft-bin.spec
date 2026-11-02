@@ -3,7 +3,7 @@
 %global appname gridcraft
 
 Name:           gridcraft-bin
-Version:        0.13.0
+Version:        0.14.2
 Release:        1%{?dist}
 Summary:        Spreadsheet application and CLI for Excel workbooks
 License:        (Apache-2.0 OR MIT) AND OFL-1.1
@@ -54,5 +54,8 @@ test -x %{buildroot}%{_bindir}/%{appname}-cli
 %{_datadir}/doc/%{appname}
 
 %changelog
+* Mon Nov 02 2026 kamm3r - 0.14.2-1
+- Update to pinned upstream 99aa5aa6.
+
 * Fri Oct 30 2026 kamm3r - 0.13.0-1
 - Port upstream b766e177 native release to Fedora.

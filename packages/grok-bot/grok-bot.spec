@@ -7,14 +7,14 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node)
 
 Name:           grok-bot
-Version:        0.78.1
+Version:        0.78.3
 Release:        1%{?dist}
 Summary:        Grok Bot desktop agent
 License:        LicenseRef-proprietary
 URL:            https://x.ai/bot
 %global omarchy_pkgs_commit aa38eb009b20230e008e5cf7005bbdd6b59463f5
 # The release feed moves before Cursor's apt pool; pin its release commit.
-%global upstream_commit 72e130b4e6be3fdc47b97e809b6b420908ce2dd8
+%global upstream_commit cfe24863e71ea2a370145dff5e87ad8dba8e8ccb
 Source0:        https://downloads.cursor.com/grokbot/stable/%{upstream_commit}/linux/x64/grok-bot_%{version}_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/grok-bot/grok-bot.sh
 Source2:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/grok-bot/grok-bot.desktop
@@ -79,6 +79,9 @@ chmod 0755 "%{buildroot}/opt/Grok Bot/chrome-sandbox"
 %{_datadir}/icons/hicolor/*/apps/grok-bot.png
 
 %changelog
+* Mon Nov 02 2026 kamm3r - 0.78.3-1
+- Update to pinned upstream 99aa5aa6.
+
 * Wed Oct 28 2026 kamm3r - 0.78.1-1
 - Update to the release pinned in upstream aa38eb00.
 

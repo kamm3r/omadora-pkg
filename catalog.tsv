@@ -15,7 +15,7 @@ aurora-audio	not-applicable	Aurora Apple Silicon platform component; outside the
 aurora-bless	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
 avd-fw	not-applicable	Asahi-only AVD firmware, x86_64 out of scope
 bambustudio-bin	published	Fedora RPM 02.08.02.61-1.fc44; verified in COPR repository metadata on October 29
-basecamp-cli	ready	Candidate 0.22.0-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234474; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence
+basecamp-cli	ready	Candidate 0.22.1-1.fc44 from upstream 99aa5aa6; sources verified against upstream checksums; awaiting CI-gated edge build
 bitwarden	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
 box64	not-applicable	Upstream aarch64-only x86 emulation; current target is Fedora 44 x86_64
 brave-bin	ready	Candidate 1.98.63-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234483; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence
@@ -26,7 +26,7 @@ buzz	published	Fedora RPM 0.5.28-1; verified in COPR build 11105311
 claude-code	ready	Candidate 2.1.316-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234496; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence
 claude-desktop	published	Fedora RPM 4.4212.0-1.fc44; clean COPR build 11229279 succeeded; exact repository version and download Content-Length verified on October 30
 cliamp	published	Fedora RPM 2.3.0-2; verified in COPR build 11210816
-collie-bin	ready	Candidate 1.25.2-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234479; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence
+collie-bin	ready	Candidate 1.25.5-1.fc44 from upstream 99aa5aa6; sources verified against upstream checksums; awaiting CI-gated edge build
 crush-bin	published	Fedora RPM 0.99.0-1.fc44; clean COPR build 11229281 succeeded; exact repository version and download Content-Length verified on October 30
 cua-driver-bin	published	Fedora RPM 0.33.4-1; verified in COPR build 11105074
 cua-hyprland-plugin	published	Fedora RPM 0.33.2-1; verified in COPR build 11117560
@@ -58,19 +58,23 @@ elephant-unicode	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses 
 elephant-websearch	retired	Retired upstream in 2cce621d; Omarchy 4 no longer uses Elephant
 feishu-bin	pending	Vendor terms restrict redistribution without written permission; not eligible for COPR publication on current evidence
 flea	published	Fedora RPM 0.3.12-1; verified in COPR build 11170596
+geekbench	pending	Upstream 7.1.0 proprietary binary archive; LicenseRef-Geekbench with no redistribution grant; COPR publication needs vendor permission, as for geekbench6
 geekbench6	pending	Upstream 6.7.1 proprietary binary archive contains no license notice granting redistribution; COPR publication needs vendor redistribution permission
 ghost	published	Fedora RPM 0.11.0-1.fc44; clean COPR build 11229282 succeeded; exact repository version and download Content-Length verified on October 30
 ghostty	not-applicable	Terra ships exact version incl. subpackages
 github-copilot-cli	published	Fedora RPM 1.0.105-1.fc44; source checksums verified; COPR build 11220318 published and present in repository metadata
 gliff	published	Fedora RPM 0.4.1-1; verified in COPR build 11210824
 google-chrome	published	Fedora RPM 156.0.8078.79-1.fc44; clean COPR build 11229283 succeeded; exact repository version and download Content-Length verified on October 30
-gridcraft-bin	published	Fedora RPM 0.13.0-1.fc44; clean COPR build 11229292 succeeded; exact repository version and download Content-Length verified on October 30
-grok-bot	published	Fedora RPM 0.78.1-1.fc44; source checksums verified; COPR build 11220320 published and present in repository metadata
+gridcraft-bin	ready	Candidate 0.14.2-1.fc44 from upstream 99aa5aa6; sources verified against upstream checksums; awaiting CI-gated edge build
+grok-bot	ready	Candidate 0.78.3-1.fc44 from upstream 99aa5aa6; sources verified against upstream checksums; awaiting CI-gated edge build
 gtk2	not-applicable	Upstream aarch64-only GTK2 recipe; Nobara/Fedora supply GTK2
 helium-browser-bin	ready	Candidate 0.20.3.1-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234484; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence
 herdr	published	Fedora RPM recipe; verified in COPR
+herdr-app	ready	New Fedora port 0.1.11-1.fc44 of upstream 99aa5aa6 recipe; awaiting CI-gated edge build
+herdr-core	ready	New Fedora port 0.1.16-1.fc44 of upstream 99aa5aa6 recipe; awaiting CI-gated edge build
 hermes-desktop	published	Fedora RPM 2026.9.7-4; verified in COPR build 11117555
 heroic-games-launcher-bin	published	Fedora RPM 2.22.4-1; verified in COPR build 11132005
+hex-bin	ready	New Fedora port 3.0.0-1.fc44 of upstream 99aa5aa6 recipe; awaiting CI-gated edge build
 hype	published	Fedora RPM 0.6.0-3; verified in COPR build 11210829
 hyprland	pending	Fedora Hyprland COPR supplies 0.57.0-1, but provider spec lacks upstream NVIDIA teardown, wl_output grace and monitor VRR patches; coordinated Fedora stack patching and compositor runtime tests required
 hyprland-guiutils	retired	Override removed upstream in 7d70768c; no local RPM recipe or Omadora COPR definition; native Fedora/Hyprland provider retained
@@ -117,11 +121,12 @@ mesa-aurora	not-applicable	Aurora Apple Silicon platform component; outside the 
 microsoft-edge-stable-bin	ready	Candidate 156.0.4314.58-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234473; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence
 mil-hwx-compiler	not-applicable	Apple Neural Engine compiler; aarch64 Apple Silicon only
 minecraft-launcher	published	Fedora RPM 2.1.3-1.fc44; verified in COPR repository metadata on October 29
-mise-bin	ready	Candidate 2026.10.23-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234487; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence
+mise-bin	ready	Candidate 2026.10.25-1.fc44 from upstream 99aa5aa6; sources verified against upstream checksums; awaiting CI-gated edge build
 monologue	published	Fedora RPM 0.3.1-2; verified in COPR build 11210834
 nautilus-dropbox	published	Fedora RPM recipe; verified in COPR
 nautilus-open-any-terminal	retired	Removed upstream in 8125c215; Fedora recipe and COPR entry retired
 nordvpn-bin	published	Fedora RPM 6.0.2-1.fc44; source checksums verified; COPR build 11220322 published and present in repository metadata
+notion-desktop	pending	Proprietary Flatpak-only app; upstream recipe states no license text, terms at notion.com/terms; no redistribution grant, so no COPR payload
 nvidia-580xx-utils	not-applicable	superseded by RPMFusion akmod-nvidia
 nvidia-ai-workbench	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
 nvidia-open-dkms	not-applicable	aarch64-only; x86_64 uses akmods
@@ -131,7 +136,7 @@ obs-studio	not-applicable	RPMFusion ships obs-studio
 obsidian	published	Fedora RPM 1.14.5-1; verified in COPR build 11210835
 ollama	not-applicable	New upstream recipe targets aarch64 only; current COPR target is Fedora 44 x86_64
 omacalc	published	Fedora RPM 0.3.1-1; verified in COPR build 11132009
-omacharts	published	Fedora RPM 0.2.3-1.fc44; COPR build 11221473 succeeded and exact version-release verified in repository metadata on October 29
+omacharts	ready	Candidate 0.2.5-1.fc44 from upstream 99aa5aa6; sources verified against upstream checksums; awaiting CI-gated edge build
 omacut	published	Fedora RPM 0.7.2-2; verified in COPR build 11210837
 omadesign-bin	published	Fedora RPM 0.6.8-1; verified in COPR build 11178788
 omairc	published	Fedora RPM 1.10.3-3; verified in COPR build 11156369
@@ -151,13 +156,14 @@ omarchy-emacs	published	COPR package
 omarchy-fish	published	COPR package
 omarchy-hyprland-titlebars	published	Fedora RPM 0.3.0-1.fc44; clean COPR build 11229295 succeeded; exact repository version and download Content-Length verified on October 30
 omarchy-keyring	not-applicable	pacman keyring; Fedora uses RPM signing keys
+omarchy-local-ai	ready	New Fedora port 0.3.2-1.fc44 of upstream 99aa5aa6 recipe; awaiting CI-gated edge build
 omarchy-mac	not-applicable	Apple Silicon aarch64 add-on, x86_64 out of scope
 omarchy-mac-boot	not-applicable	Arch mkinitcpio boot stack; Omadora uses dracut+kernel-install
 omarchy-mac-ml	not-applicable	Apple Silicon ML meta package; x86_64 out of scope
 omarchy-meeting-recorder-bin	published	Fedora RPM 1.8.0-1; verified in COPR build 11132014
 omarchy-mlx	not-applicable	Apple Silicon ML runtime; x86_64 out of scope
 omarchy-nvim	published	Fedora RPM 2026.9.21-3; verified in COPR build 11117559
-omarchy-power-profiles-daemon	published	Fedora RPM 0.30-1.fc44; upstream four patches, 175 tests passed in COPR build 11223291; exact version-release verified in Fedora 44 x86_64 metadata
+omarchy-power-profiles-daemon	ready	Candidate 0.30-2.fc44 carries upstream GB10 patch from 99aa5aa6; awaiting CI-gated edge build
 omarchy-screensaver	published	Fedora RPM 1.3.1-1.fc44; source checksums verified; COPR build 11220335 published and present in repository metadata
 omarchy-settings	published	Fedora RPM 4.0.0~alpha-0.66.gitbecc224a03.fc44; source checksums verified; COPR build 11220451 published and present in repository metadata
 omarchy-settings-dev	not-applicable	covered by core settings spec via dev_suffix
@@ -178,7 +184,7 @@ omawrite	published	Fedora RPM 0.7.2-1; verified in COPR build 11170599
 omazed	published	COPR package
 once-bin	published	Fedora RPM 0.3.4-1; verified in COPR build 11105089
 openai-codex-bin	retired	Removed upstream in 8125c215; Fedora recipe and COPR entry retired
-openai-codex-desktop	published	Fedora RPM 26.1027.30824-1.fc44; clean COPR build 11229287 succeeded; exact repository version and download Content-Length verified on October 30
+openai-codex-desktop	ready	Candidate 26.1027.51404-1.fc44 from upstream 99aa5aa6; sources verified against upstream checksums; awaiting CI-gated edge build
 openclaw	ready	Candidate 2026.10.9-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234485; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence
 openvino	published	Fedora RPM 2026.4.1-1; verified in COPR build 11105057; Fedora-specific runtime required by OpenVINO GenAI
 openvino-genai	published	Fedora RPM 2026.4.1.0-1; verified in COPR build 11105300
@@ -195,14 +201,14 @@ qemu-user-static	not-applicable	Fedora ships qemu-user-static natively
 qmk-hid	published	COPR package
 quickshell	not-applicable	Provided by the Hyprland COPR; keep its Qt and Hyprland stack together
 quickshell-git	not-applicable	Historical upstream name; current quickshell is provided by the Hyprland COPR
-rawmakase-bin	ready	Candidate 0.4.9-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234481; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence
+rawmakase-bin	ready	Candidate 0.4.10-1.fc44 from upstream 99aa5aa6; sources verified against upstream checksums; awaiting CI-gated edge build
 retroarch-joypad-autoconfig-git	published	Fedora RPM 1.22.0.r96.g0331510-1.fc44; verified in COPR repository metadata on October 29
 rumb	not-applicable	Arch and Omarchy dashboard depends on pacman-contrib and AUR tools; Fedora needs a backend port
-rustdesk	published	Fedora RPM recipe; verified in COPR
+rustdesk	ready	Candidate 1.5.1-1.fc44 from upstream 99aa5aa6; sources verified against upstream checksums; awaiting CI-gated edge build
 schist-bin	published	Fedora RPM 0.15.0-1.fc44; verified in COPR repository metadata on October 29
 signed	published	Fedora RPM 0.3.1-2; verified in COPR build 11155383
 slack-desktop	published	Fedora RPM 4.52.182-1; verified in COPR build 11210846
-slap-notes-bin	ready	Candidate 0.2.5-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234486; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence
+slap-notes-bin	ready	Candidate 0.2.6-1.fc44 from upstream 99aa5aa6; sources verified against upstream checksums; awaiting CI-gated edge build
 spark-hwmon-dkms	not-applicable	NVIDIA GB10 hwmon driver is ARM-only; outside the Fedora x86_64 target
 speakerguardd	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
 splinterm	published	Fedora RPM 0.1.1-1.fc44; COPR build 11221479 succeeded and exact version-release verified in repository metadata on October 29
@@ -212,14 +218,14 @@ strata	published	Fedora RPM 1.0.0-1; verified in COPR build 11118796
 sublime-text-4	published	Fedora RPM 4.4215-1.fc44; verified in COPR repository metadata on October 29
 sunshine	pending	Existing 2026.914.233613-2.fc44 remains published; new upstream x86_64 CUDA-on build behavior is not ported: Fedora CUDA-toolchain and encoder/runtime qualification required; current recipe remains CUDA-off
 supergfxctl	published	Fedora RPM 5.2.7-1.fc44; verified in COPR repository metadata on October 29
-superwhisper-bin	pending	Proprietary signed vendor bundle; COPR distribution eligibility unresolved; upstream 1.1.2 reviewed
+superwhisper-bin	pending	Proprietary signed vendor bundle; COPR distribution eligibility unresolved; upstream 1.1.3 reviewed
 surface-laptop-8-support	not-applicable	Snapdragon X2 Surface Laptop 8 aarch64 hardware integration; outside Fedora 44 x86_64 target
 surface-pro-11-sensors	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
 surface-pro-11-support	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
 surface-snapdragon-addresses	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
 symfony-cli	published	Fedora RPM 5.22.2-1; verified in COPR build 11163566
-t3code-bin	published	Fedora RPM 0.1.5-1.fc44; clean COPR build 11229289 succeeded; exact repository version and download Content-Length verified on October 30
-t3code-nightly-bin	ready	Candidate 0.1.6_nightly.20261031.3956-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11234477; remote source checksums/SRPM/binary build verified; RC/stable promotion remains pending test evidence
+t3code-bin	ready	Candidate 0.1.6-1.fc44 from upstream 99aa5aa6; sources verified against upstream checksums; awaiting CI-gated edge build
+t3code-nightly-bin	ready	Candidate 0.1.7_nightly.20261102.4066-1.fc44 from upstream 99aa5aa6; sources verified against upstream checksums; awaiting CI-gated edge build
 tensaku	published	COPR package
 thinkpad-t14-amd-touchpad-dkms	published	Fedora RPM 0.2.3-1; verified in COPR build 11132023
 tmog-bin	published	Fedora RPM 1.1.1-1.fc44; COPR build 11221475 succeeded and exact version-release verified in repository metadata on October 29
@@ -233,6 +239,7 @@ tzupdate	published	COPR package
 uboot-asahi	not-applicable	Apple Silicon bootloader, out of scope
 uboot-aurora	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
 ufw-docker	published	Fedora RPM 20261029-1.fc44; clean COPR build 11229296 succeeded; exact repository version and download Content-Length verified on October 30
+umu-launcher	not-applicable	Upstream recipe is aarch64-only because Arch ships x86_64 umu-launcher separately; current target is Fedora 44 x86_64
 v4l2-relayd	published	Fedora RPM recipe; verified in COPR
 vi	published	Fedora RPM recipe; verified in COPR
 visual-studio-code-bin	published	Fedora RPM 1.144.0-1.fc44; source checksums verified; COPR build 11220333 published and present in repository metadata
@@ -241,7 +248,7 @@ walker	published	Fedora RPM 2.17.2-1; verified in COPR build 11105062
 wayfreeze	retired	Removed upstream in 8125c215; Fedora recipe and COPR entry retired
 wayshare	published	Fedora RPM 0.3.0-3.fc44; clean COPR build 11229297 succeeded; exact repository version and download Content-Length verified on October 30
 wechat-bin	pending	Redistribution hold: WeChat Software terms prohibit distribution and redistribution without prior written consent
-wordcraft-bin	published	Fedora RPM 0.12.0-1.fc44; clean COPR build 11229293 succeeded; exact repository version and download Content-Length verified on October 30
+wordcraft-bin	ready	Candidate 0.13.2-1.fc44 from upstream 99aa5aa6; sources verified against upstream checksums; awaiting CI-gated edge build
 wps-office-cn	pending	Redistribution hold: upstream addition 03305349 is explicitly labelled draft because the licence forbids redistribution
 xdg-terminal-exec	retired	Override retired upstream in 7d70768c; Fedora recipe and COPR definition retired; use Terra or Fedora/Nobara provider
 xpadneo-dkms	not-applicable	Terra ships xpadneo RPM
