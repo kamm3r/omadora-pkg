@@ -40,6 +40,7 @@ Requires:       dnf5
 Requires:       python3
 Requires:       gum
 Requires:       jq
+Requires:       omarchy-speedtest >= 0.2.1
 Requires:       util-linux
 Requires:       util-linux-script
 
