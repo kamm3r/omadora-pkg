@@ -153,7 +153,9 @@ for relative in pipewire/client.conf.d/50-omarchy-rtkit.conf pipewire/jack.conf.
 done
 install -d %{buildroot}%{_userunitdir}
 install -m 0644 default/systemd/user/*.service %{buildroot}%{_userunitdir}/
-install -D -m 0644 default/systemd/user/app.slice.d/10-oomd.conf %{buildroot}%{_userunitdir}/app.slice.d/10-oomd.conf
+for dropin in default/systemd/user/*.d/*.conf; do
+  install -D -m 0644 "$dropin" "%{buildroot}%{_userunitdir}/${dropin#default/systemd/user/}"
+done
 install -D -m 0755 default/systemd/system-sleep/unmount-fuse %{buildroot}%{_prefix}/lib/systemd/system-sleep/unmount-fuse
 install -D -m 0644 default/systemd/zram-generator.conf.d/90-omarchy.conf %{buildroot}%{_prefix}/lib/systemd/zram-generator.conf.d/90-omarchy.conf
 install -D -m 0644 default/systemd/system/plocate-updatedb.service.d/10-omarchy.conf %{buildroot}%{_unitdir}/plocate-updatedb.service.d/10-omarchy.conf
@@ -303,7 +305,7 @@ fc-cache -f %{_datadir}/fonts/omarchy >/dev/null 2>&1 || :
 %{_datadir}/fontconfig/conf.avail/50-omarchy.conf
 %{_datadir}/xdg-terminal-exec/*.list
 %{_userunitdir}/*.service
-%{_userunitdir}/app.slice.d/10-oomd.conf
+%{_userunitdir}/*.d
 %{_prefix}/lib/systemd/system-sleep/unmount-fuse
 %{_prefix}/lib/systemd/zram-generator.conf.d/90-omarchy.conf
 %{_unitdir}/plocate-updatedb.service.d/10-omarchy.conf
