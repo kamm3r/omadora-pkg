@@ -212,7 +212,7 @@ slack-desktop	published	Fedora RPM 4.52.182-1; verified in COPR build 11210846
 slap-notes-bin	ready	Candidate 0.2.6-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11245024; repository bytes verified against metadata; RC/stable promotion remains pending test evidence
 spark-hwmon-dkms	not-applicable	NVIDIA GB10 hwmon driver is ARM-only; outside the Fedora x86_64 target
 speakerguardd	not-applicable	Aurora Apple Silicon platform component; outside the Fedora x86_64 target
-splinterm	published	Fedora RPM 0.1.1-1.fc44; COPR build 11221479 succeeded and exact version-release verified in repository metadata on October 29
+splinterm	ready	Candidate 0.2.0-1.fc44 prepared from upstream 30fed321; source checksums verified; awaiting CI-gated edge build
 spotify	published	Fedora RPM 1:1.3.4.258-1; verified in COPR build 11117576
 steam	not-applicable	Upstream aarch64 Steam wrapper; Nobara/Terra already supply x86_64 Steam
 strata	published	Fedora RPM 1.0.0-1; verified in COPR build 11118796
@@ -226,7 +226,7 @@ surface-pro-11-support	not-applicable	Upstream recipe is ARM-only; outside the F
 surface-snapdragon-addresses	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
 symfony-cli	published	Fedora RPM 5.22.2-1; verified in COPR build 11163566
 t3code-bin	ready	Candidate 0.1.6-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11245018; repository bytes verified against metadata; RC/stable promotion remains pending test evidence
-t3code-nightly-bin	ready	Candidate 0.1.7_nightly.20261102.4093-1.fc44 prepared from upstream bffb8bf7; source checksums verified; awaiting CI-gated edge build
+t3code-nightly-bin	ready	Candidate 0.1.7_nightly.20261103.4106-1.fc44 prepared from upstream 30fed321; source checksums verified; awaiting CI-gated edge build
 tensaku	published	COPR package
 thinkpad-t14-amd-touchpad-dkms	published	Fedora RPM 0.2.3-1; verified in COPR build 11132023
 tmog-bin	published	Fedora RPM 1.1.1-1.fc44; COPR build 11221475 succeeded and exact version-release verified in repository metadata on October 29

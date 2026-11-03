@@ -2,7 +2,7 @@
 %global _lto_cflags %{nil}
 
 Name:           splinterm
-Version:        0.1.1
+Version:        0.2.0
 Release:        1%{?dist}
 Summary:        Persistent Wayland terminal for interactive use and automation
 License:        MIT
@@ -104,5 +104,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/$id.desktop
 %{_docdir}/splinterm-mcp/
 
 %changelog
-* Thu Oct 29 2026 kamm3r - 0.1.1-1
+* Tue Nov 03 2026 kamm3r - 0.2.0-1
+- Update to 0.2.0.
+
+* Thu Oct 29 2026 kamm3r - 0.2.0-1
 - Port the upstream terminal and optional MCP adapter to Fedora.
