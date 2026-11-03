@@ -1,11 +1,11 @@
 %global debug_package %{nil}
 %global _lto_cflags %{nil}
 %global zigver 0.16.0
-# vendor/ghostty gitlink recorded by the v0.1.16 tag; GitHub archives leave it empty.
+# vendor/ghostty gitlink recorded by the v0.1.17 tag; GitHub archives leave it empty.
 %global ghostty_commit 1e5cdb865807abc990181efb8ebfa9122955cce2
 
 Name:           herdr-core
-Version:        0.1.16
+Version:        0.1.17
 Release:        1%{?dist}
 Summary:        Herdr core (hc): keeps Herdr terminals and coding agents running
 License:        Apache-2.0
@@ -47,5 +47,8 @@ ln -s herdr-core %{buildroot}%{_bindir}/hc
 %{_bindir}/hc
 
 %changelog
+* Tue Nov 03 2026 kamm3r - 0.1.17-1
+- Update to 0.1.17.
+
 * Mon Nov 02 2026 kamm3r - 0.1.16-1
 - Port the recipe added in upstream 99aa5aa6 to Fedora.

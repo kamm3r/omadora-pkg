@@ -6,7 +6,7 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node)
 
 Name:           perplexity
-Version:        26.10.3+build131497
+Version:        26.10.3+build141572
 Release:        1%{?dist}
 Summary:        Official Perplexity desktop app
 License:        LicenseRef-proprietary
@@ -17,7 +17,7 @@ URL:            https://www.perplexity.ai
 # reconstructs the pool URL from pkgver with a literal '+' encoded as %2B
 # (the pool treats a literal '+' as a space and answers 403). RPM Version
 # keeps the '+' verbatim; only the URL encodes it.
-Source0:        https://packages.perplexity.ai/deb/pool/main/p/perplexity/perplexity_26.10.3%2Bbuild131497_amd64.deb#/%{name}-%{version}.deb
+Source0:        https://packages.perplexity.ai/deb/pool/main/p/perplexity/perplexity_26.10.3%2Bbuild141572_amd64.deb#/%{name}-%{version}.deb
 Source1:        https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{omarchy_pkgs_commit}/pkgbuilds/perplexity/perplexity-launcher.sh
 ExclusiveArch:  x86_64
 Requires:       alsa-lib
@@ -109,6 +109,9 @@ rm -rf %{buildroot}%{_datadir}/doc
 %{_datadir}/icons/hicolor/*/apps/perplexity.png
 
 %changelog
+* Tue Nov 03 2026 kamm3r - 26.10.3+build141572-1
+- Update to 26.10.3+build141572.
+
 * Wed Oct 28 2026 kamm3r - 26.10.3+build131497-1
 - Update to the release pinned in upstream aa38eb00.
 

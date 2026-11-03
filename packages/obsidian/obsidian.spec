@@ -6,7 +6,7 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\\.so|/usr/bin/node)
 
 Name:           obsidian
-Version:        1.14.5
+Version:        1.15.0
 Release:        1%{?dist}
 Summary:        Knowledge base on top of a local folder of plain-text Markdown files
 License:        LicenseRef-Obsidian
@@ -92,6 +92,9 @@ install -D -m 0644 obsidian-%{version}/LICENSES.chromium.html %{buildroot}%{_lic
 %{_datadir}/icons/hicolor/512x512/apps/obsidian.png
 
 %changelog
+* Tue Nov 03 2026 kamm3r - 1.15.0-1
+- Update to 1.15.0.
+
 * Fri Oct 23 2026 kamm3r - 1.14.5-1
 - Update to the release pinned in upstream 5cf42189.
 

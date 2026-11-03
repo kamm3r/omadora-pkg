@@ -14,7 +14,7 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\\.so|/usr/bin/node|libcurl\\.so\\.4\\(CURL_OPENSSL_4\\))
 
 Name:           visual-studio-code-bin
-Version:        1.144.0
+Version:        1.144.1
 Release:        1%{?dist}
 Summary:        Editor for building and debugging modern web and cloud applications (official binary version)
 License:        LicenseRef-VSCode
@@ -128,6 +128,9 @@ chmod 0755 %{buildroot}/usr/share/code/chrome-sandbox
 %{_datadir}/pixmaps/vscode.png
 
 %changelog
+* Tue Nov 03 2026 kamm3r - 1.144.1-1
+- Update to 1.144.1.
+
 * Wed Oct 28 2026 kamm3r - 1.144.0-1
 - Update to the release pinned in upstream aa38eb00.
 

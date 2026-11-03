@@ -1,5 +1,5 @@
 Name:           omarchy-local-ai
-Version:        0.3.2
+Version:        0.4.0
 Release:        1%{?dist}
 Summary:        Run open models locally for Omarchy's coding agents
 License:        MIT
@@ -42,5 +42,8 @@ ln -s %{_datadir}/%{name}/omarchy-local-ai %{buildroot}%{_bindir}/%{name}
 %{_datadir}/%{name}/
 
 %changelog
+* Tue Nov 03 2026 kamm3r - 0.4.0-1
+- Update to 0.4.0.
+
 * Mon Nov 02 2026 kamm3r - 0.3.2-1
 - Port the recipe added in upstream 99aa5aa6 to Fedora.

@@ -2,11 +2,11 @@
 %global _lto_cflags %{nil}
 %global zigver 0.16.0
 %global omarchy_pkgs_commit 99aa5aa6585ed6f17dde56218d83a0a56256b112
-# vendor/ghostty gitlink recorded by the v0.1.11 tag; GitHub archives leave it empty.
+# vendor/ghostty gitlink recorded by the v0.1.12 tag; GitHub archives leave it empty.
 %global ghostty_commit 291fd050b9e9c293c8adb6a140742649b7e42d3a
 
 Name:           herdr-app
-Version:        0.1.11
+Version:        0.1.12
 Release:        1%{?dist}
 Summary:        Herdr desktop app: terminals and coding agents that keep running
 License:        Apache-2.0
@@ -67,5 +67,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/herdr-app.desktop
 %{_datadir}/icons/hicolor/scalable/apps/herdr-app.svg
 
 %changelog
+* Tue Nov 03 2026 kamm3r - 0.1.12-1
+- Update to 0.1.12.
+
 * Mon Nov 02 2026 kamm3r - 0.1.11-1
 - Port the recipe added in upstream 99aa5aa6 to Fedora.
