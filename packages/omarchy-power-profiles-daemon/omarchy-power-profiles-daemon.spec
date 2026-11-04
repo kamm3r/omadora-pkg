@@ -1,8 +1,8 @@
 %global upstream_name power-profiles-daemon
-%global patches_ref 99aa5aa6585ed6f17dde56218d83a0a56256b112
+%global patches_ref 410907276a9b44b05b2ad23658d37b4d14769abf
 Name:           omarchy-power-profiles-daemon
 Version:        0.30
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Omarchy power profiles with ARM CPPC and boost support
 License:        GPL-3.0-or-later
 URL:            https://gitlab.freedesktop.org/upower/power-profiles-daemon
@@ -12,6 +12,7 @@ Patch1:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{patches_
 Patch2:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{patches_ref}/pkgbuilds/%{name}/balanced-performance-spelling.patch
 Patch3:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{patches_ref}/pkgbuilds/%{name}/cpufreq-boost-driver.patch
 Patch4:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{patches_ref}/pkgbuilds/%{name}/cpufreq-caps.patch
+Patch5:         https://raw.githubusercontent.com/omacom/omarchy-pkgs/%{patches_ref}/pkgbuilds/%{name}/cpufreq-apple-no-boost.patch
 BuildRequires:  gcc meson systemd-rpm-macros
 BuildRequires:  argparse-manpage python3dist(shtab)
 BuildRequires:  pkgconfig(bash-completion) pkgconfig(gio-2.0) pkgconfig(gudev-1.0)

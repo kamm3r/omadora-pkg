@@ -10,12 +10,12 @@
 %global __requires_exclude ^(lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan)\.so|/usr/bin/node$)
 
 Name:           cursor-bin
-Version:        3.27.22
+Version:        3.28.7
 Release:        1%{?dist}
 Summary:        AI-first coding environment
 License:        LicenseRef-Cursor
 URL:            https://www.cursor.com
-%global _commit b1aa50cb6db84fd3e8c808259cb172ea73425c1f
+%global _commit 25b52e7d03ebf2d5608914158e119f7992432a34
 Source0:        https://downloads.cursor.com/production/%{_commit}/linux/x64/deb/amd64/deb/cursor_%{version}_amd64.deb#/%{name}-%{version}.deb
 ExclusiveArch:  x86_64
 Provides:       cursor = %{version}-%{release}
@@ -95,6 +95,9 @@ chmod 0755 %{buildroot}/usr/share/cursor/chrome-sandbox
 %{_datadir}/pixmaps/co.anysphere.cursor.png
 
 %changelog
+* Wed Nov 04 2026 kamm3r - 3.28.7-1
+- Update to 3.28.7.
+
 * Wed Oct 28 2026 kamm3r - 3.27.22-1
 - Update to the release pinned in upstream aa38eb00.
 

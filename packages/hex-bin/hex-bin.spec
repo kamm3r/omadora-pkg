@@ -2,10 +2,10 @@
 # Upstream ships a prebuilt, unstripped binary (PKGBUILD options=!strip).
 %global __strip /bin/true
 %global omarchy_pkgs_commit 99aa5aa6585ed6f17dde56218d83a0a56256b112
-%global release_sha256 5541eb3fdf971813ce72a9ada04f43ea09ebb90f9545fabca648adc9b4e3349c
+%global release_sha256 e8c7b3a2ebeb1d7da5d6276d5f25145891d52178e3636347cb3ac331f7662622
 
 Name:           hex-bin
-Version:        3.0.0
+Version:        3.3.0
 Release:        1%{?dist}
 Summary:        Hex voice dictation app by Anomaly
 License:        MIT
@@ -64,5 +64,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/hex.desktop
 %{_userunitdir}/hex.service
 
 %changelog
+* Wed Nov 04 2026 kamm3r - 3.3.0-1
+- Update to 3.3.0.
+
 * Mon Nov 02 2026 kamm3r - 3.0.0-1
 - Port the recipe added in upstream 99aa5aa6 to Fedora.

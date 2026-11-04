@@ -3,7 +3,7 @@
 %global appname wordcraft
 
 Name:           wordcraft-bin
-Version:        0.14.0
+Version:        0.15.0
 Release:        1%{?dist}
 Summary:        Word processor and CLI for Word documents
 License:        (Apache-2.0 OR MIT) AND OFL-1.1
@@ -54,6 +54,9 @@ test -x %{buildroot}%{_bindir}/%{appname}-cli
 %{_datadir}/doc/%{appname}
 
 %changelog
+* Wed Nov 04 2026 kamm3r - 0.15.0-1
+- Update to 0.15.0.
+
 * Tue Nov 03 2026 kamm3r - 0.14.0-1
 - Update to 0.14.0.
 

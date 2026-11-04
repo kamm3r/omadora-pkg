@@ -3,7 +3,7 @@
 %global __strip /bin/true
 
 Name:           collie-bin
-Version:        1.25.5
+Version:        1.25.6
 Release:        1%{?dist}
 Summary:        Phone interface for terminal AI agents over Tailscale
 License:        MIT
@@ -46,6 +46,9 @@ chmod -R go-w %{buildroot}/opt/collie
 %{_bindir}/collie
 
 %changelog
+* Wed Nov 04 2026 kamm3r - 1.25.6-1
+- Update to 1.25.6.
+
 * Mon Nov 02 2026 kamm3r - 1.25.5-1
 - Update to pinned upstream 99aa5aa6.
 

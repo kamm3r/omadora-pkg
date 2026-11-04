@@ -3,7 +3,7 @@
 %global node_version 24.22.1
 
 Name:           openclaw
-Version:        2026.10.9
+Version:        2026.10.10
 Release:        1%{?dist}
 Summary:        Multi-channel AI gateway with extensible messaging integrations
 License:        MIT AND LicenseRef-Nodejs-Bundled-Dependencies
@@ -101,6 +101,9 @@ test ! -s version.err
 %{_prefix}/lib/node_modules/%{name}/
 
 %changelog
+* Wed Nov 04 2026 kamm3r - 2026.10.10-1
+- Update to 2026.10.10.
+
 * Sat Oct 31 2026 kamm3r - 2026.10.9-1
 - Update to pinned upstream acb60f95; CI submits the tested source to edge.
 

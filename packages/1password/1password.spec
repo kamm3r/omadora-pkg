@@ -6,7 +6,7 @@
 %global __requires_exclude ^lib(EGL|GLESv2|ffmpeg|vk_swiftshader|vulkan|op_sdk.*)\\.so
 
 Name:           1password
-Version:        8.12.42
+Version:        8.12.44
 Release:        1%{?dist}
 Summary:        Password manager and secure wallet
 License:        LicenseRef-1Password
@@ -96,6 +96,9 @@ fi
 %{_datadir}/doc/1password/examples/custom_allowed_browsers
 
 %changelog
+* Wed Nov 04 2026 kamm3r - 8.12.44-1
+- Update to 8.12.44.
+
 * Tue Oct 20 2026 kamm3r - 8.12.42-1
 - Update to the release pinned in upstream 2762cded.
 
