@@ -62,7 +62,7 @@ ffmpeg	not-applicable	Upstream recipe is aarch64-only NVENC/NVDEC build; current
 flea	ready	Candidate 0.4.0-1.fc44 from upstream 41090727; awaiting CI-gated edge build
 geekbench	pending	Upstream 7.1.0 proprietary binary archive; LicenseRef-Geekbench with no redistribution grant; COPR publication needs vendor permission, as for geekbench6
 geekbench6	pending	Upstream 6.7.1 proprietary binary archive contains no license notice granting redistribution; COPR publication needs vendor redistribution permission
-ghost	published	Fedora RPM 0.11.0-1.fc44; clean COPR build 11229282 succeeded; exact repository version and download Content-Length verified on October 30
+ghost	ready	Candidate 0.11.2-1.fc44 from upstream 96cd7d58; awaiting CI-gated edge build
 ghostty	not-applicable	Terra ships exact version incl. subpackages
 github-copilot-cli	published	Fedora RPM 1.0.105-1.fc44; source checksums verified; COPR build 11220318 published and present in repository metadata
 gliff	published	Fedora RPM 0.4.1-1; verified in COPR build 11210824
@@ -229,7 +229,7 @@ surface-pro-11-support	not-applicable	Upstream recipe is ARM-only; outside the F
 surface-snapdragon-addresses	not-applicable	Upstream recipe is ARM-only; outside the Fedora x86_64 target
 symfony-cli	published	Fedora RPM 5.22.2-1; verified in COPR build 11163566
 t3code-bin	ready	Candidate 0.1.6-1.fc44 passed CI-gated Fedora 44 x86_64 edge build 11245018; repository bytes verified against metadata; RC/stable promotion remains pending test evidence
-t3code-nightly-bin	ready	Candidate 0.1.7_nightly.20261103.4138-1.fc44 from upstream 41090727; awaiting CI-gated edge build
+t3code-nightly-bin	ready	Candidate 0.1.7_nightly.20261104.4151-1.fc44 from upstream 96cd7d58; awaiting CI-gated edge build
 tensaku	published	COPR package
 thinkpad-t14-amd-touchpad-dkms	published	Fedora RPM 0.2.3-1; verified in COPR build 11132023
 tmog-bin	published	Fedora RPM 1.1.1-1.fc44; COPR build 11221475 succeeded and exact version-release verified in repository metadata on October 29

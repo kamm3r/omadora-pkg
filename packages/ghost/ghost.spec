@@ -1,10 +1,10 @@
 %global debug_package %{nil}
 %global __brp_python_bytecompile %{nil}
-%global source_commit 3cd5dbd20f0b58331751aecf0f53645e2ec76f5e
-%global source_epoch 1793294281
+%global source_commit ab1bbfe43cba3a9f06c44a04e28447fa60eae0d2
+%global source_epoch 1793762839
 
 Name:           ghost
-Version:        0.11.0
+Version:        0.11.2
 Release:        1%{?dist}
 Summary:        Ghost desktop HUD for Omadora
 License:        Apache-2.0
@@ -94,6 +94,9 @@ cp -a ui-root/. %{buildroot}/
 %{_datadir}/doc/ghost/docs
 
 %changelog
+* Wed Nov 04 2026 kamm3r - 0.11.2-1
+- Update to 0.11.2.
+
 * Fri Oct 30 2026 kamm3r - 0.11.0-1
 - Update to upstream b766e177.
 
