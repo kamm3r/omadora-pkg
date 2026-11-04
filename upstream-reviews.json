@@ -1,10 +1,10 @@
 {
   "packages": {
     "1password": {
-      "local_digest": "0ed22a1bcf9b6f56cd01c3e6f4b69c5106e9cdabe8503c8fc0363397ff22ce83",
-      "reason": "Compared upstream 8.12.42-1 with Fedora spec 8.12.42-1: same version, the source checksum matches upstream. Version and source audit, not a line-by-line recipe comparison.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "3b49f8b48bde1fd3e83d397d39e28afd875c62665eec8a1184068a3ec58b46db"
+      "local_digest": "ec130c404675f50fc5a88948c2997d9bc5df4ef312eb6e5c90b230d0b2e95bdc",
+      "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "8d5ec1bb6269ac03847bbc67f9d1702ef3e7e43f084832278bc4c846dbf98a75"
     },
     "1password-beta": {
       "local_digest": "fb120fd4b2c57b96826097717e44233f1870132b0081a5e43b2828920724d01d",
@@ -29,6 +29,12 @@
       "reason": "Reviewed 10.aurora3 source pin and upstream aarch64 hardware changes. This Asahi/Qualcomm ARM audio integration remains outside the x86_64 target.",
       "upstream_commit": "acb60f95615b3528774f9a43937e9bd88e9af558",
       "upstream_digest": "1227b598fe9456d7a4ba7cb1bc83aa1afdf7d91e4921a51da3dca6c475b59939"
+    },
+    "amp-desktop-bin": {
+      "local_digest": "4fa279cfb63b73020a4ff4d2315a3b7ff37cfaab5044151147e0ca9a2661bc23",
+      "reason": "Proprietary deb; Amp terms grant only a non-transferable, non-sublicensable user license; no COPR payload without vendor permission",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "b9936b90c307cd719c749bb4102a75157e23ac1b3f8c09a6b8c7e85bd4685285"
     },
     "aquamarine": {
       "local_digest": "c9b9ebc1a2c9be8d235b5952039060e359d99f2776290d32943a539889ee7479",
@@ -104,9 +110,9 @@
     },
     "bitwarden": {
       "local_digest": "17e6d61e56321dd3ed488da992700623261067086af7c084ccc2ca8c27a4bae2",
-      "reason": "Version bump; upstream recipe arch is still aarch64 only; outside Fedora x86_64 target",
-      "upstream_commit": "30fed321658234101126fc7d553e94d27f94462e",
-      "upstream_digest": "e631de6e44b96b1126ce188891ec05dbac9bd8070ccf1d35f977d4dd399b32cc"
+      "reason": "Ownership fix in aarch64-only recipe; outside Fedora x86_64 target",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "ba04660fa3c8915f11c3bdec16d071d7dd423ab6a409ac8481ea8cef0a32ed8d"
     },
     "box64": {
       "local_digest": "925106f3a5fd427a4d41ed9331cea680fd3aac8adc459b2bf61802e60e9a94f2",
@@ -146,16 +152,16 @@
       "upstream_digest": "9e5a39ea2c14448979cf6d08e8c1cb0f198fe76baec03572063477e2506e40fb"
     },
     "claude-code": {
-      "local_digest": "a5aec0ece0e11c267b31a321f814466d4d20921e08b74717887636a0c4692fff",
+      "local_digest": "d47ca68109d77a24c75e8ab773c6e179504bb632b95e293e8ee7f70bbbf70442",
       "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
-      "upstream_commit": "30fed321658234101126fc7d553e94d27f94462e",
-      "upstream_digest": "fbd19906d937d699b26894971b7d6c5f56dafde7abc5f7aea6a45b61e0f0dfc9"
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "5d0d8b2a76e2df87162e8b2cc0ac934b40ef36ccc58906edd65803cb000db712"
     },
     "claude-desktop": {
-      "local_digest": "1a9739cf4460f841722ab2229ce094a1b013a13735ee1fddf5c46172cf83009d",
-      "reason": "Upstream official Debian payload updated to 4.4212.0 with matching x86_64 checksum; existing Electron-private library isolation and launcher retained. Fedora RPM 4.4212.0-1.fc44; clean COPR build 11229279 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
-      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
-      "upstream_digest": "00c16fab014e305045681a808378dc975366b497e3b249727a57043005beb6ed"
+      "local_digest": "c6f0630287a91122383c08a998cec52b9f7d49a5d71560aad593f1ef40984db8",
+      "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "fb795ed4f86e19722a74d1845bfbde7dcfc3bd2fb668e77e2b3d511be2b92425"
     },
     "cliamp": {
       "local_digest": "fc990e5f81c3108862a8041e1c93adeaa091471435baf1de19c6d1b22837d5b6",
@@ -164,10 +170,10 @@
       "upstream_digest": "7c09755b21864b0ef235dcd059fc133db2928dde5f5452388b27d7b72f31f6ab"
     },
     "collie-bin": {
-      "local_digest": "77f262ffc323d9f99026d840020c29b69836eeef6b084790e8d59d812c7c0a9a",
-      "reason": "Version bump to 1.25.5; checksum matches upstream; edge build verified.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "051d09cbe565d30e84bcf7574f06c90b4c14f9a169b82ce2da7d9b37b36578cd"
+      "local_digest": "23597649031e5ecff949fa72637e80ea07621eea3bd2cc5ddcb30df93f0d716d",
+      "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "14b3b7bf6dc3ab1d78f7467a0fe24348b9a4e67b4d3823d70dc0b1409267ecc0"
     },
     "crush-bin": {
       "local_digest": "f4095ea9c4967b8c63329c62d730290776f44c560efe1493b722394c75de1325",
@@ -194,10 +200,10 @@
       "upstream_digest": "081ad438643f4c4c4da6806997c01652d08fa6d0d77ef465390c1dab988cdb09"
     },
     "cursor-bin": {
-      "local_digest": "f65ff6c15eb35e8f84d27d8b5f788c3236ca14bc117ed6f35f1b0ba7f91e6d3e",
-      "reason": "Compared upstream 3.27.22-1 with Fedora spec 3.27.22-1: same version, 0/1 source checksums match; upstream uses sha512. Version and source audit, not a line-by-line recipe comparison.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "1142773807036709f3afd6526e5a83f248b543aeb178f9e97b5bb24129c4a2e6"
+      "local_digest": "6cbfcc26c8f851b739d8162f7fa880a683a23cb5780d9b266ddc02374c4a1e10",
+      "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "c4ed239aec71c4ccf2c571a727a1996f2f935dc27b3de87b23d4e64057486e53"
     },
     "cursor-cli": {
       "local_digest": "6d3078dad2750415413b33977b21a37da764b2426f1ee48be6eea827a5a0eff4",
@@ -213,15 +219,15 @@
     },
     "dell-xps-touchpad-haptics": {
       "local_digest": "30e68f707053a386a6c308aabb99c0ea0ea026cd6ad912135cb2ac59498685e4",
-      "reason": "Upstream r4 privilege-drop fix is already in the Fedora %post through runuser; pinned helper files have no drift from upstream.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "7b6e5ba8b75c1fba209f50a62b199d00fd726251c447f0615dd5e9fe40da4377"
+      "reason": "Upstream pkgrel-only rebuild to correct Arch packager metadata; PKGBUILD diff confirmed; no Fedora change or rebuild needed",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "4cca6d223111606691c7302e44c52a9289792597c1bcbd6bb7bf39d0fd72f24b"
     },
     "dell-xps13-sidecar-amps": {
       "local_digest": "1a3b5ee8ec2cc82b40cc5008159f2d7b23b69d0ef0744414a14a30bb5fc36b1c",
-      "reason": "Upstream r2 apply helper is already packaged and run from %post through a dracut rebuild; 4/4 checksums match.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "6f641ab27f5dce835335bb0a10bba94439c8454445bdbdf2460d638a5b65363f"
+      "reason": "Upstream pkgrel-only rebuild to correct Arch packager metadata; PKGBUILD diff confirmed; no Fedora change or rebuild needed",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "36cec32f19eba8c125bc22646e60a5ffcc3e3450f92ce4352be2d79202a62a72"
     },
     "dingtalk-bin": {
       "local_digest": "4fdb516e3404da706072ba0231fc8e1eca62392fe11f61e8076a0fe9808dc894",
@@ -349,11 +355,17 @@
       "upstream_commit": "acb60f95615b3528774f9a43937e9bd88e9af558",
       "upstream_digest": "c179a5e24aa1c332e06052ffa9bcc5d2aa1e807a29a7e9ba36c300c8aa88e7da"
     },
+    "ffmpeg": {
+      "local_digest": "2b51f7ca9161450a239a7e851e9bbbdb88f1a03ae2ebd473a921b79e0bcb2b30",
+      "reason": "New aarch64-only NVENC/NVDEC recipe; outside Fedora x86_64 target",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "b90811c2b18b8c835e97a7e070dec5e60fe3a5b8c695cdf5ccd2b7a9fd5b0ecd"
+    },
     "flea": {
-      "local_digest": "f4b1f68d9c22c7f96614fb318f3eb54e281883ae2aa3b7c9bc3e163f122010df",
-      "reason": "Compared upstream 0.3.12-1 with Fedora spec 0.3.12-1: same version, the source checksum matches upstream. Version and source audit, not a line-by-line recipe comparison.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "946327029a3b56a23d12ff65aec643c2d53558ed9c5d7d776e1c64330c7bde88"
+      "local_digest": "5e53f2713bce806f6654945f121b54851b68dca2e7d15fe85010b4a1446b1648",
+      "reason": "Ported 0.4.0 GPUI rewrite with vendored Cargo sources and upstream dependencies in Fedora names; edge build 11253704 and RPM bytes verified; upstream tests not run, %check runs flea --version only; GUI not opened",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "0e1f40215de962a8e6fa8fd8c06c8b27cfd06a3d0dfc4dda4d8cb2c6fea7929b"
     },
     "geekbench": {
       "local_digest": "af5a8c5e8e375552d16c45da5cb4ba9253739c9c6e331750986bf2f32bcf7985",
@@ -368,10 +380,10 @@
       "upstream_digest": "b221e9526e259777675df28fa05d73fc2f4bbf1fc018bb1af76222b7f47820f2"
     },
     "ghost": {
-      "local_digest": "d7b7db1a66882f9a19fecb556e3942cff38f3e8af33982e510065d9ffe2e33f6",
-      "reason": "Upstream 0.11.0 source/runtime checksums verified. Release manifests pin source 3cd5dbd20f0b58331751aecf0f53645e2ec76f5e and epoch 1793294281; verification/install-payload scripts passed. Separate runtime and desktop HUD payloads retained. Fedora RPM 0.11.0-1.fc44; clean COPR build 11229282 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
-      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
-      "upstream_digest": "1a9e2bbd544b3d6d5e29c4048b6f9fba7f8224a35d4d75b8c81bc0839e746056"
+      "local_digest": "88678b4f69b7e23e40aa2cb7c6629a313dd09d25dc58baa7164da054599565ee",
+      "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "ca6a6db8033d0b027452a7628a4ce048d7004c890d6e0b51b8ea820bd2b6f123"
     },
     "ghostty": {
       "local_digest": "ba2f34314f389f00462f71a4a8762d0df79a0c905be89c070a1ee5b4bb574d11",
@@ -392,22 +404,22 @@
       "upstream_digest": "278af17238a67045872ea9830eb0264e8850c66fab06c4f3dd37896c3c6c68ca"
     },
     "google-chrome": {
-      "local_digest": "59ee419092891c5eb34f2aec6862ab3fa3c4da2980004f1c17f37c082877b524",
-      "reason": "Upstream 156.0.8078.79 Debian payload checked against pinned upstream SHA512, then SHA256 recorded locally. Existing wrapper, EULA and private-library dependency exclusions retained. Fedora RPM 156.0.8078.79-1.fc44; clean COPR build 11229283 succeeded; exact repository version and download Content-Length verified on October 30. Source RPM built with .copr/Makefile. Hardware/runtime streaming or desktop use beyond the packaged tests was not exercised.",
-      "upstream_commit": "b766e177b0ab827f2154e4b76cf8c7c158d3b86b",
-      "upstream_digest": "12cec5649c39101ddc2c34520154d5c9b4357784bd970daa8ba8a28ee7042d3a"
+      "local_digest": "a07f052f18ba14bc15fa6002c3d7f6a52b239f088cb4d9300b65c39f90ad0de9",
+      "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "e9bc97c62b40d4a394cbb826e5a0c31e96380b25ed6774ae842fc671c68d2bbb"
     },
     "gridcraft-bin": {
-      "local_digest": "d3220ce438b295640a71c9d24ea2d93bf36940242669ef6b91209311efce99e1",
+      "local_digest": "e2e2b23df42a1fa53b3b5712bbdb24509d8547c50ef63cb53e58c8f6ce84d26f",
       "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
-      "upstream_commit": "30fed321658234101126fc7d553e94d27f94462e",
-      "upstream_digest": "f427f80748fa6f5c60f153015615cde5b7e5cbdf0f4878c314b8e58dd6020d6c"
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "c9a2208a5c079d0084991a12d0120e8300242208f0066e8c41e9cd1ce267e5e9"
     },
     "grok-bot": {
-      "local_digest": "f8bce16074cb5df014d15ad941557654fc01b9025be8a90a1a838991787cfed1",
+      "local_digest": "d43d2f7b03a6e0123d4a7ebecca995ba9495db8e606e81e274912039146fe2b6",
       "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
-      "upstream_commit": "30fed321658234101126fc7d553e94d27f94462e",
-      "upstream_digest": "f45fbae69a609c26349a4335e27365828663f87a67255f244b3147760d0953d3"
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "6432fe382ddba273917fb69ca33339007eb868c2fce4e075c8552392c0fcb4c2"
     },
     "gtk2": {
       "local_digest": "563259f12023fa1f459f8942c256ec6755f9d1326fe2de87f45a803e4ac44c01",
@@ -452,10 +464,10 @@
       "upstream_digest": "d007e77a769a6b1d12f2bcbe9b08c90aa7c262157def93442aba7344aa5e7f5b"
     },
     "hex-bin": {
-      "local_digest": "fb0f86a72907bbd4ca0167b54e70af7fe0a6b7be50303d51e69495c6fb92d37c",
-      "reason": "New recipe ported as 3.0.0-1: MIT license confirmed in the source repository, binary hash matches upstream, runtime libraries mapped to Fedora. Edge build verified; not run on a desktop.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "96d2e400a1775142d526fc4ade60d9325855a457e76b8884d33a1b4305ae2608"
+      "local_digest": "cdb460d714c7123bad8b10c724f5f889db8899a428c78f91b114c954148d77ec",
+      "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "adbe13df8d83a95f1be1352164543a49c8f75cdfa0ebc9d27f4ce4385f3164d9"
     },
     "hype": {
       "local_digest": "a80028b22796e85bd53eabff30c9d1c0386524421e60217c0bd038473fbb1369",
@@ -464,10 +476,10 @@
       "upstream_digest": "3955ad88dfd7a2004e8eac9ae43b738ac251286324632dfecdbe6f997dd53282"
     },
     "hyprland": {
-      "local_digest": "4d2a8c8be939fffde08c03ef5cd420be3de329379c8581a1e8607e471993e9ea",
-      "reason": "Upstream -3/-4 are dependency rebuilds; provider has 0.57.0-2; patch and hardware blocker unchanged",
-      "upstream_commit": "30fed321658234101126fc7d553e94d27f94462e",
-      "upstream_digest": "64de45433667b7ad03f001708646276a1b5489c005473b7ff68b15c2aad2fde3"
+      "local_digest": "6e4bbb5ec68241b139ad70d3159e31959c4abff7b7ae98639b49e1c11ca378ac",
+      "reason": "Upstream moved to 0.57.1-2 with three local patches; provider has 0.57.1-1; patch and hardware blocker unchanged",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "684924e6658eee45309bb0b1be91eaeff7c8d4981f9c817a8bf382199da017cc"
     },
     "hyprland-guiutils": {
       "local_digest": "2fdf29085ded5a70d75c9941c445d6464967b1efd6b7f7bd5fa4b74af2667488",
@@ -592,9 +604,9 @@
     },
     "link-studio": {
       "local_digest": "ec300ea4f1b7528031a6eef70231016d631040fa8017ecf7861e48bd2fc8f9b8",
-      "reason": "Compared upstream 1.0.4-1 with Fedora spec 1.0.4-2: same version, the source checksum matches upstream. Version and source audit, not a line-by-line recipe comparison.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "db1098ba5d4cdc232e04ea8ec949d1b55a8478160d98f5c1d09a19575de5a78b"
+      "reason": "Upstream pkgrel-only rebuild to correct Arch packager metadata; PKGBUILD diff confirmed; no Fedora change or rebuild needed",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "77a0796ebeb9b51b50ebf798d8874d507f24acef04fbd045cd0393128190d128"
     },
     "linux-aarch64-pkgbase-shim": {
       "local_digest": "8e2a07e7e64118dddd53e26d2eb61c0b367365b45d2c272d18f24d495f5d0c93",
@@ -700,9 +712,9 @@
     },
     "macbook8-spi-pxa2xx-nodma-dkms": {
       "local_digest": "d40d2804d0c5b765f65d7f12c3edfc1611ce689b62cabd916aa7b5a3439db4d9",
-      "reason": "Upstream r2 changes only URL and Arch header dependency; 5/5 checksums match.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "1f515d56bebcfb6b00e6238f799ba5da4e21faec497c6561010712b19f6f5f39"
+      "reason": "Upstream pkgrel-only rebuild to correct Arch packager metadata; PKGBUILD diff confirmed; no Fedora change or rebuild needed",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "6601e25f23c2dee0d3934e5f4b843483901f8c5da7caa949e578027eb7c831b8"
     },
     "makima-bin": {
       "local_digest": "c2e3928a884bb915e90220341b33027c1a4940916d837626d2e170fcc314cfd4",
@@ -831,10 +843,10 @@
       "upstream_digest": "0b89afa33f3f8292b13d381d625671c54fdde00378728c823a83fbc6d2708b64"
     },
     "omacharts": {
-      "local_digest": "da2777169bac1dd1ac2b7d9671f0028a475d0ba14f2fcdcbd08c049895db7923",
+      "local_digest": "e4d223b46004c2b1e0ec7e6b2a503cd2e489c1a89659b355376d2a455929d043",
       "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
-      "upstream_commit": "30fed321658234101126fc7d553e94d27f94462e",
-      "upstream_digest": "72efdb6e18cfcd2e1524bd20a07e66525a89952237d522f2634100a3e5588d94"
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "0c1459c06d56a26d2809c1ee0d735b8d661888af4e4ecfee878ada521be64603"
     },
     "omacut": {
       "local_digest": "855a28d3a0a62d757d84cf939d44c5311d9f43c4008b5d79bc86d6e44ecc4dda",
@@ -847,6 +859,12 @@
       "reason": "Compared upstream 0.6.8-1 with Fedora spec 0.6.8-1: same version, the source checksum matches upstream. Version and source audit, not a line-by-line recipe comparison.",
       "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
       "upstream_digest": "44bc28fcc9d3635c9b56de9b3f80071db5f56c9cd4c6680640df415e3fb2f5ab"
+    },
+    "omafeed": {
+      "local_digest": "9fb61799a0e04a9a16c3a0665a617022bb9430db295c6be8fa8bf49d658e24b5",
+      "reason": "New port of upstream 6959cc08; 170 tests passed in edge build 11253693; RPM bytes verified; no desktop test",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "493773c16fad2485f780d16bbf57cf54beb4560424766f1109f65f5d5a214b57"
     },
     "omairc": {
       "local_digest": "7d4133747c75afce5ea4d68cae0844759941af69d7c19b7858c30d50caebb866",
@@ -868,9 +886,9 @@
     },
     "omapresent": {
       "local_digest": "3d5dd2ae05f4b2fce854d1a7ea14978bcc92cde84853e93ac70723b7c3d13787",
-      "reason": "Compared upstream 0.1.3-1 with Fedora spec 0.1.3-1: same version, the source checksum matches upstream. Version and source audit, not a line-by-line recipe comparison.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "3bb779dc5f3f1c56c787824bc2a5590472032fc67db0cafcd2ff87c200405411"
+      "reason": "Upstream pkgrel-only rebuild to correct Arch packager metadata; PKGBUILD diff confirmed; no Fedora change or rebuild needed",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "a6314502e8dd4d236882726918eb5063239e6cb6f659e9b9a4df6c3ceb9af727"
     },
     "omarchy": {
       "local_digest": "c8f0ed312fa44bb93aa6e72e63fdbfc8bc9dbb5700ba057076f87d75f9554a4f",
@@ -892,15 +910,15 @@
     },
     "omarchy-ane-dkms": {
       "local_digest": "c527829d4497d542646e6f874077b57f78fa9fe9a19fd93156861fc4c57bd1f2",
-      "reason": "Reviewed 0.5.7 Apple Neural Engine module update. Apple Silicon aarch64/Arch DKMS integration remains outside x86_64 target.",
-      "upstream_commit": "acb60f95615b3528774f9a43937e9bd88e9af558",
-      "upstream_digest": "c3eb143a57f40c728c074d415a566461ca54e95b6d6a5f95ddd13b8e0bb003ca"
+      "reason": "Version bump; Apple Silicon only; outside x86_64 target",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "2c99972f02ecb84872eb6e67e0581b8632781372add237aba111dde32a071707"
     },
     "omarchy-audio-tuner": {
       "local_digest": "f963a543ee50e98d2906e7e1e374e7ff23cbbade576341307cb97554ea8dd5ce",
-      "reason": "Compared upstream 0.1.0-1 with Fedora spec 0.1.0-1: same version, 0/1 source checksums match; upstream uses a git source with SKIP. Version and source audit, not a line-by-line recipe comparison.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "36d1cc0e4b60ea8e02f03636b9d03fc66e154e4b29e2fde65ee4cf6bf5de0039"
+      "reason": "Upstream pkgrel-only rebuild to correct Arch packager metadata; PKGBUILD diff confirmed; no Fedora change or rebuild needed",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "e9d9fbf646d3720f0f6b1119d5afadd007be16e38ab8be872100ec46e7a04980"
     },
     "omarchy-aurora-firmware": {
       "local_digest": "6910f276669598b51f326b1c0f89b4e2dc978c759ae03a217851eef95f77a1f0",
@@ -923,26 +941,26 @@
     "omarchy-dev": {
       "local_digest": "2565c0e42812a2fb7ddc9a7cc31e37f567e726e9ca5270140c9c74e4db1cea3b",
       "reason": "Tracking metadata only; covered by core omarchy spec",
-      "upstream_commit": "30fed321658234101126fc7d553e94d27f94462e",
-      "upstream_digest": "b98c5897e66fa273bd2a101d29c0371343b8f0049ec403ae53a6a9c5c675da0b"
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "f8c7666821534f64df907ff0dcb617574df33d759324f994d17ae434b936347a"
     },
     "omarchy-emacs": {
       "local_digest": "32b12eac406fd3c30435cefbe3e0f582fda94bccebd2dd9c80ffa75f0b1b287d",
-      "reason": "Compared upstream 1.10.1-1 with Fedora spec 1.10.1-1: same version, the source checksum matches upstream. Version and source audit, not a line-by-line recipe comparison.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "82fb34c3824cf47593bef4f0c95f62cf556cf0c6bf555fa7dcb5d812f2c87c67"
+      "reason": "Upstream pkgrel-only rebuild to correct Arch packager metadata; PKGBUILD diff confirmed; no Fedora change or rebuild needed",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "39b0b5215c5b19b017bbb3444e718634004e7c573bd73be5bc4733c124cf09de"
     },
     "omarchy-fish": {
       "local_digest": "a4564bc328d9581adca1b5eb672e74cce0c0eba454a90eec1018efc6ffd50631",
-      "reason": "Compared upstream 1.5.0-1 with Fedora spec 1.5.0-1: same version, all 2 source checksums match upstream. Version and source audit, not a line-by-line recipe comparison.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "32f82db3c05d51bcccc0ea0043f69e446f6cb0a884bb5088557f8a3875820f5a"
+      "reason": "Upstream pkgrel-only rebuild to correct Arch packager metadata; PKGBUILD diff confirmed; no Fedora change or rebuild needed",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "d5b0e59e3d13677fa85dd6b5ad01a78113e2cf6b668e9241eecb3b4c1bd2ddd9"
     },
     "omarchy-hyprland-titlebars": {
-      "local_digest": "d2d7dcfa7db1b249c451e7dd5044b5d6f3dd19b2fc309670d63a7fe47449d855",
-      "reason": "Upstream -3 is a dependency rebuild; not rebuilt because edge lacks the Hyprland group; exact 0.57.0-1 pin no longer matches provider's newest 0.57.0-2; recorded as blocker",
-      "upstream_commit": "30fed321658234101126fc7d553e94d27f94462e",
-      "upstream_digest": "c27d75266423b91afb979ed776b7909617c56029d8cea2ed7aa89df18cc37c32"
+      "local_digest": "d0dfa223b7da550abbebea18e700b124e88f4839f4bfc65cdd571b904c58c95c",
+      "reason": "Upstream -4 follows Hyprland 0.57.1; not rebuilt because edge lacks the Hyprland group; exact 0.57.0-1 pin no longer matches provider's newest 0.57.1-1; recorded as blocker",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "360f66acbd2c285df43c54ee4aa83146b55a6f9cbb523112928466da7e7b8d06"
     },
     "omarchy-keyring": {
       "local_digest": "0767de324f671ed46d9e592d721d92827adb23c9decf1b0cd8944fa8ab233f63",
@@ -964,9 +982,9 @@
     },
     "omarchy-mac-boot": {
       "local_digest": "dee94f6063103a9d10090549e47ada71e29a669b61a2284587bf1e70034c1539",
-      "reason": "Re-read upstream 20261027-1 at 99aa5aa6. Disposition kept: Arch mkinitcpio boot stack; Omadora uses dracut+kernel-install.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "f7618026b8352b5bf036b8f40cf917efb3158258e864d62d9dce969e4c25c7b6"
+      "reason": "aarch64 Arch boot stack; outside x86_64 target and dracut flow",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "27b6a93974a67663d1f9eac315b2452d71d5578da7ed499f4d0bb9370074b6b5"
     },
     "omarchy-mac-ml": {
       "local_digest": "321d6bee4edefef13be8a4e001137264c4ca01c6294a0c10d1c9a01f429d8cf9",
@@ -993,10 +1011,10 @@
       "upstream_digest": "288ad47abdc05e9836ba5e85d746d293938048d77215abf7c649c74cc4ea9489"
     },
     "omarchy-power-profiles-daemon": {
-      "local_digest": "49de32a829a99700470ea3b6b5b0ff88893c7b141c1eb5411aa1681b0579f2d0",
-      "reason": "Ported nvidia-gb10.patch in upstream order as 0.30-2. It affects aarch64 GB10 desktops only; 177 tests passed in the COPR build and repository bytes verified.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "ce0d8ad2ea22d8dde9454d27571947fdf7498bbae6ff276e1631a11c6fe4ca49"
+      "local_digest": "050297cf42633735a4129eefee69e296dbac265ab80a21dbd80fe60690374275",
+      "reason": "Ported Apple Silicon no-boost patch; 183 tests passed in edge build 11253701; RPM bytes verified; no effect on x86_64",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "a58f238a3437d2c54132eda0e9c10cda83cc42e1018efb6424ed809427470263"
     },
     "omarchy-screensaver": {
       "local_digest": "65e06f7701830d1994e969927812aa4c229ac6eeb8af65349d1cc889d2b31fc8",
@@ -1013,8 +1031,8 @@
     "omarchy-settings-dev": {
       "local_digest": "223e1dc1f4287e47fe7f95a075379de32efe2c1fa2839a4c28030270cec11b1e",
       "reason": "Tracking metadata only; covered by core settings spec",
-      "upstream_commit": "30fed321658234101126fc7d553e94d27f94462e",
-      "upstream_digest": "6892bbd18dfaeb073e2ba67730fcf74573105a9a81b60d010db1ff1b69b764ac"
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "d032ed1e824c9e58f024274ba78d4023a8289b8583eaefbf1a30bd90b8dabecd"
     },
     "omarchy-speedtest": {
       "local_digest": "f31848fd208c30fc64f743f87b3303e873ec286861245b56c488f830b53a3597",
@@ -1048,9 +1066,9 @@
     },
     "omarchy-zsh": {
       "local_digest": "35bd6045af33a2a11f58b602a28f579704025e8e0010434d18e9aaa7aefbd1a2",
-      "reason": "Upstream r2 recursive shell copy and path rewrite are already in the Fedora spec; the differing checksum is a pinned omadots archive against upstream git source.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "d325cf303f43b6dd371790768b63b785bf1ebd9a4309bcc5fb93f53028e23980"
+      "reason": "Upstream pkgrel-only rebuild to correct Arch packager metadata; PKGBUILD diff confirmed; no Fedora change or rebuild needed",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "5fbd283733e9ef252af400bbf63e75c09da615f092039fb1086d921c3b4c3c89"
     },
     "omareel": {
       "local_digest": "0f7becec2a1dacc8fb75de77d597bde24e7d12c74f42c51b656891ba170325c0",
@@ -1119,16 +1137,16 @@
       "upstream_digest": null
     },
     "openai-codex-desktop": {
-      "local_digest": "3d115755e782b08e742db4376d7b9eb4d768870f84ac06937e93e2cbfd2bf622",
-      "reason": "Version bump to 26.1027.51404; launcher unchanged; checksums match upstream; edge build verified.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "577711f2d24f7cd8e050d69a60356186188aba3aa61270c796768de8583a56c6"
+      "local_digest": "31152b9e68f7cd4fea98e9b2fb64631c5c4cf2091d26621d3a11c95fbcc80b6f",
+      "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "df2e8aa8955ad5ad5dc49e35bd46d3cc9ec0050b79450fcb4645e75bebf0ad34"
     },
     "openclaw": {
-      "local_digest": "9b2d58881809ba20bf8e55c04a87dd0a9314ab7891c63a1896059ccc3f92081f",
-      "reason": "Ported 2026.10.9 from pinned Omarchy upstream snapshot. Official creator release metadata/vendor download endpoint checked; checksummed sources and source RPM validated by the remote .copr/Makefile builder. CI-gated clean Fedora 44 x86_64 COPR edge build 11234485 succeeded. No local package builds per user request. Candidate only; stable and rc unchanged, publication downloads are recorded separately.",
-      "upstream_commit": "acb60f95615b3528774f9a43937e9bd88e9af558",
-      "upstream_digest": "5f3db02b5f029c91d090ed7defa629464bfa28178816f3b5e728d42933b21e20"
+      "local_digest": "ab856ab0cd2ef261762b2ec66867da33fe9d5c7bdcb8c2ea40a0fa38ad5be496",
+      "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "383f522d038f4b4df6e1ea8d3d41aa9eb940af74939a96f2eb42644df0ea59cc"
     },
     "openvino": {
       "local_digest": "0200499bd70bc7b899d66dea717b3f2e4f7ac9f0f7ba3c1380653086bf82aea5",
@@ -1181,15 +1199,15 @@
     },
     "python-sounddevice": {
       "local_digest": "a6fc9cc9951646a950ae0b81bc706cee7d94eb022cfce39f1c573b744d0409d9",
-      "reason": "Compared upstream 0.5.6-1 with Fedora spec 0.5.6-2: same version, 0/1 source checksums match; upstream uses b2sums. Version and source audit, not a line-by-line recipe comparison.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "72457c8212987554e30c63f955a3c7539ee93ce2d5db5c08e13fc98ecbc36177"
+      "reason": "Upstream pkgrel-only rebuild to correct Arch packager metadata; PKGBUILD diff confirmed; no Fedora change or rebuild needed",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "08f745349225796a07016cfcf478908e77587bdec43c46571155e687e4258ad1"
     },
     "python-terminaltexteffects": {
       "local_digest": "b5701c9f2fe4742ad8e5cb2ee87a27ff256231293d4f7d670895b8c8e568eaf4",
-      "reason": "Compared upstream 0.15.0-1 with Fedora spec 0.15.0-1: same version, 0/1 source checksums match; upstream uses b2sums. Version and source audit, not a line-by-line recipe comparison.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "4b963f29971630d04fca63e27750727b9f158636dbbe35285843821e004123e9"
+      "reason": "Upstream pkgrel-only rebuild to correct Arch packager metadata; PKGBUILD diff confirmed; no Fedora change or rebuild needed",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "466d31099a8b0981383f8aaf86036550e3f4a620daeee3413305a632de2ff6e1"
     },
     "qcom-firmware-extract": {
       "local_digest": "34e2d1dab939304fa22d87189b7790c3b7e023ccff9c9e093158f515b85f393f",
@@ -1235,9 +1253,9 @@
     },
     "rumb": {
       "local_digest": "f88bae0d2ec37c8b1f62ba363ee128547242ed17b4e921061547229e5990251a",
-      "reason": "Version bump to 0.1.9; still an Arch dashboard depending on pacman-contrib and AUR tools. Not applicable without a backend port.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "56f5b9aa8c3c5b2b3929183e957d707c86587f8a1648055c22106ae9de04634f"
+      "reason": "Version bump; Arch and AUR dependencies still block a Fedora port",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "b4d286e41eeba0992de13e658140a9f939592ab2641f7116f387874ee50026c0"
     },
     "rustdesk": {
       "local_digest": "f946829a2c367e0df0ea519e797851e6e4d9fe20834bf1fb80933a0264b0d860",
@@ -1366,10 +1384,10 @@
       "upstream_digest": "243aed40a45b12444cc271e0255fa4f304698aa451a56549f661f5e05a822d36"
     },
     "t3code-nightly-bin": {
-      "local_digest": "89105069d7afb354960cd668d743a74abb8f135c5483e2944d00eae9e21a9d55",
+      "local_digest": "7cb196afcad50c10051b7fa9c6d951957031de5d9f9c40f434d3a4ab3d833684",
       "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
-      "upstream_commit": "30fed321658234101126fc7d553e94d27f94462e",
-      "upstream_digest": "59b964173f20d0f38cc9a165ad5f3dd919d0b6ca7f69eff6c5dc1c0a00de746a"
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "a8f80c29f42648c905af23959beb586797ac39a72a630f79f450f9c9f203ca43"
     },
     "tensaku": {
       "local_digest": "8be1a07ce90c327abf2aaa13fdd1bffe601014ccee27a6a4ef8f35669d5ab990",
@@ -1457,9 +1475,9 @@
     },
     "v4l2-relayd": {
       "local_digest": "38e9223faefdb86e9b62a0b05a465cda52e608480ae071ebbc186a0ae2592fbb",
-      "reason": "Both upstream patches (idle output reset and splashsrc escaping) are carried inline in %prep; version and archive checksum match.",
-      "upstream_commit": "99aa5aa6585ed6f17dde56218d83a0a56256b112",
-      "upstream_digest": "de272f28a1d648260e4e05bb9e78f8c048327a5e61221f9473655283d9e65422"
+      "reason": "Upstream pkgrel-only rebuild to correct Arch packager metadata; PKGBUILD diff confirmed; no Fedora change or rebuild needed",
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "7c54b9ca4f40f7dc1b93d8717b617778be02ff6099828e70fd9b1f8f4123dceb"
     },
     "vi": {
       "local_digest": "9fe4326e6c05a6a16a784013981bac51b36b17a3e13b0c0ca3322620c16c094b",
@@ -1504,10 +1522,10 @@
       "upstream_digest": "4077aef6eaebc05f2b235f6a56d36490524b366faea0351584225390951ec5b8"
     },
     "wordcraft-bin": {
-      "local_digest": "4286e1ecb64fd6afbac0ac1357a58043744ea1c0f037c7ab1ddad32b8a56308d",
+      "local_digest": "32fbc8736c5eb26ab9b920d0ea9500feb3ab57836df10ff61e1fe57056b73d9d",
       "reason": "Upstream changed version and checksums only; ported to Fedora, CI-gated edge build succeeded and RPM bytes verified against repository metadata; no desktop test",
-      "upstream_commit": "30fed321658234101126fc7d553e94d27f94462e",
-      "upstream_digest": "de99eb6f08947e2e42438a45a029371297bbb923717182c40d87c19383ba681d"
+      "upstream_commit": "96cd7d5831cd007e3faa4cd9b788de09c1213034",
+      "upstream_digest": "ec86513201e43c05064cd800e1ae39d802f3887694131ef223eeea7782a73386"
     },
     "wps-office-cn": {
       "local_digest": "703e05829e258c39d9d3e9be5b9877425867fc82807da17bb0da8ebd4d5655a9",
